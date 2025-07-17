@@ -1,22 +1,22 @@
 [
   {
-    "name": "displayImage",
-    "id": 1854,
-    "label": "Display image",
-    "tier": 0,
-    "description": "",
-    "type": "object",
-    "options": [],
-    "section": "provenance-projectDetails",
-    "table": null
-  },
-  {
     "name": "name",
     "id": 1,
     "label": "Project name",
     "tier": 0,
     "description": "Name used to refer to the carbon project being developed",
     "type": "string",
+    "options": [],
+    "section": "provenance-projectDetails",
+    "table": null
+  },
+  {
+    "name": "displayImage",
+    "id": 1854,
+    "label": "Display image",
+    "tier": 0,
+    "description": "",
+    "type": "object",
     "options": [],
     "section": "provenance-projectDetails",
     "table": null
@@ -36,6 +36,17 @@
     "name": "projectMission",
     "id": 2,
     "label": "Brief project summary",
+    "tier": 0,
+    "description": "",
+    "type": "string",
+    "options": [],
+    "section": "provenance-projectDetails",
+    "table": null
+  },
+  {
+    "name": "projectActivities",
+    "id": 4,
+    "label": "Description of activities",
     "tier": 0,
     "description": "",
     "type": "string",
@@ -77,6 +88,17 @@
     "table": null
   },
   {
+    "name": "projectProponentName",
+    "id": 2034,
+    "label": "Project proponent name",
+    "tier": 0,
+    "description": "",
+    "type": null,
+    "options": [],
+    "section": "provenance-projectDetails",
+    "table": null
+  },
+  {
     "name": "projectStartYear",
     "id": 539,
     "label": "Project start year",
@@ -93,6 +115,17 @@
     "label": "Project end year",
     "tier": 0,
     "description": "",
+    "type": "number",
+    "options": [],
+    "section": "provenance-projectDetails",
+    "table": null
+  },
+  {
+    "name": "termLength",
+    "id": 468,
+    "label": "Project term commitment (in years)",
+    "tier": -1,
+    "description": "Projects must commit to a minimum project term of 40 years",
     "type": "number",
     "options": [],
     "section": "provenance-projectDetails",
@@ -132,17 +165,6 @@
     "table": null
   },
   {
-    "name": "additionalCertificationUpload",
-    "id": 1840,
-    "label": "Additional certification supporting documents",
-    "tier": -1,
-    "description": "",
-    "type": "array",
-    "options": [],
-    "section": "provenance-projectApproach",
-    "table": null
-  },
-  {
     "name": "projectScale",
     "id": 8,
     "label": "Project scale",
@@ -156,6 +178,17 @@
       "Large (100,000+ tCO2e)",
       "Unknown"
     ],
+    "section": "provenance-projectApproach",
+    "table": null
+  },
+  {
+    "name": "additionalCertificationUpload",
+    "id": 1840,
+    "label": "Additional certification supporting documents",
+    "tier": -1,
+    "description": "",
+    "type": "array",
+    "options": [],
     "section": "provenance-projectApproach",
     "table": null
   },
@@ -187,34 +220,6 @@
       "Carbon reduction",
       "Carbon removal",
       "Undefined"
-    ],
-    "section": "provenance-projectApproach",
-    "table": null
-  },
-  {
-    "name": "sectoralScope",
-    "id": 454,
-    "label": "Sectoral scope",
-    "tier": 0,
-    "description": "Verra projects, activities, or methodologies may be developed under any of the 16 VCS sectoral scopes",
-    "type": "string",
-    "options": [
-      "Energy (renewable/non-renewable)",
-      "Energy distribution",
-      "Energy demand",
-      "Manufacturing industries",
-      "Chemical industry",
-      "Construction",
-      "Transport",
-      "Mining/Mineral production",
-      "Metal production",
-      "Fugitive emissions – from fuels (solid, oil, and gas)",
-      "Fugitive emissions – from Industrial gases (halocarbons and sulphur hexafluoride)",
-      "Solvents use",
-      "Waste handling and disposal",
-      "Agriculture forestry and other land use (AFOLU)",
-      "Livestock and manure management",
-      "Carbon capture and storage"
     ],
     "section": "provenance-projectApproach",
     "table": null
@@ -450,55 +455,6 @@
     "table": null
   },
   {
-    "name": "latLongCoordinates",
-    "id": 1735,
-    "label": "Enter coordinates",
-    "tier": -1,
-    "description": "",
-    "type": "array",
-    "options": [],
-    "section": "provenance-locationDetails",
-    "table": null
-  },
-  {
-    "name": "locationDetailsType",
-    "id": 1654,
-    "label": "Preferred method to display project on a map",
-    "tier": -1,
-    "description": "",
-    "type": "string",
-    "options": [
-      "Address or region",
-      "Latitude and longitude coordinates",
-      "GeoJSON or other GIS shapefile",
-      "Show the country"
-    ],
-    "section": "provenance-locationDetails",
-    "table": null
-  },
-  {
-    "name": "addressLocation",
-    "id": 1737,
-    "label": "Enter an address, city, state/province, or region",
-    "tier": -1,
-    "description": "",
-    "type": null,
-    "options": [],
-    "section": "provenance-locationDetails",
-    "table": null
-  },
-  {
-    "name": "geoFileUpload",
-    "id": 1736,
-    "label": "Upload file",
-    "tier": -1,
-    "description": "",
-    "type": null,
-    "options": [],
-    "section": "provenance-locationDetails",
-    "table": null
-  },
-  {
     "name": "countries",
     "id": 16,
     "label": "Country or countries of project activity",
@@ -550,21 +506,6 @@
     "description": "Additional comments and context on project location including relevant coordinates where project activities take place",
     "type": "string",
     "options": [],
-    "section": "provenance-locationDetails",
-    "table": null
-  },
-  {
-    "name": "projectLocationType",
-    "id": 452,
-    "label": "Project location type",
-    "tier": -1,
-    "description": "Indicates if the project is singular or part of a grouped project (i.e., collection of multiple proponents under one project)",
-    "type": "string",
-    "options": [
-      "Single location or installation",
-      "Multiple locations but not part of a grouped project",
-      "Grouped project"
-    ],
     "section": "provenance-locationDetails",
     "table": null
   },
@@ -688,17 +629,6 @@
     "label": "Number of employees staffed on project",
     "tier": -1,
     "description": "Full-time and part-time employees and contractors who directly work on the project ",
-    "type": "number",
-    "options": [],
-    "section": "provenance-organizationOverview",
-    "table": null
-  },
-  {
-    "name": "projectLandowners",
-    "id": 793,
-    "label": "Number of landowners",
-    "tier": -1,
-    "description": "Landowners within project activity, such as farmers",
     "type": "number",
     "options": [],
     "section": "provenance-organizationOverview",
@@ -840,17 +770,6 @@
     "table": null
   },
   {
-    "name": "nationalLawsCompliance",
-    "id": 20,
-    "label": "Compliance with all applicable national laws",
-    "tier": 0,
-    "description": "Attestation of compliance with the applicable national laws of the project country",
-    "type": "string",
-    "options": null,
-    "section": "provenance-disclosures",
-    "table": null
-  },
-  {
     "name": "legalComplianceTable",
     "id": 1336,
     "label": "Legal compliance",
@@ -900,12 +819,49 @@
     ]
   },
   {
+    "name": "nationalLawsCompliance",
+    "id": 20,
+    "label": "Compliance with all applicable national laws",
+    "tier": 0,
+    "description": "Attestation of compliance with the applicable national laws of the project country",
+    "type": "string",
+    "options": null,
+    "section": "provenance-disclosures",
+    "table": null
+  },
+  {
+    "name": "nationalLawsMethod",
+    "id": 22,
+    "label": "Method of compliance proof",
+    "tier": -1,
+    "description": "",
+    "type": "string",
+    "options": [
+      "Government verified",
+      "Third-party verified",
+      "Not verified"
+    ],
+    "section": "provenance-disclosures",
+    "table": null
+  },
+  {
     "name": "communityFrameworks",
     "id": 677,
     "label": "Measures taken to comply with frameworks governing the rights of Indigenous, tribal, and local communities",
     "tier": -1,
     "description": "If relevant, description of the measures taken to adhere to national or international frameworks supporting the rights of Indigenous, tribal and local communities (including the UN Declaration on the Rights of Indigenous Peoples)",
     "type": "string",
+    "options": [],
+    "section": "provenance-disclosures",
+    "table": null
+  },
+  {
+    "name": "culturalSite",
+    "id": 1467,
+    "label": "The project site includes or borders archaeological sites or districts listed in national or international registries of historical or cultural significance",
+    "tier": 0,
+    "description": "Disclosure of proximity to dedicated areas of archaeological or cultural significance which are recognized by municipalities, counties, state, national and/or international registries",
+    "type": "boolean",
     "options": [],
     "section": "provenance-disclosures",
     "table": null
@@ -929,34 +885,23 @@
     "table": null
   },
   {
-    "name": "culturalSiteRegistry",
-    "id": 1468,
-    "label": "Registry recognizing the site",
-    "tier": -1,
-    "description": "Examples include UNESCO World Heritage registry and/or national equivalents",
-    "type": "string",
-    "options": [],
-    "section": "provenance-disclosures",
-    "table": null
-  },
-  {
-    "name": "culturalSite",
-    "id": 1467,
-    "label": "The project site includes or borders archaeological sites or districts listed in national or international registries of historical or cultural significance",
-    "tier": 0,
-    "description": "Disclosure of proximity to dedicated areas of archaeological or cultural significance which are recognized by municipalities, counties, state, national and/or international registries",
-    "type": "boolean",
-    "options": [],
-    "section": "provenance-disclosures",
-    "table": null
-  },
-  {
     "name": "archaeologicalActivity",
     "id": 1469,
     "label": "Project site contains, or is contiguous with, an area designated as sensitive for archaeological activity",
     "tier": -1,
     "description": "Areas designated can be at the local, regional, state, national, or international level",
     "type": "boolean",
+    "options": [],
+    "section": "provenance-disclosures",
+    "table": null
+  },
+  {
+    "name": "culturalSiteRegistry",
+    "id": 1468,
+    "label": "Registry recognizing the site",
+    "tier": -1,
+    "description": "Examples include UNESCO World Heritage registry and/or national equivalents",
+    "type": "string",
     "options": [],
     "section": "provenance-disclosures",
     "table": null
@@ -1127,6 +1072,17 @@
     "table": null
   },
   {
+    "name": "organizationNameAndRole",
+    "id": 2047,
+    "label": "Organization name and role",
+    "tier": 0,
+    "description": "Entities could include (but are not limited to) GIS advisory; feasibility study; technical document service; administrative service; biodiversity advisory, political advocacy; project consultants; financial institutions ",
+    "type": "string",
+    "options": [],
+    "section": "provenance-disclosures",
+    "table": null
+  },
+  {
     "name": "economicDisplacementExplain",
     "id": 588,
     "label": "Expected economic displacement effects",
@@ -1149,22 +1105,22 @@
     "table": null
   },
   {
-    "name": "physicalMitigation",
-    "id": 593,
-    "label": "Mitigation plan in place to address physical displacement effects",
+    "name": "economicDisplacementPlan",
+    "id": 37,
+    "label": "Mitigation plan in place to address economic displacement effects",
     "tier": -1,
-    "description": "Project plan to mitigate possible relocation, loss of residential land, or loss of shelter due to project activities",
+    "description": "Project plan to mitigate possible obstacles to economic opportunity for the project community due to project activities",
     "type": "boolean",
     "options": [],
     "section": "provenance-socioeconomicDueDiligence",
     "table": null
   },
   {
-    "name": "economicDisplacementPlan",
-    "id": 37,
-    "label": "Mitigation plan in place to address economic displacement effects",
+    "name": "physicalMitigation",
+    "id": 593,
+    "label": "Mitigation plan in place to address physical displacement effects",
     "tier": -1,
-    "description": "Project plan to mitigate possible obstacles to economic opportunity for the project community due to project activities",
+    "description": "Project plan to mitigate possible relocation, loss of residential land, or loss of shelter due to project activities",
     "type": "boolean",
     "options": [],
     "section": "provenance-socioeconomicDueDiligence",
@@ -1303,23 +1259,34 @@
     "table": null
   },
   {
+    "name": "healthImpactDisclosure",
+    "id": 2044,
+    "label": "Expected health impact disclosure",
+    "tier": 0,
+    "description": "Outcome of expected community health impacts due to project activities (e.g., changes in potable water quality, pollutant impact, hazardous wastes)",
+    "type": null,
+    "options": [],
+    "section": "provenance-socioeconomicDueDiligence",
+    "table": null
+  },
+  {
+    "name": "healthImpactCommunication",
+    "id": 2043,
+    "label": "Potential health impacts disclosure will be communicated during consultations",
+    "tier": 0,
+    "description": "In the case a project has expected health impacts to the community, these risks will be communicated to stakeholders during the consultation and engagement process",
+    "type": null,
+    "options": [],
+    "section": "provenance-socioeconomicDueDiligence",
+    "table": null
+  },
+  {
     "name": "socialGroupRiskPlanUpload",
     "id": 1474,
     "label": "Risk mitigation plan for identified social groups documentation ",
     "tier": -1,
     "description": "Documents showcasing risk mitigation plans",
     "type": "array",
-    "options": [],
-    "section": "provenance-socioeconomicDueDiligence",
-    "table": null
-  },
-  {
-    "name": "socialGroupConsult",
-    "id": 46,
-    "label": "Project plans to consult and engage with specific vulnerable social groups",
-    "tier": -1,
-    "description": "Indicates whether the project is expected to consult specific groups, such as women, people with disabilities, and/or other minority groups (among others) who may be disproportionately affected by the project compared to other groups",
-    "type": "boolean",
     "options": [],
     "section": "provenance-socioeconomicDueDiligence",
     "table": null
@@ -1342,6 +1309,17 @@
       "Indigenous and/or Tribal Community Members",
       "Other"
     ],
+    "section": "provenance-socioeconomicDueDiligence",
+    "table": null
+  },
+  {
+    "name": "socialGroupConsult",
+    "id": 46,
+    "label": "Project plans to consult and engage with specific vulnerable social groups",
+    "tier": -1,
+    "description": "Indicates whether the project is expected to consult specific groups, such as women, people with disabilities, and/or other minority groups (among others) who may be disproportionately affected by the project compared to other groups",
+    "type": "boolean",
+    "options": [],
     "section": "provenance-socioeconomicDueDiligence",
     "table": null
   },
@@ -1457,6 +1435,17 @@
     "tier": -1,
     "description": "For example, if women are formally and fairly entitled to project-related land, water, or other types of resources",
     "type": "boolean",
+    "options": [],
+    "section": "provenance-socioeconomicDueDiligence",
+    "table": null
+  },
+  {
+    "name": "womenRightsDescription",
+    "id": 2035,
+    "label": "Overview of gendered resource entitlement",
+    "tier": 0,
+    "description": "Description of how women are formally and fairly entitled to project related land water and or other types of resources",
+    "type": "string",
     "options": [],
     "section": "provenance-socioeconomicDueDiligence",
     "table": null
@@ -1689,28 +1678,6 @@
     "table": null
   },
   {
-    "name": "baselineComparisonPlan",
-    "id": 1476,
-    "label": "Project plans to measure pollutants against baseline air quality",
-    "tier": -1,
-    "description": "If the project conducts a baseline air quality study (before project start or using a control site), monitoring results will be compared against these baseline levels",
-    "type": "boolean",
-    "options": [],
-    "section": "provenance-ecologicalDueDiligence",
-    "table": null
-  },
-  {
-    "name": "airExpectedImpacts",
-    "id": 1668,
-    "label": "Summary of expected air quality impacts of the project activity",
-    "tier": -1,
-    "description": "Description of expected air quality impacts, such as improved indoor air quality for households using the project technology",
-    "type": "string",
-    "options": [],
-    "section": "provenance-ecologicalDueDiligence",
-    "table": null
-  },
-  {
     "name": "airMonitoringPlan",
     "id": 52,
     "label": "Project has or will implement an air pollution monitoring plan",
@@ -1728,6 +1695,28 @@
     "tier": -1,
     "description": "Evidence of the project plans to monitor air pollution",
     "type": "array",
+    "options": [],
+    "section": "provenance-ecologicalDueDiligence",
+    "table": null
+  },
+  {
+    "name": "baselineComparisonPlan",
+    "id": 1476,
+    "label": "Project plans to measure pollutants against baseline air quality",
+    "tier": -1,
+    "description": "If the project conducts a baseline air quality study (before project start or using a control site), monitoring results will be compared against these baseline levels",
+    "type": "boolean",
+    "options": [],
+    "section": "provenance-ecologicalDueDiligence",
+    "table": null
+  },
+  {
+    "name": "airExpectedImpacts",
+    "id": 1668,
+    "label": "Summary of expected air quality impacts of the project activity",
+    "tier": -1,
+    "description": "Description of expected air quality impacts, such as improved indoor air quality for households using the project technology",
+    "type": "string",
     "options": [],
     "section": "provenance-ecologicalDueDiligence",
     "table": null
@@ -1800,12 +1789,12 @@
     "table": null
   },
   {
-    "name": "waterMonitoringPlan",
-    "id": 937,
-    "label": "Project plans to monitor water resources",
+    "name": "baselineWaterEvidence",
+    "id": 1485,
+    "label": "Baseline water resource supporting documents",
     "tier": -1,
-    "description": "Water monitoring plans typically specify which pollutants and water levels or availability will be monitored, along with procedures for data collection and management",
-    "type": "boolean",
+    "description": "Evidence or documentation of baseline water analysis",
+    "type": "array",
     "options": [],
     "section": "provenance-ecologicalDueDiligence",
     "table": null
@@ -1822,22 +1811,11 @@
     "table": null
   },
   {
-    "name": "baselineWaterEvidence",
-    "id": 1485,
-    "label": "Baseline water resource supporting documents",
+    "name": "waterMonitoringPlan",
+    "id": 937,
+    "label": "Project plans to monitor water resources",
     "tier": -1,
-    "description": "Evidence or documentation of baseline water analysis",
-    "type": "array",
-    "options": [],
-    "section": "provenance-ecologicalDueDiligence",
-    "table": null
-  },
-  {
-    "name": "waterImpact",
-    "id": 143,
-    "label": "Project activity takes place near a water basin",
-    "tier": -1,
-    "description": "Project is located near an area where water (from rainfall, snowmelt, or groundwater) collects and flows into a body of water such as a river, lake, or ocean",
+    "description": "Water monitoring plans typically specify which pollutants and water levels or availability will be monitored, along with procedures for data collection and management",
     "type": "boolean",
     "options": [],
     "section": "provenance-ecologicalDueDiligence",
@@ -1874,6 +1852,17 @@
       "Water Governance - direct engagement in water governance and pulic water management",
       "Catalytic activities - Activities that pave the way for longer-term water stewardship outcomes"
     ],
+    "section": "provenance-ecologicalDueDiligence",
+    "table": null
+  },
+  {
+    "name": "waterImpact",
+    "id": 143,
+    "label": "Project activity takes place near a water basin",
+    "tier": -1,
+    "description": "Project is located near an area where water (from rainfall, snowmelt, or groundwater) collects and flows into a body of water such as a river, lake, or ocean",
+    "type": "boolean",
+    "options": [],
     "section": "provenance-ecologicalDueDiligence",
     "table": null
   },
@@ -1945,17 +1934,6 @@
     "table": null
   },
   {
-    "name": "biodiversityMonitoringPlan",
-    "id": 1478,
-    "label": "Biodiversity monitoring plan documentation",
-    "tier": -1,
-    "description": "Documentation or supporting evidence of the biodiversity monitoring plan",
-    "type": "array",
-    "options": [],
-    "section": "provenance-ecologicalDueDiligence",
-    "table": null
-  },
-  {
     "name": "endangeredSpeciesConditional",
     "id": 1477,
     "label": "Project may pose risks to threatened or endangered species",
@@ -1987,6 +1965,17 @@
       "Shoreline systems",
       "Unknown"
     ],
+    "section": "provenance-ecologicalDueDiligence",
+    "table": null
+  },
+  {
+    "name": "biodiversityMonitoringPlan",
+    "id": 1478,
+    "label": "Biodiversity monitoring plan documentation",
+    "tier": -1,
+    "description": "Documentation or supporting evidence of the biodiversity monitoring plan",
+    "type": "array",
+    "options": [],
     "section": "provenance-ecologicalDueDiligence",
     "table": null
   },
@@ -2099,50 +2088,6 @@
     "table": null
   },
   {
-    "name": "soilMonitoringPlan",
-    "id": 1483,
-    "label": "Plan in place for soil testing and monitoring",
-    "tier": -1,
-    "description": "Indicates if the project will follow a protocol to sample, measure, and analyze soil health and changes caused by project activities",
-    "type": "boolean",
-    "options": [],
-    "section": "provenance-ecologicalDueDiligence",
-    "table": null
-  },
-  {
-    "name": "baselineSoilSurveyUpload",
-    "id": 1482,
-    "label": "Baseline soil health survey ",
-    "tier": -1,
-    "description": "Baseline soil health survey documentation (e.g., survey findings, template)",
-    "type": "array",
-    "options": [],
-    "section": "provenance-ecologicalDueDiligence",
-    "table": null
-  },
-  {
-    "name": "soilMonitoringPlanDetails",
-    "id": 1484,
-    "label": "Overview of soil monitoring plan",
-    "tier": -1,
-    "description": "Description of the soil monitoring plan, including testing types and frequency",
-    "type": "string",
-    "options": [],
-    "section": "provenance-ecologicalDueDiligence",
-    "table": null
-  },
-  {
-    "name": "erosionDiligence",
-    "id": 1480,
-    "label": "Area in which the project takes place is at high risk for erosion",
-    "tier": -1,
-    "description": "High erosion risk, defined by the World Atlas of Desertification Global Erosion Map, with R factors of 20 or higher indicating ‘high erosion risk’",
-    "type": "boolean",
-    "options": [],
-    "section": "provenance-ecologicalDueDiligence",
-    "table": null
-  },
-  {
     "name": "baselineSoilSurvey",
     "id": 1481,
     "label": "A baseline soil health survey been conducted",
@@ -2178,6 +2123,50 @@
     "table": null
   },
   {
+    "name": "baselineSoilSurveyUpload",
+    "id": 1482,
+    "label": "Baseline soil health survey ",
+    "tier": -1,
+    "description": "Baseline soil health survey documentation (e.g., survey findings, template)",
+    "type": "array",
+    "options": [],
+    "section": "provenance-ecologicalDueDiligence",
+    "table": null
+  },
+  {
+    "name": "erosionDiligence",
+    "id": 1480,
+    "label": "Area in which the project takes place is at high risk for erosion",
+    "tier": -1,
+    "description": "High erosion risk, defined by the World Atlas of Desertification Global Erosion Map, with R factors of 20 or higher indicating ‘high erosion risk’",
+    "type": "boolean",
+    "options": [],
+    "section": "provenance-ecologicalDueDiligence",
+    "table": null
+  },
+  {
+    "name": "soilMonitoringPlanDetails",
+    "id": 1484,
+    "label": "Overview of soil monitoring plan",
+    "tier": -1,
+    "description": "Description of the soil monitoring plan, including testing types and frequency",
+    "type": "string",
+    "options": [],
+    "section": "provenance-ecologicalDueDiligence",
+    "table": null
+  },
+  {
+    "name": "soilMonitoringPlan",
+    "id": 1483,
+    "label": "Plan in place for soil testing and monitoring",
+    "tier": -1,
+    "description": "Indicates if the project will follow a protocol to sample, measure, and analyze soil health and changes caused by project activities",
+    "type": "boolean",
+    "options": [],
+    "section": "provenance-ecologicalDueDiligence",
+    "table": null
+  },
+  {
     "name": "soilEffects",
     "id": 623,
     "label": "Summary of expected soil impacts of the project activity",
@@ -2189,99 +2178,34 @@
     "table": null
   },
   {
-    "name": "vm45ReqTable",
-    "id": 1803,
-    "label": "Methodology applicability criteria compliance",
+    "name": "baseline",
+    "id": 272,
+    "label": "Baseline scenario overview",
     "tier": 1,
-    "description": "",
-    "type": "object",
-    "options": [],
-    "section": "forecast-eligibilityRequirements",
-    "table": [
-      {
-        "columns": [
-          {
-            "name": "vm45ReqTableCriteria",
-            "label": "Applicability criteria",
-            "type": "string",
-            "description": "",
-            "options": []
-          },
-          {
-            "name": "vm45ReqTableDetails",
-            "label": "Applicability criteria details",
-            "type": "string",
-            "description": "",
-            "options": []
-          },
-          {
-            "name": "vm45ReqTableCompliance",
-            "label": "Compliance justification",
-            "type": "string",
-            "description": "",
-            "options": []
-          }
-        ],
-        "rows": [
-          {
-            "row_label": "Project area meets forest definition requirements"
-          },
-          {
-            "row_label": "Project meets jurisdictional data requirements"
-          },
-          {
-            "row_label": "Project complies with harvest requirements"
-          },
-          {
-            "row_label": "Project does not significantly disturb hydrology and/or soil systems"
-          },
-          {
-            "row_label": "Project complies with lying dead wood requirements"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "ifmRequirementsVerraDocumentation",
-    "id": 949,
-    "label": "Eligibility requirements supporting documents",
-    "tier": -1,
-    "description": "",
-    "type": "array",
-    "options": [],
-    "section": "forecast-eligibilityRequirements",
-    "table": null
-  },
-  {
-    "name": "ifmRequirementsVerraDocumentation",
-    "id": 949,
-    "label": "Eligibility requirements supporting documents",
-    "tier": -1,
-    "description": "",
-    "type": "array",
-    "options": [],
-    "section": "forecast-eligibilityRequirements",
-    "table": null
-  },
-  {
-    "name": "baselineStartYear",
-    "id": 69,
-    "label": "Baseline start year",
-    "tier": 1,
-    "description": "",
-    "type": "number",
+    "description": "A description of the expected scenario if the project were not implemented, such as the likely alternative use or disposal of biomass feedstock in biomass-based projects, along with the underlying assumptions used to estimate baseline emissions",
+    "type": "string",
     "options": [],
     "section": "forecast-baselineScenario",
     "table": null
   },
   {
-    "name": "baselineEndYear",
-    "id": 584,
-    "label": "Baseline end year",
-    "tier": 1,
+    "name": "baselineSupporting",
+    "id": 273,
+    "label": "Baseline scenario supporting documents",
+    "tier": -1,
     "description": "",
-    "type": "number",
+    "type": "array",
+    "options": [],
+    "section": "forecast-baselineScenario",
+    "table": null
+  },
+  {
+    "name": "fixedBaselinePeriod",
+    "id": 2036,
+    "label": "Current fixed baseline period or historical look-back period",
+    "tier": 1,
+    "description": "If applicable. Some standards or methodologies require that the baseline scenrio is based on a fixed (\"static\") historical lookback period or schedule of previous land management activities.",
+    "type": "string",
     "options": [],
     "section": "forecast-baselineScenario",
     "table": null
@@ -2309,192 +2233,6 @@
     "table": null
   },
   {
-    "name": "verraIfmBslInventoryTable",
-    "id": 1354,
-    "label": "Baseline inventory overview",
-    "tier": 1,
-    "description": "",
-    "type": "object",
-    "options": [],
-    "section": "forecast-baselineScenario",
-    "table": [
-      {
-        "columns": [
-          {
-            "name": "verraIfmBslInventoryTableComposite",
-            "label": "Composite baseline",
-            "type": "string",
-            "description": null,
-            "options": null
-          },
-          {
-            "name": "verraIfmBslInventoryTablePlot",
-            "label": "Constituent plot",
-            "type": "string",
-            "description": null,
-            "options": null
-          },
-          {
-            "name": "verraIfmBslInventoryTableFia",
-            "label": "National or sub-national forest inventory",
-            "type": "string",
-            "description": null,
-            "options": null
-          },
-          {
-            "name": "verraIfmBslInventoryTableMatch",
-            "label": "Primary unit match",
-            "type": "string",
-            "description": null,
-            "options": null
-          },
-          {
-            "name": "verraIfmBslInventoryTableWeight",
-            "label": "Weight of constituent baseline plot",
-            "type": "string",
-            "description": null,
-            "options": null
-          },
-          {
-            "name": "verraIfmBslInventoryTableMeasurement",
-            "label": "Remeasurement schedule",
-            "type": "string",
-            "description": "",
-            "options": []
-          },
-          {
-            "name": "verraIfmBslInventoryTableSize",
-            "label": "Geographic size (acres)",
-            "type": "number",
-            "description": null,
-            "options": null
-          }
-        ],
-        "rows": null
-      }
-    ]
-  },
-  {
-    "name": "stratification",
-    "id": 477,
-    "label": "Stratification is used",
-    "tier": 1,
-    "description": "If the project activity area is not homogeneous, stratification may be used to improve the modeling of management scenarios and precision of carbon stock estimates",
-    "type": "boolean",
-    "options": [
-      "Yes",
-      "No"
-    ],
-    "section": "forecast-baselineScenario",
-    "table": null
-  },
-  {
-    "name": "noStratification",
-    "id": 617,
-    "label": "Rationale for no stratification of the project area ",
-    "tier": -1,
-    "description": "",
-    "type": "string",
-    "options": [],
-    "section": "forecast-baselineScenario",
-    "table": null
-  },
-  {
-    "name": "stratificationProcedure",
-    "id": 554,
-    "label": "Stratification procedure and results",
-    "tier": 1,
-    "description": "Should include sufficient information to reasonably ensure the validity and impartiality of the associated techniques. Stratification used to estimate initial stocking levels must be consistent across both the baseline and project scenarios.",
-    "type": "string",
-    "options": [],
-    "section": "forecast-baselineScenario",
-    "table": null
-  },
-  {
-    "name": "stratificationDoc",
-    "id": 1793,
-    "label": "Stratification supporting documents",
-    "tier": -1,
-    "description": "",
-    "type": "array",
-    "options": [],
-    "section": "forecast-baselineScenario",
-    "table": null
-  },
-  {
-    "name": "ifmVerraBslPlotSourcing",
-    "id": 113,
-    "label": "Baseline plot donor pool selection source",
-    "tier": 1,
-    "description": "A group of constituent baseline plots must be sourced from a donor pool of national or sub-national forest inventory plots derived from the USFS FIA database in the United States. Other geographies require the use of a comparable inventory subject to approval by Verra.",
-    "type": "string",
-    "options": [],
-    "section": "forecast-baselineScenario",
-    "table": null
-  },
-  {
-    "name": "ifmVerraBslPlotReqs",
-    "id": 99,
-    "label": "Compliance with methodology requirements for baseline donor pool selection",
-    "tier": 1,
-    "description": "Ecoregions are defined referencing ecological sections from Cleland et al (2007) for the United States and Leemans (1992) elsewhere",
-    "type": "array",
-    "options": [
-      "Baseline plots are located outside of the project area",
-      "Baseline plots are selected from a donor pool that uses unbiased, representative sampling at a regional scale",
-      "Sample plots are subject to continuous, periodic re-measurement throughout the project crediting period",
-      "All baseline plots are re-measured at least every 10 years",
-      "Initial conditions are quantified from measurements collected 10 years prior to the start of the project activity at most",
-      "Sample plots are located in the same ecoregion",
-      "Trees on sample plots are each given unique identification numbers to permit tracking of individual stems",
-      "Measurement parameters are paired with the project sample units for consistency"
-    ],
-    "section": "forecast-baselineScenario",
-    "table": null
-  },
-  {
-    "name": "baselinePlotSourcingRequirementsUS",
-    "id": 954,
-    "label": "Additional requirements for baseline donor pool selection in the U.S.",
-    "tier": -1,
-    "description": "",
-    "type": "array",
-    "options": [
-      "Plots have completed more than two measurement cycles",
-      "Plots are equal to one or less condition codes",
-      "Plot measurements are less than two years older than the standard re-measurement period",
-      "Plots are not located within a registered GHG mitigation project area",
-      "Plots have the same stand origin category as the project sample units",
-      "Plots are of the same forest type group as project sample units",
-      "Plots have the same land ownership class as the project sample units",
-      "Plots fall within the same US Forest Service eccological section as the project sample unit"
-    ],
-    "section": "forecast-baselineScenario",
-    "table": null
-  },
-  {
-    "name": "donorPoolSize",
-    "id": 957,
-    "label": "Donor pool exceeds 50 plots",
-    "tier": 1,
-    "description": "",
-    "type": "boolean",
-    "options": [],
-    "section": "forecast-baselineScenario",
-    "table": null
-  },
-  {
-    "name": "donorPoolRedefinition",
-    "id": 958,
-    "label": "Donor pool redefinition",
-    "tier": 1,
-    "description": "If the donor pool contains fewer than 50 plots eligible for matching after selection, it must be redefined to meet the minimum requirement",
-    "type": "string",
-    "options": [],
-    "section": "forecast-baselineScenario",
-    "table": null
-  },
-  {
     "name": "conservativeMeasures",
     "id": 1847,
     "label": "Summary of initiatives undertaken to ensure the project's integrity and scientific robustness",
@@ -2506,210 +2244,34 @@
     "table": null
   },
   {
-    "name": "projectActivityVerra",
-    "id": 567,
-    "label": "Description of the project activity",
-    "tier": 1,
-    "description": "An explanation of the project activity and how it will achieve GHG emission reductions or carbon dioxide removals, along with the implementation schedule for the activity or activities. The description should also cover any conservation, management, or planting efforts, and provide details on how various organizations, communities, and other entities are involved.",
-    "type": "string",
-    "options": [],
-    "section": "forecast-projectDesign",
-    "table": null
-  },
-  {
-    "name": "harvestingPlanOverview",
-    "id": 972,
-    "label": "Overview of harvesting plan",
-    "tier": 1,
-    "description": "",
-    "type": "string",
-    "options": [],
-    "section": "forecast-projectDesign",
-    "table": null
-  },
-  {
-    "name": "verraExtraGhgSources",
-    "id": 960,
-    "label": "Project activity involves the use of nitrogen fertilizer or burning of biomass",
-    "tier": 1,
-    "description": "",
-    "type": "array",
-    "options": [
-      "Nitrogen fertilizer",
-      "Burning of biomass"
-    ],
-    "section": "forecast-projectDesign",
-    "table": null
-  },
-  {
-    "name": "biomassBurningOverview",
-    "id": 970,
-    "label": "Overview of biomass burning",
-    "tier": 1,
-    "description": "",
-    "type": "string",
-    "options": [],
-    "section": "forecast-projectDesign",
-    "table": null
-  },
-  {
-    "name": "nitrogenFertilizerOverview",
-    "id": 971,
-    "label": "Overview of nitrogen fertilizer use",
-    "tier": 1,
-    "description": "",
-    "type": "string",
-    "options": [],
-    "section": "forecast-projectDesign",
-    "table": null
-  },
-  {
-    "name": "verraIfmProjectInventoryTable",
-    "id": 1353,
-    "label": "Project inventory overview",
-    "tier": 1,
-    "description": "",
-    "type": "object",
-    "options": [],
-    "section": "forecast-projectDesign",
-    "table": [
-      {
-        "columns": [
-          {
-            "name": "verraIfmProjectInventoryTableStand",
-            "label": "Primary unit / Stand",
-            "type": "string",
-            "description": null,
-            "options": null
-          },
-          {
-            "name": "verraIfmProjectInventoryTablePlot",
-            "label": "Secondary unit / Plot",
-            "type": "string",
-            "description": null,
-            "options": null
-          },
-          {
-            "name": "verraIfmProjectInventoryTableSize",
-            "label": "Geographic size (acres)",
-            "type": "number",
-            "description": null,
-            "options": null
-          },
-          {
-            "name": "verraIfmProjectInventoryTableActivity",
-            "label": "Description of site activities",
-            "type": "string",
-            "description": "",
-            "options": []
-          }
-        ],
-        "rows": null
-      }
-    ]
-  },
-  {
-    "name": "ifmVerraProjectPlots",
-    "id": 952,
-    "label": "Overview of project sample units",
-    "tier": 1,
-    "description": "",
-    "type": "string",
-    "options": [
-      "Yes",
-      "No"
-    ],
-    "section": "forecast-projectDesign",
-    "table": null
-  },
-  {
-    "name": "ifmVerraProjectPlotsDocumentation",
-    "id": 953,
-    "label": "Project plot supporting documents",
+    "name": "scalability",
+    "id": 1077,
+    "label": "Project scalability",
     "tier": -1,
-    "description": "",
-    "type": "array",
-    "options": [
-      "Validated",
-      "Verified",
-      "Under validation",
-      "Under verification",
-      "Pre-validation"
-    ],
-    "section": "forecast-projectDesign",
-    "table": null
-  },
-  {
-    "name": "baselinePlotSourcingCovariatesUS",
-    "id": 955,
-    "label": "Project compliance with required covariates for obtaining matches of composite baselines",
-    "tier": -1,
-    "description": "",
-    "type": "array",
-    "options": [
-      "Distance to sample (treatment/project case) unit",
-      "Stand age",
-      "Site productivity class code",
-      "Regeneration stocking",
-      "Elevation",
-      "Slope",
-      "Commercial stocking",
-      "Quadratic mean diameter",
-      "Horizontal distance to improved road"
-    ],
-    "section": "forecast-projectDesign",
-    "table": null
-  },
-  {
-    "name": "baselinePlotSourcingCovariates",
-    "id": 956,
-    "label": "Covariates used to match baseline plots to project sample units",
-    "tier": -1,
-    "description": "Relevant for projects NOT located in the United States. Matching conditions in the baseline scenario are defined by referencing one or more covariates representing biophysical and anthropogenic factors driving carbon stock change",
-    "type": "string",
-    "options": [
-      "Distance to sample (treatment/project case) unit",
-      "Stand age",
-      "Site productivity class code",
-      "Regeneration stocking",
-      "Elevation",
-      "Slope",
-      "Commercial stocking",
-      "Quadratic mean diameter",
-      "Horizontal distance to improved road"
-    ],
-    "section": "forecast-projectDesign",
-    "table": null
-  },
-  {
-    "name": "continuousCovariates",
-    "id": 121,
-    "label": "Plots do not exceed a user-specified caliper value for one or more of the included continuous covariates",
-    "tier": -1,
-    "description": "A user-defined caliper value represents the absolute difference between the sample unit and the FIA plot for one or several of the selected continuous covariates",
+    "description": "Overview of the project's plans and/or ability to increase in scale",
     "type": "string",
     "options": [],
     "section": "forecast-projectDesign",
     "table": null
   },
   {
-    "name": "matching",
-    "id": 122,
-    "label": "Matching procedure follows a K-nearest neighbor optimal matching approach with replacement",
-    "tier": 1,
-    "description": "K-nearest neighbor optimal matching approach must set k equal to 10",
+    "name": "netNegativityPartial",
+    "id": 1011,
+    "label": "Project has a net carbon negative impact",
+    "tier": -1,
+    "description": "Indication of whether the project will result in more GHG emissions removed from the atmosphere than would be emitted",
     "type": "boolean",
     "options": [],
     "section": "forecast-projectDesign",
     "table": null
   },
   {
-    "name": "matchingWorkbook",
-    "id": 635,
-    "label": "Matching procedure supporting documents",
-    "tier": 1,
-    "description": "The project proponent selects the number of control plots, k, to match each project plot, and this number must remain consistent for each match. Control plots cannot be paired with multiple project sample plots.",
-    "type": "array",
+    "name": "netNegativityPartialExplain",
+    "id": 1012,
+    "label": "Net carbon negativity overview",
+    "tier": -1,
+    "description": "Description of how the project activity results in net carbon negativity",
+    "type": "string",
     "options": [],
     "section": "forecast-projectDesign",
     "table": null
@@ -2748,54 +2310,32 @@
     "table": null
   },
   {
-    "name": "projectActivityLand",
-    "id": 96,
-    "label": "Project activity area",
-    "tier": 1,
-    "description": "This should encompass the spatial extent of the project, including all lands where project activities are implemented.",
-    "type": "array",
-    "options": [],
-    "section": "forecast-spatialBoundaries",
-    "table": null
-  },
-  {
-    "name": "ifmVerraBslPlotMap",
-    "id": 959,
-    "label": "Project sample units",
+    "name": "technologyManufacturer",
+    "id": 749,
+    "label": "Technology manufacturer or provider",
     "tier": -1,
-    "description": "",
-    "type": "array",
-    "options": [],
-    "section": "forecast-spatialBoundaries",
-    "table": null
-  },
-  {
-    "name": "acreage",
-    "id": 1870,
-    "label": "Total acreage",
-    "tier": -1,
-    "description": "The total acreage of forestland within the physical project boundaries",
+    "description": "If relevant, the providers or manufacturers of any technology or equipment used substantially in the project activity",
     "type": "string",
     "options": [],
-    "section": "forecast-spatialBoundaries",
+    "section": "forecast-projectDesign",
     "table": null
   },
   {
-    "name": "controlSite",
-    "id": 97,
-    "label": "Baseline control plot(s)",
-    "tier": 1,
-    "description": "This should include spatial representation of the baseline control plot area(s)",
+    "name": "technicalUpload",
+    "id": 625,
+    "label": "Project technology and technical process supporting documents",
+    "tier": -1,
+    "description": "Documentation regarding the project technology (e.g., manufacturer specifications, field reports, standard certifications) or technical processes (e.g., process flow diagrams)",
     "type": "array",
     "options": [],
-    "section": "forecast-spatialBoundaries",
+    "section": "forecast-projectDesign",
     "table": null
   },
   {
-    "name": "controlSiteComments",
-    "id": 98,
-    "label": "Additional comments on control plot(s)",
-    "tier": -1,
+    "name": "projectBoundaries",
+    "id": 2040,
+    "label": "Total area within project boundaries",
+    "tier": 1,
     "description": "",
     "type": "string",
     "options": [],
@@ -2803,65 +2343,26 @@
     "table": null
   },
   {
-    "name": "priorConditionsVerra",
-    "id": 465,
-    "label": "Prior physical conditions",
+    "name": "stratificationStrategy",
+    "id": 2041,
+    "label": "Strategy for stratification of project area",
     "tier": 1,
-    "description": "Description of the conditions that existed before the project began, demonstrating that the project was not designed to intentionally generate GHG emissions for later reduction, removal, or destruction. This should include details about the climate zone, ecosystem, and vegetation, as well as current and past land use, environmental characteristics (such as hydrology, topography, historical context, and soil conditions) of the project area.",
+    "description": "Strata may be defined based on soil type and depth, water table depth, vegetation, salinity, land type or expected changes in these characteristics. ",
     "type": "string",
     "options": [],
     "section": "forecast-spatialBoundaries",
     "table": null
   },
   {
-    "name": "verraIfmCarbonPoolTable",
-    "id": 1351,
-    "label": "Carbon pools",
+    "name": "spatialInformation",
+    "id": 2037,
+    "label": "Spatial information on stratified project area",
     "tier": 1,
-    "description": "",
-    "type": "object",
+    "description": "Stratification helps improve the accuracy of carbon stock and GHG flux estimates, based on specifics of the project's land use characteristics. Individual strata areas must be spatially discrete, identifiable with accurate spatial data, and sum to the total project area. Land use/land cover maps must be ground-truthed, less than 10 years old, or proven to be accurate.",
+    "type": null,
     "options": [],
-    "section": "forecast-systemBoundaries",
-    "table": [
-      {
-        "columns": [
-          {
-            "name": "verraIfmCarbonPoolTablePool",
-            "label": "Carbon pool",
-            "type": "string",
-            "description": "",
-            "options": [
-              "Aboveground tree biomass",
-              "Aboveground woody non-tree biomass",
-              "Aboveground non-tree herbaceous biomass",
-              "Belowground biomass",
-              "Dead wood",
-              "Litter",
-              "Soil organic carbon",
-              "Wood products"
-            ]
-          },
-          {
-            "name": "verraIfmCarbonPoolTableStatus",
-            "label": "Inclusion status",
-            "type": "string",
-            "description": "",
-            "options": [
-              "Included",
-              "Excluded"
-            ]
-          },
-          {
-            "name": "verraIfmCarbonPoolTableExplanation",
-            "label": "Justification",
-            "type": "string",
-            "description": "",
-            "options": []
-          }
-        ],
-        "rows": null
-      }
-    ]
+    "section": "forecast-spatialBoundaries",
+    "table": null
   },
   {
     "name": "emissionSourcesTable",
@@ -2927,140 +2428,173 @@
     ]
   },
   {
-    "name": "VerraForestryUpstreamEmissions",
-    "id": 962,
-    "label": "Overview of upstream emissions",
-    "tier": -1,
-    "description": "Upstream emissions can encompass greenhouse gas emissions resulting from the transport of planting materials, fertilizers, and similar inputs",
-    "type": "string",
+    "name": "lcaPartial",
+    "id": 1025,
+    "label": "LCA is used to quantify emissions",
+    "tier": 1,
+    "description": "",
+    "type": "boolean",
     "options": [],
-    "section": "forecast-systemBoundaries",
+    "section": "forecast-lifeCycleAssessment",
     "table": null
   },
   {
-    "name": "baselineTable",
-    "id": 72,
-    "label": "Forecast carbon stock summary (tCO2e)",
+    "name": "lcaTable",
+    "id": 1349,
+    "label": "LCA repository",
     "tier": 1,
     "description": "",
     "type": "object",
-    "options": [
+    "options": [],
+    "section": "forecast-lifeCycleAssessment",
+    "table": [
       {
-        "id": 2,
-        "name": "estimatedBaseline",
-        "type": "forecast",
-        "label": "Estimated baseline carbon stocks",
-        "format": "number"
-      },
-      {
-        "id": 24,
-        "name": "estimatedProjectStocks",
-        "type": "forecast",
-        "label": "Estimated project carbon stocks",
-        "format": "number"
+        "columns": [
+          {
+            "name": "lcaTableType",
+            "label": "LCA type",
+            "type": "string",
+            "description": "",
+            "options": [
+              "Attributional",
+              "Consequential"
+            ]
+          },
+          {
+            "name": "lcaTableProvider",
+            "label": "LCA provider",
+            "type": "string",
+            "description": null,
+            "options": null
+          },
+          {
+            "name": "lcaTableDate",
+            "label": "LCA completion date",
+            "type": "string",
+            "description": null,
+            "options": null
+          },
+          {
+            "name": "lcaTableFunctionalUnit",
+            "label": "Functional unit",
+            "type": null,
+            "description": "",
+            "options": []
+          }
+        ],
+        "rows": null
       }
-    ],
-    "section": "forecast-carbonStockSummary",
-    "table": null
+    ]
   },
   {
-    "name": "bslCarbonBreakdownForecastAcrGrid",
-    "id": 1859,
-    "label": "Breakdown of forecasted baseline carbon stocks (tCO2e)",
-    "tier": -1,
+    "name": "lca",
+    "id": 274,
+    "label": "LCA has been completed",
+    "tier": 1,
     "description": "",
-    "type": "object",
-    "options": [
-      {
-        "id": 68,
-        "name": "estimatedLiveCarbonBsl",
-        "type": "forecast",
-        "label": "Forecasted live tree carbon",
-        "format": "number"
-      },
-      {
-        "id": 69,
-        "name": "estimatedDeadCarbonBsl",
-        "type": "forecast",
-        "label": "Forecasted dead wood carbon",
-        "format": "number"
-      },
-      {
-        "id": 70,
-        "name": "estimatedHwpBsl",
-        "type": "forecast",
-        "label": "Forecasted harvested wood products",
-        "format": "number"
-      }
-    ],
-    "section": "forecast-carbonStockSummary",
+    "type": "boolean",
+    "options": [],
+    "section": "forecast-lifeCycleAssessment",
     "table": null
   },
   {
-    "name": "projectCarbonBreakdownForecastAcrGrid",
-    "id": 1860,
-    "label": "Breakdown of forecasted project carbon stocks (tCO2e)",
-    "tier": -1,
+    "name": "lcaUpload",
+    "id": 276,
+    "label": "LCA upload",
+    "tier": 1,
     "description": "",
-    "type": "object",
-    "options": [
-      {
-        "id": 75,
-        "name": "estimatedLiveCarbonProject",
-        "type": "forecast",
-        "label": "Forecasted live tree carbon",
-        "format": "number"
-      },
-      {
-        "id": 76,
-        "name": "estimatedDeadCarbonProject",
-        "type": "forecast",
-        "label": "Forecasted dead wood carbon",
-        "format": "number"
-      },
-      {
-        "id": 77,
-        "name": "estimatedHwpProject",
-        "type": "forecast",
-        "label": "Estimated harvested wood products",
-        "format": "number"
-      }
-    ],
-    "section": "forecast-carbonStockSummary",
+    "type": "array",
+    "options": [],
+    "section": "forecast-lifeCycleAssessment",
     "table": null
   },
   {
-    "name": "baselineComments",
-    "id": 73,
-    "label": "Approach to carbon stocks forecasting",
-    "tier": -1,
-    "description": "If applicable to the project, an overview of how baseline and/or project carbon stocks were forecasted into the future (e.g., which estimation method was used, any key assumptions, etc.)",
+    "name": "systemBoundaryDetails",
+    "id": 627,
+    "label": "System boundary overview and justification",
+    "tier": 1,
+    "description": "The system boundary of the project's life cycle assessment",
     "type": "string",
     "options": [],
-    "section": "forecast-carbonStockSummary",
+    "section": "forecast-lifeCycleAssessment",
     "table": null
   },
   {
-    "name": "baselineForecastWorkbook",
-    "id": 74,
-    "label": "Baseline forecast documentation",
+    "name": "systemBoundaryFigure",
+    "id": 628,
+    "label": "System boundary figure",
     "tier": -1,
-    "description": "",
+    "description": "Relevant figures depicting the process flows and system boundaries",
     "type": "array",
     "options": [],
-    "section": "forecast-carbonStockSummary",
+    "section": "forecast-lifeCycleAssessment",
     "table": null
   },
   {
-    "name": "projectForecastWorkbook",
-    "id": 640,
-    "label": "Project forecast documentation",
-    "tier": -1,
-    "description": "",
-    "type": "array",
+    "name": "lcaPuroResultsTable",
+    "id": 1350,
+    "label": "LCA results",
+    "tier": 1,
+    "description": "The results from the most recent life cycle assessment",
+    "type": "object",
     "options": [],
-    "section": "forecast-carbonStockSummary",
-    "table": null
+    "section": "forecast-lifeCycleAssessment",
+    "table": [
+      {
+        "columns": [
+          {
+            "name": "llcaPuroResultsTableStartDate",
+            "label": "Reporting period start",
+            "type": "string",
+            "description": "Indicates the most recent reporting period start date",
+            "options": null
+          },
+          {
+            "name": "lcaPuroResultsTableEndDate",
+            "label": "Reporting period end",
+            "type": "string",
+            "description": "Indicates the most recent reporting period end date",
+            "options": null
+          },
+          {
+            "name": "lcaPuroResultsTableFirstLevel",
+            "label": "Level 1",
+            "type": "string",
+            "description": "Level 1 contributions refer to high-level groups of emissions. In the example of biochar, the level 1 categories would entail Estored (the overall carbon sequestered from the atmopshere by the biomass), Ebiomass (emissions related to biomass sourcing), Eproduction (emissions related to biochar production), and Euse (emissions related to the biochar use).",
+            "options": null
+          },
+          {
+            "name": "lcaPuroResultsTableSecondLevel",
+            "label": "Level 2",
+            "type": "string",
+            "description": "The level 2 contributions provide more details than level 1. It is a break down of the main sources of emissions arising in each level 1 category.",
+            "options": []
+          },
+          {
+            "name": "lcaPuroResultsTableThirdLevel",
+            "label": "Level 3",
+            "type": "string",
+            "description": "If desired, the level 2 categories can be further detailed in level 3",
+            "options": []
+          },
+          {
+            "name": "lcaPuroResultsTableFu",
+            "label": "Climate impact in kg CO2-eq per functional unit",
+            "type": "number",
+            "description": null,
+            "options": null
+          },
+          {
+            "name": "lcaPuroResultsTableRp",
+            "label": "Climate impact in kg CO2-eq per reporting period",
+            "type": "number",
+            "description": null,
+            "options": null
+          }
+        ],
+        "rows": null
+      }
+    ]
   },
   {
     "name": "forecastConditional",
@@ -3085,39 +2619,39 @@
     "table": null
   },
   {
-    "name": "forecastTable",
-    "id": 83,
-    "label": "Forecasted emissions reductions and removals per vintage (tCO2e)",
-    "tier": 1,
-    "description": "The estimated emissions reductions and removals per vintage (including pre- and post-buffer deduction). Net removals and reductions refer to the total removals and reductions post-buffer deductions.",
+    "name": "partialForecast",
+    "id": 1015,
+    "label": "Credit forecast by vintage",
+    "tier": -1,
+    "description": "The estimated credits per vintage year throughout the crediting period",
     "type": "object",
     "options": [
       {
-        "id": 27,
-        "name": "estimatedNetReductionRemoval",
+        "id": 25,
+        "name": "estimatedNetReductions",
         "type": "forecast",
-        "label": "Estimated net reductions and removals",
+        "label": "Estimated net reductions",
         "format": "number"
       },
       {
-        "id": 64,
-        "name": "estimatedGrossReductionsRemovals",
+        "id": 26,
+        "name": "estimatedNetRemovals",
         "type": "forecast",
-        "label": "Estimated emissions reductions and removals (pre-buffer deduction)",
+        "label": "Estimated net removals",
         "format": "number"
       },
       {
-        "id": 62,
-        "name": "estimatedGrossReductions",
+        "id": 55,
+        "name": "estimatedAvoidance",
         "type": "forecast",
-        "label": "Estimated emissions reductions (pre-buffer deduction)",
+        "label": "Estimated net avoided emissions",
         "format": "number"
       },
       {
-        "id": 63,
-        "name": "estimatedGrossRemovals",
+        "id": 56,
+        "name": "partialCredits",
         "type": "forecast",
-        "label": "Estimated emissions removals (pre-buffer deduction)",
+        "label": "Estimated total credits",
         "format": "number"
       }
     ],
@@ -3156,6 +2690,72 @@
     "options": [],
     "section": "forecast-forecastedCredits",
     "table": null
+  },
+  {
+    "name": "parametersFixedTable",
+    "id": 1340,
+    "label": "Ex-ante fixed parameters",
+    "tier": 1,
+    "description": "Fixed (ex-ante) parameters are values set at the start of the project and typically  remain constant throughout a crediting period. They are usually based on established scientific research, default factors, or regulatory guidance.",
+    "type": "object",
+    "options": [],
+    "section": "forecast-monitoringPlan",
+    "table": [
+      {
+        "columns": [
+          {
+            "name": "parameterFixedTableData",
+            "label": "Parameter",
+            "type": "string",
+            "description": null,
+            "options": null
+          },
+          {
+            "name": "parametersFixedTableDescription",
+            "label": "Description",
+            "type": "string",
+            "description": "",
+            "options": []
+          },
+          {
+            "name": "parametersFixedTableUnit",
+            "label": "Unit",
+            "type": "string",
+            "description": null,
+            "options": null
+          },
+          {
+            "name": "parametersFixedTablePurpose",
+            "label": "Purpose",
+            "type": "string",
+            "description": "Concise overview of the parameter's relevance (e.g., to calculate baseline emissions)",
+            "options": []
+          },
+          {
+            "name": "parametersFixedTableSource",
+            "label": "Source of data",
+            "type": "string",
+            "description": "",
+            "options": []
+          },
+          {
+            "name": "parametersFixedTableValue",
+            "label": "Value applied",
+            "type": "string",
+            "description": null,
+            "options": null
+          },
+          {
+            "name": "parametersFixedTableComments",
+            "label": "Comments",
+            "type": "string",
+            "description": "",
+            "options": []
+          }
+        ],
+        "rows": null
+      }
+    ]
   },
   {
     "name": "parametersMonitoredTable",
@@ -3249,72 +2849,6 @@
     ]
   },
   {
-    "name": "parametersFixedTable",
-    "id": 1340,
-    "label": "Ex-ante fixed parameters",
-    "tier": 1,
-    "description": "Fixed (ex-ante) parameters are values set at the start of the project and typically  remain constant throughout a crediting period. They are usually based on established scientific research, default factors, or regulatory guidance.",
-    "type": "object",
-    "options": [],
-    "section": "forecast-monitoringPlan",
-    "table": [
-      {
-        "columns": [
-          {
-            "name": "parameterFixedTableData",
-            "label": "Parameter",
-            "type": "string",
-            "description": null,
-            "options": null
-          },
-          {
-            "name": "parametersFixedTableDescription",
-            "label": "Description",
-            "type": "string",
-            "description": "",
-            "options": []
-          },
-          {
-            "name": "parametersFixedTableUnit",
-            "label": "Unit",
-            "type": "string",
-            "description": null,
-            "options": null
-          },
-          {
-            "name": "parametersFixedTablePurpose",
-            "label": "Purpose",
-            "type": "string",
-            "description": "Concise overview of the parameter's relevance (e.g., to calculate baseline emissions)",
-            "options": []
-          },
-          {
-            "name": "parametersFixedTableSource",
-            "label": "Source of data",
-            "type": "string",
-            "description": "",
-            "options": []
-          },
-          {
-            "name": "parametersFixedTableValue",
-            "label": "Value applied",
-            "type": "string",
-            "description": null,
-            "options": null
-          },
-          {
-            "name": "parametersFixedTableComments",
-            "label": "Comments",
-            "type": "string",
-            "description": "",
-            "options": []
-          }
-        ],
-        "rows": null
-      }
-    ]
-  },
-  {
     "name": "dataParameters",
     "id": 556,
     "label": "Additional comments on fixed and monitored parameters",
@@ -3337,27 +2871,6 @@
     "table": null
   },
   {
-    "name": "ifmVerraMonitoringReqs",
-    "id": 968,
-    "label": "Project compliance with monitoring plan requirements",
-    "tier": 1,
-    "description": "Sample designs must be clearly defined, including a detailed description of the sample population, justification for sampling intensities, and the selection process for sample units and stages, where applicable. Unbiased estimators of population parameters used in calculations must also be identified. All data gathered during the monitoring process, including QA/QC data, must be electronically archived and retained for a minimum of two years following the conclusion of the final project crediting period.",
-    "type": "array",
-    "options": [
-      "A description of each monitoring task to be undertaken and the technical requirements therein",
-      "Monitoring is conducted for both the project sample units and the constituent baseline plots",
-      "Definition of the accounting boundary",
-      "Parameters to be measured, including parameter tables for all directly measured tree attributes incorporated as independent variables in allometric equations",
-      "Data to be collected and data collection techniques",
-      "Anticipated frequency of monitoring",
-      "Quality assurance and quality control (QA/QC) procedures to ensure accurate data collection",
-      "Data archiving procedures, including procedures for any anticipated updates to electronic file formats",
-      "Roles, responsibilities and capacity of the monitoring team and management"
-    ],
-    "section": "forecast-monitoringPlan",
-    "table": null
-  },
-  {
     "name": "monitoringTimeline",
     "id": 773,
     "label": "Monitoring timeline",
@@ -3369,22 +2882,22 @@
     "table": null
   },
   {
-    "name": "dataProcess",
-    "id": 558,
-    "label": "Data processing and storage procedures",
-    "tier": -1,
-    "description": "Overview of the methods used to collect, clean, and securely store project monitoring data to ensure accuracy, traceability, and long-term accessibility",
+    "name": "monitoringTeam",
+    "id": 2038,
+    "label": "Roles, responsibilities, and capacity of monitoring team and management",
+    "tier": 1,
+    "description": "",
     "type": "string",
     "options": [],
     "section": "forecast-monitoringPlan",
     "table": null
   },
   {
-    "name": "ifmVerraDatabaseReqs",
-    "id": 969,
-    "label": "Database requirements for project and control plots",
+    "name": "dataProcess",
+    "id": 558,
+    "label": "Data processing and storage procedures",
     "tier": -1,
-    "description": "A database must be maintained that records the individual baseline plots and their assigned weights, with unique identifiers assigned to each composite baseline, each of its constituent baseline plots, and all trees within those plots.",
+    "description": "Overview of the methods used to collect, clean, and securely store project monitoring data to ensure accuracy, traceability, and long-term accessibility",
     "type": "string",
     "options": [],
     "section": "forecast-monitoringPlan",
@@ -3592,6 +3105,50 @@
     "table": null
   },
   {
+    "name": "opportunityCostAnalysisRmifw",
+    "id": 2175,
+    "label": "Opportunity cost analysis",
+    "tier": 1,
+    "description": "Opportunity cost analysis shall be based on the net present value (NPV) of the alternative land uses identified in the project's additionality assessment, except where most baseline activities are subsistence driven. Where most baseline activities are subsistence driven, an NPV analysis is not required.",
+    "type": "array",
+    "options": [],
+    "section": "forecast-permanenceForecast",
+    "table": null
+  },
+  {
+    "name": "financialViabilityRmifw",
+    "id": 2174,
+    "label": "Financial viability",
+    "tier": 1,
+    "description": "Financial viability includes two main components: 1. The number of years until breakeven is reached (i.e.,the payback period). 2. The funding secured relative to what is needed to implement and operate the project until reaching breakeven.",
+    "type": "array",
+    "options": [],
+    "section": "forecast-permanenceForecast",
+    "table": null
+  },
+  {
+    "name": "durStakeholderAnalysisRmifw",
+    "id": 2172,
+    "label": "Durability stakeholder analysis",
+    "tier": 1,
+    "description": "All stakeholders includes all indigenous peoples and local communities with statutory or customary rights to land or resources in the project area(s) as well as description of past/ongoing disputes over land or resources in the project area(s) and their resolution or future resolution.",
+    "type": "string",
+    "options": [],
+    "section": "forecast-permanenceForecast",
+    "table": null
+  },
+  {
+    "name": "politicalRiskRmifw",
+    "id": 2176,
+    "label": "Political risk ",
+    "tier": 1,
+    "description": "Mean should be averaged over the most recent five years of available data",
+    "type": "string",
+    "options": [],
+    "section": "forecast-permanenceForecast",
+    "table": null
+  },
+  {
     "name": "riskManagementPlan",
     "id": 163,
     "label": "Risk management plan in place",
@@ -3679,14 +3236,44 @@
     "table": null
   },
   {
-    "name": "noAdditionalityValidationDetails",
-    "id": 1848,
-    "label": "Justification for the absence of additionality validation",
-    "tier": -1,
+    "name": "adaptiveCapacityEvaluationSeceltionRmifw",
+    "id": 2178,
+    "label": "Adaptive capacity evaluation selection",
+    "tier": 1,
+    "description": "Adaptive capacity can be described as considerations a project proponent has taken into account when developing a project that mitigates future risk of climate change. Please refer to the Verra AFOLU Non Permanence Risk Tool for further details on the options provided.",
+    "type": "array",
+    "options": [
+      "Variety",
+      "Learning Capacity",
+      "Room for Change",
+      "Leadership",
+      "Resources",
+      "Fair Governance",
+      "Innovation"
+    ],
+    "section": "forecast-permanenceForecast",
+    "table": null
+  },
+  {
+    "name": "durStakeholderConsultationRmifw",
+    "id": 2173,
+    "label": "Durability stakeholder consultation",
+    "tier": 1,
     "description": "",
-    "type": "string",
+    "type": "array",
     "options": [],
-    "section": "forecast-additionality",
+    "section": "forecast-permanenceForecast",
+    "table": null
+  },
+  {
+    "name": "adaptiveCapacityEvaluationSupportinEvidenceRmifw",
+    "id": 2179,
+    "label": "Adaptive capacity evaluation supporting evidence",
+    "tier": 1,
+    "description": "",
+    "type": "array",
+    "options": [],
+    "section": "forecast-permanenceForecast",
     "table": null
   },
   {
@@ -3708,6 +3295,17 @@
       "Positive list",
       "Other standardized approach"
     ],
+    "section": "forecast-additionality",
+    "table": null
+  },
+  {
+    "name": "noAdditionalityValidationDetails",
+    "id": 1848,
+    "label": "Justification for the absence of additionality validation",
+    "tier": -1,
+    "description": "",
+    "type": "string",
+    "options": [],
     "section": "forecast-additionality",
     "table": null
   },
@@ -4312,6 +3910,17 @@
     "table": null
   },
   {
+    "name": "validationReportSummary",
+    "id": 1680,
+    "label": "Validation report summary",
+    "tier": 1,
+    "description": "",
+    "type": "string",
+    "options": [],
+    "section": "forecast-validation",
+    "table": null
+  },
+  {
     "name": "validationPlanned",
     "id": 1669,
     "label": "Validation date is planned",
@@ -4326,17 +3935,6 @@
     "name": "validationPlannedDate",
     "id": 1670,
     "label": "Planned validation date",
-    "tier": 1,
-    "description": "",
-    "type": "string",
-    "options": [],
-    "section": "forecast-validation",
-    "table": null
-  },
-  {
-    "name": "validationReportSummary",
-    "id": 1680,
-    "label": "Validation report summary",
     "tier": 1,
     "description": "",
     "type": "string",
@@ -4374,6 +3972,52 @@
     "description": "",
     "type": "array",
     "options": [],
+    "section": "forecast-validation",
+    "table": null
+  },
+  {
+    "name": "validationBodySectoralScopes",
+    "id": 1679,
+    "label": "Accredited sectoral scopes of the validation body",
+    "tier": 1,
+    "description": "",
+    "type": "array",
+    "options": [
+      "  1. Energy (renewable/non-renewable) ",
+      "2. Energy distribution",
+      "3. Energy demand  ",
+      "  4. Manufacturing industries",
+      "  5. Chemical industry",
+      "6. Construction  ",
+      "7. Transport",
+      "8. Mining/mineral production",
+      "  9. Metal production",
+      "10. Fugitive emissions – from fuel",
+      "11. Fugitive emissions – from Industrial gases (halocarbons and sulphur hexafluoride)",
+      "12. Solvents use",
+      "13. Waste handling and disposal ",
+      "14. Agriculture, Forestry and Other Land Use (AFOLU)",
+      "15. Livestock and manure management",
+      "16. Carbon capture and storage"
+    ],
+    "section": "forecast-validation",
+    "table": null
+  },
+  {
+    "name": "validationBodyAccreditation",
+    "id": 1673,
+    "label": "Validation body accreditation or membership",
+    "tier": 1,
+    "description": "",
+    "type": "array",
+    "options": [
+      "ANSI National Accreditation Board (ANAB)",
+      "International Accreditation Forum (IAF)",
+      "Global Accreditation Bureau (GAB)",
+      "UNFCCC / CDM",
+      "Standards Council of Canada (SCC)",
+      "Other"
+    ],
     "section": "forecast-validation",
     "table": null
   },
@@ -4465,52 +4109,6 @@
     "table": null
   },
   {
-    "name": "validationBodyAccreditation",
-    "id": 1673,
-    "label": "Validation body accreditation or membership",
-    "tier": 1,
-    "description": "",
-    "type": "array",
-    "options": [
-      "ANSI National Accreditation Board (ANAB)",
-      "International Accreditation Forum (IAF)",
-      "Global Accreditation Bureau (GAB)",
-      "UNFCCC / CDM",
-      "Standards Council of Canada (SCC)",
-      "Other"
-    ],
-    "section": "forecast-validation",
-    "table": null
-  },
-  {
-    "name": "validationBodySectoralScopes",
-    "id": 1679,
-    "label": "Accredited sectoral scopes of the validation body",
-    "tier": 1,
-    "description": "",
-    "type": "array",
-    "options": [
-      "  1. Energy (renewable/non-renewable) ",
-      "2. Energy distribution",
-      "3. Energy demand  ",
-      "  4. Manufacturing industries",
-      "  5. Chemical industry",
-      "6. Construction  ",
-      "7. Transport",
-      "8. Mining/mineral production",
-      "  9. Metal production",
-      "10. Fugitive emissions – from fuel",
-      "11. Fugitive emissions – from Industrial gases (halocarbons and sulphur hexafluoride)",
-      "12. Solvents use",
-      "13. Waste handling and disposal ",
-      "14. Agriculture, Forestry and Other Land Use (AFOLU)",
-      "15. Livestock and manure management",
-      "16. Carbon capture and storage"
-    ],
-    "section": "forecast-validation",
-    "table": null
-  },
-  {
     "name": "validationBody",
     "id": 544,
     "label": "Validation body",
@@ -4533,288 +4131,6 @@
     "table": null
   },
   {
-    "name": "ifmVerraProjUpdateParent",
-    "id": 973,
-    "label": "Updates to elements of the project activity",
-    "tier": 2,
-    "description": "",
-    "type": "array",
-    "options": [
-      "Stratification or stands",
-      "Project sample units",
-      "Composite baselines",
-      "Biomass burning practices",
-      "Nitrogen fertilizer use",
-      "Harvesting plan",
-      "Other",
-      "None"
-    ],
-    "section": "actuals-projectUpdatesForm",
-    "table": null
-  },
-  {
-    "name": "ifmVerraProjUpdateStands",
-    "id": 974,
-    "label": "Summary of changes to stratification or stands",
-    "tier": 2,
-    "description": "",
-    "type": "string",
-    "options": [
-      "Stratification or stands",
-      "Project sample units",
-      "Composite baselines",
-      "Biomass burning practices",
-      "Nitrogen fertilizer use",
-      "Harvesting plan",
-      "Other",
-      "None"
-    ],
-    "section": "actuals-projectUpdatesForm",
-    "table": null
-  },
-  {
-    "name": "ifmVerraProjUpdateStandsUpload",
-    "id": 975,
-    "label": "Changes to stratification or stands supporting documents",
-    "tier": -1,
-    "description": "",
-    "type": "array",
-    "options": [],
-    "section": "actuals-projectUpdatesForm",
-    "table": null
-  },
-  {
-    "name": "ifmVerraProjUpdateUnits",
-    "id": 976,
-    "label": "Summary of changes to project sample units",
-    "tier": 2,
-    "description": "",
-    "type": "string",
-    "options": [
-      "Stratification or stands",
-      "Project sample units",
-      "Composite baselines",
-      "Biomass burning practices",
-      "Nitrogen fertilizer use",
-      "Harvesting plan",
-      "Other",
-      "None"
-    ],
-    "section": "actuals-projectUpdatesForm",
-    "table": null
-  },
-  {
-    "name": "ifmVerraProjUpdateUnitsUpload",
-    "id": 977,
-    "label": "Changes to project sample units supporting documents",
-    "tier": -1,
-    "description": "",
-    "type": "array",
-    "options": [
-      "Stratification or stands",
-      "Project sample units",
-      "Composite baselines",
-      "Biomass burning practices",
-      "Nitrogen fertilizer use",
-      "Harvesting plan",
-      "Other",
-      "None"
-    ],
-    "section": "actuals-projectUpdatesForm",
-    "table": null
-  },
-  {
-    "name": "ifmVerraProjUpdateBaseline",
-    "id": 978,
-    "label": "Summary of changes to composite baselines",
-    "tier": 2,
-    "description": "",
-    "type": "string",
-    "options": [
-      "Stratification or stands",
-      "Project sample units",
-      "Composite baselines",
-      "Biomass burning practices",
-      "Nitrogen fertilizer use",
-      "Harvesting plan",
-      "Other",
-      "None"
-    ],
-    "section": "actuals-projectUpdatesForm",
-    "table": null
-  },
-  {
-    "name": "ifmVerraProjUpdateBaselineUpload",
-    "id": 979,
-    "label": "Changes to composite baselines supporting documents",
-    "tier": -1,
-    "description": "",
-    "type": "array",
-    "options": [
-      "Stratification or stands",
-      "Project sample units",
-      "Composite baselines",
-      "Biomass burning practices",
-      "Nitrogen fertilizer use",
-      "Harvesting plan",
-      "Other",
-      "None"
-    ],
-    "section": "actuals-projectUpdatesForm",
-    "table": null
-  },
-  {
-    "name": "ifmVerraProjUpdateBurning",
-    "id": 980,
-    "label": "Summary of changes to biomass burning practices",
-    "tier": 2,
-    "description": "",
-    "type": "string",
-    "options": [
-      "Stratification or stands",
-      "Project sample units",
-      "Composite baselines",
-      "Biomass burning practices",
-      "Nitrogen fertilizer use",
-      "Harvesting plan",
-      "Other",
-      "None"
-    ],
-    "section": "actuals-projectUpdatesForm",
-    "table": null
-  },
-  {
-    "name": "ifmVerraProjUpdateBurningUpload",
-    "id": 981,
-    "label": "Changes to biomass burning practices supporting documents",
-    "tier": -1,
-    "description": "",
-    "type": "array",
-    "options": [
-      "Stratification or stands",
-      "Project sample units",
-      "Composite baselines",
-      "Biomass burning practices",
-      "Nitrogen fertilizer use",
-      "Harvesting plan",
-      "Other",
-      "None"
-    ],
-    "section": "actuals-projectUpdatesForm",
-    "table": null
-  },
-  {
-    "name": "ifmVerraProjUpdateFertilizer",
-    "id": 982,
-    "label": "Summary of changes to nitrogen fertilizer use",
-    "tier": 2,
-    "description": "",
-    "type": "string",
-    "options": [],
-    "section": "actuals-projectUpdatesForm",
-    "table": null
-  },
-  {
-    "name": "ifmVerraProjUpdateFertilizerUpload",
-    "id": 983,
-    "label": "Changes to nitrogen fertilizer use supporting documents",
-    "tier": -1,
-    "description": "",
-    "type": "array",
-    "options": [
-      "Stratification or stands",
-      "Project sample units",
-      "Composite baselines",
-      "Biomass burning practices",
-      "Nitrogen fertilizer use",
-      "Harvesting plan",
-      "Other",
-      "None"
-    ],
-    "section": "actuals-projectUpdatesForm",
-    "table": null
-  },
-  {
-    "name": "ifmVerraProjUpdateHarvest",
-    "id": 984,
-    "label": "Summary of changes to harvest plan",
-    "tier": 2,
-    "description": "",
-    "type": "string",
-    "options": [
-      "Stratification or stands",
-      "Project sample units",
-      "Composite baselines",
-      "Biomass burning practices",
-      "Nitrogen fertilizer use",
-      "Harvesting plan",
-      "Other",
-      "None"
-    ],
-    "section": "actuals-projectUpdatesForm",
-    "table": null
-  },
-  {
-    "name": "ifmVerraProjUpdateHarvestUpload",
-    "id": 985,
-    "label": "Changes to harvest plan supporting documents",
-    "tier": -1,
-    "description": "",
-    "type": "array",
-    "options": [
-      "Stratification or stands",
-      "Project sample units",
-      "Composite baselines",
-      "Biomass burning practices",
-      "Nitrogen fertilizer use",
-      "Harvesting plan",
-      "Other",
-      "None"
-    ],
-    "section": "actuals-projectUpdatesForm",
-    "table": null
-  },
-  {
-    "name": "ifmVerraProjUpdateOther",
-    "id": 986,
-    "label": "Other changes to the project design",
-    "tier": 2,
-    "description": "",
-    "type": "string",
-    "options": [
-      "Stratification or stands",
-      "Project sample units",
-      "Composite baselines",
-      "Biomass burning practices",
-      "Nitrogen fertilizer use",
-      "Harvesting plan",
-      "Other",
-      "None"
-    ],
-    "section": "actuals-projectUpdatesForm",
-    "table": null
-  },
-  {
-    "name": "ifmVerraProjUpdateOtherUpload",
-    "id": 987,
-    "label": "Other changes supporting documents",
-    "tier": -1,
-    "description": "",
-    "type": "array",
-    "options": [
-      "Stratification or stands",
-      "Project sample units",
-      "Composite baselines",
-      "Biomass burning practices",
-      "Nitrogen fertilizer use",
-      "Harvesting plan",
-      "Other",
-      "None"
-    ],
-    "section": "actuals-projectUpdatesForm",
-    "table": null
-  },
-  {
     "name": "mrvProtocol",
     "id": 618,
     "label": "Actual MRV protocol is consistent with previously validated protocol",
@@ -4832,134 +4148,6 @@
     "tier": 2,
     "description": "Detail changes made to the previously validated MRV protocol described in tier 1",
     "type": "string",
-    "options": [],
-    "section": "actuals-mrvActuals",
-    "table": null
-  },
-  {
-    "name": "ifmVerraMrvUpdateParent",
-    "id": 988,
-    "label": "Updates to elements of the monitoring plan",
-    "tier": 2,
-    "description": "",
-    "type": "array",
-    "options": [
-      "Acquiring, archiving, and processing remeasurement data",
-      "Electronic file formats",
-      "Parameter monitoring processes",
-      "Monitoring frequency",
-      "Other",
-      "None"
-    ],
-    "section": "actuals-mrvActuals",
-    "table": null
-  },
-  {
-    "name": "ifmVerraMrvUpdateData",
-    "id": 989,
-    "label": "Summary of changes to acquiring, archiving, and processing remeasurement data",
-    "tier": 2,
-    "description": "",
-    "type": "string",
-    "options": [],
-    "section": "actuals-mrvActuals",
-    "table": null
-  },
-  {
-    "name": "ifmVerraMrvUpdateDataUpload",
-    "id": 990,
-    "label": "Changes to acquiring, archiving, and processing remeasurement data supporting documents",
-    "tier": -1,
-    "description": "",
-    "type": "array",
-    "options": [],
-    "section": "actuals-mrvActuals",
-    "table": null
-  },
-  {
-    "name": "ifmVerraMrvUpdateFile",
-    "id": 991,
-    "label": "Summary of changes to electronic file formats",
-    "tier": 2,
-    "description": "",
-    "type": "string",
-    "options": [],
-    "section": "actuals-mrvActuals",
-    "table": null
-  },
-  {
-    "name": "ifmVerraMrvUpdateFileUpload",
-    "id": 992,
-    "label": "Changes to electronic file formats supporting documents",
-    "tier": -1,
-    "description": "",
-    "type": "array",
-    "options": [],
-    "section": "actuals-mrvActuals",
-    "table": null
-  },
-  {
-    "name": "ifmVerraMrvUpdateParameter",
-    "id": 993,
-    "label": "Summary of changes to parameter monitoring processes",
-    "tier": 2,
-    "description": "",
-    "type": "string",
-    "options": [],
-    "section": "actuals-mrvActuals",
-    "table": null
-  },
-  {
-    "name": "ifmVerraMrvUpdateParameterUpload",
-    "id": 994,
-    "label": "Changes to parameter monitoring processes supporting documents",
-    "tier": -1,
-    "description": "",
-    "type": "array",
-    "options": [],
-    "section": "actuals-mrvActuals",
-    "table": null
-  },
-  {
-    "name": "ifmVerraMrvUpdateFreq",
-    "id": 995,
-    "label": "Summary of changes to monitoring frequency",
-    "tier": 2,
-    "description": "",
-    "type": "string",
-    "options": [],
-    "section": "actuals-mrvActuals",
-    "table": null
-  },
-  {
-    "name": "ifmVerraMrvUpdateFreqUpload",
-    "id": 996,
-    "label": "Changes to monitoring frequency supporting documents",
-    "tier": -1,
-    "description": "",
-    "type": "array",
-    "options": [],
-    "section": "actuals-mrvActuals",
-    "table": null
-  },
-  {
-    "name": "ifmVerraMrvUpdateOther",
-    "id": 997,
-    "label": "Summary of other changes to the project monitoring plan and procedure",
-    "tier": 2,
-    "description": "",
-    "type": "string",
-    "options": [],
-    "section": "actuals-mrvActuals",
-    "table": null
-  },
-  {
-    "name": "ifmVerraMrvUpdateOtherUpload",
-    "id": 998,
-    "label": "Changes to other monitoring plan elements supporting documents",
-    "tier": -1,
-    "description": "",
-    "type": "array",
     "options": [],
     "section": "actuals-mrvActuals",
     "table": null
@@ -5084,6 +4272,28 @@
     "table": null
   },
   {
+    "name": "upwardAdjustmentBaseline",
+    "id": 2042,
+    "label": "Project allowment of upward adjustment to the baseline",
+    "tier": 2,
+    "description": "Some carbon crediting programs allow or require that a new baseline be established in the event of a reversal. Does the program used allow or require for a baseline adjustment to occur in the event of an unavoidable reversal?",
+    "type": null,
+    "options": [],
+    "section": "actuals-permanenceActuals",
+    "table": null
+  },
+  {
+    "name": "upwardAdjustmentBaselineDetails",
+    "id": 2039,
+    "label": "Upward adjustment to the baseline decision details",
+    "tier": 2,
+    "description": "Provide context on decision of how to adjust the baseline (if applicable) in the event that an unavoidable reversal occurs. ",
+    "type": "string",
+    "options": [],
+    "section": "actuals-permanenceActuals",
+    "table": null
+  },
+  {
     "name": "compensation",
     "id": 161,
     "label": "Risk mitigation mechanism(s) have been implemented",
@@ -5120,106 +4330,14 @@
     "table": null
   },
   {
-    "name": "bslCarbonBreakdownAcrGrid",
-    "id": 1862,
-    "label": "Breakdown of actual baseline carbon stocks (tCO2e)",
-    "tier": -1,
+    "name": "leakageActualsConditional",
+    "id": 785,
+    "label": "Project accounts for leakage",
+    "tier": 2,
     "description": "",
-    "type": "object",
-    "options": [
-      {
-        "id": 78,
-        "name": "actualLiveCarbonBsl",
-        "type": "actual",
-        "label": "Actual live tree carbon",
-        "format": "number"
-      },
-      {
-        "id": 79,
-        "name": "actualDeadCarbonBsl",
-        "type": "actual",
-        "label": "Actual dead wood carbon",
-        "format": "number"
-      },
-      {
-        "id": 80,
-        "name": "actualHwpBsl",
-        "type": "actual",
-        "label": "Actual harvested wood products",
-        "format": "number"
-      }
-    ],
-    "section": "actuals-carbonStockActuals",
-    "table": null
-  },
-  {
-    "name": "projectCarbonBreakdownAcrGrid",
-    "id": 1861,
-    "label": "Breakdown of actual project carbon stocks (tCO2e)",
-    "tier": -1,
-    "description": "",
-    "type": "object",
-    "options": [
-      {
-        "id": 71,
-        "name": "actualLiveCarbonProject",
-        "type": "actual",
-        "label": "Actual live tree carbon",
-        "format": "number"
-      },
-      {
-        "id": 72,
-        "name": "actualDeadCarbonProject",
-        "type": "actual",
-        "label": "Actual dead wood carbon",
-        "format": "number"
-      },
-      {
-        "id": 73,
-        "name": "actualHwpProject",
-        "type": "actual",
-        "label": "Actual harvested wood products",
-        "format": "number"
-      }
-    ],
-    "section": "actuals-carbonStockActuals",
-    "table": null
-  },
-  {
-    "name": "actualStockDynamicGrid",
-    "id": 1869,
-    "label": "Actual project and baseline carbon stock summary (tCO2e)",
-    "tier": -1,
-    "description": "",
-    "type": "object",
-    "options": [
-      {
-        "id": 35,
-        "name": "actualProjectStocks",
-        "type": "actual",
-        "label": "Actual project carbon stocks",
-        "format": "number"
-      },
-      {
-        "id": 74,
-        "name": "actualBaselineCarbonStocks",
-        "type": "actual",
-        "label": "Actual baseline carbon stocks",
-        "format": "number"
-      }
-    ],
-    "section": "actuals-carbonStockActuals",
-    "table": null
-  },
-  {
-    "name": "projectWorkbook",
-    "id": 643,
-    "label": "Actual project carbon stock summary documentation",
-    "tier": -1,
-    "description": "",
-    "type": "array",
+    "type": "boolean",
     "options": [],
-    "section": "actuals-carbonStockActuals",
+    "section": "actuals-leakageActuals",
     "table": null
   },
   {
@@ -5274,59 +4392,19 @@
     ]
   },
   {
-    "name": "leakageActualsConditional",
-    "id": 785,
-    "label": "Project accounts for leakage",
-    "tier": 2,
-    "description": "",
-    "type": "boolean",
-    "options": [],
-    "section": "actuals-leakageActuals",
-    "table": null
-  },
-  {
-    "name": "ifmVerraleakageFactorConditional",
-    "id": 964,
-    "label": "Project activity plans a permanent reduction in timber supply",
-    "tier": 1,
-    "description": "Permanent reductions in timber supply involve commitments to reduce harvest levels in project lands for 100 years or longer, and are necessary to determine the leakage factor for the project",
-    "type": "boolean",
-    "options": [],
-    "section": "actuals-leakageActuals",
-    "table": null
-  },
-  {
-    "name": "avgRatioMerchantableStocking",
-    "id": 965,
-    "label": "National average ratio of merchantable stocking",
-    "tier": 1,
-    "description": "If the project leads to a permanent reduction in timber supply, the project developer must calculate the national average proportion of merchantable stocking (either by volume or mass for commercial species) relative to the total stocking. This figure must then be compared with the same ratio in the project area to assess any differences.",
-    "type": "string",
-    "options": [],
-    "section": "actuals-leakageActuals",
-    "table": null
-  },
-  {
-    "name": "leakageTableUpdate",
-    "id": 166,
+    "name": "leakageDataGrid",
+    "id": 311,
     "label": "Leakage values",
     "tier": 2,
-    "description": "",
+    "description": "Leakage values calculated per vintage in tCO2e",
     "type": "object",
     "options": [
       {
-        "id": 28,
-        "name": "actualLeakageCarbon",
+        "id": 19,
+        "name": "actualLeakageCarbonBiochar",
         "type": "actual",
         "label": "Leakage carbon quantities in tCO2e",
         "format": "number"
-      },
-      {
-        "id": 29,
-        "name": "actualLeakageFactor",
-        "type": "actual",
-        "label": "Leakage factor (%)",
-        "format": "percent"
       }
     ],
     "section": "actuals-leakageActuals",
@@ -5339,6 +4417,28 @@
     "tier": -1,
     "description": "Overview of the project's approach to calculating and/or accounting for leakage",
     "type": "string",
+    "options": [],
+    "section": "actuals-leakageActuals",
+    "table": null
+  },
+  {
+    "name": "leakageManagementPlan",
+    "id": 2045,
+    "label": "Leakage management plan",
+    "tier": 2,
+    "description": "Description of measures the project will take to mitigate leakage",
+    "type": "string",
+    "options": [],
+    "section": "actuals-leakageActuals",
+    "table": null
+  },
+  {
+    "name": "leakageBelt",
+    "id": 2046,
+    "label": "Leakage belt",
+    "tier": 2,
+    "description": "If applicable, land area surrounding or adjacent to the project area in which baseline activities could be displaced due to project implementation.",
+    "type": null,
     "options": [],
     "section": "actuals-leakageActuals",
     "table": null
@@ -5418,26 +4518,19 @@
     "table": null
   },
   {
-    "name": "bufferTableUpdate",
-    "id": 165,
+    "name": "biocharBufferActual",
+    "id": 310,
     "label": "Buffer values",
     "tier": 2,
-    "description": "",
+    "description": "0 if there is no buffer allocation",
     "type": "object",
     "options": [
       {
-        "id": 17,
-        "name": "updateBufferCarbon",
+        "id": 15,
+        "name": "actualBufferCarbon",
         "type": "actual",
         "label": "Buffer carbon quantities in tCO2e",
         "format": "number"
-      },
-      {
-        "id": 18,
-        "name": "updateNPR",
-        "type": "actual",
-        "label": "NPR% (non-permanence risk rating)",
-        "format": "percent"
       }
     ],
     "section": "actuals-bufferActuals",
@@ -5455,61 +4548,50 @@
     "table": null
   },
   {
-    "name": "nonPermanenceTool",
-    "id": 967,
-    "label": "Project uses an approved risk tool to allocate buffer credits",
-    "tier": 1,
-    "description": "",
-    "type": "boolean",
-    "options": [],
-    "section": "actuals-bufferActuals",
-    "table": null
-  },
-  {
-    "name": "riskToolWorkbookUpdate",
-    "id": 666,
-    "label": "Non-permanence risk tool and buffer analysis",
+    "name": "bufferWorkbook",
+    "id": 660,
+    "label": "Buffer supporting documents",
     "tier": -1,
-    "description": "The Non-Permanence Risk Tool (NPRT) for Agriculture, Forestry, and Other Land Use (AFOLU) projects outlines the steps for performing the non-permanence risk assessment for AFOLU projects and determining their contributions to the buffer pool",
+    "description": "",
     "type": "array",
     "options": [],
     "section": "actuals-bufferActuals",
     "table": null
   },
   {
-    "name": "projectActuals",
-    "id": 167,
-    "label": "Actual emissions reductions and removals per vintage (tCO2e)",
-    "tier": 2,
-    "description": "The actual emissions reductions and removals per vintage (including pre- and post-buffer deduction)",
+    "name": "partialActual",
+    "id": 1016,
+    "label": "Credit actuals by vintage",
+    "tier": -1,
+    "description": "",
     "type": "object",
     "options": [
       {
-        "id": 38,
-        "name": "actualNetReductionsRemovals",
+        "id": 36,
+        "name": "actualNetReductions",
         "type": "actual",
-        "label": "Actual net reductions and removals",
+        "label": "Actual net reductions",
         "format": "number"
       },
       {
-        "id": 65,
-        "name": "actualGrossReductions",
+        "id": 37,
+        "name": "actualNetRemovals",
         "type": "actual",
-        "label": "Actual emissions reductions (pre-buffer deduction)",
+        "label": "Actual net removals",
         "format": "number"
       },
       {
-        "id": 66,
-        "name": "actualGrossRemovals",
+        "id": 58,
+        "name": "partialActualCredits",
         "type": "actual",
-        "label": "Actual emissions removals (pre-buffer deduction)",
+        "label": "Actual credits",
         "format": "number"
       },
       {
-        "id": 67,
-        "name": "actualGrossRemovalsReductions",
+        "id": 59,
+        "name": "actualAvoidance",
         "type": "actual",
-        "label": "Actual emissions reductions and removals (pre-buffer deduction)",
+        "label": "Actual net avoided emissions",
         "format": "number"
       }
     ],
@@ -5528,13 +4610,46 @@
     "table": null
   },
   {
-    "name": "verificationBodyAccreditationOther",
-    "id": 1685,
-    "label": "Other verification body accreditation or membership",
+    "name": "verificationBodySectoralScopes",
+    "id": 1686,
+    "label": "Accredited sectoral scopes of the verification body",
+    "tier": 1,
+    "description": "",
+    "type": "array",
+    "options": [
+      "  1. Energy (renewable/non-renewable) ",
+      "2. Energy distribution",
+      "3. Energy demand  ",
+      "  4. Manufacturing industries",
+      "  5. Chemical industry",
+      "6. Construction  ",
+      "7. Transport",
+      "8. Mining/mineral production",
+      "  9. Metal production",
+      "10. Fugitive emissions – from fuel",
+      "11. Fugitive emissions – from Industrial gases (halocarbons and sulphur hexafluoride)",
+      "12. Solvents use",
+      "13. Waste handling and disposal ",
+      "14. Agriculture, Forestry and Other Land Use (AFOLU)",
+      "15. Livestock and manure management",
+      "16. Carbon capture and storage"
+    ],
+    "section": "actuals-verification",
+    "table": null
+  },
+  {
+    "name": "verificationBodySelection",
+    "id": 1682,
+    "label": "Verification body selection method",
     "tier": 1,
     "description": "",
     "type": "string",
-    "options": [],
+    "options": [
+      "Carbon standard or registry approved",
+      "Third party approved (e.g., insurance company)",
+      "Self-selected",
+      "Other"
+    ],
     "section": "actuals-verification",
     "table": null
   },
@@ -5599,6 +4714,28 @@
     ]
   },
   {
+    "name": "verificationSame",
+    "id": 1681,
+    "label": "Verification body is the same as the validation body",
+    "tier": 1,
+    "description": "",
+    "type": "boolean",
+    "options": [],
+    "section": "actuals-verification",
+    "table": null
+  },
+  {
+    "name": "verificationBodyAccreditationOther",
+    "id": 1685,
+    "label": "Other verification body accreditation or membership",
+    "tier": 1,
+    "description": "",
+    "type": "string",
+    "options": [],
+    "section": "actuals-verification",
+    "table": null
+  },
+  {
     "name": "verificationBodyAccreditation",
     "id": 1684,
     "label": "Verification body accreditation or membership",
@@ -5612,61 +4749,6 @@
       "UNFCCC / CDM",
       "Standards Council of Canada (SCC)",
       "Other"
-    ],
-    "section": "actuals-verification",
-    "table": null
-  },
-  {
-    "name": "verificationBodySelection",
-    "id": 1682,
-    "label": "Verification body selection method",
-    "tier": 1,
-    "description": "",
-    "type": "string",
-    "options": [
-      "Carbon standard or registry approved",
-      "Third party approved (e.g., insurance company)",
-      "Self-selected",
-      "Other"
-    ],
-    "section": "actuals-verification",
-    "table": null
-  },
-  {
-    "name": "verificationSame",
-    "id": 1681,
-    "label": "Verification body is the same as the validation body",
-    "tier": 1,
-    "description": "",
-    "type": "boolean",
-    "options": [],
-    "section": "actuals-verification",
-    "table": null
-  },
-  {
-    "name": "verificationBodySectoralScopes",
-    "id": 1686,
-    "label": "Accredited sectoral scopes of the verification body",
-    "tier": 1,
-    "description": "",
-    "type": "array",
-    "options": [
-      "  1. Energy (renewable/non-renewable) ",
-      "2. Energy distribution",
-      "3. Energy demand  ",
-      "  4. Manufacturing industries",
-      "  5. Chemical industry",
-      "6. Construction  ",
-      "7. Transport",
-      "8. Mining/mineral production",
-      "  9. Metal production",
-      "10. Fugitive emissions – from fuel",
-      "11. Fugitive emissions – from Industrial gases (halocarbons and sulphur hexafluoride)",
-      "12. Solvents use",
-      "13. Waste handling and disposal ",
-      "14. Agriculture, Forestry and Other Land Use (AFOLU)",
-      "15. Livestock and manure management",
-      "16. Carbon capture and storage"
     ],
     "section": "actuals-verification",
     "table": null
@@ -5886,6 +4968,17 @@
     "table": null
   },
   {
+    "name": "socioImpactSummary",
+    "id": 1689,
+    "label": "Summary of actual socioeconomic impacts due to project activities",
+    "tier": 2,
+    "description": "A high-level overview of the socioeconomic impacts associated with the project activities",
+    "type": "string",
+    "options": [],
+    "section": "actuals-socioeconomicImpacts",
+    "table": null
+  },
+  {
     "name": "socioParentConditional",
     "id": 1606,
     "label": "Socioeconomic impacts monitored by the project",
@@ -5903,12 +4996,12 @@
     "table": null
   },
   {
-    "name": "socioImpactSummary",
-    "id": 1689,
-    "label": "Summary of actual socioeconomic impacts due to project activities",
+    "name": "engagementPolicy",
+    "id": 1565,
+    "label": "Project engages with local policy makers, community/tribal members, or other organizational groups to inform policy recommendations",
     "tier": 2,
-    "description": "A high-level overview of the socioeconomic impacts associated with the project activities",
-    "type": "string",
+    "description": "Indicates whether the project engages in policy advocacy to promote socio-environmental benefits (e.g., supporting conservation policies, improving workforce safety, etc.)",
+    "type": "boolean",
     "options": [],
     "section": "actuals-socioeconomicImpacts",
     "table": null
@@ -5920,17 +5013,6 @@
     "tier": 2,
     "description": "The total number of hours the project has spent engaging with the local community and other relevant stakeholders",
     "type": "string",
-    "options": [],
-    "section": "actuals-socioeconomicImpacts",
-    "table": null
-  },
-  {
-    "name": "engagementPolicy",
-    "id": 1565,
-    "label": "Project engages with local policy makers, community/tribal members, or other organizational groups to inform policy recommendations",
-    "tier": 2,
-    "description": "Indicates whether the project engages in policy advocacy to promote socio-environmental benefits (e.g., supporting conservation policies, improving workforce safety, etc.)",
-    "type": "boolean",
     "options": [],
     "section": "actuals-socioeconomicImpacts",
     "table": null
@@ -5973,17 +5055,6 @@
     "table": null
   },
   {
-    "name": "engagementChannelsDetails",
-    "id": 1561,
-    "label": "Description of identified communication channels",
-    "tier": 2,
-    "description": "",
-    "type": "string",
-    "options": [],
-    "section": "actuals-socioeconomicImpacts",
-    "table": null
-  },
-  {
     "name": "engagementFrequency",
     "id": 1562,
     "label": "Frequency of stakeholder engagement meetings and consultations",
@@ -5998,6 +5069,17 @@
       "Annually",
       "Sporadic frequency"
     ],
+    "section": "actuals-socioeconomicImpacts",
+    "table": null
+  },
+  {
+    "name": "engagementChannelsDetails",
+    "id": 1561,
+    "label": "Description of identified communication channels",
+    "tier": 2,
+    "description": "",
+    "type": "string",
+    "options": [],
     "section": "actuals-socioeconomicImpacts",
     "table": null
   },
@@ -6068,23 +5150,23 @@
     "table": null
   },
   {
-    "name": "genderIndicatorSelection",
-    "id": 1496,
-    "label": "Resources and tools used for gender performance indicator selection",
-    "tier": 2,
-    "description": "Description of the frameworks and methodologies used to select the gender indicators against which impact is measured",
-    "type": "string",
-    "options": [],
-    "section": "actuals-socioeconomicImpacts",
-    "table": null
-  },
-  {
     "name": "genderImpactUpload",
     "id": 1497,
     "label": "Gender performance impacts supporting documents",
     "tier": -1,
     "description": "Documents that demonstrate how gender-related data is collected, what indicators are used, and/or how the results are analyzed and reported",
     "type": "array",
+    "options": [],
+    "section": "actuals-socioeconomicImpacts",
+    "table": null
+  },
+  {
+    "name": "genderIndicatorSelection",
+    "id": 1496,
+    "label": "Resources and tools used for gender performance indicator selection",
+    "tier": 2,
+    "description": "Description of the frameworks and methodologies used to select the gender indicators against which impact is measured",
+    "type": "string",
     "options": [],
     "section": "actuals-socioeconomicImpacts",
     "table": null
@@ -6164,22 +5246,22 @@
     "table": null
   },
   {
-    "name": "genderSuccess",
-    "id": 48,
-    "label": "Women are central to the project's success",
+    "name": "genderPowerPositions",
+    "id": 924,
+    "label": "Percentage of women that hold decision making powers or leadership roles within the project",
     "tier": 2,
-    "description": "Project success is achieved when it meets or exceeds the W+ Standards requirements for one or more of six success indicators, which span these domains: Income and Assets; Time; Education and Knowledge; Leadership; Food Security; and Health. To demonstrate success, a project must clearly define the activities that have improved women’s lives and provide meaningful, quantifiable evidence of these positive outcomes.",
+    "description": "Female-identifying individuals in managerial or senior project roles",
     "type": "string",
     "options": [],
     "section": "actuals-socioeconomicImpacts",
     "table": null
   },
   {
-    "name": "genderPowerPositions",
-    "id": 924,
-    "label": "Percentage of women that hold decision making powers or leadership roles within the project",
+    "name": "genderSuccess",
+    "id": 48,
+    "label": "Women are central to the project's success",
     "tier": 2,
-    "description": "Female-identifying individuals in managerial or senior project roles",
+    "description": "Project success is achieved when it meets or exceeds the W+ Standards requirements for one or more of six success indicators, which span these domains: Income and Assets; Time; Education and Knowledge; Leadership; Food Security; and Health. To demonstrate success, a project must clearly define the activities that have improved women’s lives and provide meaningful, quantifiable evidence of these positive outcomes.",
     "type": "string",
     "options": [],
     "section": "actuals-socioeconomicImpacts",
@@ -6322,24 +5404,6 @@
     "table": null
   },
   {
-    "name": "employmentAge",
-    "id": 1549,
-    "label": "Average age range of project employees",
-    "tier": 2,
-    "description": "Average age ranges of people employed by the project",
-    "type": "array",
-    "options": [
-      "15-18",
-      "18-25",
-      "25-35",
-      "35-45",
-      "45-55",
-      "55+"
-    ],
-    "section": "actuals-socioeconomicImpacts",
-    "table": null
-  },
-  {
     "name": "wageRateProject",
     "id": 1554,
     "label": "Median wage rate for individuals employed as part of project activities",
@@ -6351,11 +5415,22 @@
     "table": null
   },
   {
-    "name": "wageRateRegion",
-    "id": 1552,
-    "label": "Median wage rate in the area in which the project is being developed",
+    "name": "employmentImpact",
+    "id": 1542,
+    "label": "Project has created employment opportunities",
     "tier": 2,
-    "description": "Median wage rate in the project area (i.e., area defined as regions within 20km of project boundary)",
+    "description": "This can include positions within habitat/nature restoration, technical assistance, logistics, maintenance, and/or other roles which contribute to project activities",
+    "type": "boolean",
+    "options": [],
+    "section": "actuals-socioeconomicImpacts",
+    "table": null
+  },
+  {
+    "name": "wageRateProjectDetails",
+    "id": 1555,
+    "label": "Overview of project wages",
+    "tier": 2,
+    "description": "",
     "type": "string",
     "options": [],
     "section": "actuals-socioeconomicImpacts",
@@ -6373,12 +5448,12 @@
     "table": null
   },
   {
-    "name": "employmentPositionsIndigenous",
-    "id": 1551,
-    "label": "Number of project positions held by Indigenous or community stakeholders",
+    "name": "wageRateRegion",
+    "id": 1552,
+    "label": "Median wage rate in the area in which the project is being developed",
     "tier": 2,
-    "description": "Positions held by members of identified vulnerable community groups or Indigenous peoples",
-    "type": "number",
+    "description": "Median wage rate in the project area (i.e., area defined as regions within 20km of project boundary)",
+    "type": "string",
     "options": [],
     "section": "actuals-socioeconomicImpacts",
     "table": null
@@ -6395,24 +5470,31 @@
     "table": null
   },
   {
-    "name": "wageRateProjectDetails",
-    "id": 1555,
-    "label": "Overview of project wages",
+    "name": "employmentPositionsIndigenous",
+    "id": 1551,
+    "label": "Number of project positions held by Indigenous or community stakeholders",
     "tier": 2,
-    "description": "",
-    "type": "string",
+    "description": "Positions held by members of identified vulnerable community groups or Indigenous peoples",
+    "type": "number",
     "options": [],
     "section": "actuals-socioeconomicImpacts",
     "table": null
   },
   {
-    "name": "employmentImpact",
-    "id": 1542,
-    "label": "Project has created employment opportunities",
+    "name": "employmentAge",
+    "id": 1549,
+    "label": "Average age range of project employees",
     "tier": 2,
-    "description": "This can include positions within habitat/nature restoration, technical assistance, logistics, maintenance, and/or other roles which contribute to project activities",
-    "type": "boolean",
-    "options": [],
+    "description": "Average age ranges of people employed by the project",
+    "type": "array",
+    "options": [
+      "15-18",
+      "18-25",
+      "25-35",
+      "35-45",
+      "45-55",
+      "55+"
+    ],
     "section": "actuals-socioeconomicImpacts",
     "table": null
   },
@@ -6567,12 +5649,12 @@
     "table": null
   },
   {
-    "name": "percentOwnedIndigenous",
-    "id": 1541,
-    "label": "Percent of project owned by Indigenous, tribal, and/or local communities",
-    "tier": 2,
-    "description": "Percent of project owned—with decision-making power—by Indigenous, tribal, or local communities",
-    "type": "string",
+    "name": "monetaryBenefitConditional",
+    "id": 1632,
+    "label": "Project engages in monetary benefit sharing",
+    "tier": -1,
+    "description": "Monetary benefit sharing refers to the distribution of financial gains from carbon credit revenues or related project income to local stakeholders who contribute to or are affected by the project",
+    "type": "boolean",
     "options": [],
     "section": "actuals-socioeconomicImpacts",
     "table": null
@@ -6589,12 +5671,23 @@
     "table": null
   },
   {
-    "name": "paymentPercentIndigenous",
-    "id": 1540,
-    "label": "Percent of sale price going to Indigenous, tribal, and/or local communities",
+    "name": "percentOwnedIndigenous",
+    "id": 1541,
+    "label": "Percent of project owned by Indigenous, tribal, and/or local communities",
     "tier": 2,
-    "description": "How much indigenous, tribal, and/or local communities recieve from the sale of a carbon credit that has been generated",
+    "description": "Percent of project owned—with decision-making power—by Indigenous, tribal, or local communities",
     "type": "string",
+    "options": [],
+    "section": "actuals-socioeconomicImpacts",
+    "table": null
+  },
+  {
+    "name": "monetaryBenefitPrimary",
+    "id": 1538,
+    "label": "Project provides financial benefit sharing at primary sale",
+    "tier": 2,
+    "description": "When sold to a broker or organization, the project provides a financial benefit share when the project sells a credit directly from the PD to a second party",
+    "type": "boolean",
     "options": [],
     "section": "actuals-socioeconomicImpacts",
     "table": null
@@ -6620,23 +5713,12 @@
     "table": null
   },
   {
-    "name": "monetaryBenefitPrimary",
-    "id": 1538,
-    "label": "Project provides financial benefit sharing at primary sale",
+    "name": "paymentPercentIndigenous",
+    "id": 1540,
+    "label": "Percent of sale price going to Indigenous, tribal, and/or local communities",
     "tier": 2,
-    "description": "When sold to a broker or organization, the project provides a financial benefit share when the project sells a credit directly from the PD to a second party",
-    "type": "boolean",
-    "options": [],
-    "section": "actuals-socioeconomicImpacts",
-    "table": null
-  },
-  {
-    "name": "monetaryBenefitConditional",
-    "id": 1632,
-    "label": "Project engages in monetary benefit sharing",
-    "tier": -1,
-    "description": "Monetary benefit sharing refers to the distribution of financial gains from carbon credit revenues or related project income to local stakeholders who contribute to or are affected by the project",
-    "type": "boolean",
+    "description": "How much indigenous, tribal, and/or local communities recieve from the sale of a carbon credit that has been generated",
+    "type": "string",
     "options": [],
     "section": "actuals-socioeconomicImpacts",
     "table": null
@@ -6804,6 +5886,17 @@
     "table": null
   },
   {
+    "name": "localEconomyImprovement",
+    "id": 1498,
+    "label": "Local economies have benefitted and improved in the project area",
+    "tier": 2,
+    "description": "Specific activity or sector-based economies have long-term benefits as a result of project activities (i.e., fisheries industry, tourism industry)",
+    "type": "boolean",
+    "options": [],
+    "section": "actuals-socioeconomicImpacts",
+    "table": null
+  },
+  {
     "name": "localEconomyDetails",
     "id": 1499,
     "label": "Summary of economic benefits",
@@ -6821,17 +5914,6 @@
     "tier": -1,
     "description": "",
     "type": "array",
-    "options": [],
-    "section": "actuals-socioeconomicImpacts",
-    "table": null
-  },
-  {
-    "name": "localEconomyImprovement",
-    "id": 1498,
-    "label": "Local economies have benefitted and improved in the project area",
-    "tier": 2,
-    "description": "Specific activity or sector-based economies have long-term benefits as a result of project activities (i.e., fisheries industry, tourism industry)",
-    "type": "boolean",
     "options": [],
     "section": "actuals-socioeconomicImpacts",
     "table": null
@@ -6902,17 +5984,6 @@
     "table": null
   },
   {
-    "name": "housingEnergy",
-    "id": 1507,
-    "label": "Project has created units of energy efficient housing within the area of operation",
-    "tier": 2,
-    "description": "Outside of the main project activities, project has built or contributed investment towards energy efficient homes in the project community",
-    "type": "boolean",
-    "options": [],
-    "section": "actuals-socioeconomicImpacts",
-    "table": null
-  },
-  {
     "name": "housingRetro",
     "id": 1506,
     "label": "Number of units retrofitted with measures to create safer, healthier, or more affordable homes",
@@ -6935,6 +6006,17 @@
     "table": null
   },
   {
+    "name": "housingEnergy",
+    "id": 1507,
+    "label": "Project has created units of energy efficient housing within the area of operation",
+    "tier": 2,
+    "description": "Outside of the main project activities, project has built or contributed investment towards energy efficient homes in the project community",
+    "type": "boolean",
+    "options": [],
+    "section": "actuals-socioeconomicImpacts",
+    "table": null
+  },
+  {
     "name": "housingDetails",
     "id": 1509,
     "label": "Measures taken to increase safe, reliable, and/or energy efficient housing ",
@@ -6946,12 +6028,12 @@
     "table": null
   },
   {
-    "name": "tourismImpact",
-    "id": 1510,
-    "label": "Project engages in leisure or tourism activities to increase project awareness",
+    "name": "tourismQuantification",
+    "id": 1513,
+    "label": "Number of visitors that have interacted with project leisure initiatives",
     "tier": 2,
-    "description": "Includes activities such as facility tours, voluntourism opportunities, agritourism, cultural shows, cooking classes/demonstrations, etc",
-    "type": "boolean",
+    "description": "Number of guests or tourists who have attended or completed activities offered (e.g., facility tours, voluntourism programs, educational open farm days, etc)",
+    "type": "number",
     "options": [],
     "section": "actuals-socioeconomicImpacts",
     "table": null
@@ -6977,12 +6059,12 @@
     "table": null
   },
   {
-    "name": "tourismQuantification",
-    "id": 1513,
-    "label": "Number of visitors that have interacted with project leisure initiatives",
+    "name": "tourismImpact",
+    "id": 1510,
+    "label": "Project engages in leisure or tourism activities to increase project awareness",
     "tier": 2,
-    "description": "Number of guests or tourists who have attended or completed activities offered (e.g., facility tours, voluntourism programs, educational open farm days, etc)",
-    "type": "number",
+    "description": "Includes activities such as facility tours, voluntourism opportunities, agritourism, cultural shows, cooking classes/demonstrations, etc",
+    "type": "boolean",
     "options": [],
     "section": "actuals-socioeconomicImpacts",
     "table": null
@@ -6999,12 +6081,23 @@
     "table": null
   },
   {
-    "name": "healthOutcomePlan",
-    "id": 1520,
-    "label": "Description of health risk monitoring and remediation plans",
+    "name": "healthOutcomeQuantified",
+    "id": 1516,
+    "label": "Quantifiable project impact on health access and outcomes",
     "tier": 2,
-    "description": "Overview of any measures or plans in place to mitigate risks to community health within the project boundary",
+    "description": "Quantifiable metrics assessed and measured concerning health access and outcomes (i.e., the number of people reached through health training programs, the  number of health facilities updated since start of project activities, etc.)",
     "type": "string",
+    "options": [],
+    "section": "actuals-socioeconomicImpacts",
+    "table": null
+  },
+  {
+    "name": "healthOutcomeImpacts",
+    "id": 1514,
+    "label": "Project undertakes initiatives to enhance health outcomes or mitigate adverse impacts within the project region",
+    "tier": 2,
+    "description": "Examples of this can include providing health facilities, funding new machinery or health technology, providing health trainings as it relates to project materials (e.g. pesticide handling, stove use), or taking measures to protect or amplify native medinal knowledge.",
+    "type": "boolean",
     "options": [],
     "section": "actuals-socioeconomicImpacts",
     "table": null
@@ -7013,6 +6106,26 @@
     "name": "healthRiskIncrease",
     "id": 1519,
     "label": "Project activities may increase the following health risks",
+    "tier": 2,
+    "description": "",
+    "type": "array",
+    "options": [
+      "Air pollution",
+      "Water pollution",
+      "Chemical exposure",
+      "Radiation",
+      "Occupational hazards",
+      "Infectious disease",
+      "Other",
+      "Not applicable"
+    ],
+    "section": "actuals-socioeconomicImpacts",
+    "table": null
+  },
+  {
+    "name": "healthRiskReduction",
+    "id": 1518,
+    "label": "Project activities reduce the following health risks",
     "tier": 2,
     "description": "",
     "type": "array",
@@ -7041,37 +6154,6 @@
     "table": null
   },
   {
-    "name": "healthRiskReduction",
-    "id": 1518,
-    "label": "Project activities reduce the following health risks",
-    "tier": 2,
-    "description": "",
-    "type": "array",
-    "options": [
-      "Air pollution",
-      "Water pollution",
-      "Chemical exposure",
-      "Radiation",
-      "Occupational hazards",
-      "Infectious disease",
-      "Other",
-      "Not applicable"
-    ],
-    "section": "actuals-socioeconomicImpacts",
-    "table": null
-  },
-  {
-    "name": "healthOutcomeImpacts",
-    "id": 1514,
-    "label": "Project undertakes initiatives to enhance health outcomes or mitigate adverse impacts within the project region",
-    "tier": 2,
-    "description": "Examples of this can include providing health facilities, funding new machinery or health technology, providing health trainings as it relates to project materials (e.g. pesticide handling, stove use), or taking measures to protect or amplify native medinal knowledge.",
-    "type": "boolean",
-    "options": [],
-    "section": "actuals-socioeconomicImpacts",
-    "table": null
-  },
-  {
     "name": "healthOutcomeDetails",
     "id": 1515,
     "label": "Description of the initiatives undertaken to increase health in the operational region",
@@ -7083,22 +6165,11 @@
     "table": null
   },
   {
-    "name": "healthOutcomeQuantified",
-    "id": 1516,
-    "label": "Quantifiable project impact on health access and outcomes",
+    "name": "healthOutcomePlan",
+    "id": 1520,
+    "label": "Description of health risk monitoring and remediation plans",
     "tier": 2,
-    "description": "Quantifiable metrics assessed and measured concerning health access and outcomes (i.e., the number of people reached through health training programs, the  number of health facilities updated since start of project activities, etc.)",
-    "type": "string",
-    "options": [],
-    "section": "actuals-socioeconomicImpacts",
-    "table": null
-  },
-  {
-    "name": "sanitationQuantification",
-    "id": 1524,
-    "label": "Quantifiable project impacts on sanitation processes and access",
-    "tier": 2,
-    "description": "Description of the project’s impact on sanitation-related access and outcomes (e.g., number of households gaining reliable potable water access, increased waste management facility capacity within the project area, etc.)",
+    "description": "Overview of any measures or plans in place to mitigate risks to community health within the project boundary",
     "type": "string",
     "options": [],
     "section": "actuals-socioeconomicImpacts",
@@ -7133,6 +6204,17 @@
     "tier": 2,
     "description": "Examples include initiatives which help build waste management capacity, increase ease and access to potable water, and any type of sewage or wastewater treatment within the project area",
     "type": "boolean",
+    "options": [],
+    "section": "actuals-socioeconomicImpacts",
+    "table": null
+  },
+  {
+    "name": "sanitationQuantification",
+    "id": 1524,
+    "label": "Quantifiable project impacts on sanitation processes and access",
+    "tier": 2,
+    "description": "Description of the project’s impact on sanitation-related access and outcomes (e.g., number of households gaining reliable potable water access, increased waste management facility capacity within the project area, etc.)",
+    "type": "string",
     "options": [],
     "section": "actuals-socioeconomicImpacts",
     "table": null
@@ -7186,21 +6268,13 @@
     "table": null
   },
   {
-    "name": "airMonitoringStatus",
-    "id": 1568,
-    "label": "Air quality monitoring status and approach",
+    "name": "airQualityModeling",
+    "id": 1569,
+    "label": "Overview of the approach used to model and estimate air quality effects",
     "tier": 2,
-    "description": "",
+    "description": "Overview of the methodology used to model air quality and synthesize resulting impact assessments",
     "type": "string",
-    "options": [
-      "Project does not currently monitor and record air pollution",
-      "Project models and estimates air quality impacts",
-      "Project monitors air pollution and has specific reduction targets",
-      "Project monitors air pollution and has met specific reduction targets during the last year of operations",
-      "Project monitors and records air pollution (no reduction targets)",
-      "Project has eliminated hazardous and toxic air pollutants from project activities entirely",
-      "Not applicable"
-    ],
+    "options": [],
     "section": "actuals-ecologicalImpacts",
     "table": null
   },
@@ -7216,11 +6290,32 @@
     "table": null
   },
   {
-    "name": "airQualityModeling",
-    "id": 1569,
-    "label": "Overview of the approach used to model and estimate air quality effects",
+    "name": "airMonitoringPollutants",
+    "id": 179,
+    "label": "Project pollutants monitored",
     "tier": 2,
-    "description": "Overview of the methodology used to model air quality and synthesize resulting impact assessments",
+    "description": "Pollutants that are monitored as part of the project activity",
+    "type": "array",
+    "options": [
+      "Ozone",
+      "VOCs",
+      "NOx",
+      "Pollen",
+      "PM2.5",
+      "PM10",
+      "Carbon Monoxide (CO)",
+      "Polycyclic aromatic hydrocarbons (PAHs)",
+      "Other"
+    ],
+    "section": "actuals-ecologicalImpacts",
+    "table": null
+  },
+  {
+    "name": "airImpactsSummary",
+    "id": 1573,
+    "label": "Summary of quantifiable project air quality impacts",
+    "tier": 2,
+    "description": "Assessment of cumulative air quality impacts attributable to project-related activities",
     "type": "string",
     "options": [],
     "section": "actuals-ecologicalImpacts",
@@ -7249,33 +6344,20 @@
     "table": null
   },
   {
-    "name": "airImpactsSummary",
-    "id": 1573,
-    "label": "Summary of quantifiable project air quality impacts",
+    "name": "airMonitoringStatus",
+    "id": 1568,
+    "label": "Air quality monitoring status and approach",
     "tier": 2,
-    "description": "Assessment of cumulative air quality impacts attributable to project-related activities",
+    "description": "",
     "type": "string",
-    "options": [],
-    "section": "actuals-ecologicalImpacts",
-    "table": null
-  },
-  {
-    "name": "airMonitoringPollutants",
-    "id": 179,
-    "label": "Project pollutants monitored",
-    "tier": 2,
-    "description": "Pollutants that are monitored as part of the project activity",
-    "type": "array",
     "options": [
-      "Ozone",
-      "VOCs",
-      "NOx",
-      "Pollen",
-      "PM2.5",
-      "PM10",
-      "Carbon Monoxide (CO)",
-      "Polycyclic aromatic hydrocarbons (PAHs)",
-      "Other"
+      "Project does not currently monitor and record air pollution",
+      "Project models and estimates air quality impacts",
+      "Project monitors air pollution and has specific reduction targets",
+      "Project monitors air pollution and has met specific reduction targets during the last year of operations",
+      "Project monitors and records air pollution (no reduction targets)",
+      "Project has eliminated hazardous and toxic air pollutants from project activities entirely",
+      "Not applicable"
     ],
     "section": "actuals-ecologicalImpacts",
     "table": null
@@ -7408,17 +6490,6 @@
     "table": null
   },
   {
-    "name": "biodiversitySpeciesHabitat",
-    "id": 1600,
-    "label": "Species habitats identified in baseline surveys have expanded due to project activities",
-    "tier": 2,
-    "description": "Overall habitat for species monitored by the project has increased due to project activities (i.e.,  conservation activities, marine protected areas, etc)",
-    "type": "boolean",
-    "options": [],
-    "section": "actuals-ecologicalImpacts",
-    "table": null
-  },
-  {
     "name": "biodiversityHabitatExtension",
     "id": 1601,
     "label": "Overview of species with expanded habitats and benefits from project activities",
@@ -7452,6 +6523,17 @@
     "table": null
   },
   {
+    "name": "biodiversitySpeciesHabitat",
+    "id": 1600,
+    "label": "Species habitats identified in baseline surveys have expanded due to project activities",
+    "tier": 2,
+    "description": "Overall habitat for species monitored by the project has increased due to project activities (i.e.,  conservation activities, marine protected areas, etc)",
+    "type": "boolean",
+    "options": [],
+    "section": "actuals-ecologicalImpacts",
+    "table": null
+  },
+  {
     "name": "biodiversityEvidence",
     "id": 664,
     "label": "Ecological and biodiversity impacts documentation",
@@ -7474,12 +6556,12 @@
     "table": null
   },
   {
-    "name": "threatenedSpeciesNumber",
-    "id": 1617,
-    "label": "Number of identified species which are categorized as IUCN threatened and endangered species",
+    "name": "biodiversityInvasive",
+    "id": 1604,
+    "label": "Project has engaged in efforts to control invasive species within project boundaries",
     "tier": 2,
-    "description": "",
-    "type": "number",
+    "description": "Interventions such as invasive species removal efforts designed to support the restoration and ecological balance of native ecosystems",
+    "type": "boolean",
     "options": [],
     "section": "actuals-ecologicalImpacts",
     "table": null
@@ -7507,12 +6589,12 @@
     "table": null
   },
   {
-    "name": "biodiversityInvasive",
-    "id": 1604,
-    "label": "Project has engaged in efforts to control invasive species within project boundaries",
+    "name": "threatenedSpeciesNumber",
+    "id": 1617,
+    "label": "Number of identified species which are categorized as IUCN threatened and endangered species",
     "tier": 2,
-    "description": "Interventions such as invasive species removal efforts designed to support the restoration and ecological balance of native ecosystems",
-    "type": "boolean",
+    "description": "",
+    "type": "number",
     "options": [],
     "section": "actuals-ecologicalImpacts",
     "table": null
@@ -7524,17 +6606,6 @@
     "tier": 2,
     "description": "How the project will collect data on threatened/endangered species",
     "type": "string",
-    "options": [],
-    "section": "actuals-ecologicalImpacts",
-    "table": null
-  },
-  {
-    "name": "speciesTrackingConditional",
-    "id": 674,
-    "label": "Project tracks and monitors species within the project area (flora or fauna)",
-    "tier": 2,
-    "description": "Project directly tracks and monitors flora or fauna species as part of the project activity",
-    "type": "boolean",
     "options": [],
     "section": "actuals-ecologicalImpacts",
     "table": null
@@ -7557,6 +6628,17 @@
       "Endemic species",
       "Other"
     ],
+    "section": "actuals-ecologicalImpacts",
+    "table": null
+  },
+  {
+    "name": "speciesTrackingConditional",
+    "id": 674,
+    "label": "Project tracks and monitors species within the project area (flora or fauna)",
+    "tier": 2,
+    "description": "Project directly tracks and monitors flora or fauna species as part of the project activity",
+    "type": "boolean",
+    "options": [],
     "section": "actuals-ecologicalImpacts",
     "table": null
   },
@@ -7651,17 +6733,6 @@
     "table": null
   },
   {
-    "name": "soilTesting",
-    "id": 1593,
-    "label": "Soil testing is done on a consistent basis",
-    "tier": 2,
-    "description": "",
-    "type": "boolean",
-    "options": [],
-    "section": "actuals-ecologicalImpacts",
-    "table": null
-  },
-  {
     "name": "soilQualityImpacts",
     "id": 1597,
     "label": "Soil quality improvements due to project activities",
@@ -7675,23 +6746,6 @@
       "Increased soil cation exchange capacity (CEC) ",
       "Decreased soil compaction",
       "Other"
-    ],
-    "section": "actuals-ecologicalImpacts",
-    "table": null
-  },
-  {
-    "name": "soilSamplingFrequency",
-    "id": 1594,
-    "label": "Soil sampling frequency",
-    "tier": 2,
-    "description": "",
-    "type": "string",
-    "options": [
-      "Weekly",
-      "Monthly",
-      "Quarterly",
-      "Semi-annually",
-      "Annually"
     ],
     "section": "actuals-ecologicalImpacts",
     "table": null
@@ -7722,6 +6776,34 @@
     "table": null
   },
   {
+    "name": "soilTesting",
+    "id": 1593,
+    "label": "Soil testing is done on a consistent basis",
+    "tier": 2,
+    "description": "",
+    "type": "boolean",
+    "options": [],
+    "section": "actuals-ecologicalImpacts",
+    "table": null
+  },
+  {
+    "name": "soilSamplingFrequency",
+    "id": 1594,
+    "label": "Soil sampling frequency",
+    "tier": 2,
+    "description": "",
+    "type": "string",
+    "options": [
+      "Weekly",
+      "Monthly",
+      "Quarterly",
+      "Semi-annually",
+      "Annually"
+    ],
+    "section": "actuals-ecologicalImpacts",
+    "table": null
+  },
+  {
     "name": "soilHealthEvidence",
     "id": 1598,
     "label": "Soil health indicators and impacts supporting documents",
@@ -7744,30 +6826,13 @@
     "table": null
   },
   {
-    "name": "waterQualityVolume",
-    "id": 1610,
-    "label": "Volume of water treated by project",
+    "name": "waterQualityPracticesDetails",
+    "id": 1612,
+    "label": "Description of water treatment or quality safeguarding practices",
     "tier": 2,
-    "description": "The amount of water treated by the project and identified unit (cubic meters, liters, etc.)",
-    "type": "number",
-    "options": [],
-    "section": "actuals-ecologicalImpacts",
-    "table": null
-  },
-  {
-    "name": "waterQualityLand",
-    "id": 1611,
-    "label": "Project implements water quality practices on cultivated land to protect local water sources",
-    "tier": 2,
-    "description": "Water quality practices on cultivated land may include the application of nematicides, riparian buffer zones, etc.",
+    "description": "Overview of water treatment and testing protocols and approaches",
     "type": "string",
-    "options": [
-      "There is no application of nematicides within 20 meters of any permanent water body",
-      "There is no application of agrochemicals within 10 meters of any permanent water body",
-      "There is a riparian buffer zone at least 25 feet in width from any permanent water body",
-      "Other",
-      "Not applicable"
-    ],
+    "options": [],
     "section": "actuals-ecologicalImpacts",
     "table": null
   },
@@ -7790,6 +6855,45 @@
     "table": null
   },
   {
+    "name": "waterQualityLand",
+    "id": 1611,
+    "label": "Project implements water quality practices on cultivated land to protect local water sources",
+    "tier": 2,
+    "description": "Water quality practices on cultivated land may include the application of nematicides, riparian buffer zones, etc.",
+    "type": "string",
+    "options": [
+      "There is no application of nematicides within 20 meters of any permanent water body",
+      "There is no application of agrochemicals within 10 meters of any permanent water body",
+      "There is a riparian buffer zone at least 25 feet in width from any permanent water body",
+      "Other",
+      "Not applicable"
+    ],
+    "section": "actuals-ecologicalImpacts",
+    "table": null
+  },
+  {
+    "name": "waterQualityVolume",
+    "id": 1610,
+    "label": "Volume of water treated by project",
+    "tier": 2,
+    "description": "The amount of water treated by the project and identified unit (cubic meters, liters, etc.)",
+    "type": "number",
+    "options": [],
+    "section": "actuals-ecologicalImpacts",
+    "table": null
+  },
+  {
+    "name": "waterPollutants",
+    "id": 1574,
+    "label": "Overview of water pollutants monitored",
+    "tier": 2,
+    "description": "Summary of water pollutants monitored by project, with indication if not applicable to project",
+    "type": "string",
+    "options": [],
+    "section": "actuals-ecologicalImpacts",
+    "table": null
+  },
+  {
     "name": "waterQualityImprovement",
     "id": 1608,
     "label": "Project activities have improved the quality of relevant water resources",
@@ -7807,28 +6911,6 @@
     "tier": 2,
     "description": "",
     "type": "number",
-    "options": [],
-    "section": "actuals-ecologicalImpacts",
-    "table": null
-  },
-  {
-    "name": "waterQualityPracticesDetails",
-    "id": 1612,
-    "label": "Description of water treatment or quality safeguarding practices",
-    "tier": 2,
-    "description": "Overview of water treatment and testing protocols and approaches",
-    "type": "string",
-    "options": [],
-    "section": "actuals-ecologicalImpacts",
-    "table": null
-  },
-  {
-    "name": "waterPollutants",
-    "id": 1574,
-    "label": "Overview of water pollutants monitored",
-    "tier": 2,
-    "description": "Summary of water pollutants monitored by project, with indication if not applicable to project",
-    "type": "string",
     "options": [],
     "section": "actuals-ecologicalImpacts",
     "table": null
@@ -7856,27 +6938,6 @@
       "Use of settling ponds to clean water before re-entry to water table",
       "Grey water remediation",
       "Desalination",
-      "Other",
-      "Not applicable"
-    ],
-    "section": "actuals-ecologicalImpacts",
-    "table": null
-  },
-  {
-    "name": "waterConservationType",
-    "id": 1615,
-    "label": "Water conservation practices implemented by project",
-    "tier": 2,
-    "description": "Specific practices or interventions carried out to conserve water resources, such as rainwater harvesting, efficient irrigation systems, soil moisture retention techniques, water reuse initiatives, or community-based conservation programs",
-    "type": "array",
-    "options": [
-      "Traditional irrigation (e.g. flood irrigation)",
-      "Rainwater harvesting",
-      "Gray-water use for irrigation",
-      "Hydroponic or aeroponic growing",
-      "Drip technology",
-      "Low-pressure micro-sprinklers",
-      "Irrigation water use based on monitoring and analysis of soil moisture and weather data",
       "Other",
       "Not applicable"
     ],
@@ -7919,6 +6980,27 @@
     "description": "Summary of water conservation strategies adopted by the project, such as rainwater harvesting, drip irrigation, mulching, reuse systems, or behavioral change initiatives aimed at reducing water use.",
     "type": "string",
     "options": [],
+    "section": "actuals-ecologicalImpacts",
+    "table": null
+  },
+  {
+    "name": "waterConservationType",
+    "id": 1615,
+    "label": "Water conservation practices implemented by project",
+    "tier": 2,
+    "description": "Specific practices or interventions carried out to conserve water resources, such as rainwater harvesting, efficient irrigation systems, soil moisture retention techniques, water reuse initiatives, or community-based conservation programs",
+    "type": "array",
+    "options": [
+      "Traditional irrigation (e.g. flood irrigation)",
+      "Rainwater harvesting",
+      "Gray-water use for irrigation",
+      "Hydroponic or aeroponic growing",
+      "Drip technology",
+      "Low-pressure micro-sprinklers",
+      "Irrigation water use based on monitoring and analysis of soil moisture and weather data",
+      "Other",
+      "Not applicable"
+    ],
     "section": "actuals-ecologicalImpacts",
     "table": null
   },
@@ -8033,11 +7115,66 @@
     "table": null
   },
   {
+    "name": "marineBaselineUpload",
+    "id": 1622,
+    "label": "Baseline coastal or aquatic health supporting documents",
+    "tier": 2,
+    "description": "Images or documents related to the region's ecological baseline  (e.g., baseline biodiversity in the region, ecological composition or condition, proximity and types of neighboring ecosystems, etc.)",
+    "type": "array",
+    "options": [],
+    "section": "actuals-ecologicalImpacts",
+    "table": null
+  },
+  {
+    "name": "marineHealthIndicatorsDetails",
+    "id": 1629,
+    "label": "Description of indentified and/or other marine and coastal health indicators",
+    "tier": 2,
+    "description": "",
+    "type": "string",
+    "options": [],
+    "section": "actuals-ecologicalImpacts",
+    "table": null
+  },
+  {
+    "name": "oceanFloorDetails",
+    "id": 1625,
+    "label": "Overview of changes to ocean floor substrate cover",
+    "tier": 2,
+    "description": "Changes in ocean floor substrate coverage (i.e., increase in seagrass or coral cover) due to project activities",
+    "type": "string",
+    "options": [],
+    "section": "actuals-ecologicalImpacts",
+    "table": null
+  },
+  {
+    "name": "marineSpeciesNumber",
+    "id": 1620,
+    "label": "Number of species of vegetation within project boundaries",
+    "tier": 2,
+    "description": "The number or estimated count of plant species present within the project area",
+    "type": "number",
+    "options": [],
+    "section": "actuals-ecologicalImpacts",
+    "table": null
+  },
+  {
     "name": "marineImpacts",
     "id": 1630,
     "label": "Summary of project impacts on coastal and marine ecosystem health as a result of project activities",
     "tier": 2,
     "description": "For example if species diversity was monitored, a summary of changes in flora and fauna composition and diversity through project activities compared to baseline conditions",
+    "type": "string",
+    "options": [],
+    "section": "actuals-ecologicalImpacts",
+    "table": null
+  },
+  {
+    "name": "marineEcosystemProximity",
+    "id": 1623,
+    "label": "Ecosystem(s) in close proximity to project's aquatic boundaries",
+    "tier": 2,
+    "description": "Any ecosystems not directly within but in close proximity to project geographic boundaries (seagrass meadows, mangrove forests, etc.)",
     "type": "string",
     "options": [],
     "section": "actuals-ecologicalImpacts",
@@ -8074,55 +7211,33 @@
     "table": null
   },
   {
-    "name": "marineHealthIndicatorsDetails",
-    "id": 1629,
-    "label": "Description of indentified and/or other marine and coastal health indicators",
+    "name": "marineBaselineConditional",
+    "id": 1619,
+    "label": "Project evaluates baseline aquatic or coastal ecological health in the project region",
     "tier": 2,
-    "description": "",
+    "description": "This baseline can include ocean/river water quality and ecology, including aquatic and terrestrial flora and fauna species presence and abundance",
+    "type": "boolean",
+    "options": [],
+    "section": "actuals-ecologicalImpacts",
+    "table": null
+  },
+  {
+    "name": "marineBaselineEvaluation",
+    "id": 1627,
+    "label": "Overview of baseline aquatic health evaluation",
+    "tier": 2,
+    "description": "Indication of how the project evaluates baseline aquatic health (e.g., direct measurements, model estimations, etc.)",
     "type": "string",
     "options": [],
     "section": "actuals-ecologicalImpacts",
     "table": null
   },
   {
-    "name": "marineSpeciesNumber",
-    "id": 1620,
-    "label": "Number of species of vegetation within project boundaries",
+    "name": "marineEcologyDetails",
+    "id": 1621,
+    "label": "Overview of coastal or aquatic ecology within project boundaries",
     "tier": 2,
-    "description": "The number or estimated count of plant species present within the project area",
-    "type": "number",
-    "options": [],
-    "section": "actuals-ecologicalImpacts",
-    "table": null
-  },
-  {
-    "name": "marineBaselineUpload",
-    "id": 1622,
-    "label": "Baseline coastal or aquatic health supporting documents",
-    "tier": 2,
-    "description": "Images or documents related to the region's ecological baseline  (e.g., baseline biodiversity in the region, ecological composition or condition, proximity and types of neighboring ecosystems, etc.)",
-    "type": "array",
-    "options": [],
-    "section": "actuals-ecologicalImpacts",
-    "table": null
-  },
-  {
-    "name": "oceanFloorDetails",
-    "id": 1625,
-    "label": "Overview of changes to ocean floor substrate cover",
-    "tier": 2,
-    "description": "Changes in ocean floor substrate coverage (i.e., increase in seagrass or coral cover) due to project activities",
-    "type": "string",
-    "options": [],
-    "section": "actuals-ecologicalImpacts",
-    "table": null
-  },
-  {
-    "name": "marineEcosystemProximity",
-    "id": 1623,
-    "label": "Ecosystem(s) in close proximity to project's aquatic boundaries",
-    "tier": 2,
-    "description": "Any ecosystems not directly within but in close proximity to project geographic boundaries (seagrass meadows, mangrove forests, etc.)",
+    "description": "Overview of the ecological composition and condition of the project area (e.g., ecosystem type - marsh, coral atolls, types of species present, etc.)",
     "type": "string",
     "options": [],
     "section": "actuals-ecologicalImpacts",
@@ -8140,28 +7255,6 @@
     "table": null
   },
   {
-    "name": "oceanFloorConditional",
-    "id": 1624,
-    "label": "Ocean floor substrate coverage has changed as result of project activities",
-    "tier": 2,
-    "description": "Indicates whether ocean floor substrate has changed due to project activities (i.e., density of seagrass meadows, coral cover, etc)",
-    "type": "boolean",
-    "options": [],
-    "section": "actuals-ecologicalImpacts",
-    "table": null
-  },
-  {
-    "name": "marineBaselineConditional",
-    "id": 1619,
-    "label": "Project evaluates baseline aquatic or coastal ecological health in the project region",
-    "tier": 2,
-    "description": "This baseline can include ocean/river water quality and ecology, including aquatic and terrestrial flora and fauna species presence and abundance",
-    "type": "boolean",
-    "options": [],
-    "section": "actuals-ecologicalImpacts",
-    "table": null
-  },
-  {
     "name": "oceanFloorUpload",
     "id": 1626,
     "label": "Ocean floor substrate coverage supporting documents",
@@ -8173,34 +7266,12 @@
     "table": null
   },
   {
-    "name": "marineEcologyDetails",
-    "id": 1621,
-    "label": "Overview of coastal or aquatic ecology within project boundaries",
+    "name": "oceanFloorConditional",
+    "id": 1624,
+    "label": "Ocean floor substrate coverage has changed as result of project activities",
     "tier": 2,
-    "description": "Overview of the ecological composition and condition of the project area (e.g., ecosystem type - marsh, coral atolls, types of species present, etc.)",
-    "type": "string",
-    "options": [],
-    "section": "actuals-ecologicalImpacts",
-    "table": null
-  },
-  {
-    "name": "marineBaselineEvaluation",
-    "id": 1627,
-    "label": "Overview of baseline aquatic health evaluation",
-    "tier": 2,
-    "description": "Indication of how the project evaluates baseline aquatic health (e.g., direct measurements, model estimations, etc.)",
-    "type": "string",
-    "options": [],
-    "section": "actuals-ecologicalImpacts",
-    "table": null
-  },
-  {
-    "name": "noiseImpactEvidence",
-    "id": 1592,
-    "label": "Noise pollution impacts supporting documents",
-    "tier": -1,
-    "description": "Documents such as sound level readings from baseline conditions as well as project conditions",
-    "type": "array",
+    "description": "Indicates whether ocean floor substrate has changed due to project activities (i.e., density of seagrass meadows, coral cover, etc)",
+    "type": "boolean",
     "options": [],
     "section": "actuals-ecologicalImpacts",
     "table": null
@@ -8228,22 +7299,22 @@
     "table": null
   },
   {
-    "name": "noiseProjectDay",
-    "id": 1589,
-    "label": "Average daytime noise levels after project completion in decibels",
-    "tier": 2,
-    "description": "Average daytime noise level in decibles post project initiation",
-    "type": "number",
+    "name": "noiseImpactEvidence",
+    "id": 1592,
+    "label": "Noise pollution impacts supporting documents",
+    "tier": -1,
+    "description": "Documents such as sound level readings from baseline conditions as well as project conditions",
+    "type": "array",
     "options": [],
     "section": "actuals-ecologicalImpacts",
     "table": null
   },
   {
-    "name": "noiseBaselineNight",
-    "id": 1588,
-    "label": "Baseline average nighttime noise levels in decibels",
+    "name": "noiseProjectDay",
+    "id": 1589,
+    "label": "Average daytime noise levels after project completion in decibels",
     "tier": 2,
-    "description": "Average night-time noise level in decibles before project operations  ",
+    "description": "Average daytime noise level in decibles post project initiation",
     "type": "number",
     "options": [],
     "section": "actuals-ecologicalImpacts",
@@ -8261,33 +7332,22 @@
     "table": null
   },
   {
-    "name": "noiseBaselineDay",
-    "id": 1587,
-    "label": "Baseline average daytime noise levels (decibels)",
-    "tier": 2,
-    "description": "Average daytime noise level in decibles before project operations",
-    "type": "number",
+    "name": "noiseDistanceEvidence",
+    "id": 1585,
+    "label": "Evidence of proximity to nearest human residents",
+    "tier": -1,
+    "description": "Documentation of the proximity of the project activity to the nearest human populations",
+    "type": "array",
     "options": [],
     "section": "actuals-ecologicalImpacts",
     "table": null
   },
   {
-    "name": "noiseBaseline",
-    "id": 1586,
-    "label": "Baseline noise level survey has been conducted",
+    "name": "noiseBaselineNight",
+    "id": 1588,
+    "label": "Baseline average nighttime noise levels in decibels",
     "tier": 2,
-    "description": "Noise pollution testing involves measuring sound levels using a sound level meter to determine if they exceed acceptable limits. The results are often compared to regulations or standards to ensure compliance.",
-    "type": "boolean",
-    "options": [],
-    "section": "actuals-ecologicalImpacts",
-    "table": null
-  },
-  {
-    "name": "noiseProjectNight",
-    "id": 1590,
-    "label": "Average nighttime noise levels after project completion in decibels",
-    "tier": 2,
-    "description": "Average night-time noise level in decibles during project operations",
+    "description": "Average night-time noise level in decibles before project operations  ",
     "type": "number",
     "options": [],
     "section": "actuals-ecologicalImpacts",
@@ -8305,22 +7365,44 @@
     "table": null
   },
   {
-    "name": "noiseDistanceEvidence",
-    "id": 1585,
-    "label": "Evidence of proximity to nearest human residents",
-    "tier": -1,
-    "description": "Documentation of the proximity of the project activity to the nearest human populations",
-    "type": "array",
+    "name": "noiseProjectNight",
+    "id": 1590,
+    "label": "Average nighttime noise levels after project completion in decibels",
+    "tier": 2,
+    "description": "Average night-time noise level in decibles during project operations",
+    "type": "number",
     "options": [],
     "section": "actuals-ecologicalImpacts",
     "table": null
   },
   {
-    "name": "infrastructureSpecies",
-    "id": 1579,
-    "label": "Species affected by development and any remediation measures taken by project",
+    "name": "noiseBaseline",
+    "id": 1586,
+    "label": "Baseline noise level survey has been conducted",
     "tier": 2,
-    "description": "Overview of the species affected by the project activity and any plans, actions, or initiatives taken to limit impact (i.e., fish bridges, wildlife corridors, etc.)",
+    "description": "Noise pollution testing involves measuring sound levels using a sound level meter to determine if they exceed acceptable limits. The results are often compared to regulations or standards to ensure compliance.",
+    "type": "boolean",
+    "options": [],
+    "section": "actuals-ecologicalImpacts",
+    "table": null
+  },
+  {
+    "name": "noiseBaselineDay",
+    "id": 1587,
+    "label": "Baseline average daytime noise levels (decibels)",
+    "tier": 2,
+    "description": "Average daytime noise level in decibles before project operations",
+    "type": "number",
+    "options": [],
+    "section": "actuals-ecologicalImpacts",
+    "table": null
+  },
+  {
+    "name": "infrastructureConditional",
+    "id": 1575,
+    "label": "Project has resulted in new construction of roads, buildings, or other structures within project boundaries",
+    "tier": 2,
+    "description": "Indicates whether buildings, roads, or infrastructure such as irrigation systems have been built for project operations",
     "type": "string",
     "options": [],
     "section": "actuals-ecologicalImpacts",
@@ -8338,11 +7420,22 @@
     "table": null
   },
   {
-    "name": "infrastructureConditional",
-    "id": 1575,
-    "label": "Project has resulted in new construction of roads, buildings, or other structures within project boundaries",
+    "name": "infrastructureDetails",
+    "id": 1577,
+    "label": "Summary of constructed structures, roads, and access management",
     "tier": 2,
-    "description": "Indicates whether buildings, roads, or infrastructure such as irrigation systems have been built for project operations",
+    "description": "Overview of any infrastructure that has been built specifically as part of the project activity",
+    "type": "string",
+    "options": [],
+    "section": "actuals-ecologicalImpacts",
+    "table": null
+  },
+  {
+    "name": "infrastructureSpecies",
+    "id": 1579,
+    "label": "Species affected by development and any remediation measures taken by project",
+    "tier": 2,
+    "description": "Overview of the species affected by the project activity and any plans, actions, or initiatives taken to limit impact (i.e., fish bridges, wildlife corridors, etc.)",
     "type": "string",
     "options": [],
     "section": "actuals-ecologicalImpacts",
@@ -8360,34 +7453,23 @@
     "table": null
   },
   {
-    "name": "infrastructureHabitatImpacts",
-    "id": 1578,
-    "label": "Infrastructure development has contributed to habitat fragmentation for monitored species",
-    "tier": 2,
-    "description": "Indicates whether buildings, roads, or infrastructure contribute to habitat fragmentation (i.e., inhibit the ability of species to move freely within their habitats)",
-    "type": "string",
-    "options": [],
-    "section": "actuals-ecologicalImpacts",
-    "table": null
-  },
-  {
-    "name": "infrastructureDetails",
-    "id": 1577,
-    "label": "Summary of constructed structures, roads, and access management",
-    "tier": 2,
-    "description": "Overview of any infrastructure that has been built specifically as part of the project activity",
-    "type": "string",
-    "options": [],
-    "section": "actuals-ecologicalImpacts",
-    "table": null
-  },
-  {
     "name": "infrastructureEvidence",
     "id": 1581,
     "label": "Project infrastructure development plans and supporting documents",
     "tier": -1,
     "description": "Documentation such as building plans, timelines, or blueprints of construction needed for project operations",
     "type": "array",
+    "options": [],
+    "section": "actuals-ecologicalImpacts",
+    "table": null
+  },
+  {
+    "name": "infrastructureHabitatImpacts",
+    "id": 1578,
+    "label": "Infrastructure development has contributed to habitat fragmentation for monitored species",
+    "tier": 2,
+    "description": "Indicates whether buildings, roads, or infrastructure contribute to habitat fragmentation (i.e., inhibit the ability of species to move freely within their habitats)",
+    "type": "string",
     "options": [],
     "section": "actuals-ecologicalImpacts",
     "table": null

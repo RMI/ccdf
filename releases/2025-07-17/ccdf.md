@@ -1,14 +1,4 @@
 # provenance-projectDetails
-## displayImage
-<a name="displayImage"></a>
-
-| Id | 1854 |
-| :---- | :------------------------------- |
-| **Label** | Display image |
-| **Tier** | 0 |
-| **Section** | provenance-projectDetails |
-| **type** | object |
-
 ## name
 <a name="name"></a>Name used to refer to the carbon project being developed
 
@@ -18,6 +8,16 @@
 | **Tier** | 0 |
 | **Section** | provenance-projectDetails |
 | **type** | string |
+
+## displayImage
+<a name="displayImage"></a>
+
+| Id | 1854 |
+| :---- | :------------------------------- |
+| **Label** | Display image |
+| **Tier** | 0 |
+| **Section** | provenance-projectDetails |
+| **type** | object |
 
 ## projectSummary
 <a name="projectSummary"></a>
@@ -35,6 +35,16 @@
 | Id | 2 |
 | :---- | :------------------------------- |
 | **Label** | Brief project summary |
+| **Tier** | 0 |
+| **Section** | provenance-projectDetails |
+| **type** | string |
+
+## projectActivities
+<a name="projectActivities"></a>
+
+| Id | 4 |
+| :---- | :------------------------------- |
+| **Label** | Description of activities |
 | **Tier** | 0 |
 | **Section** | provenance-projectDetails |
 | **type** | string |
@@ -69,6 +79,16 @@
 | **Section** | provenance-projectDetails |
 | **type** | array |
 
+## projectProponentName
+<a name="projectProponentName"></a>
+
+| Id | 2034 |
+| :---- | :------------------------------- |
+| **Label** | Project proponent name |
+| **Tier** | 0 |
+| **Section** | provenance-projectDetails |
+| **type** | null |
+
 ## projectStartYear
 <a name="projectStartYear"></a>
 
@@ -86,6 +106,16 @@
 | :---- | :------------------------------- |
 | **Label** | Project end year |
 | **Tier** | 0 |
+| **Section** | provenance-projectDetails |
+| **type** | number |
+
+## termLength
+<a name="termLength"></a>Projects must commit to a minimum project term of 40 years
+
+| Id | 468 |
+| :---- | :------------------------------- |
+| **Label** | Project term commitment (in years) |
+| **Tier** | -1 |
 | **Section** | provenance-projectDetails |
 | **type** | number |
 
@@ -120,16 +150,6 @@
 | **type** | string |
 
 # provenance-projectApproach
-## additionalCertificationUpload
-<a name="additionalCertificationUpload"></a>
-
-| Id | 1840 |
-| :---- | :------------------------------- |
-| **Label** | Additional certification supporting documents |
-| **Tier** | -1 |
-| **Section** | provenance-projectApproach |
-| **type** | array |
-
 ## projectScale
 <a name="projectScale"></a>An indication of the estimated tonnes of CO2e to be sequestered or avoided over the life of the project
 
@@ -144,6 +164,16 @@
 | | Medium (10,000 - 100,000 tCO2e) |
 | | Large (100,000+ tCO2e) |
 | | Unknown |
+
+## additionalCertificationUpload
+<a name="additionalCertificationUpload"></a>
+
+| Id | 1840 |
+| :---- | :------------------------------- |
+| **Label** | Additional certification supporting documents |
+| **Tier** | -1 |
+| **Section** | provenance-projectApproach |
+| **type** | array |
 
 ## primaryGhg
 <a name="primaryGhg"></a>
@@ -172,32 +202,6 @@
 | | Carbon reduction |
 | | Carbon removal |
 | | Undefined |
-
-## sectoralScope
-<a name="sectoralScope"></a>Verra projects, activities, or methodologies may be developed under any of the 16 VCS sectoral scopes
-
-| Id | 454 |
-| :---- | :------------------------------- |
-| **Label** | Sectoral scope |
-| **Tier** | 0 |
-| **Section** | provenance-projectApproach |
-| **type** | string |
-| **Options** | Energy (renewable/non-renewable) |
-| | Energy distribution |
-| | Energy demand |
-| | Manufacturing industries |
-| | Chemical industry |
-| | Construction |
-| | Transport |
-| | Mining/Mineral production |
-| | Metal production |
-| | Fugitive emissions – from fuels (solid, oil, and gas) |
-| | Fugitive emissions – from Industrial gases (halocarbons and sulphur hexafluoride) |
-| | Solvents use |
-| | Waste handling and disposal |
-| | Agriculture forestry and other land use (AFOLU) |
-| | Livestock and manure management |
-| | Carbon capture and storage |
 
 ## classificationMethod
 <a name="classificationMethod"></a>Category of the mitigation activity
@@ -411,50 +415,6 @@
 | **type** | array |
 
 # provenance-locationDetails
-## latLongCoordinates
-<a name="latLongCoordinates"></a>
-
-| Id | 1735 |
-| :---- | :------------------------------- |
-| **Label** | Enter coordinates |
-| **Tier** | -1 |
-| **Section** | provenance-locationDetails |
-| **type** | array |
-
-## locationDetailsType
-<a name="locationDetailsType"></a>
-
-| Id | 1654 |
-| :---- | :------------------------------- |
-| **Label** | Preferred method to display project on a map |
-| **Tier** | -1 |
-| **Section** | provenance-locationDetails |
-| **type** | string |
-| **Options** | Address or region |
-| | Latitude and longitude coordinates |
-| | GeoJSON or other GIS shapefile |
-| | Show the country |
-
-## addressLocation
-<a name="addressLocation"></a>
-
-| Id | 1737 |
-| :---- | :------------------------------- |
-| **Label** | Enter an address, city, state/province, or region |
-| **Tier** | -1 |
-| **Section** | provenance-locationDetails |
-| **type** | null |
-
-## geoFileUpload
-<a name="geoFileUpload"></a>
-
-| Id | 1736 |
-| :---- | :------------------------------- |
-| **Label** | Upload file |
-| **Tier** | -1 |
-| **Section** | provenance-locationDetails |
-| **type** | null |
-
 ## countries
 <a name="countries"></a>Country or countries where the project activities take place
 
@@ -504,19 +464,6 @@
 | **Tier** | -1 |
 | **Section** | provenance-locationDetails |
 | **type** | string |
-
-## projectLocationType
-<a name="projectLocationType"></a>Indicates if the project is singular or part of a grouped project (i.e., collection of multiple proponents under one project)
-
-| Id | 452 |
-| :---- | :------------------------------- |
-| **Label** | Project location type |
-| **Tier** | -1 |
-| **Section** | provenance-locationDetails |
-| **type** | string |
-| **Options** | Single location or installation |
-| | Multiple locations but not part of a grouped project |
-| | Grouped project |
 
 # provenance-organizationOverview
 ## organizationClassification
@@ -629,16 +576,6 @@
 | Id | 792 |
 | :---- | :------------------------------- |
 | **Label** | Number of employees staffed on project |
-| **Tier** | -1 |
-| **Section** | provenance-organizationOverview |
-| **type** | number |
-
-## projectLandowners
-<a name="projectLandowners"></a>Landowners within project activity, such as farmers
-
-| Id | 793 |
-| :---- | :------------------------------- |
-| **Label** | Number of landowners |
 | **Tier** | -1 |
 | **Section** | provenance-organizationOverview |
 | **type** | number |
@@ -766,16 +703,6 @@
 | **Section** | provenance-disclosures |
 | **type** | string |
 
-## nationalLawsCompliance
-<a name="nationalLawsCompliance"></a>Attestation of compliance with the applicable national laws of the project country
-
-| Id | 20 |
-| :---- | :------------------------------- |
-| **Label** | Compliance with all applicable national laws |
-| **Tier** | 0 |
-| **Section** | provenance-disclosures |
-| **type** | string |
-
 ## legalComplianceTable
 <a name="legalComplianceTable"></a>
 
@@ -791,6 +718,29 @@
 | :---- | :---- | :---- | :---- |
 | | | | |
 
+## nationalLawsCompliance
+<a name="nationalLawsCompliance"></a>Attestation of compliance with the applicable national laws of the project country
+
+| Id | 20 |
+| :---- | :------------------------------- |
+| **Label** | Compliance with all applicable national laws |
+| **Tier** | 0 |
+| **Section** | provenance-disclosures |
+| **type** | string |
+
+## nationalLawsMethod
+<a name="nationalLawsMethod"></a>
+
+| Id | 22 |
+| :---- | :------------------------------- |
+| **Label** | Method of compliance proof |
+| **Tier** | -1 |
+| **Section** | provenance-disclosures |
+| **type** | string |
+| **Options** | Government verified |
+| | Third-party verified |
+| | Not verified |
+
 ## communityFrameworks
 <a name="communityFrameworks"></a>If relevant, description of the measures taken to adhere to national or international frameworks supporting the rights of Indigenous, tribal and local communities (including the UN Declaration on the Rights of Indigenous Peoples)
 
@@ -800,6 +750,16 @@
 | **Tier** | -1 |
 | **Section** | provenance-disclosures |
 | **type** | string |
+
+## culturalSite
+<a name="culturalSite"></a>Disclosure of proximity to dedicated areas of archaeological or cultural significance which are recognized by municipalities, counties, state, national and/or international registries
+
+| Id | 1467 |
+| :---- | :------------------------------- |
+| **Label** | The project site includes or borders archaeological sites or districts listed in national or international registries of historical or cultural significance |
+| **Tier** | 0 |
+| **Section** | provenance-disclosures |
+| **type** | boolean |
 
 ## culturalSiteDesignation
 <a name="culturalSiteDesignation"></a>Indication of the type of historical, cultural, or archeological distinction granted to the site
@@ -817,26 +777,6 @@
 | | Cultural |
 | | Other |
 
-## culturalSiteRegistry
-<a name="culturalSiteRegistry"></a>Examples include UNESCO World Heritage registry and/or national equivalents
-
-| Id | 1468 |
-| :---- | :------------------------------- |
-| **Label** | Registry recognizing the site |
-| **Tier** | -1 |
-| **Section** | provenance-disclosures |
-| **type** | string |
-
-## culturalSite
-<a name="culturalSite"></a>Disclosure of proximity to dedicated areas of archaeological or cultural significance which are recognized by municipalities, counties, state, national and/or international registries
-
-| Id | 1467 |
-| :---- | :------------------------------- |
-| **Label** | The project site includes or borders archaeological sites or districts listed in national or international registries of historical or cultural significance |
-| **Tier** | 0 |
-| **Section** | provenance-disclosures |
-| **type** | boolean |
-
 ## archaeologicalActivity
 <a name="archaeologicalActivity"></a>Areas designated can be at the local, regional, state, national, or international level
 
@@ -846,6 +786,16 @@
 | **Tier** | -1 |
 | **Section** | provenance-disclosures |
 | **type** | boolean |
+
+## culturalSiteRegistry
+<a name="culturalSiteRegistry"></a>Examples include UNESCO World Heritage registry and/or national equivalents
+
+| Id | 1468 |
+| :---- | :------------------------------- |
+| **Label** | Registry recognizing the site |
+| **Tier** | -1 |
+| **Section** | provenance-disclosures |
+| **type** | string |
 
 ## parisNdcApplicability
 <a name="parisNdcApplicability"></a>
@@ -996,6 +946,16 @@
 | **Section** | provenance-disclosures |
 | **type** | string |
 
+## organizationNameAndRole
+<a name="organizationNameAndRole"></a>Entities could include (but are not limited to) GIS advisory; feasibility study; technical document service; administrative service; biodiversity advisory, political advocacy; project consultants; financial institutions 
+
+| Id | 2047 |
+| :---- | :------------------------------- |
+| **Label** | Organization name and role |
+| **Tier** | 0 |
+| **Section** | provenance-disclosures |
+| **type** | string |
+
 # provenance-socioeconomicDueDiligence
 ## economicDisplacementExplain
 <a name="economicDisplacementExplain"></a>Possible risks or impacts to the project community that would create obstacles to the ability to find, retain, or secure economic opportunity in the project area
@@ -1017,22 +977,22 @@
 | **Section** | provenance-socioeconomicDueDiligence |
 | **type** | string |
 
-## physicalMitigation
-<a name="physicalMitigation"></a>Project plan to mitigate possible relocation, loss of residential land, or loss of shelter due to project activities
-
-| Id | 593 |
-| :---- | :------------------------------- |
-| **Label** | Mitigation plan in place to address physical displacement effects |
-| **Tier** | -1 |
-| **Section** | provenance-socioeconomicDueDiligence |
-| **type** | boolean |
-
 ## economicDisplacementPlan
 <a name="economicDisplacementPlan"></a>Project plan to mitigate possible obstacles to economic opportunity for the project community due to project activities
 
 | Id | 37 |
 | :---- | :------------------------------- |
 | **Label** | Mitigation plan in place to address economic displacement effects |
+| **Tier** | -1 |
+| **Section** | provenance-socioeconomicDueDiligence |
+| **type** | boolean |
+
+## physicalMitigation
+<a name="physicalMitigation"></a>Project plan to mitigate possible relocation, loss of residential land, or loss of shelter due to project activities
+
+| Id | 593 |
+| :---- | :------------------------------- |
+| **Label** | Mitigation plan in place to address physical displacement effects |
 | **Tier** | -1 |
 | **Section** | provenance-socioeconomicDueDiligence |
 | **type** | boolean |
@@ -1157,6 +1117,26 @@
 | **Section** | provenance-socioeconomicDueDiligence |
 | **type** | array |
 
+## healthImpactDisclosure
+<a name="healthImpactDisclosure"></a>Outcome of expected community health impacts due to project activities (e.g., changes in potable water quality, pollutant impact, hazardous wastes)
+
+| Id | 2044 |
+| :---- | :------------------------------- |
+| **Label** | Expected health impact disclosure |
+| **Tier** | 0 |
+| **Section** | provenance-socioeconomicDueDiligence |
+| **type** | null |
+
+## healthImpactCommunication
+<a name="healthImpactCommunication"></a>In the case a project has expected health impacts to the community, these risks will be communicated to stakeholders during the consultation and engagement process
+
+| Id | 2043 |
+| :---- | :------------------------------- |
+| **Label** | Potential health impacts disclosure will be communicated during consultations |
+| **Tier** | 0 |
+| **Section** | provenance-socioeconomicDueDiligence |
+| **type** | null |
+
 ## socialGroupRiskPlanUpload
 <a name="socialGroupRiskPlanUpload"></a>Documents showcasing risk mitigation plans
 
@@ -1166,16 +1146,6 @@
 | **Tier** | -1 |
 | **Section** | provenance-socioeconomicDueDiligence |
 | **type** | array |
-
-## socialGroupConsult
-<a name="socialGroupConsult"></a>Indicates whether the project is expected to consult specific groups, such as women, people with disabilities, and/or other minority groups (among others) who may be disproportionately affected by the project compared to other groups
-
-| Id | 46 |
-| :---- | :------------------------------- |
-| **Label** | Project plans to consult and engage with specific vulnerable social groups |
-| **Tier** | -1 |
-| **Section** | provenance-socioeconomicDueDiligence |
-| **type** | boolean |
 
 ## socialGroup
 <a name="socialGroup"></a>The specific groups that carry a particular emphasis in the consultation or engagement plans
@@ -1195,6 +1165,16 @@
 | | Migrant Workers |
 | | Indigenous and/or Tribal Community Members |
 | | Other |
+
+## socialGroupConsult
+<a name="socialGroupConsult"></a>Indicates whether the project is expected to consult specific groups, such as women, people with disabilities, and/or other minority groups (among others) who may be disproportionately affected by the project compared to other groups
+
+| Id | 46 |
+| :---- | :------------------------------- |
+| **Label** | Project plans to consult and engage with specific vulnerable social groups |
+| **Tier** | -1 |
+| **Section** | provenance-socioeconomicDueDiligence |
+| **type** | boolean |
 
 ## socialGroupConsultDetails
 <a name="socialGroupConsultDetails"></a>Engagement plans or processes with the identified specific vulnerable communities (e.g., women-only consultations or focus groups)
@@ -1300,6 +1280,16 @@
 | **Tier** | -1 |
 | **Section** | provenance-socioeconomicDueDiligence |
 | **type** | boolean |
+
+## womenRightsDescription
+<a name="womenRightsDescription"></a>Description of how women are formally and fairly entitled to project related land water and or other types of resources
+
+| Id | 2035 |
+| :---- | :------------------------------- |
+| **Label** | Overview of gendered resource entitlement |
+| **Tier** | 0 |
+| **Section** | provenance-socioeconomicDueDiligence |
+| **type** | string |
 
 ## communityExists
 <a name="communityExists"></a>Project activities either take place in, border, or affect resources that impact nearby recognized or known indigenous territories
@@ -1508,26 +1498,6 @@
 | **type** | number |
 
 # provenance-ecologicalDueDiligence
-## baselineComparisonPlan
-<a name="baselineComparisonPlan"></a>If the project conducts a baseline air quality study (before project start or using a control site), monitoring results will be compared against these baseline levels
-
-| Id | 1476 |
-| :---- | :------------------------------- |
-| **Label** | Project plans to measure pollutants against baseline air quality |
-| **Tier** | -1 |
-| **Section** | provenance-ecologicalDueDiligence |
-| **type** | boolean |
-
-## airExpectedImpacts
-<a name="airExpectedImpacts"></a>Description of expected air quality impacts, such as improved indoor air quality for households using the project technology
-
-| Id | 1668 |
-| :---- | :------------------------------- |
-| **Label** | Summary of expected air quality impacts of the project activity |
-| **Tier** | -1 |
-| **Section** | provenance-ecologicalDueDiligence |
-| **type** | string |
-
 ## airMonitoringPlan
 <a name="airMonitoringPlan"></a>Air pollution monitoring plans often include pollutants to be monitored, frequency of monitoring, and outlined data collection/mangement practices
 
@@ -1547,6 +1517,26 @@
 | **Tier** | -1 |
 | **Section** | provenance-ecologicalDueDiligence |
 | **type** | array |
+
+## baselineComparisonPlan
+<a name="baselineComparisonPlan"></a>If the project conducts a baseline air quality study (before project start or using a control site), monitoring results will be compared against these baseline levels
+
+| Id | 1476 |
+| :---- | :------------------------------- |
+| **Label** | Project plans to measure pollutants against baseline air quality |
+| **Tier** | -1 |
+| **Section** | provenance-ecologicalDueDiligence |
+| **type** | boolean |
+
+## airExpectedImpacts
+<a name="airExpectedImpacts"></a>Description of expected air quality impacts, such as improved indoor air quality for households using the project technology
+
+| Id | 1668 |
+| :---- | :------------------------------- |
+| **Label** | Summary of expected air quality impacts of the project activity |
+| **Tier** | -1 |
+| **Section** | provenance-ecologicalDueDiligence |
+| **type** | string |
 
 ## airMonitoringDomains
 <a name="airMonitoringDomains"></a>Project plans may focus on indoor air quality, ambient air quality, or both
@@ -1608,15 +1598,15 @@
 | **Section** | provenance-ecologicalDueDiligence |
 | **type** | array |
 
-## waterMonitoringPlan
-<a name="waterMonitoringPlan"></a>Water monitoring plans typically specify which pollutants and water levels or availability will be monitored, along with procedures for data collection and management
+## baselineWaterEvidence
+<a name="baselineWaterEvidence"></a>Evidence or documentation of baseline water analysis
 
-| Id | 937 |
+| Id | 1485 |
 | :---- | :------------------------------- |
-| **Label** | Project plans to monitor water resources |
+| **Label** | Baseline water resource supporting documents |
 | **Tier** | -1 |
 | **Section** | provenance-ecologicalDueDiligence |
-| **type** | boolean |
+| **type** | array |
 
 ## waterMonitoringFrequency
 <a name="waterMonitoringFrequency"></a>Details on how frequently the project developer will monitor water resources affected by the project activity
@@ -1628,22 +1618,12 @@
 | **Section** | provenance-ecologicalDueDiligence |
 | **type** | string |
 
-## baselineWaterEvidence
-<a name="baselineWaterEvidence"></a>Evidence or documentation of baseline water analysis
+## waterMonitoringPlan
+<a name="waterMonitoringPlan"></a>Water monitoring plans typically specify which pollutants and water levels or availability will be monitored, along with procedures for data collection and management
 
-| Id | 1485 |
+| Id | 937 |
 | :---- | :------------------------------- |
-| **Label** | Baseline water resource supporting documents |
-| **Tier** | -1 |
-| **Section** | provenance-ecologicalDueDiligence |
-| **type** | array |
-
-## waterImpact
-<a name="waterImpact"></a>Project is located near an area where water (from rainfall, snowmelt, or groundwater) collects and flows into a body of water such as a river, lake, or ocean
-
-| Id | 143 |
-| :---- | :------------------------------- |
-| **Label** | Project activity takes place near a water basin |
+| **Label** | Project plans to monitor water resources |
 | **Tier** | -1 |
 | **Section** | provenance-ecologicalDueDiligence |
 | **type** | boolean |
@@ -1679,6 +1659,16 @@
 | | Aquatic habitat restoration - Floodplain inundation/reestablish hydrologic connection |
 | | Water Governance - direct engagement in water governance and pulic water management |
 | | Catalytic activities - Activities that pave the way for longer-term water stewardship outcomes |
+
+## waterImpact
+<a name="waterImpact"></a>Project is located near an area where water (from rainfall, snowmelt, or groundwater) collects and flows into a body of water such as a river, lake, or ocean
+
+| Id | 143 |
+| :---- | :------------------------------- |
+| **Label** | Project activity takes place near a water basin |
+| **Tier** | -1 |
+| **Section** | provenance-ecologicalDueDiligence |
+| **type** | boolean |
 
 ## waterMonitorIntention
 <a name="waterMonitorIntention"></a>Details of the water monitoring plan the project intends to implement
@@ -1741,16 +1731,6 @@
 | **Section** | provenance-ecologicalDueDiligence |
 | **type** | string |
 
-## biodiversityMonitoringPlan
-<a name="biodiversityMonitoringPlan"></a>Documentation or supporting evidence of the biodiversity monitoring plan
-
-| Id | 1478 |
-| :---- | :------------------------------- |
-| **Label** | Biodiversity monitoring plan documentation |
-| **Tier** | -1 |
-| **Section** | provenance-ecologicalDueDiligence |
-| **type** | array |
-
 ## endangeredSpeciesConditional
 <a name="endangeredSpeciesConditional"></a>Identification of any expected negative impacts on threatened or endangered species
 
@@ -1782,6 +1762,16 @@
 | | Brackish tidal systems |
 | | Shoreline systems |
 | | Unknown |
+
+## biodiversityMonitoringPlan
+<a name="biodiversityMonitoringPlan"></a>Documentation or supporting evidence of the biodiversity monitoring plan
+
+| Id | 1478 |
+| :---- | :------------------------------- |
+| **Label** | Biodiversity monitoring plan documentation |
+| **Tier** | -1 |
+| **Section** | provenance-ecologicalDueDiligence |
+| **type** | array |
 
 ## ecosystemCategorization
 <a name="ecosystemCategorization"></a>As per the IUCN, ecosystem risk refers to an ecosystem's vulnerability of collapse, determined by reductions in geographical distribution or degradation of the components of ecosystems and the services they provide (more information can be found here: https://assessments.iucnrle.org/)
@@ -1881,46 +1871,6 @@
 | **Section** | provenance-ecologicalDueDiligence |
 | **type** | string |
 
-## soilMonitoringPlan
-<a name="soilMonitoringPlan"></a>Indicates if the project will follow a protocol to sample, measure, and analyze soil health and changes caused by project activities
-
-| Id | 1483 |
-| :---- | :------------------------------- |
-| **Label** | Plan in place for soil testing and monitoring |
-| **Tier** | -1 |
-| **Section** | provenance-ecologicalDueDiligence |
-| **type** | boolean |
-
-## baselineSoilSurveyUpload
-<a name="baselineSoilSurveyUpload"></a>Baseline soil health survey documentation (e.g., survey findings, template)
-
-| Id | 1482 |
-| :---- | :------------------------------- |
-| **Label** | Baseline soil health survey  |
-| **Tier** | -1 |
-| **Section** | provenance-ecologicalDueDiligence |
-| **type** | array |
-
-## soilMonitoringPlanDetails
-<a name="soilMonitoringPlanDetails"></a>Description of the soil monitoring plan, including testing types and frequency
-
-| Id | 1484 |
-| :---- | :------------------------------- |
-| **Label** | Overview of soil monitoring plan |
-| **Tier** | -1 |
-| **Section** | provenance-ecologicalDueDiligence |
-| **type** | string |
-
-## erosionDiligence
-<a name="erosionDiligence"></a>High erosion risk, defined by the World Atlas of Desertification Global Erosion Map, with R factors of 20 or higher indicating ‘high erosion risk’
-
-| Id | 1480 |
-| :---- | :------------------------------- |
-| **Label** | Area in which the project takes place is at high risk for erosion |
-| **Tier** | -1 |
-| **Section** | provenance-ecologicalDueDiligence |
-| **type** | boolean |
-
 ## baselineSoilSurvey
 <a name="baselineSoilSurvey"></a>Indicates whether a baseline soil quality study (before project start or using a control site) has been conducted
 
@@ -1953,6 +1903,46 @@
 | | Ultisols |
 | | Vertisols |
 
+## baselineSoilSurveyUpload
+<a name="baselineSoilSurveyUpload"></a>Baseline soil health survey documentation (e.g., survey findings, template)
+
+| Id | 1482 |
+| :---- | :------------------------------- |
+| **Label** | Baseline soil health survey  |
+| **Tier** | -1 |
+| **Section** | provenance-ecologicalDueDiligence |
+| **type** | array |
+
+## erosionDiligence
+<a name="erosionDiligence"></a>High erosion risk, defined by the World Atlas of Desertification Global Erosion Map, with R factors of 20 or higher indicating ‘high erosion risk’
+
+| Id | 1480 |
+| :---- | :------------------------------- |
+| **Label** | Area in which the project takes place is at high risk for erosion |
+| **Tier** | -1 |
+| **Section** | provenance-ecologicalDueDiligence |
+| **type** | boolean |
+
+## soilMonitoringPlanDetails
+<a name="soilMonitoringPlanDetails"></a>Description of the soil monitoring plan, including testing types and frequency
+
+| Id | 1484 |
+| :---- | :------------------------------- |
+| **Label** | Overview of soil monitoring plan |
+| **Tier** | -1 |
+| **Section** | provenance-ecologicalDueDiligence |
+| **type** | string |
+
+## soilMonitoringPlan
+<a name="soilMonitoringPlan"></a>Indicates if the project will follow a protocol to sample, measure, and analyze soil health and changes caused by project activities
+
+| Id | 1483 |
+| :---- | :------------------------------- |
+| **Label** | Plan in place for soil testing and monitoring |
+| **Tier** | -1 |
+| **Section** | provenance-ecologicalDueDiligence |
+| **type** | boolean |
+
 ## soilEffects
 <a name="soilEffects"></a>Description of expected soil impacts (e.g., physical, chemical, and biological soil ecosystem impacts). If relevant and known, the assessment should reference soil temperature, type, and chemistry)
 
@@ -1964,62 +1954,36 @@
 | **Section** | provenance-ecologicalDueDiligence |
 | **type** | string |
 
-# forecast-eligibilityRequirements
-## vm45ReqTable
-<a name="vm45ReqTable"></a>
-
-| Id | 1803 |
-| :---- | :------------------------------- |
-| **Label** | Methodology applicability criteria compliance |
-| **Tier** | 1 |
-| **Section** | forecast-eligibilityRequirements |
-| **type** | object |
-
-### Table structure
-| Applicability criteria | Applicability criteria details | Compliance justification | 
-| :---- | :---- | :---- |
-| | | |
-
-## ifmRequirementsVerraDocumentation
-<a name="ifmRequirementsVerraDocumentation"></a>
-
-| Id | 949 |
-| :---- | :------------------------------- |
-| **Label** | Eligibility requirements supporting documents |
-| **Tier** | -1 |
-| **Section** | forecast-eligibilityRequirements |
-| **type** | array |
-
-## ifmRequirementsVerraDocumentation
-<a name="ifmRequirementsVerraDocumentation"></a>
-
-| Id | 949 |
-| :---- | :------------------------------- |
-| **Label** | Eligibility requirements supporting documents |
-| **Tier** | -1 |
-| **Section** | forecast-eligibilityRequirements |
-| **type** | array |
-
 # forecast-baselineScenario
-## baselineStartYear
-<a name="baselineStartYear"></a>
+## baseline
+<a name="baseline"></a>A description of the expected scenario if the project were not implemented, such as the likely alternative use or disposal of biomass feedstock in biomass-based projects, along with the underlying assumptions used to estimate baseline emissions
 
-| Id | 69 |
+| Id | 272 |
 | :---- | :------------------------------- |
-| **Label** | Baseline start year |
+| **Label** | Baseline scenario overview |
 | **Tier** | 1 |
 | **Section** | forecast-baselineScenario |
-| **type** | number |
+| **type** | string |
 
-## baselineEndYear
-<a name="baselineEndYear"></a>
+## baselineSupporting
+<a name="baselineSupporting"></a>
 
-| Id | 584 |
+| Id | 273 |
 | :---- | :------------------------------- |
-| **Label** | Baseline end year |
+| **Label** | Baseline scenario supporting documents |
+| **Tier** | -1 |
+| **Section** | forecast-baselineScenario |
+| **type** | array |
+
+## fixedBaselinePeriod
+<a name="fixedBaselinePeriod"></a>If applicable. Some standards or methodologies require that the baseline scenrio is based on a fixed ("static") historical lookback period or schedule of previous land management activities.
+
+| Id | 2036 |
+| :---- | :------------------------------- |
+| **Label** | Current fixed baseline period or historical look-back period |
 | **Tier** | 1 |
 | **Section** | forecast-baselineScenario |
-| **type** | number |
+| **type** | string |
 
 ## dynamicBaseline
 <a name="dynamicBaseline"></a>Baselines are traditionally established by predicting what would have happened in the absence of the project. Dynamic baselines can take different formats, but are usually estbalished by observing a reference area as it changes over time.
@@ -2041,129 +2005,6 @@
 | **Section** | forecast-baselineScenario |
 | **type** | string |
 
-## verraIfmBslInventoryTable
-<a name="verraIfmBslInventoryTable"></a>
-
-| Id | 1354 |
-| :---- | :------------------------------- |
-| **Label** | Baseline inventory overview |
-| **Tier** | 1 |
-| **Section** | forecast-baselineScenario |
-| **type** | object |
-
-### Table structure
-| Composite baseline | Constituent plot | National or sub-national forest inventory | Primary unit match | Weight of constituent baseline plot | Remeasurement schedule | Geographic size (acres) | 
-| :---- | :---- | :---- | :---- | :---- | :---- | :---- |
-| | | | | | | |
-
-## stratification
-<a name="stratification"></a>If the project activity area is not homogeneous, stratification may be used to improve the modeling of management scenarios and precision of carbon stock estimates
-
-| Id | 477 |
-| :---- | :------------------------------- |
-| **Label** | Stratification is used |
-| **Tier** | 1 |
-| **Section** | forecast-baselineScenario |
-| **type** | boolean |
-| **Options** | Yes |
-| | No |
-
-## noStratification
-<a name="noStratification"></a>
-
-| Id | 617 |
-| :---- | :------------------------------- |
-| **Label** | Rationale for no stratification of the project area  |
-| **Tier** | -1 |
-| **Section** | forecast-baselineScenario |
-| **type** | string |
-
-## stratificationProcedure
-<a name="stratificationProcedure"></a>Should include sufficient information to reasonably ensure the validity and impartiality of the associated techniques. Stratification used to estimate initial stocking levels must be consistent across both the baseline and project scenarios.
-
-| Id | 554 |
-| :---- | :------------------------------- |
-| **Label** | Stratification procedure and results |
-| **Tier** | 1 |
-| **Section** | forecast-baselineScenario |
-| **type** | string |
-
-## stratificationDoc
-<a name="stratificationDoc"></a>
-
-| Id | 1793 |
-| :---- | :------------------------------- |
-| **Label** | Stratification supporting documents |
-| **Tier** | -1 |
-| **Section** | forecast-baselineScenario |
-| **type** | array |
-
-## ifmVerraBslPlotSourcing
-<a name="ifmVerraBslPlotSourcing"></a>A group of constituent baseline plots must be sourced from a donor pool of national or sub-national forest inventory plots derived from the USFS FIA database in the United States. Other geographies require the use of a comparable inventory subject to approval by Verra.
-
-| Id | 113 |
-| :---- | :------------------------------- |
-| **Label** | Baseline plot donor pool selection source |
-| **Tier** | 1 |
-| **Section** | forecast-baselineScenario |
-| **type** | string |
-
-## ifmVerraBslPlotReqs
-<a name="ifmVerraBslPlotReqs"></a>Ecoregions are defined referencing ecological sections from Cleland et al (2007) for the United States and Leemans (1992) elsewhere
-
-| Id | 99 |
-| :---- | :------------------------------- |
-| **Label** | Compliance with methodology requirements for baseline donor pool selection |
-| **Tier** | 1 |
-| **Section** | forecast-baselineScenario |
-| **type** | array |
-| **Options** | Baseline plots are located outside of the project area |
-| | Baseline plots are selected from a donor pool that uses unbiased, representative sampling at a regional scale |
-| | Sample plots are subject to continuous, periodic re-measurement throughout the project crediting period |
-| | All baseline plots are re-measured at least every 10 years |
-| | Initial conditions are quantified from measurements collected 10 years prior to the start of the project activity at most |
-| | Sample plots are located in the same ecoregion |
-| | Trees on sample plots are each given unique identification numbers to permit tracking of individual stems |
-| | Measurement parameters are paired with the project sample units for consistency |
-
-## baselinePlotSourcingRequirementsUS
-<a name="baselinePlotSourcingRequirementsUS"></a>
-
-| Id | 954 |
-| :---- | :------------------------------- |
-| **Label** | Additional requirements for baseline donor pool selection in the U.S. |
-| **Tier** | -1 |
-| **Section** | forecast-baselineScenario |
-| **type** | array |
-| **Options** | Plots have completed more than two measurement cycles |
-| | Plots are equal to one or less condition codes |
-| | Plot measurements are less than two years older than the standard re-measurement period |
-| | Plots are not located within a registered GHG mitigation project area |
-| | Plots have the same stand origin category as the project sample units |
-| | Plots are of the same forest type group as project sample units |
-| | Plots have the same land ownership class as the project sample units |
-| | Plots fall within the same US Forest Service eccological section as the project sample unit |
-
-## donorPoolSize
-<a name="donorPoolSize"></a>
-
-| Id | 957 |
-| :---- | :------------------------------- |
-| **Label** | Donor pool exceeds 50 plots |
-| **Tier** | 1 |
-| **Section** | forecast-baselineScenario |
-| **type** | boolean |
-
-## donorPoolRedefinition
-<a name="donorPoolRedefinition"></a>If the donor pool contains fewer than 50 plots eligible for matching after selection, it must be redefined to meet the minimum requirement
-
-| Id | 958 |
-| :---- | :------------------------------- |
-| **Label** | Donor pool redefinition |
-| **Tier** | 1 |
-| **Section** | forecast-baselineScenario |
-| **type** | string |
-
 # forecast-projectDesign
 ## conservativeMeasures
 <a name="conservativeMeasures"></a>Overview of measures taken to ensure that the GHG emission reductions or removals from the mitigation activity are be robustly quantified, based on conservative approaches, completeness, and scientific methods
@@ -2175,167 +2016,35 @@
 | **Section** | forecast-projectDesign |
 | **type** | string |
 
-## projectActivityVerra
-<a name="projectActivityVerra"></a>An explanation of the project activity and how it will achieve GHG emission reductions or carbon dioxide removals, along with the implementation schedule for the activity or activities. The description should also cover any conservation, management, or planting efforts, and provide details on how various organizations, communities, and other entities are involved.
+## scalability
+<a name="scalability"></a>Overview of the project's plans and/or ability to increase in scale
 
-| Id | 567 |
+| Id | 1077 |
 | :---- | :------------------------------- |
-| **Label** | Description of the project activity |
-| **Tier** | 1 |
-| **Section** | forecast-projectDesign |
-| **type** | string |
-
-## harvestingPlanOverview
-<a name="harvestingPlanOverview"></a>
-
-| Id | 972 |
-| :---- | :------------------------------- |
-| **Label** | Overview of harvesting plan |
-| **Tier** | 1 |
-| **Section** | forecast-projectDesign |
-| **type** | string |
-
-## verraExtraGhgSources
-<a name="verraExtraGhgSources"></a>
-
-| Id | 960 |
-| :---- | :------------------------------- |
-| **Label** | Project activity involves the use of nitrogen fertilizer or burning of biomass |
-| **Tier** | 1 |
-| **Section** | forecast-projectDesign |
-| **type** | array |
-| **Options** | Nitrogen fertilizer |
-| | Burning of biomass |
-
-## biomassBurningOverview
-<a name="biomassBurningOverview"></a>
-
-| Id | 970 |
-| :---- | :------------------------------- |
-| **Label** | Overview of biomass burning |
-| **Tier** | 1 |
-| **Section** | forecast-projectDesign |
-| **type** | string |
-
-## nitrogenFertilizerOverview
-<a name="nitrogenFertilizerOverview"></a>
-
-| Id | 971 |
-| :---- | :------------------------------- |
-| **Label** | Overview of nitrogen fertilizer use |
-| **Tier** | 1 |
-| **Section** | forecast-projectDesign |
-| **type** | string |
-
-## verraIfmProjectInventoryTable
-<a name="verraIfmProjectInventoryTable"></a>
-
-| Id | 1353 |
-| :---- | :------------------------------- |
-| **Label** | Project inventory overview |
-| **Tier** | 1 |
-| **Section** | forecast-projectDesign |
-| **type** | object |
-
-### Table structure
-| Primary unit / Stand | Secondary unit / Plot | Geographic size (acres) | Description of site activities | 
-| :---- | :---- | :---- | :---- |
-| | | | |
-
-## ifmVerraProjectPlots
-<a name="ifmVerraProjectPlots"></a>
-
-| Id | 952 |
-| :---- | :------------------------------- |
-| **Label** | Overview of project sample units |
-| **Tier** | 1 |
-| **Section** | forecast-projectDesign |
-| **type** | string |
-| **Options** | Yes |
-| | No |
-
-## ifmVerraProjectPlotsDocumentation
-<a name="ifmVerraProjectPlotsDocumentation"></a>
-
-| Id | 953 |
-| :---- | :------------------------------- |
-| **Label** | Project plot supporting documents |
-| **Tier** | -1 |
-| **Section** | forecast-projectDesign |
-| **type** | array |
-| **Options** | Validated |
-| | Verified |
-| | Under validation |
-| | Under verification |
-| | Pre-validation |
-
-## baselinePlotSourcingCovariatesUS
-<a name="baselinePlotSourcingCovariatesUS"></a>
-
-| Id | 955 |
-| :---- | :------------------------------- |
-| **Label** | Project compliance with required covariates for obtaining matches of composite baselines |
-| **Tier** | -1 |
-| **Section** | forecast-projectDesign |
-| **type** | array |
-| **Options** | Distance to sample (treatment/project case) unit |
-| | Stand age |
-| | Site productivity class code |
-| | Regeneration stocking |
-| | Elevation |
-| | Slope |
-| | Commercial stocking |
-| | Quadratic mean diameter |
-| | Horizontal distance to improved road |
-
-## baselinePlotSourcingCovariates
-<a name="baselinePlotSourcingCovariates"></a>Relevant for projects NOT located in the United States. Matching conditions in the baseline scenario are defined by referencing one or more covariates representing biophysical and anthropogenic factors driving carbon stock change
-
-| Id | 956 |
-| :---- | :------------------------------- |
-| **Label** | Covariates used to match baseline plots to project sample units |
-| **Tier** | -1 |
-| **Section** | forecast-projectDesign |
-| **type** | string |
-| **Options** | Distance to sample (treatment/project case) unit |
-| | Stand age |
-| | Site productivity class code |
-| | Regeneration stocking |
-| | Elevation |
-| | Slope |
-| | Commercial stocking |
-| | Quadratic mean diameter |
-| | Horizontal distance to improved road |
-
-## continuousCovariates
-<a name="continuousCovariates"></a>A user-defined caliper value represents the absolute difference between the sample unit and the FIA plot for one or several of the selected continuous covariates
-
-| Id | 121 |
-| :---- | :------------------------------- |
-| **Label** | Plots do not exceed a user-specified caliper value for one or more of the included continuous covariates |
+| **Label** | Project scalability |
 | **Tier** | -1 |
 | **Section** | forecast-projectDesign |
 | **type** | string |
 
-## matching
-<a name="matching"></a>K-nearest neighbor optimal matching approach must set k equal to 10
+## netNegativityPartial
+<a name="netNegativityPartial"></a>Indication of whether the project will result in more GHG emissions removed from the atmosphere than would be emitted
 
-| Id | 122 |
+| Id | 1011 |
 | :---- | :------------------------------- |
-| **Label** | Matching procedure follows a K-nearest neighbor optimal matching approach with replacement |
-| **Tier** | 1 |
+| **Label** | Project has a net carbon negative impact |
+| **Tier** | -1 |
 | **Section** | forecast-projectDesign |
 | **type** | boolean |
 
-## matchingWorkbook
-<a name="matchingWorkbook"></a>The project proponent selects the number of control plots, k, to match each project plot, and this number must remain consistent for each match. Control plots cannot be paired with multiple project sample plots.
+## netNegativityPartialExplain
+<a name="netNegativityPartialExplain"></a>Description of how the project activity results in net carbon negativity
 
-| Id | 635 |
+| Id | 1012 |
 | :---- | :------------------------------- |
-| **Label** | Matching procedure supporting documents |
-| **Tier** | 1 |
+| **Label** | Net carbon negativity overview |
+| **Tier** | -1 |
 | **Section** | forecast-projectDesign |
-| **type** | array |
+| **type** | string |
 
 ## deviations
 <a name="deviations"></a>Includes information such as whether the deviation meets the criteria for permitted methodology deviations, whether the deviation negatively impacts the conservativeness of the quantification of emission reductions or removals (except where they result in increased accuracy), or any previously validated methodology deviations
@@ -2367,83 +2076,58 @@
 | **Section** | forecast-projectDesign |
 | **type** | array |
 
+## technologyManufacturer
+<a name="technologyManufacturer"></a>If relevant, the providers or manufacturers of any technology or equipment used substantially in the project activity
+
+| Id | 749 |
+| :---- | :------------------------------- |
+| **Label** | Technology manufacturer or provider |
+| **Tier** | -1 |
+| **Section** | forecast-projectDesign |
+| **type** | string |
+
+## technicalUpload
+<a name="technicalUpload"></a>Documentation regarding the project technology (e.g., manufacturer specifications, field reports, standard certifications) or technical processes (e.g., process flow diagrams)
+
+| Id | 625 |
+| :---- | :------------------------------- |
+| **Label** | Project technology and technical process supporting documents |
+| **Tier** | -1 |
+| **Section** | forecast-projectDesign |
+| **type** | array |
+
 # forecast-spatialBoundaries
-## projectActivityLand
-<a name="projectActivityLand"></a>This should encompass the spatial extent of the project, including all lands where project activities are implemented.
+## projectBoundaries
+<a name="projectBoundaries"></a>
 
-| Id | 96 |
+| Id | 2040 |
 | :---- | :------------------------------- |
-| **Label** | Project activity area |
-| **Tier** | 1 |
-| **Section** | forecast-spatialBoundaries |
-| **type** | array |
-
-## ifmVerraBslPlotMap
-<a name="ifmVerraBslPlotMap"></a>
-
-| Id | 959 |
-| :---- | :------------------------------- |
-| **Label** | Project sample units |
-| **Tier** | -1 |
-| **Section** | forecast-spatialBoundaries |
-| **type** | array |
-
-## acreage
-<a name="acreage"></a>The total acreage of forestland within the physical project boundaries
-
-| Id | 1870 |
-| :---- | :------------------------------- |
-| **Label** | Total acreage |
-| **Tier** | -1 |
-| **Section** | forecast-spatialBoundaries |
-| **type** | string |
-
-## controlSite
-<a name="controlSite"></a>This should include spatial representation of the baseline control plot area(s)
-
-| Id | 97 |
-| :---- | :------------------------------- |
-| **Label** | Baseline control plot(s) |
-| **Tier** | 1 |
-| **Section** | forecast-spatialBoundaries |
-| **type** | array |
-
-## controlSiteComments
-<a name="controlSiteComments"></a>
-
-| Id | 98 |
-| :---- | :------------------------------- |
-| **Label** | Additional comments on control plot(s) |
-| **Tier** | -1 |
-| **Section** | forecast-spatialBoundaries |
-| **type** | string |
-
-## priorConditionsVerra
-<a name="priorConditionsVerra"></a>Description of the conditions that existed before the project began, demonstrating that the project was not designed to intentionally generate GHG emissions for later reduction, removal, or destruction. This should include details about the climate zone, ecosystem, and vegetation, as well as current and past land use, environmental characteristics (such as hydrology, topography, historical context, and soil conditions) of the project area.
-
-| Id | 465 |
-| :---- | :------------------------------- |
-| **Label** | Prior physical conditions |
+| **Label** | Total area within project boundaries |
 | **Tier** | 1 |
 | **Section** | forecast-spatialBoundaries |
 | **type** | string |
+
+## stratificationStrategy
+<a name="stratificationStrategy"></a>Strata may be defined based on soil type and depth, water table depth, vegetation, salinity, land type or expected changes in these characteristics. 
+
+| Id | 2041 |
+| :---- | :------------------------------- |
+| **Label** | Strategy for stratification of project area |
+| **Tier** | 1 |
+| **Section** | forecast-spatialBoundaries |
+| **type** | string |
+
+## spatialInformation
+<a name="spatialInformation"></a>Stratification helps improve the accuracy of carbon stock and GHG flux estimates, based on specifics of the project's land use characteristics. Individual strata areas must be spatially discrete, identifiable with accurate spatial data, and sum to the total project area. Land use/land cover maps must be ground-truthed, less than 10 years old, or proven to be accurate.
+
+| Id | 2037 |
+| :---- | :------------------------------- |
+| **Label** | Spatial information on stratified project area |
+| **Tier** | 1 |
+| **Section** | forecast-spatialBoundaries |
+| **type** | null |
 
 # forecast-systemBoundaries
-## verraIfmCarbonPoolTable
-<a name="verraIfmCarbonPoolTable"></a>
-
-| Id | 1351 |
-| :---- | :------------------------------- |
-| **Label** | Carbon pools |
-| **Tier** | 1 |
-| **Section** | forecast-systemBoundaries |
-| **type** | object |
-
-### Table structure
-| Carbon pool | Inclusion status | Justification | 
-| :---- | :---- | :---- |
-| | | |
-
 ## emissionSourcesTable
 <a name="emissionSourcesTable"></a>
 
@@ -2459,84 +2143,86 @@
 | :---- | :---- | :---- | :---- | :---- |
 | | | | | |
 
-## VerraForestryUpstreamEmissions
-<a name="VerraForestryUpstreamEmissions"></a>Upstream emissions can encompass greenhouse gas emissions resulting from the transport of planting materials, fertilizers, and similar inputs
+# forecast-lifeCycleAssessment
+## lcaPartial
+<a name="lcaPartial"></a>
 
-| Id | 962 |
+| Id | 1025 |
 | :---- | :------------------------------- |
-| **Label** | Overview of upstream emissions |
-| **Tier** | -1 |
-| **Section** | forecast-systemBoundaries |
-| **type** | string |
-
-# forecast-carbonStockSummary
-## baselineTable
-<a name="baselineTable"></a>
-
-| Id | 72 |
-| :---- | :------------------------------- |
-| **Label** | Forecast carbon stock summary (tCO2e) |
+| **Label** | LCA is used to quantify emissions |
 | **Tier** | 1 |
-| **Section** | forecast-carbonStockSummary |
-| **type** | object |
-| **Options** | [object Object] |
-| | [object Object] |
+| **Section** | forecast-lifeCycleAssessment |
+| **type** | boolean |
 
-## bslCarbonBreakdownForecastAcrGrid
-<a name="bslCarbonBreakdownForecastAcrGrid"></a>
+## lcaTable
+<a name="lcaTable"></a>
 
-| Id | 1859 |
+| Id | 1349 |
 | :---- | :------------------------------- |
-| **Label** | Breakdown of forecasted baseline carbon stocks (tCO2e) |
-| **Tier** | -1 |
-| **Section** | forecast-carbonStockSummary |
+| **Label** | LCA repository |
+| **Tier** | 1 |
+| **Section** | forecast-lifeCycleAssessment |
 | **type** | object |
-| **Options** | [object Object] |
-| | [object Object] |
-| | [object Object] |
 
-## projectCarbonBreakdownForecastAcrGrid
-<a name="projectCarbonBreakdownForecastAcrGrid"></a>
+### Table structure
+| LCA type | LCA provider | LCA completion date | Functional unit | 
+| :---- | :---- | :---- | :---- |
+| | | | |
 
-| Id | 1860 |
+## lca
+<a name="lca"></a>
+
+| Id | 274 |
 | :---- | :------------------------------- |
-| **Label** | Breakdown of forecasted project carbon stocks (tCO2e) |
-| **Tier** | -1 |
-| **Section** | forecast-carbonStockSummary |
-| **type** | object |
-| **Options** | [object Object] |
-| | [object Object] |
-| | [object Object] |
+| **Label** | LCA has been completed |
+| **Tier** | 1 |
+| **Section** | forecast-lifeCycleAssessment |
+| **type** | boolean |
 
-## baselineComments
-<a name="baselineComments"></a>If applicable to the project, an overview of how baseline and/or project carbon stocks were forecasted into the future (e.g., which estimation method was used, any key assumptions, etc.)
+## lcaUpload
+<a name="lcaUpload"></a>
 
-| Id | 73 |
+| Id | 276 |
 | :---- | :------------------------------- |
-| **Label** | Approach to carbon stocks forecasting |
-| **Tier** | -1 |
-| **Section** | forecast-carbonStockSummary |
+| **Label** | LCA upload |
+| **Tier** | 1 |
+| **Section** | forecast-lifeCycleAssessment |
+| **type** | array |
+
+## systemBoundaryDetails
+<a name="systemBoundaryDetails"></a>The system boundary of the project's life cycle assessment
+
+| Id | 627 |
+| :---- | :------------------------------- |
+| **Label** | System boundary overview and justification |
+| **Tier** | 1 |
+| **Section** | forecast-lifeCycleAssessment |
 | **type** | string |
 
-## baselineForecastWorkbook
-<a name="baselineForecastWorkbook"></a>
+## systemBoundaryFigure
+<a name="systemBoundaryFigure"></a>Relevant figures depicting the process flows and system boundaries
 
-| Id | 74 |
+| Id | 628 |
 | :---- | :------------------------------- |
-| **Label** | Baseline forecast documentation |
+| **Label** | System boundary figure |
 | **Tier** | -1 |
-| **Section** | forecast-carbonStockSummary |
+| **Section** | forecast-lifeCycleAssessment |
 | **type** | array |
 
-## projectForecastWorkbook
-<a name="projectForecastWorkbook"></a>
+## lcaPuroResultsTable
+<a name="lcaPuroResultsTable"></a>The results from the most recent life cycle assessment
 
-| Id | 640 |
+| Id | 1350 |
 | :---- | :------------------------------- |
-| **Label** | Project forecast documentation |
-| **Tier** | -1 |
-| **Section** | forecast-carbonStockSummary |
-| **type** | array |
+| **Label** | LCA results |
+| **Tier** | 1 |
+| **Section** | forecast-lifeCycleAssessment |
+| **type** | object |
+
+### Table structure
+| Reporting period start | Reporting period end | Level 1 | Level 2 | Level 3 | Climate impact in kg CO2-eq per functional unit | Climate impact in kg CO2-eq per reporting period | 
+| :---- | :---- | :---- | :---- | :---- | :---- | :---- |
+| | | | | | | |
 
 # forecast-forecastedCredits
 ## forecastConditional
@@ -2559,13 +2245,13 @@
 | **Section** | forecast-forecastedCredits |
 | **type** | number |
 
-## forecastTable
-<a name="forecastTable"></a>The estimated emissions reductions and removals per vintage (including pre- and post-buffer deduction). Net removals and reductions refer to the total removals and reductions post-buffer deductions.
+## partialForecast
+<a name="partialForecast"></a>The estimated credits per vintage year throughout the crediting period
 
-| Id | 83 |
+| Id | 1015 |
 | :---- | :------------------------------- |
-| **Label** | Forecasted emissions reductions and removals per vintage (tCO2e) |
-| **Tier** | 1 |
+| **Label** | Credit forecast by vintage |
+| **Tier** | -1 |
 | **Section** | forecast-forecastedCredits |
 | **type** | object |
 | **Options** | [object Object] |
@@ -2604,21 +2290,6 @@
 | **type** | array |
 
 # forecast-monitoringPlan
-## parametersMonitoredTable
-<a name="parametersMonitoredTable"></a>Monitored parameters are measured or observed during the project’s implementation and reporting periods. They reflect actual project performance and environmental conditions.
-
-| Id | 1341 |
-| :---- | :------------------------------- |
-| **Label** | Monitored parameters overview |
-| **Tier** | 1 |
-| **Section** | forecast-monitoringPlan |
-| **type** | object |
-
-### Table structure
-| Parameter | Description | Unit | Purpose | Source of data | Frequency of monitoring | Quantification method | Description of quantification method | QA/QC procedures | Comments | 
-| :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
-| | | | | | | | | | |
-
 ## parametersFixedTable
 <a name="parametersFixedTable"></a>Fixed (ex-ante) parameters are values set at the start of the project and typically  remain constant throughout a crediting period. They are usually based on established scientific research, default factors, or regulatory guidance.
 
@@ -2633,6 +2304,21 @@
 | Parameter | Description | Unit | Purpose | Source of data | Value applied | Comments | 
 | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
 | | | | | | | |
+
+## parametersMonitoredTable
+<a name="parametersMonitoredTable"></a>Monitored parameters are measured or observed during the project’s implementation and reporting periods. They reflect actual project performance and environmental conditions.
+
+| Id | 1341 |
+| :---- | :------------------------------- |
+| **Label** | Monitored parameters overview |
+| **Tier** | 1 |
+| **Section** | forecast-monitoringPlan |
+| **type** | object |
+
+### Table structure
+| Parameter | Description | Unit | Purpose | Source of data | Frequency of monitoring | Quantification method | Description of quantification method | QA/QC procedures | Comments | 
+| :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
+| | | | | | | | | | |
 
 ## dataParameters
 <a name="dataParameters"></a>Optional additional context regarding the fixed and monitored parameters used in project calculations
@@ -2654,25 +2340,6 @@
 | **Section** | forecast-monitoringPlan |
 | **type** | string |
 
-## ifmVerraMonitoringReqs
-<a name="ifmVerraMonitoringReqs"></a>Sample designs must be clearly defined, including a detailed description of the sample population, justification for sampling intensities, and the selection process for sample units and stages, where applicable. Unbiased estimators of population parameters used in calculations must also be identified. All data gathered during the monitoring process, including QA/QC data, must be electronically archived and retained for a minimum of two years following the conclusion of the final project crediting period.
-
-| Id | 968 |
-| :---- | :------------------------------- |
-| **Label** | Project compliance with monitoring plan requirements |
-| **Tier** | 1 |
-| **Section** | forecast-monitoringPlan |
-| **type** | array |
-| **Options** | A description of each monitoring task to be undertaken and the technical requirements therein |
-| | Monitoring is conducted for both the project sample units and the constituent baseline plots |
-| | Definition of the accounting boundary |
-| | Parameters to be measured, including parameter tables for all directly measured tree attributes incorporated as independent variables in allometric equations |
-| | Data to be collected and data collection techniques |
-| | Anticipated frequency of monitoring |
-| | Quality assurance and quality control (QA/QC) procedures to ensure accurate data collection |
-| | Data archiving procedures, including procedures for any anticipated updates to electronic file formats |
-| | Roles, responsibilities and capacity of the monitoring team and management |
-
 ## monitoringTimeline
 <a name="monitoringTimeline"></a>Overview of the monitoring timeline embedded within the project's monitoring plan
 
@@ -2683,22 +2350,22 @@
 | **Section** | forecast-monitoringPlan |
 | **type** | string |
 
+## monitoringTeam
+<a name="monitoringTeam"></a>
+
+| Id | 2038 |
+| :---- | :------------------------------- |
+| **Label** | Roles, responsibilities, and capacity of monitoring team and management |
+| **Tier** | 1 |
+| **Section** | forecast-monitoringPlan |
+| **type** | string |
+
 ## dataProcess
 <a name="dataProcess"></a>Overview of the methods used to collect, clean, and securely store project monitoring data to ensure accuracy, traceability, and long-term accessibility
 
 | Id | 558 |
 | :---- | :------------------------------- |
 | **Label** | Data processing and storage procedures |
-| **Tier** | -1 |
-| **Section** | forecast-monitoringPlan |
-| **type** | string |
-
-## ifmVerraDatabaseReqs
-<a name="ifmVerraDatabaseReqs"></a>A database must be maintained that records the individual baseline plots and their assigned weights, with unique identifiers assigned to each composite baseline, each of its constituent baseline plots, and all trees within those plots.
-
-| Id | 969 |
-| :---- | :------------------------------- |
-| **Label** | Database requirements for project and control plots |
 | **Tier** | -1 |
 | **Section** | forecast-monitoringPlan |
 | **type** | string |
@@ -2838,6 +2505,46 @@
 | **Section** | forecast-permanenceForecast |
 | **type** | array |
 
+## opportunityCostAnalysisRmifw
+<a name="opportunityCostAnalysisRmifw"></a>Opportunity cost analysis shall be based on the net present value (NPV) of the alternative land uses identified in the project's additionality assessment, except where most baseline activities are subsistence driven. Where most baseline activities are subsistence driven, an NPV analysis is not required.
+
+| Id | 2175 |
+| :---- | :------------------------------- |
+| **Label** | Opportunity cost analysis |
+| **Tier** | 1 |
+| **Section** | forecast-permanenceForecast |
+| **type** | array |
+
+## financialViabilityRmifw
+<a name="financialViabilityRmifw"></a>Financial viability includes two main components: 1. The number of years until breakeven is reached (i.e.,the payback period). 2. The funding secured relative to what is needed to implement and operate the project until reaching breakeven.
+
+| Id | 2174 |
+| :---- | :------------------------------- |
+| **Label** | Financial viability |
+| **Tier** | 1 |
+| **Section** | forecast-permanenceForecast |
+| **type** | array |
+
+## durStakeholderAnalysisRmifw
+<a name="durStakeholderAnalysisRmifw"></a>All stakeholders includes all indigenous peoples and local communities with statutory or customary rights to land or resources in the project area(s) as well as description of past/ongoing disputes over land or resources in the project area(s) and their resolution or future resolution.
+
+| Id | 2172 |
+| :---- | :------------------------------- |
+| **Label** | Durability stakeholder analysis |
+| **Tier** | 1 |
+| **Section** | forecast-permanenceForecast |
+| **type** | string |
+
+## politicalRiskRmifw
+<a name="politicalRiskRmifw"></a>Mean should be averaged over the most recent five years of available data
+
+| Id | 2176 |
+| :---- | :------------------------------- |
+| **Label** | Political risk  |
+| **Tier** | 1 |
+| **Section** | forecast-permanenceForecast |
+| **type** | string |
+
 ## riskManagementPlan
 <a name="riskManagementPlan"></a>A risk management plan encompasses a strategy for managing and mitigating risks that could impact a carbon project's ability to generate valid credits
 
@@ -2917,17 +2624,44 @@
 | **Section** | forecast-permanenceForecast |
 | **type** | array |
 
-# forecast-additionality
-## noAdditionalityValidationDetails
-<a name="noAdditionalityValidationDetails"></a>
+## adaptiveCapacityEvaluationSeceltionRmifw
+<a name="adaptiveCapacityEvaluationSeceltionRmifw"></a>Adaptive capacity can be described as considerations a project proponent has taken into account when developing a project that mitigates future risk of climate change. Please refer to the Verra AFOLU Non Permanence Risk Tool for further details on the options provided.
 
-| Id | 1848 |
+| Id | 2178 |
 | :---- | :------------------------------- |
-| **Label** | Justification for the absence of additionality validation |
-| **Tier** | -1 |
-| **Section** | forecast-additionality |
-| **type** | string |
+| **Label** | Adaptive capacity evaluation selection |
+| **Tier** | 1 |
+| **Section** | forecast-permanenceForecast |
+| **type** | array |
+| **Options** | Variety |
+| | Learning Capacity |
+| | Room for Change |
+| | Leadership |
+| | Resources |
+| | Fair Governance |
+| | Innovation |
 
+## durStakeholderConsultationRmifw
+<a name="durStakeholderConsultationRmifw"></a>
+
+| Id | 2173 |
+| :---- | :------------------------------- |
+| **Label** | Durability stakeholder consultation |
+| **Tier** | 1 |
+| **Section** | forecast-permanenceForecast |
+| **type** | array |
+
+## adaptiveCapacityEvaluationSupportinEvidenceRmifw
+<a name="adaptiveCapacityEvaluationSupportinEvidenceRmifw"></a>
+
+| Id | 2179 |
+| :---- | :------------------------------- |
+| **Label** | Adaptive capacity evaluation supporting evidence |
+| **Tier** | 1 |
+| **Section** | forecast-permanenceForecast |
+| **type** | array |
+
+# forecast-additionality
 ## additionalityApproachUsed
 <a name="additionalityApproachUsed"></a>Evaluating additionality ensures that carbon credits are granted only to mitigation activities that would not have occurred without the incentives provided by the carbon credit
 
@@ -2947,6 +2681,16 @@
 | | Counterfactual analysis |
 | | Positive list |
 | | Other standardized approach |
+
+## noAdditionalityValidationDetails
+<a name="noAdditionalityValidationDetails"></a>
+
+| Id | 1848 |
+| :---- | :------------------------------- |
+| **Label** | Justification for the absence of additionality validation |
+| **Tier** | -1 |
+| **Section** | forecast-additionality |
+| **type** | string |
 
 ## validationAdditionality
 <a name="validationAdditionality"></a>All elements of the chosen additionality approaches have been assessed by a validation or verification body and/or a carbon-crediting program or standard
@@ -3492,6 +3236,16 @@
 | **type** | array |
 
 # forecast-validation
+## validationReportSummary
+<a name="validationReportSummary"></a>
+
+| Id | 1680 |
+| :---- | :------------------------------- |
+| **Label** | Validation report summary |
+| **Tier** | 1 |
+| **Section** | forecast-validation |
+| **type** | string |
+
 ## validationPlanned
 <a name="validationPlanned"></a>
 
@@ -3508,16 +3262,6 @@
 | Id | 1670 |
 | :---- | :------------------------------- |
 | **Label** | Planned validation date |
-| **Tier** | 1 |
-| **Section** | forecast-validation |
-| **type** | string |
-
-## validationReportSummary
-<a name="validationReportSummary"></a>
-
-| Id | 1680 |
-| :---- | :------------------------------- |
-| **Label** | Validation report summary |
 | **Tier** | 1 |
 | **Section** | forecast-validation |
 | **type** | string |
@@ -3551,6 +3295,48 @@
 | **Tier** | -1 |
 | **Section** | forecast-validation |
 | **type** | array |
+
+## validationBodySectoralScopes
+<a name="validationBodySectoralScopes"></a>
+
+| Id | 1679 |
+| :---- | :------------------------------- |
+| **Label** | Accredited sectoral scopes of the validation body |
+| **Tier** | 1 |
+| **Section** | forecast-validation |
+| **type** | array |
+| **Options** |   1. Energy (renewable/non-renewable)  |
+| | 2. Energy distribution |
+| | 3. Energy demand   |
+| |   4. Manufacturing industries |
+| |   5. Chemical industry |
+| | 6. Construction   |
+| | 7. Transport |
+| | 8. Mining/mineral production |
+| |   9. Metal production |
+| | 10. Fugitive emissions – from fuel |
+| | 11. Fugitive emissions – from Industrial gases (halocarbons and sulphur hexafluoride) |
+| | 12. Solvents use |
+| | 13. Waste handling and disposal  |
+| | 14. Agriculture, Forestry and Other Land Use (AFOLU) |
+| | 15. Livestock and manure management |
+| | 16. Carbon capture and storage |
+
+## validationBodyAccreditation
+<a name="validationBodyAccreditation"></a>
+
+| Id | 1673 |
+| :---- | :------------------------------- |
+| **Label** | Validation body accreditation or membership |
+| **Tier** | 1 |
+| **Section** | forecast-validation |
+| **type** | array |
+| **Options** | ANSI National Accreditation Board (ANAB) |
+| | International Accreditation Forum (IAF) |
+| | Global Accreditation Bureau (GAB) |
+| | UNFCCC / CDM |
+| | Standards Council of Canada (SCC) |
+| | Other |
 
 ## validationBodySelection
 <a name="validationBodySelection"></a>
@@ -3591,48 +3377,6 @@
 | **Section** | forecast-validation |
 | **type** | string |
 
-## validationBodyAccreditation
-<a name="validationBodyAccreditation"></a>
-
-| Id | 1673 |
-| :---- | :------------------------------- |
-| **Label** | Validation body accreditation or membership |
-| **Tier** | 1 |
-| **Section** | forecast-validation |
-| **type** | array |
-| **Options** | ANSI National Accreditation Board (ANAB) |
-| | International Accreditation Forum (IAF) |
-| | Global Accreditation Bureau (GAB) |
-| | UNFCCC / CDM |
-| | Standards Council of Canada (SCC) |
-| | Other |
-
-## validationBodySectoralScopes
-<a name="validationBodySectoralScopes"></a>
-
-| Id | 1679 |
-| :---- | :------------------------------- |
-| **Label** | Accredited sectoral scopes of the validation body |
-| **Tier** | 1 |
-| **Section** | forecast-validation |
-| **type** | array |
-| **Options** |   1. Energy (renewable/non-renewable)  |
-| | 2. Energy distribution |
-| | 3. Energy demand   |
-| |   4. Manufacturing industries |
-| |   5. Chemical industry |
-| | 6. Construction   |
-| | 7. Transport |
-| | 8. Mining/mineral production |
-| |   9. Metal production |
-| | 10. Fugitive emissions – from fuel |
-| | 11. Fugitive emissions – from Industrial gases (halocarbons and sulphur hexafluoride) |
-| | 12. Solvents use |
-| | 13. Waste handling and disposal  |
-| | 14. Agriculture, Forestry and Other Land Use (AFOLU) |
-| | 15. Livestock and manure management |
-| | 16. Carbon capture and storage |
-
 ## validationBody
 <a name="validationBody"></a>
 
@@ -3652,261 +3396,6 @@
 | **Tier** | 1 |
 | **Section** | forecast-validation |
 | **type** | string |
-
-# actuals-projectUpdatesForm
-## ifmVerraProjUpdateParent
-<a name="ifmVerraProjUpdateParent"></a>
-
-| Id | 973 |
-| :---- | :------------------------------- |
-| **Label** | Updates to elements of the project activity |
-| **Tier** | 2 |
-| **Section** | actuals-projectUpdatesForm |
-| **type** | array |
-| **Options** | Stratification or stands |
-| | Project sample units |
-| | Composite baselines |
-| | Biomass burning practices |
-| | Nitrogen fertilizer use |
-| | Harvesting plan |
-| | Other |
-| | None |
-
-## ifmVerraProjUpdateStands
-<a name="ifmVerraProjUpdateStands"></a>
-
-| Id | 974 |
-| :---- | :------------------------------- |
-| **Label** | Summary of changes to stratification or stands |
-| **Tier** | 2 |
-| **Section** | actuals-projectUpdatesForm |
-| **type** | string |
-| **Options** | Stratification or stands |
-| | Project sample units |
-| | Composite baselines |
-| | Biomass burning practices |
-| | Nitrogen fertilizer use |
-| | Harvesting plan |
-| | Other |
-| | None |
-
-## ifmVerraProjUpdateStandsUpload
-<a name="ifmVerraProjUpdateStandsUpload"></a>
-
-| Id | 975 |
-| :---- | :------------------------------- |
-| **Label** | Changes to stratification or stands supporting documents |
-| **Tier** | -1 |
-| **Section** | actuals-projectUpdatesForm |
-| **type** | array |
-
-## ifmVerraProjUpdateUnits
-<a name="ifmVerraProjUpdateUnits"></a>
-
-| Id | 976 |
-| :---- | :------------------------------- |
-| **Label** | Summary of changes to project sample units |
-| **Tier** | 2 |
-| **Section** | actuals-projectUpdatesForm |
-| **type** | string |
-| **Options** | Stratification or stands |
-| | Project sample units |
-| | Composite baselines |
-| | Biomass burning practices |
-| | Nitrogen fertilizer use |
-| | Harvesting plan |
-| | Other |
-| | None |
-
-## ifmVerraProjUpdateUnitsUpload
-<a name="ifmVerraProjUpdateUnitsUpload"></a>
-
-| Id | 977 |
-| :---- | :------------------------------- |
-| **Label** | Changes to project sample units supporting documents |
-| **Tier** | -1 |
-| **Section** | actuals-projectUpdatesForm |
-| **type** | array |
-| **Options** | Stratification or stands |
-| | Project sample units |
-| | Composite baselines |
-| | Biomass burning practices |
-| | Nitrogen fertilizer use |
-| | Harvesting plan |
-| | Other |
-| | None |
-
-## ifmVerraProjUpdateBaseline
-<a name="ifmVerraProjUpdateBaseline"></a>
-
-| Id | 978 |
-| :---- | :------------------------------- |
-| **Label** | Summary of changes to composite baselines |
-| **Tier** | 2 |
-| **Section** | actuals-projectUpdatesForm |
-| **type** | string |
-| **Options** | Stratification or stands |
-| | Project sample units |
-| | Composite baselines |
-| | Biomass burning practices |
-| | Nitrogen fertilizer use |
-| | Harvesting plan |
-| | Other |
-| | None |
-
-## ifmVerraProjUpdateBaselineUpload
-<a name="ifmVerraProjUpdateBaselineUpload"></a>
-
-| Id | 979 |
-| :---- | :------------------------------- |
-| **Label** | Changes to composite baselines supporting documents |
-| **Tier** | -1 |
-| **Section** | actuals-projectUpdatesForm |
-| **type** | array |
-| **Options** | Stratification or stands |
-| | Project sample units |
-| | Composite baselines |
-| | Biomass burning practices |
-| | Nitrogen fertilizer use |
-| | Harvesting plan |
-| | Other |
-| | None |
-
-## ifmVerraProjUpdateBurning
-<a name="ifmVerraProjUpdateBurning"></a>
-
-| Id | 980 |
-| :---- | :------------------------------- |
-| **Label** | Summary of changes to biomass burning practices |
-| **Tier** | 2 |
-| **Section** | actuals-projectUpdatesForm |
-| **type** | string |
-| **Options** | Stratification or stands |
-| | Project sample units |
-| | Composite baselines |
-| | Biomass burning practices |
-| | Nitrogen fertilizer use |
-| | Harvesting plan |
-| | Other |
-| | None |
-
-## ifmVerraProjUpdateBurningUpload
-<a name="ifmVerraProjUpdateBurningUpload"></a>
-
-| Id | 981 |
-| :---- | :------------------------------- |
-| **Label** | Changes to biomass burning practices supporting documents |
-| **Tier** | -1 |
-| **Section** | actuals-projectUpdatesForm |
-| **type** | array |
-| **Options** | Stratification or stands |
-| | Project sample units |
-| | Composite baselines |
-| | Biomass burning practices |
-| | Nitrogen fertilizer use |
-| | Harvesting plan |
-| | Other |
-| | None |
-
-## ifmVerraProjUpdateFertilizer
-<a name="ifmVerraProjUpdateFertilizer"></a>
-
-| Id | 982 |
-| :---- | :------------------------------- |
-| **Label** | Summary of changes to nitrogen fertilizer use |
-| **Tier** | 2 |
-| **Section** | actuals-projectUpdatesForm |
-| **type** | string |
-
-## ifmVerraProjUpdateFertilizerUpload
-<a name="ifmVerraProjUpdateFertilizerUpload"></a>
-
-| Id | 983 |
-| :---- | :------------------------------- |
-| **Label** | Changes to nitrogen fertilizer use supporting documents |
-| **Tier** | -1 |
-| **Section** | actuals-projectUpdatesForm |
-| **type** | array |
-| **Options** | Stratification or stands |
-| | Project sample units |
-| | Composite baselines |
-| | Biomass burning practices |
-| | Nitrogen fertilizer use |
-| | Harvesting plan |
-| | Other |
-| | None |
-
-## ifmVerraProjUpdateHarvest
-<a name="ifmVerraProjUpdateHarvest"></a>
-
-| Id | 984 |
-| :---- | :------------------------------- |
-| **Label** | Summary of changes to harvest plan |
-| **Tier** | 2 |
-| **Section** | actuals-projectUpdatesForm |
-| **type** | string |
-| **Options** | Stratification or stands |
-| | Project sample units |
-| | Composite baselines |
-| | Biomass burning practices |
-| | Nitrogen fertilizer use |
-| | Harvesting plan |
-| | Other |
-| | None |
-
-## ifmVerraProjUpdateHarvestUpload
-<a name="ifmVerraProjUpdateHarvestUpload"></a>
-
-| Id | 985 |
-| :---- | :------------------------------- |
-| **Label** | Changes to harvest plan supporting documents |
-| **Tier** | -1 |
-| **Section** | actuals-projectUpdatesForm |
-| **type** | array |
-| **Options** | Stratification or stands |
-| | Project sample units |
-| | Composite baselines |
-| | Biomass burning practices |
-| | Nitrogen fertilizer use |
-| | Harvesting plan |
-| | Other |
-| | None |
-
-## ifmVerraProjUpdateOther
-<a name="ifmVerraProjUpdateOther"></a>
-
-| Id | 986 |
-| :---- | :------------------------------- |
-| **Label** | Other changes to the project design |
-| **Tier** | 2 |
-| **Section** | actuals-projectUpdatesForm |
-| **type** | string |
-| **Options** | Stratification or stands |
-| | Project sample units |
-| | Composite baselines |
-| | Biomass burning practices |
-| | Nitrogen fertilizer use |
-| | Harvesting plan |
-| | Other |
-| | None |
-
-## ifmVerraProjUpdateOtherUpload
-<a name="ifmVerraProjUpdateOtherUpload"></a>
-
-| Id | 987 |
-| :---- | :------------------------------- |
-| **Label** | Other changes supporting documents |
-| **Tier** | -1 |
-| **Section** | actuals-projectUpdatesForm |
-| **type** | array |
-| **Options** | Stratification or stands |
-| | Project sample units |
-| | Composite baselines |
-| | Biomass burning practices |
-| | Nitrogen fertilizer use |
-| | Harvesting plan |
-| | Other |
-| | None |
 
 # actuals-mrvActuals
 ## mrvProtocol
@@ -3928,122 +3417,6 @@
 | **Tier** | 2 |
 | **Section** | actuals-mrvActuals |
 | **type** | string |
-
-## ifmVerraMrvUpdateParent
-<a name="ifmVerraMrvUpdateParent"></a>
-
-| Id | 988 |
-| :---- | :------------------------------- |
-| **Label** | Updates to elements of the monitoring plan |
-| **Tier** | 2 |
-| **Section** | actuals-mrvActuals |
-| **type** | array |
-| **Options** | Acquiring, archiving, and processing remeasurement data |
-| | Electronic file formats |
-| | Parameter monitoring processes |
-| | Monitoring frequency |
-| | Other |
-| | None |
-
-## ifmVerraMrvUpdateData
-<a name="ifmVerraMrvUpdateData"></a>
-
-| Id | 989 |
-| :---- | :------------------------------- |
-| **Label** | Summary of changes to acquiring, archiving, and processing remeasurement data |
-| **Tier** | 2 |
-| **Section** | actuals-mrvActuals |
-| **type** | string |
-
-## ifmVerraMrvUpdateDataUpload
-<a name="ifmVerraMrvUpdateDataUpload"></a>
-
-| Id | 990 |
-| :---- | :------------------------------- |
-| **Label** | Changes to acquiring, archiving, and processing remeasurement data supporting documents |
-| **Tier** | -1 |
-| **Section** | actuals-mrvActuals |
-| **type** | array |
-
-## ifmVerraMrvUpdateFile
-<a name="ifmVerraMrvUpdateFile"></a>
-
-| Id | 991 |
-| :---- | :------------------------------- |
-| **Label** | Summary of changes to electronic file formats |
-| **Tier** | 2 |
-| **Section** | actuals-mrvActuals |
-| **type** | string |
-
-## ifmVerraMrvUpdateFileUpload
-<a name="ifmVerraMrvUpdateFileUpload"></a>
-
-| Id | 992 |
-| :---- | :------------------------------- |
-| **Label** | Changes to electronic file formats supporting documents |
-| **Tier** | -1 |
-| **Section** | actuals-mrvActuals |
-| **type** | array |
-
-## ifmVerraMrvUpdateParameter
-<a name="ifmVerraMrvUpdateParameter"></a>
-
-| Id | 993 |
-| :---- | :------------------------------- |
-| **Label** | Summary of changes to parameter monitoring processes |
-| **Tier** | 2 |
-| **Section** | actuals-mrvActuals |
-| **type** | string |
-
-## ifmVerraMrvUpdateParameterUpload
-<a name="ifmVerraMrvUpdateParameterUpload"></a>
-
-| Id | 994 |
-| :---- | :------------------------------- |
-| **Label** | Changes to parameter monitoring processes supporting documents |
-| **Tier** | -1 |
-| **Section** | actuals-mrvActuals |
-| **type** | array |
-
-## ifmVerraMrvUpdateFreq
-<a name="ifmVerraMrvUpdateFreq"></a>
-
-| Id | 995 |
-| :---- | :------------------------------- |
-| **Label** | Summary of changes to monitoring frequency |
-| **Tier** | 2 |
-| **Section** | actuals-mrvActuals |
-| **type** | string |
-
-## ifmVerraMrvUpdateFreqUpload
-<a name="ifmVerraMrvUpdateFreqUpload"></a>
-
-| Id | 996 |
-| :---- | :------------------------------- |
-| **Label** | Changes to monitoring frequency supporting documents |
-| **Tier** | -1 |
-| **Section** | actuals-mrvActuals |
-| **type** | array |
-
-## ifmVerraMrvUpdateOther
-<a name="ifmVerraMrvUpdateOther"></a>
-
-| Id | 997 |
-| :---- | :------------------------------- |
-| **Label** | Summary of other changes to the project monitoring plan and procedure |
-| **Tier** | 2 |
-| **Section** | actuals-mrvActuals |
-| **type** | string |
-
-## ifmVerraMrvUpdateOtherUpload
-<a name="ifmVerraMrvUpdateOtherUpload"></a>
-
-| Id | 998 |
-| :---- | :------------------------------- |
-| **Label** | Changes to other monitoring plan elements supporting documents |
-| **Tier** | -1 |
-| **Section** | actuals-mrvActuals |
-| **type** | array |
 
 ## mrvProvider
 <a name="mrvProvider"></a>
@@ -4153,6 +3526,26 @@
 | **Section** | actuals-permanenceActuals |
 | **type** | array |
 
+## upwardAdjustmentBaseline
+<a name="upwardAdjustmentBaseline"></a>Some carbon crediting programs allow or require that a new baseline be established in the event of a reversal. Does the program used allow or require for a baseline adjustment to occur in the event of an unavoidable reversal?
+
+| Id | 2042 |
+| :---- | :------------------------------- |
+| **Label** | Project allowment of upward adjustment to the baseline |
+| **Tier** | 2 |
+| **Section** | actuals-permanenceActuals |
+| **type** | null |
+
+## upwardAdjustmentBaselineDetails
+<a name="upwardAdjustmentBaselineDetails"></a>Provide context on decision of how to adjust the baseline (if applicable) in the event that an unavoidable reversal occurs. 
+
+| Id | 2039 |
+| :---- | :------------------------------- |
+| **Label** | Upward adjustment to the baseline decision details |
+| **Tier** | 2 |
+| **Section** | actuals-permanenceActuals |
+| **type** | string |
+
 ## compensation
 <a name="compensation"></a>
 
@@ -4185,56 +3578,17 @@
 | **Section** | actuals-permanenceActuals |
 | **type** | array |
 
-# actuals-carbonStockActuals
-## bslCarbonBreakdownAcrGrid
-<a name="bslCarbonBreakdownAcrGrid"></a>
-
-| Id | 1862 |
-| :---- | :------------------------------- |
-| **Label** | Breakdown of actual baseline carbon stocks (tCO2e) |
-| **Tier** | -1 |
-| **Section** | actuals-carbonStockActuals |
-| **type** | object |
-| **Options** | [object Object] |
-| | [object Object] |
-| | [object Object] |
-
-## projectCarbonBreakdownAcrGrid
-<a name="projectCarbonBreakdownAcrGrid"></a>
-
-| Id | 1861 |
-| :---- | :------------------------------- |
-| **Label** | Breakdown of actual project carbon stocks (tCO2e) |
-| **Tier** | -1 |
-| **Section** | actuals-carbonStockActuals |
-| **type** | object |
-| **Options** | [object Object] |
-| | [object Object] |
-| | [object Object] |
-
-## actualStockDynamicGrid
-<a name="actualStockDynamicGrid"></a>
-
-| Id | 1869 |
-| :---- | :------------------------------- |
-| **Label** | Actual project and baseline carbon stock summary (tCO2e) |
-| **Tier** | -1 |
-| **Section** | actuals-carbonStockActuals |
-| **type** | object |
-| **Options** | [object Object] |
-| | [object Object] |
-
-## projectWorkbook
-<a name="projectWorkbook"></a>
-
-| Id | 643 |
-| :---- | :------------------------------- |
-| **Label** | Actual project carbon stock summary documentation |
-| **Tier** | -1 |
-| **Section** | actuals-carbonStockActuals |
-| **type** | array |
-
 # actuals-leakageActuals
+## leakageActualsConditional
+<a name="leakageActualsConditional"></a>
+
+| Id | 785 |
+| :---- | :------------------------------- |
+| **Label** | Project accounts for leakage |
+| **Tier** | 2 |
+| **Section** | actuals-leakageActuals |
+| **type** | boolean |
+
 ## leakageSourceTable
 <a name="leakageSourceTable"></a>Non-CO2 emissions are generally considered significant if they are likely to account for more than 20% of the total leakage emissions (in terms of CO2-equivalent) 
 
@@ -4250,47 +3604,16 @@
 | :---- | :---- | :---- | :---- |
 | | | | |
 
-## leakageActualsConditional
-<a name="leakageActualsConditional"></a>
+## leakageDataGrid
+<a name="leakageDataGrid"></a>Leakage values calculated per vintage in tCO2e
 
-| Id | 785 |
-| :---- | :------------------------------- |
-| **Label** | Project accounts for leakage |
-| **Tier** | 2 |
-| **Section** | actuals-leakageActuals |
-| **type** | boolean |
-
-## ifmVerraleakageFactorConditional
-<a name="ifmVerraleakageFactorConditional"></a>Permanent reductions in timber supply involve commitments to reduce harvest levels in project lands for 100 years or longer, and are necessary to determine the leakage factor for the project
-
-| Id | 964 |
-| :---- | :------------------------------- |
-| **Label** | Project activity plans a permanent reduction in timber supply |
-| **Tier** | 1 |
-| **Section** | actuals-leakageActuals |
-| **type** | boolean |
-
-## avgRatioMerchantableStocking
-<a name="avgRatioMerchantableStocking"></a>If the project leads to a permanent reduction in timber supply, the project developer must calculate the national average proportion of merchantable stocking (either by volume or mass for commercial species) relative to the total stocking. This figure must then be compared with the same ratio in the project area to assess any differences.
-
-| Id | 965 |
-| :---- | :------------------------------- |
-| **Label** | National average ratio of merchantable stocking |
-| **Tier** | 1 |
-| **Section** | actuals-leakageActuals |
-| **type** | string |
-
-## leakageTableUpdate
-<a name="leakageTableUpdate"></a>
-
-| Id | 166 |
+| Id | 311 |
 | :---- | :------------------------------- |
 | **Label** | Leakage values |
 | **Tier** | 2 |
 | **Section** | actuals-leakageActuals |
 | **type** | object |
 | **Options** | [object Object] |
-| | [object Object] |
 
 ## additionalCommentsLeakage
 <a name="additionalCommentsLeakage"></a>Overview of the project's approach to calculating and/or accounting for leakage
@@ -4301,6 +3624,26 @@
 | **Tier** | -1 |
 | **Section** | actuals-leakageActuals |
 | **type** | string |
+
+## leakageManagementPlan
+<a name="leakageManagementPlan"></a>Description of measures the project will take to mitigate leakage
+
+| Id | 2045 |
+| :---- | :------------------------------- |
+| **Label** | Leakage management plan |
+| **Tier** | 2 |
+| **Section** | actuals-leakageActuals |
+| **type** | string |
+
+## leakageBelt
+<a name="leakageBelt"></a>If applicable, land area surrounding or adjacent to the project area in which baseline activities could be displaced due to project implementation.
+
+| Id | 2046 |
+| :---- | :------------------------------- |
+| **Label** | Leakage belt |
+| **Tier** | 2 |
+| **Section** | actuals-leakageActuals |
+| **type** | null |
 
 ## leakageWorkbook
 <a name="leakageWorkbook"></a>
@@ -4365,17 +3708,16 @@
 | **Section** | actuals-bufferActuals |
 | **type** | boolean |
 
-## bufferTableUpdate
-<a name="bufferTableUpdate"></a>
+## biocharBufferActual
+<a name="biocharBufferActual"></a>0 if there is no buffer allocation
 
-| Id | 165 |
+| Id | 310 |
 | :---- | :------------------------------- |
 | **Label** | Buffer values |
 | **Tier** | 2 |
 | **Section** | actuals-bufferActuals |
 | **type** | object |
 | **Options** | [object Object] |
-| | [object Object] |
 
 ## additionalCommentsBuffer
 <a name="additionalCommentsBuffer"></a>
@@ -4387,34 +3729,24 @@
 | **Section** | actuals-bufferActuals |
 | **type** | string |
 
-## nonPermanenceTool
-<a name="nonPermanenceTool"></a>
+## bufferWorkbook
+<a name="bufferWorkbook"></a>
 
-| Id | 967 |
+| Id | 660 |
 | :---- | :------------------------------- |
-| **Label** | Project uses an approved risk tool to allocate buffer credits |
-| **Tier** | 1 |
-| **Section** | actuals-bufferActuals |
-| **type** | boolean |
-
-## riskToolWorkbookUpdate
-<a name="riskToolWorkbookUpdate"></a>The Non-Permanence Risk Tool (NPRT) for Agriculture, Forestry, and Other Land Use (AFOLU) projects outlines the steps for performing the non-permanence risk assessment for AFOLU projects and determining their contributions to the buffer pool
-
-| Id | 666 |
-| :---- | :------------------------------- |
-| **Label** | Non-permanence risk tool and buffer analysis |
+| **Label** | Buffer supporting documents |
 | **Tier** | -1 |
 | **Section** | actuals-bufferActuals |
 | **type** | array |
 
 # actuals-actuals
-## projectActuals
-<a name="projectActuals"></a>The actual emissions reductions and removals per vintage (including pre- and post-buffer deduction)
+## partialActual
+<a name="partialActual"></a>
 
-| Id | 167 |
+| Id | 1016 |
 | :---- | :------------------------------- |
-| **Label** | Actual emissions reductions and removals per vintage (tCO2e) |
-| **Tier** | 2 |
+| **Label** | Credit actuals by vintage |
+| **Tier** | -1 |
 | **Section** | actuals-actuals |
 | **type** | object |
 | **Options** | [object Object] |
@@ -4433,71 +3765,6 @@
 | **type** | array |
 
 # actuals-verification
-## verificationBodyAccreditationOther
-<a name="verificationBodyAccreditationOther"></a>
-
-| Id | 1685 |
-| :---- | :------------------------------- |
-| **Label** | Other verification body accreditation or membership |
-| **Tier** | 1 |
-| **Section** | actuals-verification |
-| **type** | string |
-
-## verificationBodyTeamTable
-<a name="verificationBodyTeamTable"></a>
-
-| Id | 1695 |
-| :---- | :------------------------------- |
-| **Label** | Verification body team |
-| **Tier** | 1 |
-| **Section** | actuals-verification |
-| **type** | object |
-
-### Table structure
-| Name | Role | Email | Involvement | 
-| :---- | :---- | :---- | :---- |
-| | | | |
-
-## verificationBodyAccreditation
-<a name="verificationBodyAccreditation"></a>
-
-| Id | 1684 |
-| :---- | :------------------------------- |
-| **Label** | Verification body accreditation or membership |
-| **Tier** | 1 |
-| **Section** | actuals-verification |
-| **type** | array |
-| **Options** | ANSI National Accreditation Board (ANAB) |
-| | International Accreditation Forum (IAF) |
-| | Global Accreditation Bureau (GAB) |
-| | UNFCCC / CDM |
-| | Standards Council of Canada (SCC) |
-| | Other |
-
-## verificationBodySelection
-<a name="verificationBodySelection"></a>
-
-| Id | 1682 |
-| :---- | :------------------------------- |
-| **Label** | Verification body selection method |
-| **Tier** | 1 |
-| **Section** | actuals-verification |
-| **type** | string |
-| **Options** | Carbon standard or registry approved |
-| | Third party approved (e.g., insurance company) |
-| | Self-selected |
-| | Other |
-
-## verificationSame
-<a name="verificationSame"></a>
-
-| Id | 1681 |
-| :---- | :------------------------------- |
-| **Label** | Verification body is the same as the validation body |
-| **Tier** | 1 |
-| **Section** | actuals-verification |
-| **type** | boolean |
-
 ## verificationBodySectoralScopes
 <a name="verificationBodySectoralScopes"></a>
 
@@ -4523,6 +3790,71 @@
 | | 14. Agriculture, Forestry and Other Land Use (AFOLU) |
 | | 15. Livestock and manure management |
 | | 16. Carbon capture and storage |
+
+## verificationBodySelection
+<a name="verificationBodySelection"></a>
+
+| Id | 1682 |
+| :---- | :------------------------------- |
+| **Label** | Verification body selection method |
+| **Tier** | 1 |
+| **Section** | actuals-verification |
+| **type** | string |
+| **Options** | Carbon standard or registry approved |
+| | Third party approved (e.g., insurance company) |
+| | Self-selected |
+| | Other |
+
+## verificationBodyTeamTable
+<a name="verificationBodyTeamTable"></a>
+
+| Id | 1695 |
+| :---- | :------------------------------- |
+| **Label** | Verification body team |
+| **Tier** | 1 |
+| **Section** | actuals-verification |
+| **type** | object |
+
+### Table structure
+| Name | Role | Email | Involvement | 
+| :---- | :---- | :---- | :---- |
+| | | | |
+
+## verificationSame
+<a name="verificationSame"></a>
+
+| Id | 1681 |
+| :---- | :------------------------------- |
+| **Label** | Verification body is the same as the validation body |
+| **Tier** | 1 |
+| **Section** | actuals-verification |
+| **type** | boolean |
+
+## verificationBodyAccreditationOther
+<a name="verificationBodyAccreditationOther"></a>
+
+| Id | 1685 |
+| :---- | :------------------------------- |
+| **Label** | Other verification body accreditation or membership |
+| **Tier** | 1 |
+| **Section** | actuals-verification |
+| **type** | string |
+
+## verificationBodyAccreditation
+<a name="verificationBodyAccreditation"></a>
+
+| Id | 1684 |
+| :---- | :------------------------------- |
+| **Label** | Verification body accreditation or membership |
+| **Tier** | 1 |
+| **Section** | actuals-verification |
+| **type** | array |
+| **Options** | ANSI National Accreditation Board (ANAB) |
+| | International Accreditation Forum (IAF) |
+| | Global Accreditation Bureau (GAB) |
+| | UNFCCC / CDM |
+| | Standards Council of Canada (SCC) |
+| | Other |
 
 ## verification
 <a name="verification"></a>
@@ -4662,6 +3994,16 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | **type** | number |
 
 # actuals-socioeconomicImpacts
+## socioImpactSummary
+<a name="socioImpactSummary"></a>A high-level overview of the socioeconomic impacts associated with the project activities
+
+| Id | 1689 |
+| :---- | :------------------------------- |
+| **Label** | Summary of actual socioeconomic impacts due to project activities |
+| **Tier** | 2 |
+| **Section** | actuals-socioeconomicImpacts |
+| **type** | string |
+
 ## socioParentConditional
 <a name="socioParentConditional"></a>
 
@@ -4677,15 +4019,15 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | | Economic and benefit sharing |
 | | Health and sanitation |
 
-## socioImpactSummary
-<a name="socioImpactSummary"></a>A high-level overview of the socioeconomic impacts associated with the project activities
+## engagementPolicy
+<a name="engagementPolicy"></a>Indicates whether the project engages in policy advocacy to promote socio-environmental benefits (e.g., supporting conservation policies, improving workforce safety, etc.)
 
-| Id | 1689 |
+| Id | 1565 |
 | :---- | :------------------------------- |
-| **Label** | Summary of actual socioeconomic impacts due to project activities |
+| **Label** | Project engages with local policy makers, community/tribal members, or other organizational groups to inform policy recommendations |
 | **Tier** | 2 |
 | **Section** | actuals-socioeconomicImpacts |
-| **type** | string |
+| **type** | boolean |
 
 ## engagementHours
 <a name="engagementHours"></a>The total number of hours the project has spent engaging with the local community and other relevant stakeholders
@@ -4696,16 +4038,6 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | **Tier** | 2 |
 | **Section** | actuals-socioeconomicImpacts |
 | **type** | string |
-
-## engagementPolicy
-<a name="engagementPolicy"></a>Indicates whether the project engages in policy advocacy to promote socio-environmental benefits (e.g., supporting conservation policies, improving workforce safety, etc.)
-
-| Id | 1565 |
-| :---- | :------------------------------- |
-| **Label** | Project engages with local policy makers, community/tribal members, or other organizational groups to inform policy recommendations |
-| **Tier** | 2 |
-| **Section** | actuals-socioeconomicImpacts |
-| **type** | boolean |
 
 ## engagementIndigenous
 <a name="engagementIndigenous"></a>Project maintains ongoing engagement with identified groups beyond the initial consultation
@@ -4740,16 +4072,6 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | **Section** | actuals-socioeconomicImpacts |
 | **type** | boolean |
 
-## engagementChannelsDetails
-<a name="engagementChannelsDetails"></a>
-
-| Id | 1561 |
-| :---- | :------------------------------- |
-| **Label** | Description of identified communication channels |
-| **Tier** | 2 |
-| **Section** | actuals-socioeconomicImpacts |
-| **type** | string |
-
 ## engagementFrequency
 <a name="engagementFrequency"></a>Indicates the frequency of stakeholder consultation or engagement
 
@@ -4765,6 +4087,16 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | | Semi-annually |
 | | Annually |
 | | Sporadic frequency |
+
+## engagementChannelsDetails
+<a name="engagementChannelsDetails"></a>
+
+| Id | 1561 |
+| :---- | :------------------------------- |
+| **Label** | Description of identified communication channels |
+| **Tier** | 2 |
+| **Section** | actuals-socioeconomicImpacts |
+| **type** | string |
 
 ## stakeholderEngagementDetails
 <a name="stakeholderEngagementDetails"></a>Details include items like processes implemented for ongoing communication, format, and frequency of engagements, etc.
@@ -4826,16 +4158,6 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | **Section** | actuals-socioeconomicImpacts |
 | **type** | string |
 
-## genderIndicatorSelection
-<a name="genderIndicatorSelection"></a>Description of the frameworks and methodologies used to select the gender indicators against which impact is measured
-
-| Id | 1496 |
-| :---- | :------------------------------- |
-| **Label** | Resources and tools used for gender performance indicator selection |
-| **Tier** | 2 |
-| **Section** | actuals-socioeconomicImpacts |
-| **type** | string |
-
 ## genderImpactUpload
 <a name="genderImpactUpload"></a>Documents that demonstrate how gender-related data is collected, what indicators are used, and/or how the results are analyzed and reported
 
@@ -4845,6 +4167,16 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | **Tier** | -1 |
 | **Section** | actuals-socioeconomicImpacts |
 | **type** | array |
+
+## genderIndicatorSelection
+<a name="genderIndicatorSelection"></a>Description of the frameworks and methodologies used to select the gender indicators against which impact is measured
+
+| Id | 1496 |
+| :---- | :------------------------------- |
+| **Label** | Resources and tools used for gender performance indicator selection |
+| **Tier** | 2 |
+| **Section** | actuals-socioeconomicImpacts |
+| **type** | string |
 
 ## genderIndicator
 <a name="genderIndicator"></a>The project uses defined indicators to assess its gender-specific impacts
@@ -4913,22 +4245,22 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | **Section** | actuals-socioeconomicImpacts |
 | **type** | string |
 
-## genderSuccess
-<a name="genderSuccess"></a>Project success is achieved when it meets or exceeds the W+ Standards requirements for one or more of six success indicators, which span these domains: Income and Assets; Time; Education and Knowledge; Leadership; Food Security; and Health. To demonstrate success, a project must clearly define the activities that have improved women’s lives and provide meaningful, quantifiable evidence of these positive outcomes.
-
-| Id | 48 |
-| :---- | :------------------------------- |
-| **Label** | Women are central to the project's success |
-| **Tier** | 2 |
-| **Section** | actuals-socioeconomicImpacts |
-| **type** | string |
-
 ## genderPowerPositions
 <a name="genderPowerPositions"></a>Female-identifying individuals in managerial or senior project roles
 
 | Id | 924 |
 | :---- | :------------------------------- |
 | **Label** | Percentage of women that hold decision making powers or leadership roles within the project |
+| **Tier** | 2 |
+| **Section** | actuals-socioeconomicImpacts |
+| **type** | string |
+
+## genderSuccess
+<a name="genderSuccess"></a>Project success is achieved when it meets or exceeds the W+ Standards requirements for one or more of six success indicators, which span these domains: Income and Assets; Time; Education and Knowledge; Leadership; Food Security; and Health. To demonstrate success, a project must clearly define the activities that have improved women’s lives and provide meaningful, quantifiable evidence of these positive outcomes.
+
+| Id | 48 |
+| :---- | :------------------------------- |
+| **Label** | Women are central to the project's success |
 | **Tier** | 2 |
 | **Section** | actuals-socioeconomicImpacts |
 | **type** | string |
@@ -5056,6 +4388,76 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | **Section** | actuals-socioeconomicImpacts |
 | **type** | string |
 
+## wageRateProject
+<a name="wageRateProject"></a>
+
+| Id | 1554 |
+| :---- | :------------------------------- |
+| **Label** | Median wage rate for individuals employed as part of project activities |
+| **Tier** | 2 |
+| **Section** | actuals-socioeconomicImpacts |
+| **type** | string |
+
+## employmentImpact
+<a name="employmentImpact"></a>This can include positions within habitat/nature restoration, technical assistance, logistics, maintenance, and/or other roles which contribute to project activities
+
+| Id | 1542 |
+| :---- | :------------------------------- |
+| **Label** | Project has created employment opportunities |
+| **Tier** | 2 |
+| **Section** | actuals-socioeconomicImpacts |
+| **type** | boolean |
+
+## wageRateProjectDetails
+<a name="wageRateProjectDetails"></a>
+
+| Id | 1555 |
+| :---- | :------------------------------- |
+| **Label** | Overview of project wages |
+| **Tier** | 2 |
+| **Section** | actuals-socioeconomicImpacts |
+| **type** | string |
+
+## wageRateRegionUpload
+<a name="wageRateRegionUpload"></a>Median wage rate in the project area (i.e., area defined as regions within 20km of project boundary)
+
+| Id | 1553 |
+| :---- | :------------------------------- |
+| **Label** | Median wage rate supporting documents |
+| **Tier** | -1 |
+| **Section** | actuals-socioeconomicImpacts |
+| **type** | array |
+
+## wageRateRegion
+<a name="wageRateRegion"></a>Median wage rate in the project area (i.e., area defined as regions within 20km of project boundary)
+
+| Id | 1552 |
+| :---- | :------------------------------- |
+| **Label** | Median wage rate in the area in which the project is being developed |
+| **Tier** | 2 |
+| **Section** | actuals-socioeconomicImpacts |
+| **type** | string |
+
+## employmentPositionsWomen
+<a name="employmentPositionsWomen"></a>The total number of roles created by the project that are currently held by women
+
+| Id | 1550 |
+| :---- | :------------------------------- |
+| **Label** | Number of positions generated occupied by women |
+| **Tier** | 2 |
+| **Section** | actuals-socioeconomicImpacts |
+| **type** | string |
+
+## employmentPositionsIndigenous
+<a name="employmentPositionsIndigenous"></a>Positions held by members of identified vulnerable community groups or Indigenous peoples
+
+| Id | 1551 |
+| :---- | :------------------------------- |
+| **Label** | Number of project positions held by Indigenous or community stakeholders |
+| **Tier** | 2 |
+| **Section** | actuals-socioeconomicImpacts |
+| **type** | number |
+
 ## employmentAge
 <a name="employmentAge"></a>Average age ranges of people employed by the project
 
@@ -5071,76 +4473,6 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | | 35-45 |
 | | 45-55 |
 | | 55+ |
-
-## wageRateProject
-<a name="wageRateProject"></a>
-
-| Id | 1554 |
-| :---- | :------------------------------- |
-| **Label** | Median wage rate for individuals employed as part of project activities |
-| **Tier** | 2 |
-| **Section** | actuals-socioeconomicImpacts |
-| **type** | string |
-
-## wageRateRegion
-<a name="wageRateRegion"></a>Median wage rate in the project area (i.e., area defined as regions within 20km of project boundary)
-
-| Id | 1552 |
-| :---- | :------------------------------- |
-| **Label** | Median wage rate in the area in which the project is being developed |
-| **Tier** | 2 |
-| **Section** | actuals-socioeconomicImpacts |
-| **type** | string |
-
-## wageRateRegionUpload
-<a name="wageRateRegionUpload"></a>Median wage rate in the project area (i.e., area defined as regions within 20km of project boundary)
-
-| Id | 1553 |
-| :---- | :------------------------------- |
-| **Label** | Median wage rate supporting documents |
-| **Tier** | -1 |
-| **Section** | actuals-socioeconomicImpacts |
-| **type** | array |
-
-## employmentPositionsIndigenous
-<a name="employmentPositionsIndigenous"></a>Positions held by members of identified vulnerable community groups or Indigenous peoples
-
-| Id | 1551 |
-| :---- | :------------------------------- |
-| **Label** | Number of project positions held by Indigenous or community stakeholders |
-| **Tier** | 2 |
-| **Section** | actuals-socioeconomicImpacts |
-| **type** | number |
-
-## employmentPositionsWomen
-<a name="employmentPositionsWomen"></a>The total number of roles created by the project that are currently held by women
-
-| Id | 1550 |
-| :---- | :------------------------------- |
-| **Label** | Number of positions generated occupied by women |
-| **Tier** | 2 |
-| **Section** | actuals-socioeconomicImpacts |
-| **type** | string |
-
-## wageRateProjectDetails
-<a name="wageRateProjectDetails"></a>
-
-| Id | 1555 |
-| :---- | :------------------------------- |
-| **Label** | Overview of project wages |
-| **Tier** | 2 |
-| **Section** | actuals-socioeconomicImpacts |
-| **type** | string |
-
-## employmentImpact
-<a name="employmentImpact"></a>This can include positions within habitat/nature restoration, technical assistance, logistics, maintenance, and/or other roles which contribute to project activities
-
-| Id | 1542 |
-| :---- | :------------------------------- |
-| **Label** | Project has created employment opportunities |
-| **Tier** | 2 |
-| **Section** | actuals-socioeconomicImpacts |
-| **type** | boolean |
 
 ## employmentDetails
 <a name="employmentDetails"></a>Summary of job opportunities created through the project
@@ -5278,15 +4610,15 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | **Section** | actuals-socioeconomicImpacts |
 | **type** | number |
 
-## percentOwnedIndigenous
-<a name="percentOwnedIndigenous"></a>Percent of project owned—with decision-making power—by Indigenous, tribal, or local communities
+## monetaryBenefitConditional
+<a name="monetaryBenefitConditional"></a>Monetary benefit sharing refers to the distribution of financial gains from carbon credit revenues or related project income to local stakeholders who contribute to or are affected by the project
 
-| Id | 1541 |
+| Id | 1632 |
 | :---- | :------------------------------- |
-| **Label** | Percent of project owned by Indigenous, tribal, and/or local communities |
-| **Tier** | 2 |
+| **Label** | Project engages in monetary benefit sharing |
+| **Tier** | -1 |
 | **Section** | actuals-socioeconomicImpacts |
-| **type** | string |
+| **type** | boolean |
 
 ## monetaryBenefitSecondary
 <a name="monetaryBenefitSecondary"></a>In the case a credit's primary sale is to a broker, trader, or investor, this field indicates whether there is a benefit sharing during the second point of sale — when the broker, investor, or trader sells to another party
@@ -5298,15 +4630,25 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | **Section** | actuals-socioeconomicImpacts |
 | **type** | boolean |
 
-## paymentPercentIndigenous
-<a name="paymentPercentIndigenous"></a>How much indigenous, tribal, and/or local communities recieve from the sale of a carbon credit that has been generated
+## percentOwnedIndigenous
+<a name="percentOwnedIndigenous"></a>Percent of project owned—with decision-making power—by Indigenous, tribal, or local communities
 
-| Id | 1540 |
+| Id | 1541 |
 | :---- | :------------------------------- |
-| **Label** | Percent of sale price going to Indigenous, tribal, and/or local communities |
+| **Label** | Percent of project owned by Indigenous, tribal, and/or local communities |
 | **Tier** | 2 |
 | **Section** | actuals-socioeconomicImpacts |
 | **type** | string |
+
+## monetaryBenefitPrimary
+<a name="monetaryBenefitPrimary"></a>When sold to a broker or organization, the project provides a financial benefit share when the project sells a credit directly from the PD to a second party
+
+| Id | 1538 |
+| :---- | :------------------------------- |
+| **Label** | Project provides financial benefit sharing at primary sale |
+| **Tier** | 2 |
+| **Section** | actuals-socioeconomicImpacts |
+| **type** | boolean |
 
 ## monetaryBenefitType
 <a name="monetaryBenefitType"></a>Monetary payment types adapted from definitions within the UN Nagoya Protocol
@@ -5326,25 +4668,15 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | | Establishment and contributions to a community fund |
 | | Other |
 
-## monetaryBenefitPrimary
-<a name="monetaryBenefitPrimary"></a>When sold to a broker or organization, the project provides a financial benefit share when the project sells a credit directly from the PD to a second party
+## paymentPercentIndigenous
+<a name="paymentPercentIndigenous"></a>How much indigenous, tribal, and/or local communities recieve from the sale of a carbon credit that has been generated
 
-| Id | 1538 |
+| Id | 1540 |
 | :---- | :------------------------------- |
-| **Label** | Project provides financial benefit sharing at primary sale |
+| **Label** | Percent of sale price going to Indigenous, tribal, and/or local communities |
 | **Tier** | 2 |
 | **Section** | actuals-socioeconomicImpacts |
-| **type** | boolean |
-
-## monetaryBenefitConditional
-<a name="monetaryBenefitConditional"></a>Monetary benefit sharing refers to the distribution of financial gains from carbon credit revenues or related project income to local stakeholders who contribute to or are affected by the project
-
-| Id | 1632 |
-| :---- | :------------------------------- |
-| **Label** | Project engages in monetary benefit sharing |
-| **Tier** | -1 |
-| **Section** | actuals-socioeconomicImpacts |
-| **type** | boolean |
+| **type** | string |
 
 ## revenueShare
 <a name="revenueShare"></a>Differentiates whether communities recieve a percentage of profits or revenues of the project per benefit sharing agreements
@@ -5492,6 +4824,16 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | **Section** | actuals-socioeconomicImpacts |
 | **type** | array |
 
+## localEconomyImprovement
+<a name="localEconomyImprovement"></a>Specific activity or sector-based economies have long-term benefits as a result of project activities (i.e., fisheries industry, tourism industry)
+
+| Id | 1498 |
+| :---- | :------------------------------- |
+| **Label** | Local economies have benefitted and improved in the project area |
+| **Tier** | 2 |
+| **Section** | actuals-socioeconomicImpacts |
+| **type** | boolean |
+
 ## localEconomyDetails
 <a name="localEconomyDetails"></a>Summary of the economic benefits provided by the project and details on how such benefits were measured or evaluated
 
@@ -5511,16 +4853,6 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | **Tier** | -1 |
 | **Section** | actuals-socioeconomicImpacts |
 | **type** | array |
-
-## localEconomyImprovement
-<a name="localEconomyImprovement"></a>Specific activity or sector-based economies have long-term benefits as a result of project activities (i.e., fisheries industry, tourism industry)
-
-| Id | 1498 |
-| :---- | :------------------------------- |
-| **Label** | Local economies have benefitted and improved in the project area |
-| **Tier** | 2 |
-| **Section** | actuals-socioeconomicImpacts |
-| **type** | boolean |
 
 ## povertyReduction
 <a name="povertyReduction"></a>Indicates additional poverty reduction measures beyond monetary benefit sharing (expansion of safety net programs, providing microfinance loans, etc)
@@ -5581,16 +4913,6 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | **Section** | actuals-socioeconomicImpacts |
 | **type** | boolean |
 
-## housingEnergy
-<a name="housingEnergy"></a>Outside of the main project activities, project has built or contributed investment towards energy efficient homes in the project community
-
-| Id | 1507 |
-| :---- | :------------------------------- |
-| **Label** | Project has created units of energy efficient housing within the area of operation |
-| **Tier** | 2 |
-| **Section** | actuals-socioeconomicImpacts |
-| **type** | boolean |
-
 ## housingRetro
 <a name="housingRetro"></a>Outside of the main project activities, the number of homes using more energy efficient measures within the project area due to project investment or programs
 
@@ -5611,6 +4933,16 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | **Section** | actuals-socioeconomicImpacts |
 | **type** | number |
 
+## housingEnergy
+<a name="housingEnergy"></a>Outside of the main project activities, project has built or contributed investment towards energy efficient homes in the project community
+
+| Id | 1507 |
+| :---- | :------------------------------- |
+| **Label** | Project has created units of energy efficient housing within the area of operation |
+| **Tier** | 2 |
+| **Section** | actuals-socioeconomicImpacts |
+| **type** | boolean |
+
 ## housingDetails
 <a name="housingDetails"></a>Summary of measures taken to provide energy efficient housing
 
@@ -5621,15 +4953,15 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | **Section** | actuals-socioeconomicImpacts |
 | **type** | string |
 
-## tourismImpact
-<a name="tourismImpact"></a>Includes activities such as facility tours, voluntourism opportunities, agritourism, cultural shows, cooking classes/demonstrations, etc
+## tourismQuantification
+<a name="tourismQuantification"></a>Number of guests or tourists who have attended or completed activities offered (e.g., facility tours, voluntourism programs, educational open farm days, etc)
 
-| Id | 1510 |
+| Id | 1513 |
 | :---- | :------------------------------- |
-| **Label** | Project engages in leisure or tourism activities to increase project awareness |
+| **Label** | Number of visitors that have interacted with project leisure initiatives |
 | **Tier** | 2 |
 | **Section** | actuals-socioeconomicImpacts |
-| **type** | boolean |
+| **type** | number |
 
 ## tourismActivity
 <a name="tourismActivity"></a>
@@ -5649,15 +4981,15 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | | Voluntourism opportunities |
 | | Other |
 
-## tourismQuantification
-<a name="tourismQuantification"></a>Number of guests or tourists who have attended or completed activities offered (e.g., facility tours, voluntourism programs, educational open farm days, etc)
+## tourismImpact
+<a name="tourismImpact"></a>Includes activities such as facility tours, voluntourism opportunities, agritourism, cultural shows, cooking classes/demonstrations, etc
 
-| Id | 1513 |
+| Id | 1510 |
 | :---- | :------------------------------- |
-| **Label** | Number of visitors that have interacted with project leisure initiatives |
+| **Label** | Project engages in leisure or tourism activities to increase project awareness |
 | **Tier** | 2 |
 | **Section** | actuals-socioeconomicImpacts |
-| **type** | number |
+| **type** | boolean |
 
 ## tourismDetails
 <a name="tourismDetails"></a>Summary of programs or activities offered to increase tourism opportunities for the project
@@ -5669,15 +5001,25 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | **Section** | actuals-socioeconomicImpacts |
 | **type** | string |
 
-## healthOutcomePlan
-<a name="healthOutcomePlan"></a>Overview of any measures or plans in place to mitigate risks to community health within the project boundary
+## healthOutcomeQuantified
+<a name="healthOutcomeQuantified"></a>Quantifiable metrics assessed and measured concerning health access and outcomes (i.e., the number of people reached through health training programs, the  number of health facilities updated since start of project activities, etc.)
 
-| Id | 1520 |
+| Id | 1516 |
 | :---- | :------------------------------- |
-| **Label** | Description of health risk monitoring and remediation plans |
+| **Label** | Quantifiable project impact on health access and outcomes |
 | **Tier** | 2 |
 | **Section** | actuals-socioeconomicImpacts |
 | **type** | string |
+
+## healthOutcomeImpacts
+<a name="healthOutcomeImpacts"></a>Examples of this can include providing health facilities, funding new machinery or health technology, providing health trainings as it relates to project materials (e.g. pesticide handling, stove use), or taking measures to protect or amplify native medinal knowledge.
+
+| Id | 1514 |
+| :---- | :------------------------------- |
+| **Label** | Project undertakes initiatives to enhance health outcomes or mitigate adverse impacts within the project region |
+| **Tier** | 2 |
+| **Section** | actuals-socioeconomicImpacts |
+| **type** | boolean |
 
 ## healthRiskIncrease
 <a name="healthRiskIncrease"></a>
@@ -5685,6 +5027,24 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | Id | 1519 |
 | :---- | :------------------------------- |
 | **Label** | Project activities may increase the following health risks |
+| **Tier** | 2 |
+| **Section** | actuals-socioeconomicImpacts |
+| **type** | array |
+| **Options** | Air pollution |
+| | Water pollution |
+| | Chemical exposure |
+| | Radiation |
+| | Occupational hazards |
+| | Infectious disease |
+| | Other |
+| | Not applicable |
+
+## healthRiskReduction
+<a name="healthRiskReduction"></a>
+
+| Id | 1518 |
+| :---- | :------------------------------- |
+| **Label** | Project activities reduce the following health risks |
 | **Tier** | 2 |
 | **Section** | actuals-socioeconomicImpacts |
 | **type** | array |
@@ -5707,34 +5067,6 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | **Section** | actuals-socioeconomicImpacts |
 | **type** | array |
 
-## healthRiskReduction
-<a name="healthRiskReduction"></a>
-
-| Id | 1518 |
-| :---- | :------------------------------- |
-| **Label** | Project activities reduce the following health risks |
-| **Tier** | 2 |
-| **Section** | actuals-socioeconomicImpacts |
-| **type** | array |
-| **Options** | Air pollution |
-| | Water pollution |
-| | Chemical exposure |
-| | Radiation |
-| | Occupational hazards |
-| | Infectious disease |
-| | Other |
-| | Not applicable |
-
-## healthOutcomeImpacts
-<a name="healthOutcomeImpacts"></a>Examples of this can include providing health facilities, funding new machinery or health technology, providing health trainings as it relates to project materials (e.g. pesticide handling, stove use), or taking measures to protect or amplify native medinal knowledge.
-
-| Id | 1514 |
-| :---- | :------------------------------- |
-| **Label** | Project undertakes initiatives to enhance health outcomes or mitigate adverse impacts within the project region |
-| **Tier** | 2 |
-| **Section** | actuals-socioeconomicImpacts |
-| **type** | boolean |
-
 ## healthOutcomeDetails
 <a name="healthOutcomeDetails"></a>Overview of strategies and actions implemented to mitigate community health risks
 
@@ -5745,22 +5077,12 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | **Section** | actuals-socioeconomicImpacts |
 | **type** | string |
 
-## healthOutcomeQuantified
-<a name="healthOutcomeQuantified"></a>Quantifiable metrics assessed and measured concerning health access and outcomes (i.e., the number of people reached through health training programs, the  number of health facilities updated since start of project activities, etc.)
+## healthOutcomePlan
+<a name="healthOutcomePlan"></a>Overview of any measures or plans in place to mitigate risks to community health within the project boundary
 
-| Id | 1516 |
+| Id | 1520 |
 | :---- | :------------------------------- |
-| **Label** | Quantifiable project impact on health access and outcomes |
-| **Tier** | 2 |
-| **Section** | actuals-socioeconomicImpacts |
-| **type** | string |
-
-## sanitationQuantification
-<a name="sanitationQuantification"></a>Description of the project’s impact on sanitation-related access and outcomes (e.g., number of households gaining reliable potable water access, increased waste management facility capacity within the project area, etc.)
-
-| Id | 1524 |
-| :---- | :------------------------------- |
-| **Label** | Quantifiable project impacts on sanitation processes and access |
+| **Label** | Description of health risk monitoring and remediation plans |
 | **Tier** | 2 |
 | **Section** | actuals-socioeconomicImpacts |
 | **type** | string |
@@ -5794,6 +5116,16 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | **Tier** | 2 |
 | **Section** | actuals-socioeconomicImpacts |
 | **type** | boolean |
+
+## sanitationQuantification
+<a name="sanitationQuantification"></a>Description of the project’s impact on sanitation-related access and outcomes (e.g., number of households gaining reliable potable water access, increased waste management facility capacity within the project area, etc.)
+
+| Id | 1524 |
+| :---- | :------------------------------- |
+| **Label** | Quantifiable project impacts on sanitation processes and access |
+| **Tier** | 2 |
+| **Section** | actuals-socioeconomicImpacts |
+| **type** | string |
 
 ## sanitationActivity
 <a name="sanitationActivity"></a>Types of activities taken to increase sanitation accessibility, outcomes, and awareness
@@ -5839,22 +5171,15 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | **Section** | actuals-ecologicalImpacts |
 | **type** | string |
 
-## airMonitoringStatus
-<a name="airMonitoringStatus"></a>
+## airQualityModeling
+<a name="airQualityModeling"></a>Overview of the methodology used to model air quality and synthesize resulting impact assessments
 
-| Id | 1568 |
+| Id | 1569 |
 | :---- | :------------------------------- |
-| **Label** | Air quality monitoring status and approach |
+| **Label** | Overview of the approach used to model and estimate air quality effects |
 | **Tier** | 2 |
 | **Section** | actuals-ecologicalImpacts |
 | **type** | string |
-| **Options** | Project does not currently monitor and record air pollution |
-| | Project models and estimates air quality impacts |
-| | Project monitors air pollution and has specific reduction targets |
-| | Project monitors air pollution and has met specific reduction targets during the last year of operations |
-| | Project monitors and records air pollution (no reduction targets) |
-| | Project has eliminated hazardous and toxic air pollutants from project activities entirely |
-| | Not applicable |
 
 ## communityAirRisk
 <a name="communityAirRisk"></a>Indicates whether project activities increase exposure to harmful air pollutants
@@ -5866,12 +5191,31 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | **Section** | actuals-ecologicalImpacts |
 | **type** | boolean |
 
-## airQualityModeling
-<a name="airQualityModeling"></a>Overview of the methodology used to model air quality and synthesize resulting impact assessments
+## airMonitoringPollutants
+<a name="airMonitoringPollutants"></a>Pollutants that are monitored as part of the project activity
 
-| Id | 1569 |
+| Id | 179 |
 | :---- | :------------------------------- |
-| **Label** | Overview of the approach used to model and estimate air quality effects |
+| **Label** | Project pollutants monitored |
+| **Tier** | 2 |
+| **Section** | actuals-ecologicalImpacts |
+| **type** | array |
+| **Options** | Ozone |
+| | VOCs |
+| | NOx |
+| | Pollen |
+| | PM2.5 |
+| | PM10 |
+| | Carbon Monoxide (CO) |
+| | Polycyclic aromatic hydrocarbons (PAHs) |
+| | Other |
+
+## airImpactsSummary
+<a name="airImpactsSummary"></a>Assessment of cumulative air quality impacts attributable to project-related activities
+
+| Id | 1573 |
+| :---- | :------------------------------- |
+| **Label** | Summary of quantifiable project air quality impacts |
 | **Tier** | 2 |
 | **Section** | actuals-ecologicalImpacts |
 | **type** | string |
@@ -5896,34 +5240,22 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | **Section** | actuals-ecologicalImpacts |
 | **type** | string |
 
-## airImpactsSummary
-<a name="airImpactsSummary"></a>Assessment of cumulative air quality impacts attributable to project-related activities
+## airMonitoringStatus
+<a name="airMonitoringStatus"></a>
 
-| Id | 1573 |
+| Id | 1568 |
 | :---- | :------------------------------- |
-| **Label** | Summary of quantifiable project air quality impacts |
+| **Label** | Air quality monitoring status and approach |
 | **Tier** | 2 |
 | **Section** | actuals-ecologicalImpacts |
 | **type** | string |
-
-## airMonitoringPollutants
-<a name="airMonitoringPollutants"></a>Pollutants that are monitored as part of the project activity
-
-| Id | 179 |
-| :---- | :------------------------------- |
-| **Label** | Project pollutants monitored |
-| **Tier** | 2 |
-| **Section** | actuals-ecologicalImpacts |
-| **type** | array |
-| **Options** | Ozone |
-| | VOCs |
-| | NOx |
-| | Pollen |
-| | PM2.5 |
-| | PM10 |
-| | Carbon Monoxide (CO) |
-| | Polycyclic aromatic hydrocarbons (PAHs) |
-| | Other |
+| **Options** | Project does not currently monitor and record air pollution |
+| | Project models and estimates air quality impacts |
+| | Project monitors air pollution and has specific reduction targets |
+| | Project monitors air pollution and has met specific reduction targets during the last year of operations |
+| | Project monitors and records air pollution (no reduction targets) |
+| | Project has eliminated hazardous and toxic air pollutants from project activities entirely |
+| | Not applicable |
 
 ## airPollutionMonitoring
 <a name="airPollutionMonitoring"></a>The air pollution monitoring plan may consider indoor air quality, ambient air quality, or human pollutant exposure
@@ -6040,16 +5372,6 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | **Section** | actuals-ecologicalImpacts |
 | **type** | boolean |
 
-## biodiversitySpeciesHabitat
-<a name="biodiversitySpeciesHabitat"></a>Overall habitat for species monitored by the project has increased due to project activities (i.e.,  conservation activities, marine protected areas, etc)
-
-| Id | 1600 |
-| :---- | :------------------------------- |
-| **Label** | Species habitats identified in baseline surveys have expanded due to project activities |
-| **Tier** | 2 |
-| **Section** | actuals-ecologicalImpacts |
-| **type** | boolean |
-
 ## biodiversityHabitatExtension
 <a name="biodiversityHabitatExtension"></a>Overview of species experiencing habitat expansion and additional ecological benefits resulting from project activities
 
@@ -6080,6 +5402,16 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | **Section** | actuals-ecologicalImpacts |
 | **type** | string |
 
+## biodiversitySpeciesHabitat
+<a name="biodiversitySpeciesHabitat"></a>Overall habitat for species monitored by the project has increased due to project activities (i.e.,  conservation activities, marine protected areas, etc)
+
+| Id | 1600 |
+| :---- | :------------------------------- |
+| **Label** | Species habitats identified in baseline surveys have expanded due to project activities |
+| **Tier** | 2 |
+| **Section** | actuals-ecologicalImpacts |
+| **type** | boolean |
+
 ## biodiversityEvidence
 <a name="biodiversityEvidence"></a>Documentation related to the project's ecological or biodiversity impacts, monitoring plans or reports, permits, registry-specific assessments (e.g., the ACR Environmental and Social Impact Assessment Report template)
 
@@ -6100,15 +5432,15 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | **Section** | actuals-ecologicalImpacts |
 | **type** | string |
 
-## threatenedSpeciesNumber
-<a name="threatenedSpeciesNumber"></a>
+## biodiversityInvasive
+<a name="biodiversityInvasive"></a>Interventions such as invasive species removal efforts designed to support the restoration and ecological balance of native ecosystems
 
-| Id | 1617 |
+| Id | 1604 |
 | :---- | :------------------------------- |
-| **Label** | Number of identified species which are categorized as IUCN threatened and endangered species |
+| **Label** | Project has engaged in efforts to control invasive species within project boundaries |
 | **Tier** | 2 |
 | **Section** | actuals-ecologicalImpacts |
-| **type** | number |
+| **type** | boolean |
 
 ## biodiversityInvasiveMitigation
 <a name="biodiversityInvasiveMitigation"></a>
@@ -6130,15 +5462,15 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | **Section** | actuals-ecologicalImpacts |
 | **type** | number |
 
-## biodiversityInvasive
-<a name="biodiversityInvasive"></a>Interventions such as invasive species removal efforts designed to support the restoration and ecological balance of native ecosystems
+## threatenedSpeciesNumber
+<a name="threatenedSpeciesNumber"></a>
 
-| Id | 1604 |
+| Id | 1617 |
 | :---- | :------------------------------- |
-| **Label** | Project has engaged in efforts to control invasive species within project boundaries |
+| **Label** | Number of identified species which are categorized as IUCN threatened and endangered species |
 | **Tier** | 2 |
 | **Section** | actuals-ecologicalImpacts |
-| **type** | boolean |
+| **type** | number |
 
 ## biodiversitySpeciesApproach
 <a name="biodiversitySpeciesApproach"></a>How the project will collect data on threatened/endangered species
@@ -6149,16 +5481,6 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | **Tier** | 2 |
 | **Section** | actuals-ecologicalImpacts |
 | **type** | string |
-
-## speciesTrackingConditional
-<a name="speciesTrackingConditional"></a>Project directly tracks and monitors flora or fauna species as part of the project activity
-
-| Id | 674 |
-| :---- | :------------------------------- |
-| **Label** | Project tracks and monitors species within the project area (flora or fauna) |
-| **Tier** | 2 |
-| **Section** | actuals-ecologicalImpacts |
-| **type** | boolean |
 
 ## speciesSelected
 <a name="speciesSelected"></a>The type of species selected for monitoring, including but not limited to sentinel species, rare species, endangered species, umbrella species, keystone species, endemic species, etc.
@@ -6178,6 +5500,16 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | | Emblematic species |
 | | Endemic species |
 | | Other |
+
+## speciesTrackingConditional
+<a name="speciesTrackingConditional"></a>Project directly tracks and monitors flora or fauna species as part of the project activity
+
+| Id | 674 |
+| :---- | :------------------------------- |
+| **Label** | Project tracks and monitors species within the project area (flora or fauna) |
+| **Tier** | 2 |
+| **Section** | actuals-ecologicalImpacts |
+| **type** | boolean |
 
 ## speciesMonitoringFrequency
 <a name="speciesMonitoringFrequency"></a>
@@ -6260,16 +5592,6 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | **Section** | actuals-ecologicalImpacts |
 | **type** | string |
 
-## soilTesting
-<a name="soilTesting"></a>
-
-| Id | 1593 |
-| :---- | :------------------------------- |
-| **Label** | Soil testing is done on a consistent basis |
-| **Tier** | 2 |
-| **Section** | actuals-ecologicalImpacts |
-| **type** | boolean |
-
 ## soilQualityImpacts
 <a name="soilQualityImpacts"></a>Category of soil quality improvement
 
@@ -6285,21 +5607,6 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | | Increased soil cation exchange capacity (CEC)  |
 | | Decreased soil compaction |
 | | Other |
-
-## soilSamplingFrequency
-<a name="soilSamplingFrequency"></a>
-
-| Id | 1594 |
-| :---- | :------------------------------- |
-| **Label** | Soil sampling frequency |
-| **Tier** | 2 |
-| **Section** | actuals-ecologicalImpacts |
-| **type** | string |
-| **Options** | Weekly |
-| | Monthly |
-| | Quarterly |
-| | Semi-annually |
-| | Annually |
 
 ## soilPractice
 <a name="soilPractice"></a>Examples include cover crops, contour buffer strips, rotational planting, rotational grazing, fallow periods, reduced tillage, no tillage, companion planting, native plant use, soil fertilizers etc.
@@ -6324,6 +5631,31 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | | Soil fertilizers |
 | | Other |
 
+## soilTesting
+<a name="soilTesting"></a>
+
+| Id | 1593 |
+| :---- | :------------------------------- |
+| **Label** | Soil testing is done on a consistent basis |
+| **Tier** | 2 |
+| **Section** | actuals-ecologicalImpacts |
+| **type** | boolean |
+
+## soilSamplingFrequency
+<a name="soilSamplingFrequency"></a>
+
+| Id | 1594 |
+| :---- | :------------------------------- |
+| **Label** | Soil sampling frequency |
+| **Tier** | 2 |
+| **Section** | actuals-ecologicalImpacts |
+| **type** | string |
+| **Options** | Weekly |
+| | Monthly |
+| | Quarterly |
+| | Semi-annually |
+| | Annually |
+
 ## soilHealthEvidence
 <a name="soilHealthEvidence"></a>Supporting documentation for claimed soil health impacts
 
@@ -6344,30 +5676,15 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | **Section** | actuals-ecologicalImpacts |
 | **type** | string |
 
-## waterQualityVolume
-<a name="waterQualityVolume"></a>The amount of water treated by the project and identified unit (cubic meters, liters, etc.)
+## waterQualityPracticesDetails
+<a name="waterQualityPracticesDetails"></a>Overview of water treatment and testing protocols and approaches
 
-| Id | 1610 |
+| Id | 1612 |
 | :---- | :------------------------------- |
-| **Label** | Volume of water treated by project |
-| **Tier** | 2 |
-| **Section** | actuals-ecologicalImpacts |
-| **type** | number |
-
-## waterQualityLand
-<a name="waterQualityLand"></a>Water quality practices on cultivated land may include the application of nematicides, riparian buffer zones, etc.
-
-| Id | 1611 |
-| :---- | :------------------------------- |
-| **Label** | Project implements water quality practices on cultivated land to protect local water sources |
+| **Label** | Description of water treatment or quality safeguarding practices |
 | **Tier** | 2 |
 | **Section** | actuals-ecologicalImpacts |
 | **type** | string |
-| **Options** | There is no application of nematicides within 20 meters of any permanent water body |
-| | There is no application of agrochemicals within 10 meters of any permanent water body |
-| | There is a riparian buffer zone at least 25 feet in width from any permanent water body |
-| | Other |
-| | Not applicable |
 
 ## waterQualityMonitoring
 <a name="waterQualityMonitoring"></a>
@@ -6384,6 +5701,41 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | | Project monitors wastewater and has met specific reduction targets during the last year of operations |
 | | Project has eliminated hazardous and toxic wastewater from project activities entirely |
 | | Not applicable |
+
+## waterQualityLand
+<a name="waterQualityLand"></a>Water quality practices on cultivated land may include the application of nematicides, riparian buffer zones, etc.
+
+| Id | 1611 |
+| :---- | :------------------------------- |
+| **Label** | Project implements water quality practices on cultivated land to protect local water sources |
+| **Tier** | 2 |
+| **Section** | actuals-ecologicalImpacts |
+| **type** | string |
+| **Options** | There is no application of nematicides within 20 meters of any permanent water body |
+| | There is no application of agrochemicals within 10 meters of any permanent water body |
+| | There is a riparian buffer zone at least 25 feet in width from any permanent water body |
+| | Other |
+| | Not applicable |
+
+## waterQualityVolume
+<a name="waterQualityVolume"></a>The amount of water treated by the project and identified unit (cubic meters, liters, etc.)
+
+| Id | 1610 |
+| :---- | :------------------------------- |
+| **Label** | Volume of water treated by project |
+| **Tier** | 2 |
+| **Section** | actuals-ecologicalImpacts |
+| **type** | number |
+
+## waterPollutants
+<a name="waterPollutants"></a>Summary of water pollutants monitored by project, with indication if not applicable to project
+
+| Id | 1574 |
+| :---- | :------------------------------- |
+| **Label** | Overview of water pollutants monitored |
+| **Tier** | 2 |
+| **Section** | actuals-ecologicalImpacts |
+| **type** | string |
 
 ## waterQualityImprovement
 <a name="waterQualityImprovement"></a>
@@ -6404,26 +5756,6 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | **Tier** | 2 |
 | **Section** | actuals-ecologicalImpacts |
 | **type** | number |
-
-## waterQualityPracticesDetails
-<a name="waterQualityPracticesDetails"></a>Overview of water treatment and testing protocols and approaches
-
-| Id | 1612 |
-| :---- | :------------------------------- |
-| **Label** | Description of water treatment or quality safeguarding practices |
-| **Tier** | 2 |
-| **Section** | actuals-ecologicalImpacts |
-| **type** | string |
-
-## waterPollutants
-<a name="waterPollutants"></a>Summary of water pollutants monitored by project, with indication if not applicable to project
-
-| Id | 1574 |
-| :---- | :------------------------------- |
-| **Label** | Overview of water pollutants monitored |
-| **Tier** | 2 |
-| **Section** | actuals-ecologicalImpacts |
-| **type** | string |
 
 ## waterQualityEvidence
 <a name="waterQualityEvidence"></a>Documents supporting claimed impacts to water quality
@@ -6448,25 +5780,6 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | | Use of settling ponds to clean water before re-entry to water table |
 | | Grey water remediation |
 | | Desalination |
-| | Other |
-| | Not applicable |
-
-## waterConservationType
-<a name="waterConservationType"></a>Specific practices or interventions carried out to conserve water resources, such as rainwater harvesting, efficient irrigation systems, soil moisture retention techniques, water reuse initiatives, or community-based conservation programs
-
-| Id | 1615 |
-| :---- | :------------------------------- |
-| **Label** | Water conservation practices implemented by project |
-| **Tier** | 2 |
-| **Section** | actuals-ecologicalImpacts |
-| **type** | array |
-| **Options** | Traditional irrigation (e.g. flood irrigation) |
-| | Rainwater harvesting |
-| | Gray-water use for irrigation |
-| | Hydroponic or aeroponic growing |
-| | Drip technology |
-| | Low-pressure micro-sprinklers |
-| | Irrigation water use based on monitoring and analysis of soil moisture and weather data |
 | | Other |
 | | Not applicable |
 
@@ -6504,6 +5817,25 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | **Tier** | 2 |
 | **Section** | actuals-ecologicalImpacts |
 | **type** | string |
+
+## waterConservationType
+<a name="waterConservationType"></a>Specific practices or interventions carried out to conserve water resources, such as rainwater harvesting, efficient irrigation systems, soil moisture retention techniques, water reuse initiatives, or community-based conservation programs
+
+| Id | 1615 |
+| :---- | :------------------------------- |
+| **Label** | Water conservation practices implemented by project |
+| **Tier** | 2 |
+| **Section** | actuals-ecologicalImpacts |
+| **type** | array |
+| **Options** | Traditional irrigation (e.g. flood irrigation) |
+| | Rainwater harvesting |
+| | Gray-water use for irrigation |
+| | Hydroponic or aeroponic growing |
+| | Drip technology |
+| | Low-pressure micro-sprinklers |
+| | Irrigation water use based on monitoring and analysis of soil moisture and weather data |
+| | Other |
+| | Not applicable |
 
 ## waterVWBConditional
 <a name="waterVWBConditional"></a>The Volumetric Water Benefit Accounting, published by WRI, is a common tool used to calculate and communicate volumetric water benefits of activities that contribute to meeting water stewardship outcomes, SDG targets, and help solve shared water challenges
@@ -6605,12 +5937,62 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | **Section** | actuals-ecologicalImpacts |
 | **type** | string |
 
+## marineBaselineUpload
+<a name="marineBaselineUpload"></a>Images or documents related to the region's ecological baseline  (e.g., baseline biodiversity in the region, ecological composition or condition, proximity and types of neighboring ecosystems, etc.)
+
+| Id | 1622 |
+| :---- | :------------------------------- |
+| **Label** | Baseline coastal or aquatic health supporting documents |
+| **Tier** | 2 |
+| **Section** | actuals-ecologicalImpacts |
+| **type** | array |
+
+## marineHealthIndicatorsDetails
+<a name="marineHealthIndicatorsDetails"></a>
+
+| Id | 1629 |
+| :---- | :------------------------------- |
+| **Label** | Description of indentified and/or other marine and coastal health indicators |
+| **Tier** | 2 |
+| **Section** | actuals-ecologicalImpacts |
+| **type** | string |
+
+## oceanFloorDetails
+<a name="oceanFloorDetails"></a>Changes in ocean floor substrate coverage (i.e., increase in seagrass or coral cover) due to project activities
+
+| Id | 1625 |
+| :---- | :------------------------------- |
+| **Label** | Overview of changes to ocean floor substrate cover |
+| **Tier** | 2 |
+| **Section** | actuals-ecologicalImpacts |
+| **type** | string |
+
+## marineSpeciesNumber
+<a name="marineSpeciesNumber"></a>The number or estimated count of plant species present within the project area
+
+| Id | 1620 |
+| :---- | :------------------------------- |
+| **Label** | Number of species of vegetation within project boundaries |
+| **Tier** | 2 |
+| **Section** | actuals-ecologicalImpacts |
+| **type** | number |
+
 ## marineImpacts
 <a name="marineImpacts"></a>For example if species diversity was monitored, a summary of changes in flora and fauna composition and diversity through project activities compared to baseline conditions
 
 | Id | 1630 |
 | :---- | :------------------------------- |
 | **Label** | Summary of project impacts on coastal and marine ecosystem health as a result of project activities |
+| **Tier** | 2 |
+| **Section** | actuals-ecologicalImpacts |
+| **type** | string |
+
+## marineEcosystemProximity
+<a name="marineEcosystemProximity"></a>Any ecosystems not directly within but in close proximity to project geographic boundaries (seagrass meadows, mangrove forests, etc.)
+
+| Id | 1623 |
+| :---- | :------------------------------- |
+| **Label** | Ecosystem(s) in close proximity to project's aquatic boundaries |
 | **Tier** | 2 |
 | **Section** | actuals-ecologicalImpacts |
 | **type** | string |
@@ -6643,52 +6025,32 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | | Litter production |
 | | Other |
 
-## marineHealthIndicatorsDetails
-<a name="marineHealthIndicatorsDetails"></a>
+## marineBaselineConditional
+<a name="marineBaselineConditional"></a>This baseline can include ocean/river water quality and ecology, including aquatic and terrestrial flora and fauna species presence and abundance
 
-| Id | 1629 |
+| Id | 1619 |
 | :---- | :------------------------------- |
-| **Label** | Description of indentified and/or other marine and coastal health indicators |
+| **Label** | Project evaluates baseline aquatic or coastal ecological health in the project region |
+| **Tier** | 2 |
+| **Section** | actuals-ecologicalImpacts |
+| **type** | boolean |
+
+## marineBaselineEvaluation
+<a name="marineBaselineEvaluation"></a>Indication of how the project evaluates baseline aquatic health (e.g., direct measurements, model estimations, etc.)
+
+| Id | 1627 |
+| :---- | :------------------------------- |
+| **Label** | Overview of baseline aquatic health evaluation |
 | **Tier** | 2 |
 | **Section** | actuals-ecologicalImpacts |
 | **type** | string |
 
-## marineSpeciesNumber
-<a name="marineSpeciesNumber"></a>The number or estimated count of plant species present within the project area
+## marineEcologyDetails
+<a name="marineEcologyDetails"></a>Overview of the ecological composition and condition of the project area (e.g., ecosystem type - marsh, coral atolls, types of species present, etc.)
 
-| Id | 1620 |
+| Id | 1621 |
 | :---- | :------------------------------- |
-| **Label** | Number of species of vegetation within project boundaries |
-| **Tier** | 2 |
-| **Section** | actuals-ecologicalImpacts |
-| **type** | number |
-
-## marineBaselineUpload
-<a name="marineBaselineUpload"></a>Images or documents related to the region's ecological baseline  (e.g., baseline biodiversity in the region, ecological composition or condition, proximity and types of neighboring ecosystems, etc.)
-
-| Id | 1622 |
-| :---- | :------------------------------- |
-| **Label** | Baseline coastal or aquatic health supporting documents |
-| **Tier** | 2 |
-| **Section** | actuals-ecologicalImpacts |
-| **type** | array |
-
-## oceanFloorDetails
-<a name="oceanFloorDetails"></a>Changes in ocean floor substrate coverage (i.e., increase in seagrass or coral cover) due to project activities
-
-| Id | 1625 |
-| :---- | :------------------------------- |
-| **Label** | Overview of changes to ocean floor substrate cover |
-| **Tier** | 2 |
-| **Section** | actuals-ecologicalImpacts |
-| **type** | string |
-
-## marineEcosystemProximity
-<a name="marineEcosystemProximity"></a>Any ecosystems not directly within but in close proximity to project geographic boundaries (seagrass meadows, mangrove forests, etc.)
-
-| Id | 1623 |
-| :---- | :------------------------------- |
-| **Label** | Ecosystem(s) in close proximity to project's aquatic boundaries |
+| **Label** | Overview of coastal or aquatic ecology within project boundaries |
 | **Tier** | 2 |
 | **Section** | actuals-ecologicalImpacts |
 | **type** | string |
@@ -6703,26 +6065,6 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | **Section** | actuals-ecologicalImpacts |
 | **type** | array |
 
-## oceanFloorConditional
-<a name="oceanFloorConditional"></a>Indicates whether ocean floor substrate has changed due to project activities (i.e., density of seagrass meadows, coral cover, etc)
-
-| Id | 1624 |
-| :---- | :------------------------------- |
-| **Label** | Ocean floor substrate coverage has changed as result of project activities |
-| **Tier** | 2 |
-| **Section** | actuals-ecologicalImpacts |
-| **type** | boolean |
-
-## marineBaselineConditional
-<a name="marineBaselineConditional"></a>This baseline can include ocean/river water quality and ecology, including aquatic and terrestrial flora and fauna species presence and abundance
-
-| Id | 1619 |
-| :---- | :------------------------------- |
-| **Label** | Project evaluates baseline aquatic or coastal ecological health in the project region |
-| **Tier** | 2 |
-| **Section** | actuals-ecologicalImpacts |
-| **type** | boolean |
-
 ## oceanFloorUpload
 <a name="oceanFloorUpload"></a>Documents supporting any reported changes to ocean floor substrate coverage
 
@@ -6733,35 +6075,15 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | **Section** | actuals-ecologicalImpacts |
 | **type** | array |
 
-## marineEcologyDetails
-<a name="marineEcologyDetails"></a>Overview of the ecological composition and condition of the project area (e.g., ecosystem type - marsh, coral atolls, types of species present, etc.)
+## oceanFloorConditional
+<a name="oceanFloorConditional"></a>Indicates whether ocean floor substrate has changed due to project activities (i.e., density of seagrass meadows, coral cover, etc)
 
-| Id | 1621 |
+| Id | 1624 |
 | :---- | :------------------------------- |
-| **Label** | Overview of coastal or aquatic ecology within project boundaries |
+| **Label** | Ocean floor substrate coverage has changed as result of project activities |
 | **Tier** | 2 |
 | **Section** | actuals-ecologicalImpacts |
-| **type** | string |
-
-## marineBaselineEvaluation
-<a name="marineBaselineEvaluation"></a>Indication of how the project evaluates baseline aquatic health (e.g., direct measurements, model estimations, etc.)
-
-| Id | 1627 |
-| :---- | :------------------------------- |
-| **Label** | Overview of baseline aquatic health evaluation |
-| **Tier** | 2 |
-| **Section** | actuals-ecologicalImpacts |
-| **type** | string |
-
-## noiseImpactEvidence
-<a name="noiseImpactEvidence"></a>Documents such as sound level readings from baseline conditions as well as project conditions
-
-| Id | 1592 |
-| :---- | :------------------------------- |
-| **Label** | Noise pollution impacts supporting documents |
-| **Tier** | -1 |
-| **Section** | actuals-ecologicalImpacts |
-| **type** | array |
+| **type** | boolean |
 
 ## noisePlan
 <a name="noisePlan"></a>The World Health Organization (WHO) defines noise above 65 decibels (dB) as noise pollution. Indicates whether there is a plan in place to mitigate project noise levels over this level.
@@ -6783,22 +6105,22 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | **Section** | actuals-ecologicalImpacts |
 | **type** | string |
 
+## noiseImpactEvidence
+<a name="noiseImpactEvidence"></a>Documents such as sound level readings from baseline conditions as well as project conditions
+
+| Id | 1592 |
+| :---- | :------------------------------- |
+| **Label** | Noise pollution impacts supporting documents |
+| **Tier** | -1 |
+| **Section** | actuals-ecologicalImpacts |
+| **type** | array |
+
 ## noiseProjectDay
 <a name="noiseProjectDay"></a>Average daytime noise level in decibles post project initiation
 
 | Id | 1589 |
 | :---- | :------------------------------- |
 | **Label** | Average daytime noise levels after project completion in decibels |
-| **Tier** | 2 |
-| **Section** | actuals-ecologicalImpacts |
-| **type** | number |
-
-## noiseBaselineNight
-<a name="noiseBaselineNight"></a>Average night-time noise level in decibles before project operations  
-
-| Id | 1588 |
-| :---- | :------------------------------- |
-| **Label** | Baseline average nighttime noise levels in decibels |
 | **Tier** | 2 |
 | **Section** | actuals-ecologicalImpacts |
 | **type** | number |
@@ -6813,32 +6135,22 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | **Section** | actuals-ecologicalImpacts |
 | **type** | array |
 
-## noiseBaselineDay
-<a name="noiseBaselineDay"></a>Average daytime noise level in decibles before project operations
+## noiseDistanceEvidence
+<a name="noiseDistanceEvidence"></a>Documentation of the proximity of the project activity to the nearest human populations
 
-| Id | 1587 |
+| Id | 1585 |
 | :---- | :------------------------------- |
-| **Label** | Baseline average daytime noise levels (decibels) |
-| **Tier** | 2 |
+| **Label** | Evidence of proximity to nearest human residents |
+| **Tier** | -1 |
 | **Section** | actuals-ecologicalImpacts |
-| **type** | number |
+| **type** | array |
 
-## noiseBaseline
-<a name="noiseBaseline"></a>Noise pollution testing involves measuring sound levels using a sound level meter to determine if they exceed acceptable limits. The results are often compared to regulations or standards to ensure compliance.
+## noiseBaselineNight
+<a name="noiseBaselineNight"></a>Average night-time noise level in decibles before project operations  
 
-| Id | 1586 |
+| Id | 1588 |
 | :---- | :------------------------------- |
-| **Label** | Baseline noise level survey has been conducted |
-| **Tier** | 2 |
-| **Section** | actuals-ecologicalImpacts |
-| **type** | boolean |
-
-## noiseProjectNight
-<a name="noiseProjectNight"></a>Average night-time noise level in decibles during project operations
-
-| Id | 1590 |
-| :---- | :------------------------------- |
-| **Label** | Average nighttime noise levels after project completion in decibels |
+| **Label** | Baseline average nighttime noise levels in decibels |
 | **Tier** | 2 |
 | **Section** | actuals-ecologicalImpacts |
 | **type** | number |
@@ -6853,22 +6165,42 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | **Section** | actuals-ecologicalImpacts |
 | **type** | boolean |
 
-## noiseDistanceEvidence
-<a name="noiseDistanceEvidence"></a>Documentation of the proximity of the project activity to the nearest human populations
+## noiseProjectNight
+<a name="noiseProjectNight"></a>Average night-time noise level in decibles during project operations
 
-| Id | 1585 |
+| Id | 1590 |
 | :---- | :------------------------------- |
-| **Label** | Evidence of proximity to nearest human residents |
-| **Tier** | -1 |
+| **Label** | Average nighttime noise levels after project completion in decibels |
+| **Tier** | 2 |
 | **Section** | actuals-ecologicalImpacts |
-| **type** | array |
+| **type** | number |
 
-## infrastructureSpecies
-<a name="infrastructureSpecies"></a>Overview of the species affected by the project activity and any plans, actions, or initiatives taken to limit impact (i.e., fish bridges, wildlife corridors, etc.)
+## noiseBaseline
+<a name="noiseBaseline"></a>Noise pollution testing involves measuring sound levels using a sound level meter to determine if they exceed acceptable limits. The results are often compared to regulations or standards to ensure compliance.
 
-| Id | 1579 |
+| Id | 1586 |
 | :---- | :------------------------------- |
-| **Label** | Species affected by development and any remediation measures taken by project |
+| **Label** | Baseline noise level survey has been conducted |
+| **Tier** | 2 |
+| **Section** | actuals-ecologicalImpacts |
+| **type** | boolean |
+
+## noiseBaselineDay
+<a name="noiseBaselineDay"></a>Average daytime noise level in decibles before project operations
+
+| Id | 1587 |
+| :---- | :------------------------------- |
+| **Label** | Baseline average daytime noise levels (decibels) |
+| **Tier** | 2 |
+| **Section** | actuals-ecologicalImpacts |
+| **type** | number |
+
+## infrastructureConditional
+<a name="infrastructureConditional"></a>Indicates whether buildings, roads, or infrastructure such as irrigation systems have been built for project operations
+
+| Id | 1575 |
+| :---- | :------------------------------- |
+| **Label** | Project has resulted in new construction of roads, buildings, or other structures within project boundaries |
 | **Tier** | 2 |
 | **Section** | actuals-ecologicalImpacts |
 | **type** | string |
@@ -6883,12 +6215,22 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | **Section** | actuals-ecologicalImpacts |
 | **type** | boolean |
 
-## infrastructureConditional
-<a name="infrastructureConditional"></a>Indicates whether buildings, roads, or infrastructure such as irrigation systems have been built for project operations
+## infrastructureDetails
+<a name="infrastructureDetails"></a>Overview of any infrastructure that has been built specifically as part of the project activity
 
-| Id | 1575 |
+| Id | 1577 |
 | :---- | :------------------------------- |
-| **Label** | Project has resulted in new construction of roads, buildings, or other structures within project boundaries |
+| **Label** | Summary of constructed structures, roads, and access management |
+| **Tier** | 2 |
+| **Section** | actuals-ecologicalImpacts |
+| **type** | string |
+
+## infrastructureSpecies
+<a name="infrastructureSpecies"></a>Overview of the species affected by the project activity and any plans, actions, or initiatives taken to limit impact (i.e., fish bridges, wildlife corridors, etc.)
+
+| Id | 1579 |
+| :---- | :------------------------------- |
+| **Label** | Species affected by development and any remediation measures taken by project |
 | **Tier** | 2 |
 | **Section** | actuals-ecologicalImpacts |
 | **type** | string |
@@ -6903,26 +6245,6 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | **Section** | actuals-ecologicalImpacts |
 | **type** | string |
 
-## infrastructureHabitatImpacts
-<a name="infrastructureHabitatImpacts"></a>Indicates whether buildings, roads, or infrastructure contribute to habitat fragmentation (i.e., inhibit the ability of species to move freely within their habitats)
-
-| Id | 1578 |
-| :---- | :------------------------------- |
-| **Label** | Infrastructure development has contributed to habitat fragmentation for monitored species |
-| **Tier** | 2 |
-| **Section** | actuals-ecologicalImpacts |
-| **type** | string |
-
-## infrastructureDetails
-<a name="infrastructureDetails"></a>Overview of any infrastructure that has been built specifically as part of the project activity
-
-| Id | 1577 |
-| :---- | :------------------------------- |
-| **Label** | Summary of constructed structures, roads, and access management |
-| **Tier** | 2 |
-| **Section** | actuals-ecologicalImpacts |
-| **type** | string |
-
 ## infrastructureEvidence
 <a name="infrastructureEvidence"></a>Documentation such as building plans, timelines, or blueprints of construction needed for project operations
 
@@ -6932,6 +6254,16 @@ Other: Any other type of carbon credit sale that doesn’t fit the standard defi
 | **Tier** | -1 |
 | **Section** | actuals-ecologicalImpacts |
 | **type** | array |
+
+## infrastructureHabitatImpacts
+<a name="infrastructureHabitatImpacts"></a>Indicates whether buildings, roads, or infrastructure contribute to habitat fragmentation (i.e., inhibit the ability of species to move freely within their habitats)
+
+| Id | 1578 |
+| :---- | :------------------------------- |
+| **Label** | Infrastructure development has contributed to habitat fragmentation for monitored species |
+| **Tier** | 2 |
+| **Section** | actuals-ecologicalImpacts |
+| **type** | string |
 
 # enhancements-keyDifferentiators
 ## kd1Title
