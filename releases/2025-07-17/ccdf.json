@@ -1,5 +1,5 @@
 {
-  "$framework": "https://github.com/RMI/ccdf/blob/main/ccdf.json",
+  "$framework": "https://github.com/RMI/ccdf/blob/main/releases/2025-07-17/ccdf.json",
   "version": "1.0.0",
   "name": "ccsf",
   "title": "Carbon credit data framework",
