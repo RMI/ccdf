@@ -10,10 +10,10 @@ The core data fields of the CCDF are methodology-agnostic and applicable to all 
 
 ## Getting Started
 
-- Read the [CCDF Report](https://rmi.org/carbon-crediting-data-framework/)<!-- - Visit the [RMI Carbon Markets Initiative’s CCDF Home Page](https://rmi.org/carbon-market-sectors-pathways/) -->
+- Read the [CCDF Report](https://rmi.org/carbon-crediting-data-framework/)
 - Check out RMI's [Carbon Market Sectors Pathways](https://rmi.org/carbon-market-sectors-pathways/)
-- For detailed descriptions of the data and implementation guidance, explore the [implementation spreadsheet](https://rmi.org/download/46001/) and technical documentation in this repository
-- The JSON schema can be used to build programattic tools based on the CCDF
+- For implementation guidance and detailed descriptions of the data, download the [implementation spreadsheet](https://rmi.org/download/46001/) and view the [technical documentation](https://github.com/RMI/ccdf/blob/main/releases/latest/ccdf.md) in this repository
+- The [JSON schema](https://github.com/RMI/ccdf/blob/main/releases/latest/ccdf.json) in this repo can be used to build programatic tools based on the CCDF
 
 
 ## Framework Structure
@@ -85,7 +85,7 @@ The CCDF is a living framework and will continue to evolve. Updates will be publ
 
 ## License
 
-This CCDF Implementation Spreadsheet is licensed under the [MIT License](LICENSE.md). If you use or adapt this work, please include the following citation: RMI Carbon Markets Initiative. _CCDF Implementation Spreadsheet v1.0. 2025. https://\[link\]_
+This CCDF Implementation Spreadsheet is licensed under the [MIT License](LICENSE.md). If you use or adapt this work, please include the following citation: RMI Carbon Markets Initiative. _CCDF Implementation Spreadsheet v1.0. 2025. (https://rmi.org/download/46001/)_
 
 ## About Us
 
