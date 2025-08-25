@@ -1,17 +1,16 @@
-# The Carbon Credit Data Framework (CCDF)
+# The Carbon Crediting Data Framework (CCDF)
 
-An open-source framework for structuring data about the emissions and socio-environmental impact of carbon credits on the voluntary carbon market (VCM).
+An open-source framework created by RMI Carbon Markets Initiative for structuring data about the emissions and socio-environmental impact of carbon credits on the voluntary carbon market (VCM).
 
 ## Overview
 
-The Carbon Credit Data Framework (CCDF) is an RMI initiative to harmonize the types, definitions, and formats of data behind a carbon crediting project. It integrates data-related requirements and recommendations from more than 160 sources to put all the key questions, and guidance on how to answer them, into one place. By standardizing the structure of carbon crediting data, the CCDF empowers voluntary carbon market (VCM) stakeholders to better assess carbon credits transparently and efficiently.  
+The Carbon Crediting Data Framework (CCDF) is an RMI initiative to harmonize the types, definitions, and formats of data behind a carbon crediting project. It integrates data-related requirements and recommendations from more than 160 sources to put all the key questions, and guidance on how to answer them, into one place. By standardizing the structure of carbon crediting data, the CCDF empowers voluntary carbon market (VCM) stakeholders to better assess carbon credits transparently and efficiently.  
 
-The core data fields of the CCDF are methodology-agnostic and applicable to all carbon crediting projects. The CCDF structure can be expanded to include methodology-specific data - an effort being underetaken by the data utility [Centigrade](https://centigrade.earth/). The CCDF is designed to be a dynamic, open-source tool - capable of evolving as needed to support data standardization, interoperability, and transparency across the VCM.
+The core data fields of the CCDF are methodology-agnostic and applicable to all carbon crediting projects. The CCDF structure can be expanded to include methodology-specific data - an effort being underetaken by the data utility [Centigrade](https://centigrade.earth/?utm_campaign=RMI-ccdf&utm_source=rmi-blog&utm_medium=blog-post). The CCDF is designed to be a dynamic, open-source tool - capable of evolving as needed to support data standardization, interoperability, and transparency across the VCM.
 
 ## Getting Started
 
 - Read the [CCDF Report](https://rmi.org/carbon-crediting-data-framework/)
-- Check out RMI's [Carbon Market Sectors Pathways](https://rmi.org/carbon-market-sectors-pathways/)
 - For implementation guidance and detailed descriptions of the data, download the [implementation spreadsheet](https://rmi.org/download/46001/) and view the [technical documentation](https://github.com/RMI/ccdf/blob/main/releases/latest/ccdf.md) in this repository
 - The [JSON schema](https://github.com/RMI/ccdf/blob/main/releases/latest/ccdf.json) in this repo can be used to build programatic tools based on the CCDF
 
@@ -50,12 +49,10 @@ Each data field includes columns for seven pieces of metadata, and each column h
 | Column | Description |
 | --- | --- |
 | **A: Label** | The standardized name for the data field. |
-| **B: Tooltip** | An explanation of the data field, which can also include examples that clarify the data field where there is some ambiguity. |
-| **C: Helper text** | When applicable, guiding text that explains how to fill out the data field. |
-| **D: Component** | How data providers respond to the data field in practice (e.g. Radio Y/N, Text Input). |
-| **E: Type** | The data format (e.g. String, Array, Boolean). |
-| **F: Options** | When applicable, the predefined choices for the data field based on the component and type. |
-| **H: Technical Documentation Reference** | When applicable, the section(s) in the technical documentation that provides further explanation and/or a visual of the data field and its options. This includes fields that require a data table format that are best visualized in a non-Excel format. |
+| **B: Description** | An explanation of the data field, which can also include examples that clarify the data field where there is some ambiguity. |
+| **C: Type** | The data format (e.g. String, Array, Boolean). |
+| **D: Options** | When applicable, the predefined choices for the data field based on the component and type. |
+| **F: Technical Documentation Reference** | When applicable, the section(s) in the technical documentation that provides further explanation and/or a visual of the data field and its options. This includes fields that require a data table format that are best visualized in a non-Excel format. |
 
 
 ## How to Provide Feedback
