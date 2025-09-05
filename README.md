@@ -4,16 +4,22 @@ An open-source framework created by RMI Carbon Markets Initiative for structurin
 
 ## Overview
 
-The Carbon Crediting Data Framework (CCDF) is an RMI initiative to harmonize the types, definitions, and formats of data behind a carbon crediting project. It integrates data-related requirements and recommendations from more than 160 sources to put all the key questions, and guidance on how to answer them, into one place. By standardizing the structure of carbon crediting data, the CCDF empowers voluntary carbon market (VCM) stakeholders to better assess carbon credits transparently and efficiently.  
+The Carbon Crediting Data Framework (CCDF) is an RMI initiative to harmonize the types, definitions, and formats of data behind a carbon crediting project. It integrates data-related requirements and recommendations from more than 160 sources to put all the key questions, and guidance on how to answer them, into one place. By standardizing the structure of carbon crediting data, the CCDF empowers voluntary carbon market (VCM) stakeholders to better assess carbon credits transparently and efficiently.
 
 The core data fields of the CCDF are methodology-agnostic and applicable to all carbon crediting projects. The CCDF structure can be expanded to include methodology-specific data - an effort being underetaken by the data utility [Centigrade](https://centigrade.earth/?utm_campaign=RMI-ccdf&utm_source=rmi-blog&utm_medium=blog-post). The CCDF is designed to be a dynamic, open-source tool - capable of evolving as needed to support data standardization, interoperability, and transparency across the VCM.
+
+Our team intentionally included socio-environmental considerations throughout the CCDF, because non-carbon attributes such as community buy-in, ecosystem health, and equitable benefit sharing directly impact the success of carbon credits. Read more about how the SE components of the framework were constructed in section 3.2 of our [report](https://rmi.org/carbon-crediting-data-framework/)
+
+While we encourage full adoption of the CCDF, we also recognize that the socio-environmental portion can be valuable in its own right. We have highlighted a set of our socio-environmental fields, complete with their own implementation spreadsheet, technical documentation, and JSON schema, so they can be readily applied to advance climate equity. These resources reflect the same content and in the same structure as the broader CCDF, however, are limited in scope to only include socio-environmental fields that are not directly tied toward emissions accounting.
 
 ## Getting Started
 
 - Read the [CCDF Report](https://rmi.org/carbon-crediting-data-framework/)
-- For implementation guidance and detailed descriptions of the data, download the [implementation spreadsheet](https://rmi.org/download/46001/) and view the [technical documentation](https://github.com/RMI/ccdf/blob/main/releases/latest/ccdf.md) in this repository
-- The [JSON schema](https://github.com/RMI/ccdf/blob/main/releases/latest/ccdf.json) in this repo can be used to build programatic tools based on the CCDF
-
+- All CCDF and SECCDF files are located within the releases folder and then in the ccdf and seccdf folders respectively. 
+- This repository uses a date structure to record which files are the most current. To access the most current files, reference the folder with the most recent date in either of the two folders – ccdf or seccdf. 
+- Once in the correct folder determine which file(s) are right for you and your purposes.
+- For implementation guidance and detailed descriptions of the data, download either the [ccdf spreadsheet](https://github.com/RMI/ccdf/blob/main/releases/ccdf/2025-07-17/ccdf.xlsx) or [seccdf spreadsheet](https://github.com/RMI/ccdf/blob/main/releases/seccdf/2025-09-05/seccdf.xlsx) and view either the [ccdf](https://github.com/RMI/ccdf/blob/main/releases/ccdf/2025-07-17/ccdf.md) or [seccdf](https://github.com/RMI/ccdf/blob/main/releases/seccdf/2025-09-05/seccdf.md) technical documentation.
+- Meanwhile the [ccdf](https://github.com/RMI/ccdf/blob/main/releases/ccdf/2025-07-17/ccdf.json) and [seccdf](https://github.com/RMI/ccdf/blob/main/releases/seccdf/2025-09-05/seccdf.json) JSON schemas can be used to build programmatic tools based on the CCDF.
 
 ## Framework Structure
 
