@@ -10,7 +10,7 @@ The core data fields of the CCDF are methodology-agnostic and applicable to all 
 
 Our team intentionally included socio-environmental considerations throughout the CCDF, because non-carbon attributes such as community buy-in, ecosystem health, and equitable benefit sharing directly impact the success of carbon credits. Read more about how the SE components of the framework were constructed in section 3.2 of our [report](https://rmi.org/carbon-crediting-data-framework/)
 
-While we encourage full adoption of the CCDF, we also recognize that the socio-environmental portion can be valuable in its own right. We have highlighted a set of our socio-environmental fields, complete with their own implementation spreadsheet, technical documentation, and JSON schema, so they can be readily applied to advance climate equity. These resources reflect the same content and in the same structure as the broader CCDF, however, are limited in scope to only include socio-environmental fields that are not directly tied toward emissions accounting.
+While we encourage full adoption of the CCDF, we also recognize that the socio-environmental portion can be especially valuable for those looking beyond emissions when evaluating carbon credit projects. We have highlighted a set of our socio-environmental fields, complete with their own implementation spreadsheet, technical documentation, and JSON schema, so they can be readily applied to advance climate equity. These resources reflect the same content and in the same structure as the broader CCDF, however, are limited in scope to only include socio-environmental fields that are not directly tied toward emissions accounting.
 
 ## Getting Started
 
