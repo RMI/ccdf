@@ -11,6 +11,8 @@
         {
           "name": "projectDetails",
           "label": "Project Details",
+          "relevanceAndUse": "This section provides foundational information about the project, including its classification, crediting framework, development status, ownership structure, mitigation approach, and key project dates. Buyers can use this information to assess whether a project aligns with their procurement objectives, portfolio criteria, and internal eligibility requirements. These questions are particularly useful during early-stage screening and project comparison, helping buyers understand the project's maturity, chosen standards and methodologies, anticipated credit issuance timeline, and legal ownership of generated credits. Buyers may choose to supplement this section with additional questions when evaluating projects that use novel methodologies, are in early stages of development, involve complex ownership arrangements, or require more detailed review of project activities and implementation plans.",
+          "complementaryDocs": "Documentation commonly requested for this category may include the Project Design Document (PDD) or equivalent, a feasibility study, project or organization overview materials such as a brochure or pitch deck, the implementation plan, third-party assessments from a ratings agency or evaluation platform, and any supplementary material offering additional project application information not included elsewhere.",
           "sections": [
             {
               "name": "default",
@@ -50,11 +52,17 @@
                   "id": 4,
                   "name": "projectType",
                   "tier": 0,
-                  "type": "array",
+                  "type": "string",
                   "label": "Project type",
                   "table": null,
-                  "options": [],
-                  "description": "Select the project type. Values should align with the Carbon Data Open Protocol (CDOP) enumerated list for 'project type', or 'Other'."
+                  "options": {
+                    "$cdopRef": {
+                      "schema": "Project_Approach_Details",
+                      "pointer": "/properties/project/properties/mitigation/items/properties/project_type",
+                      "appendOther": true
+                    }
+                  },
+                  "description": "Select the project type. Options auto-populated from the Carbon Data Open Protocol (CDOP) 'project_type' enumeration."
                 },
                 {
                   "id": 5,
@@ -63,18 +71,30 @@
                   "type": "string",
                   "label": "Crediting program",
                   "table": null,
-                  "options": [],
-                  "description": "Select the crediting program (standards body / registry) you have selected for your project. Values should align with the Carbon Data Open Protocol (CDOP) enumerated list for 'crediting program' (43 options), or 'Other'."
+                  "options": {
+                    "$cdopRef": {
+                      "schema": "Project_Approach_Details",
+                      "pointer": "/properties/crediting_program/properties/crediting_program/items/properties/crediting_program_name",
+                      "appendOther": true
+                    }
+                  },
+                  "description": "Select the crediting program (standards body / registry) you have selected for your project. Options auto-populated from the Carbon Data Open Protocol (CDOP) 'crediting_program_name' enumeration."
                 },
                 {
                   "id": 6,
                   "name": "methodology",
                   "tier": 0,
                   "type": "array",
-                  "label": "Methodology (protocol)",
+                  "label": "Methodology",
                   "table": null,
-                  "options": [],
-                  "description": "What methodology (protocol) are you using to quantify emissions for this project? Values should align with the Carbon Data Open Protocol (CDOP) enumerated list for 'methodology', or 'Other'."
+                  "options": {
+                    "$cdopRef": {
+                      "schema": "Project_Approach_Details",
+                      "pointer": "/properties/methodology/properties/versions/items/properties/methodology",
+                      "appendOther": true
+                    }
+                  },
+                  "description": "What methodology are you using to quantify emissions for this project? Options auto-populated from the Carbon Data Open Protocol (CDOP) 'methodology' enumeration."
                 },
                 {
                   "id": 7,
@@ -104,17 +124,17 @@
                   "label": "Project status",
                   "table": null,
                   "options": [
-                    "Pre-feasibility",
-                    "Under feasibility",
-                    "Completed feasibility",
-                    "Under development",
-                    "Under validation",
-                    "Validated",
-                    "Under verification",
-                    "Verified and issuing",
-                    "Transferred",
-                    "Completed",
-                    "Not Active"
+                    "Pre-feasibility — the project has a concept note in place, no feasibility study started",
+                    "Under feasibility — the project is securing financing or undergoing a feasibility study",
+                    "Completed feasibility — the project has completed the feasibility study",
+                    "Under development — listing in registry",
+                    "Under validation — the project is undergoing the validation process",
+                    "Validated — the project has been successfully validated",
+                    "Under verification — project is undergoing verification",
+                    "Verified and issuing — the project has completed verification processes and is actively issuing credits",
+                    "Transferred — the project has completed validation and verification processes with another standard and has been transferred over to the relevant standard",
+                    "Completed — project has finished issuing credits",
+                    "Not Active — the project has been marked inactive by the relevant standard"
                   ],
                   "description": "What is the project status? Aligned with CDOP recommendations, filtered for procurement-relevant options."
                 },
@@ -209,6 +229,8 @@
         {
           "name": "locationDetails",
           "label": "Location Details",
+          "relevanceAndUse": "This section captures the geographic location of the project at the regional, national, and subnational levels. Buyers can use this information to assess alignment with geographic procurement strategies, regional diversification objectives, and jurisdiction-specific requirements or preferences. Buyers may choose to request additional location-specific information when conducting more detailed due diligence, assessing jurisdictional considerations, or evaluating projects operating across multiple locations.",
+          "complementaryDocs": "Documentation commonly requested for this category may include project location or boundary data, such as GeoJSON, KML/KMZ files, zipped shapefiles, or equivalent materials; identified properties or parcels to date for phased enrollment or expansion; and internal zoning areas, such as passive versus active restoration areas, public versus private ownership areas, or land already enrolled, acquired, under negotiation, or identified.",
           "sections": [
             {
               "name": "default",
@@ -221,8 +243,13 @@
                   "type": "array",
                   "label": "Region",
                   "table": null,
-                  "options": [],
-                  "description": "In what region is your project located? Values should align with the Carbon Data Open Protocol (CDOP) 'Geographical Region' enumerated list (31 options)."
+                  "options": {
+                    "$cdopRef": {
+                      "schema": "Location_Details",
+                      "pointer": "/properties/project/properties/location/items/properties/geographical_region_name"
+                    }
+                  },
+                  "description": "In what region is your project located? Options auto-populated from the Carbon Data Open Protocol (CDOP) 'geographical_region_name' enumeration (M49)."
                 },
                 {
                   "id": 19,
@@ -231,8 +258,13 @@
                   "type": "array",
                   "label": "Country",
                   "table": null,
-                  "options": [],
-                  "description": "In what country is your project located? Values should be ISO 3166-1 alpha-3 country codes, per CDOP recommendations."
+                  "options": {
+                    "$cdopRef": {
+                      "schema": "Location_Details",
+                      "pointer": "/properties/project/properties/location/items/properties/country_code"
+                    }
+                  },
+                  "description": "In what country is your project located? Options auto-populated from the Carbon Data Open Protocol (CDOP) 'country_code' enumeration (ISO 3166-1 alpha-3)."
                 },
                 {
                   "id": 20,
@@ -251,6 +283,8 @@
         {
           "name": "teamPartners",
           "label": "Project Team & Partners",
+          "relevanceAndUse": "This section captures information about the organizations responsible for developing, implementing, financing, owning, and supporting the project. Buyers can use this information to understand the roles, relationships, and capabilities of the entities involved in project delivery. These questions are particularly useful for assessing organizational capacity, governance, execution risk, and the experience of key project participants in carbon markets and relevant sectors. Buyers may choose to request additional information when evaluating project developers they are working with for the first time, complex project structures involving multiple entities, or projects that require heightened commercial, operational, or legal due diligence.",
+          "complementaryDocs": "Documentation commonly requested for this category may include materials identifying the project developer, supplier, implementing partners, investors, intermediaries, validators, verifiers, registries, or other entities involved in project delivery.",
           "sections": [
             {
               "name": "default",
@@ -261,9 +295,12 @@
                   "name": "isLeadProponent",
                   "tier": 0,
                   "type": "string",
-                  "label": "Submitting organization is the lead project proponent and offtake counterparty",
+                  "label": "Submitting organization",
                   "table": null,
-                  "options": ["Yes", "No"],
+                  "options": [
+                    "Yes",
+                    "No"
+                  ],
                   "description": "Is the submitting organization the lead project proponent and the counterparty that would be signing an offtake contract?"
                 },
                 {
@@ -357,8 +394,13 @@
                           "name": "countryOfRegistration",
                           "type": "string",
                           "label": "Country of legal registration",
-                          "options": null,
-                          "description": "ISO 3166-1 alpha-3 country code, per CDOP."
+                          "options": {
+                            "$cdopRef": {
+                              "schema": "Location_Details",
+                              "pointer": "/properties/project/properties/location/items/properties/country_code"
+                            }
+                          },
+                          "description": "ISO 3166-1 alpha-3 country code, auto-populated from CDOP."
                         },
                         {
                           "name": "website",
@@ -427,24 +469,42 @@
                         },
                         {
                           "name": "projectTypes",
-                          "type": "string",
+                          "type": "array",
                           "label": "Project types",
-                          "options": null,
-                          "description": "Comma-separated. Values should align with CDOP 'project type' enumerated list, or 'Other'."
+                          "options": {
+                            "$cdopRef": {
+                              "schema": "Project_Approach_Details",
+                              "pointer": "/properties/project/properties/mitigation/items/properties/project_type",
+                              "appendOther": true
+                            }
+                          },
+                          "description": "Auto-populated from CDOP 'project_type'."
                         },
                         {
                           "name": "registries",
-                          "type": "string",
+                          "type": "array",
                           "label": "Associated registries",
-                          "options": null,
-                          "description": "Comma-separated. Values should align with CDOP 'registry' enumerated list, or 'Other'."
+                          "options": {
+                            "$cdopRef": {
+                              "schema": "Project_Approach_Details",
+                              "pointer": "/properties/registry/properties/current_registry",
+                              "appendOther": true
+                            }
+                          },
+                          "description": "Auto-populated from CDOP 'current_registry'."
                         },
                         {
                           "name": "countries",
-                          "type": "string",
+                          "type": "array",
                           "label": "Project countries",
-                          "options": null,
-                          "description": "Comma-separated. Values should align with CDOP 'Country Name English Short Name' enumerated list, or 'Other'."
+                          "options": {
+                            "$cdopRef": {
+                              "schema": "Location_Details",
+                              "pointer": "/properties/project/properties/location/items/properties/country_name",
+                              "appendOther": true
+                            }
+                          },
+                          "description": "Auto-populated from CDOP 'country_name' (English short name)."
                         },
                         {
                           "name": "links",
@@ -472,6 +532,8 @@
         {
           "name": "legalReputational",
           "label": "Legal & Reputational Disclosure",
+          "relevanceAndUse": "This section provides information on the legal standing, organizational history, and reputational risk profile of the entities responsible for developing and implementing the project. It includes disclosures related to ownership structure, legal and regulatory matters, prior contractual performance, financial distress, and any publicly reported issues that may be relevant to project execution, stakeholder confidence, or the long-term viability of the project. Buyers can use this information to assess potential risks associated with the organizations involved in the project's development and implementation. These questions are particularly useful for supporting counterparty due diligence, procurement partnerships, and evaluations of alignment with organizational policies and risk tolerance. Depending on the project's characteristics and whether the developer and implementing bodies are well-established, buyers may choose to supplement this section with additional legal, compliance, human rights, anti-corruption, or sanction-related due diligence.",
+          "complementaryDocs": "Documentation commonly requested for this category may include permits or regulatory approvals, business licenses, external project risk assessments, and risk assessments or risk tools completed as part of validation by a carbon credit standards body.",
           "sections": [
             {
               "name": "default",
@@ -484,7 +546,11 @@
                   "type": "string",
                   "label": "Active or threatened legal actions",
                   "table": null,
-                  "options": ["Yes", "No", "Not Applicable"],
+                  "options": [
+                    "Yes",
+                    "No",
+                    "Not Applicable"
+                  ],
                   "description": "Are there any active or threatened actions, litigations, investigations or convictions against the project owners, project developers, shareholders, or members of the project management team? These investigations could be related to corruption, forced labor, gender-based violence/harassment, or other non-compliance with financial, social, or environmental regulations, impacts to local/indigenous communities, or any other matter that could be reasonably expected to negatively impact your entity or the project's reputation."
                 },
                 {
@@ -502,9 +568,12 @@
                   "name": "terminatedForNonPerformance",
                   "tier": 0,
                   "type": "string",
-                  "label": "Ever terminated for non-performance on a contract",
+                  "label": "Performance history",
                   "table": null,
-                  "options": ["Yes", "No"],
+                  "options": [
+                    "Yes",
+                    "No"
+                  ],
                   "description": "Has the project developer or affiliated implementation partners ever been terminated for non-performance on a contract?"
                 },
                 {
@@ -512,9 +581,12 @@
                   "name": "bankruptcy",
                   "tier": 0,
                   "type": "string",
-                  "label": "Ever filed or petitioned for bankruptcy",
+                  "label": "Bankruptcy",
                   "table": null,
-                  "options": ["Yes", "No"],
+                  "options": [
+                    "Yes",
+                    "No"
+                  ],
                   "description": "Has the project developer or affiliated implementation partners ever filed or petitioned for bankruptcy?"
                 },
                 {
@@ -534,6 +606,8 @@
         {
           "name": "landTenure",
           "label": "Land Tenure & Ownership",
+          "relevanceAndUse": "This section provides information on the project's land tenure arrangements, carbon rights, land access strategy, and permitting status. It includes details on the ownership and control of project lands, the legal basis for land and carbon rights, contractual arrangements with landowners or land users, and the permissions required to develop, operate, and scale the project. It also includes information on local communities and Indigenous Peoples and Local Communities (IPLCs) and the accompanying status of Free, Prior, and Informed Consent (FPIC). Buyers can use this information to assess the security and durability of the project's land and carbon rights, identify potential risks related to land tenure, ownership disputes, or permitting requirements, and evaluate the project's readiness for implementation and long-term operation. These questions are particularly relevant for projects that rely on long-term access to land or natural resources. Buyers may choose to supplement this section with additional due diligence where projects operate across complex land tenure systems, involve customary or Indigenous land rights, or depend on large numbers of participating landowners or land users.",
+          "complementaryDocs": "Documentation commonly requested for this category may include land management plans, land rights documentation, property ownership records, concessions, easements, leases, use rights, carbon rights contracts, title documentation, or materials demonstrating legal control of project areas.",
           "sections": [
             {
               "name": "default",
@@ -584,7 +658,11 @@
                   "type": "string",
                   "label": "Land ownership granted by competent authority",
                   "table": null,
-                  "options": ["Yes", "No", "Not Applicable"],
+                  "options": [
+                    "Yes",
+                    "No",
+                    "Not Applicable"
+                  ],
                   "description": "Can you confirm that all the land ownership associated with the project is granted under statute, regulation, or decree by a competent authority of the country in which your project is being developed?"
                 },
                 {
@@ -602,7 +680,7 @@
                   "name": "indigenousCommunitiesEngagement",
                   "tier": 0,
                   "type": "string",
-                  "label": "Indigenous communities engagement (UNDRIP, ILO 169)",
+                  "label": "Indigenous communities",
                   "table": null,
                   "options": [],
                   "description": "If Indigenous communities are impacted by the project, describe which communities and their location relative to the project, and explain what steps the project has taken to conform with the UN Declaration on the Rights of Indigenous Peoples and ILO's Convention 169 on Indigenous and Tribal Peoples. If no Indigenous communities are impacted or involved in the project, indicate N/A. (≤500 words)"
@@ -614,7 +692,11 @@
                   "type": "string",
                   "label": "Written FPIC agreements in place",
                   "table": null,
-                  "options": ["Yes", "No", "Not Applicable"],
+                  "options": [
+                    "Yes",
+                    "No",
+                    "Not Applicable"
+                  ],
                   "description": "Do you have written agreements in place in which participating indigenous peoples and local communities (IPLCs) give free, prior and informed consent (FPIC) for their enrollment in the project?"
                 }
               ]
@@ -624,6 +706,8 @@
         {
           "name": "socioEnvironmental",
           "label": "Socio-Environmental Impacts & Indicators",
+          "relevanceAndUse": "This section provides information on the project's socio-environmental context, anticipated impacts, and approach to identifying, monitoring, and managing risks and outcomes. It includes information around stakeholder mapping details, social and environmental risk assessments, impact monitoring frameworks, grievance mechanisms, ecosystem characteristics, climate-related vulnerabilities, resource use, waste management, and other environmental safeguards. It also seeks information on the project's alignment with broader sustainable development objectives, including the Sustainable Development Goals (SDGs). Buyers can use this information to assess how the project identifies and manages potential social and environmental risks, contributes to positive outcomes beyond carbon, and monitors its impacts over time. These questions are particularly relevant for projects that interact directly with local communities, natural ecosystems, or shared resources, including nature-based, agriculture, forestry, blue carbon, and other land-use projects — but have been emphasized across projects by leading buyers. Depending on the project's scale, geography, and risk profile, buyers may choose to supplement this section with additional due diligence related to biodiversity, human rights, environmental and social safeguards, climate resilience, resource use, or community impacts.",
+          "complementaryDocs": "Documentation commonly requested for this category may include the stakeholder and community engagement plan, stakeholder engagement documentation, documentation of stakeholder consultation processes with beneficiaries including FPIC where applicable, supporting materials such as beneficiary agreements, summaries, consultation outcomes, or evidence of consent, and any social and environmental impact assessments or ESG reports.",
           "sections": [
             {
               "name": "default",
@@ -654,7 +738,7 @@
                   "name": "localRisksAndMitigation",
                   "tier": 0,
                   "type": "string",
-                  "label": "Local social or environmental risks and mitigation",
+                  "label": "Social/environmental risks and mitigation",
                   "table": null,
                   "options": [],
                   "description": "Describe any local social or environmental risks the project faces. For each identified risk, describe potential impacts on the identified groups above and outline mitigation strategies you would take to reduce or manage the risk. Examples of risks include altering stakeholders' rights to food, housing, education, etc., perpetuating unequal power dynamics, habitat fragmentation due to project infrastructure, changes to water flow or quality, changes to soil conditions, or other attributes surfaced by the project's risk assessment process. (≤200 words)"
@@ -713,7 +797,7 @@
                   "name": "grievanceProcedure",
                   "tier": 0,
                   "type": "string",
-                  "label": "Grievance procedure and reported grievances",
+                  "label": "Grievance mechanism",
                   "table": null,
                   "options": [],
                   "description": "Does the project have a procedure or policy to address disputes or grievances? If so, detail your procedure and any grievances reported to date. (≤200 words)"
@@ -733,7 +817,7 @@
                   "name": "resourceNeeds",
                   "tier": 0,
                   "type": "string",
-                  "label": "Water/land/energy/other natural resource needs",
+                  "label": "Natural resource needs",
                   "table": null,
                   "options": [],
                   "description": "Describe the water/land/energy/other natural resource needs of the project in the first few years, and describe how these resource needs may evolve in the coming decade. Example descriptions may include kWh, gallons of water, or hectares per ton of carbon sequestered, depending on the type of project. (≤500 words)"
@@ -761,6 +845,8 @@
         {
           "name": "projectFinancials",
           "label": "Project Financials",
+          "relevanceAndUse": "This section provides information on the project's financial structure, funding sources, revenue model, and commercial development status. It includes disclosures related to project financing, sources of capital, additional revenue streams beyond carbon credits, de-risking instruments, offtake agreements, key development and financing milestones, and the project's overall financial position. Buyers can use this information to assess the project's financial viability, funding maturity, and ability to achieve planned implementation and credit delivery objectives. These questions are particularly useful for understanding the extent to which a project depends on carbon credit revenues, the diversity and stability of its funding sources, and the financial risks that could affect project execution, scalability, or long-term operation. While relevant across project types, this section may be especially valuable for capital-intensive projects, early-stage developments, first-of-a-kind technologies, and projects seeking substantial upfront investment prior to credit issuance. Depending on the project's financing structure and stage of development, buyers may choose to supplement this section with additional financial, commercial, or investment due diligence depending on their risk tolerances.",
+          "complementaryDocs": "Documentation commonly requested for this category may include the project's financial model and budget, including information on project revenue sources, major cost sources, financing structure, financial viability, and carbon revenue dependence.",
           "sections": [
             {
               "name": "default",
@@ -801,10 +887,10 @@
                         },
                         {
                           "name": "estimatedContribution",
-                          "type": "number",
-                          "label": "Estimated contribution to project finances",
+                          "type": "string",
+                          "label": "Estimated contribution to project finances (USD)",
                           "options": null,
-                          "description": "Numeric — e.g. % share or USD."
+                          "description": "USD value or N/A."
                         }
                       ]
                     }
@@ -848,7 +934,13 @@
                           "name": "type",
                           "type": "string",
                           "label": "Type",
-                          "options": ["Grant", "Equity", "Loan", "Debt", "Other"],
+                          "options": [
+                            "Grant",
+                            "Equity",
+                            "Loan",
+                            "Debt",
+                            "Other"
+                          ],
                           "description": null
                         },
                         {
@@ -862,7 +954,12 @@
                           "name": "status",
                           "type": "string",
                           "label": "Status",
-                          "options": ["Secured", "Identified", "In Discussion", "Not Secured"],
+                          "options": [
+                            "Secured",
+                            "Identified",
+                            "In Discussion",
+                            "Not Secured"
+                          ],
                           "description": null
                         },
                         {
@@ -933,7 +1030,7 @@
                   "name": "fortuneBuyers",
                   "tier": 0,
                   "type": "string",
-                  "label": "Fortune 100/500 buyers",
+                  "label": "Buyers",
                   "table": null,
                   "options": [],
                   "description": "How many credit buyers do you have that are Fortune 100 or Fortune 500 companies, and in which business sectors? (≤20 words)"
@@ -945,6 +1042,8 @@
         {
           "name": "commercialOffer",
           "label": "Commercial Offer",
+          "relevanceAndUse": "This section provides information on the credits being offered under this proposal, including available volumes, pricing, delivery timing, and key commercial considerations. It also includes information on potential future project expansion, cost uncertainty, and any factors that could affect buyer access to the offered credits. Buyers can use this information to evaluate the commercial attractiveness of the offer, compare proposals, and assess potential pricing, supply, and delivery risks. These questions are particularly useful during procurement, contracting, and portfolio construction stages.",
+          "complementaryDocs": "Documentation commonly requested for this category may include materials related to credit volume projections, delivery schedule, and offtake terms.",
           "sections": [
             {
               "name": "default",
@@ -965,12 +1064,59 @@
                           "type": "string",
                           "label": "Vintage year",
                           "options": [
-                            "2008","2009","2010","2011","2012","2013","2014","2015","2016","2017",
-                            "2018","2019","2020","2021","2022","2023","2024","2025","2026","2027",
-                            "2028","2029","2030","2031","2032","2033","2034","2035","2036","2037",
-                            "2038","2039","2040","2041","2042","2043","2044","2045","2046","2047",
-                            "2048","2049","2050","2051","2052","2053","2054","2055","2056","2057",
-                            "2058","2059","2060"
+                            "2008",
+                            "2009",
+                            "2010",
+                            "2011",
+                            "2012",
+                            "2013",
+                            "2014",
+                            "2015",
+                            "2016",
+                            "2017",
+                            "2018",
+                            "2019",
+                            "2020",
+                            "2021",
+                            "2022",
+                            "2023",
+                            "2024",
+                            "2025",
+                            "2026",
+                            "2027",
+                            "2028",
+                            "2029",
+                            "2030",
+                            "2031",
+                            "2032",
+                            "2033",
+                            "2034",
+                            "2035",
+                            "2036",
+                            "2037",
+                            "2038",
+                            "2039",
+                            "2040",
+                            "2041",
+                            "2042",
+                            "2043",
+                            "2044",
+                            "2045",
+                            "2046",
+                            "2047",
+                            "2048",
+                            "2049",
+                            "2050",
+                            "2051",
+                            "2052",
+                            "2053",
+                            "2054",
+                            "2055",
+                            "2056",
+                            "2057",
+                            "2058",
+                            "2059",
+                            "2060"
                           ],
                           "description": null
                         },
@@ -979,12 +1125,59 @@
                           "type": "string",
                           "label": "Delivery year",
                           "options": [
-                            "2008","2009","2010","2011","2012","2013","2014","2015","2016","2017",
-                            "2018","2019","2020","2021","2022","2023","2024","2025","2026","2027",
-                            "2028","2029","2030","2031","2032","2033","2034","2035","2036","2037",
-                            "2038","2039","2040","2041","2042","2043","2044","2045","2046","2047",
-                            "2048","2049","2050","2051","2052","2053","2054","2055","2056","2057",
-                            "2058","2059","2060"
+                            "2008",
+                            "2009",
+                            "2010",
+                            "2011",
+                            "2012",
+                            "2013",
+                            "2014",
+                            "2015",
+                            "2016",
+                            "2017",
+                            "2018",
+                            "2019",
+                            "2020",
+                            "2021",
+                            "2022",
+                            "2023",
+                            "2024",
+                            "2025",
+                            "2026",
+                            "2027",
+                            "2028",
+                            "2029",
+                            "2030",
+                            "2031",
+                            "2032",
+                            "2033",
+                            "2034",
+                            "2035",
+                            "2036",
+                            "2037",
+                            "2038",
+                            "2039",
+                            "2040",
+                            "2041",
+                            "2042",
+                            "2043",
+                            "2044",
+                            "2045",
+                            "2046",
+                            "2047",
+                            "2048",
+                            "2049",
+                            "2050",
+                            "2051",
+                            "2052",
+                            "2053",
+                            "2054",
+                            "2055",
+                            "2056",
+                            "2057",
+                            "2058",
+                            "2059",
+                            "2060"
                           ],
                           "description": null
                         },
@@ -1037,7 +1230,7 @@
                   "name": "buyerSeniority",
                   "tier": 0,
                   "type": "string",
-                  "label": "Buyer seniority applicable to offered credits",
+                  "label": "Buyer seniority",
                   "table": null,
                   "options": [],
                   "description": "Are credits that are indicated in the offer potentially subject to buyer seniority? (≤20 words)"
@@ -1049,6 +1242,8 @@
         {
           "name": "beneficiaries",
           "label": "Beneficiaries & Benefit Sharing",
+          "relevanceAndUse": "This section provides information on the project's benefit sharing approach, including the contributions expected from beneficiaries, the monetary and non-monetary benefits they are expected to receive, how carbon credit revenues are allocated, and how the benefit sharing plan was developed. Buyers can use this information to assess whether benefits are distributed in a transparent, equitable, and verifiable manner, and to understand how the project engages with affected communities or other stakeholders. These questions are particularly relevant for projects with community-based participation, shared revenue arrangements, or requirements to distribute proceeds to landowners, land users, local communities, or government entities. Buyers may choose to supplement this section with additional due diligence where benefit sharing arrangements are complex, material to project viability, or subject to evolving legal or policy frameworks.",
+          "complementaryDocs": "Documentation commonly requested for this category may include the benefits sharing plan or agreement as well as proof of distributed payments (via electronic payments, transfer receipts, etc.) and example contracts between the landowners (or tenants) that outline the obligations of participating in the project or program.",
           "sections": [
             {
               "name": "default",
@@ -1213,6 +1408,8 @@
         {
           "name": "additionality",
           "label": "Additionality",
+          "relevanceAndUse": "This section provides information on the project's additionality, policy context, and reliance on carbon finance. Buyers can use this information to assess the credibility of the project's additionality claims, the role of carbon revenue in supporting project viability, and any policy, regulatory, or accounting considerations that may affect credit eligibility, use, or claims. These questions are particularly useful for evaluating whether the project depends on carbon finance, whether other revenue streams or public support may affect additionality, and whether the project is aligned with relevant national climate policies, carbon market frameworks, or Article 6-related requirements. Depending on the project's characteristics, jurisdictional context, intended credit use, and applicable standard or methodology, buyers may choose to supplement this section with additional review of financial additionality, regulatory surplus, host country authorization, corresponding adjustments, baseline assumptions, or evolving carbon market rules.",
+          "complementaryDocs": "Documentation commonly requested for this category includes the additionality assessment and any accompanying additionality tests set forth by the methodology.",
           "sections": [
             {
               "name": "default",
@@ -1277,7 +1474,12 @@
                   "type": "string",
                   "label": "Corresponding adjustments expected",
                   "table": null,
-                  "options": ["Yes", "No", "Not yet determined", "Not applicable"],
+                  "options": [
+                    "Yes",
+                    "No",
+                    "Not yet determined",
+                    "Not applicable"
+                  ],
                   "description": "Are corresponding adjustments expected or necessary?"
                 },
                 {
@@ -1307,6 +1509,8 @@
         {
           "name": "durability",
           "label": "Durability & Permanence",
+          "relevanceAndUse": "This section provides information on the project's durability and permanence profile, including the risks that could affect the continued storage or mitigation of credited emissions over time. Buyers can use this information to assess the likelihood that credited climate benefits will persist over the claimed durability period and to understand how the project allocates responsibility for potential reversals. Depending on the project's activity type, storage pathway, guarantee term, methodology, and risk profile, buyers may choose to supplement this section with additional review of reversal modeling, monitoring plans, insurance arrangements, legal protections, land tenure or use restrictions, buffer pool adequacy, or long-term stewardship obligations.",
+          "complementaryDocs": "Documentation commonly requested for this category may include the non-permanence assessment and assumptions, durability/reversal risk analysis, required buffer pool contributions, insurance offerings, or other contingencies as set by the methodology and/or standard.",
           "sections": [
             {
               "name": "default",
@@ -1369,6 +1573,8 @@
         {
           "name": "quantificationUncertainty",
           "label": "Quantification Uncertainty",
+          "relevanceAndUse": "This section provides information on how the project quantifies emissions reductions or removals and how uncertainty is assessed. It includes disclosures related to the project's quantification approach, sources of uncertainty, uncertainty level, and use of pilot or locally collected data to validate estimated outcomes. Buyers can use this information to assess the reliability and conservativeness of the project's credited climate benefits. These questions are especially relevant for projects that rely on modeling, emission factors, remote sensing, biological growth rates, soil or biomass measurements, technology performance assumptions, or site-specific operating data. Depending on the project type and methodology, buyers may choose to supplement this section with additional review of model inputs, measurement protocols, sampling design, uncertainty deductions, or sensitivity analyses.",
+          "complementaryDocs": "Documentation commonly requested for this category may include baseline data and assumptions, ex-ante credit projections and underlying assumptions / allometric equations, baselining data and procedures, carbon removal/emissions projections, a third-party life cycle assessment (LCA) or completed lifecycle emissions intake form (LEIF), and any additional documents for the selected methodology, including supporting calculations and model documentation.",
           "sections": [
             {
               "name": "default",
@@ -1418,7 +1624,10 @@
                   "type": "string",
                   "label": "Pilot or locally collected data used to validate estimates",
                   "table": null,
-                  "options": ["Yes", "No"],
+                  "options": [
+                    "Yes",
+                    "No"
+                  ],
                   "description": "Has the project used pilot and/or locally collected data to validate the estimated project emissions or removals?"
                 }
               ]
@@ -1428,6 +1637,8 @@
         {
           "name": "leakage",
           "label": "Leakage",
+          "relevanceAndUse": "This section provides information on the project's leakage risks and how they are assessed, managed, and accounted for. Buyers can use this information to assess whether credited emissions reductions or removals could be offset by emissions increases or negative impacts elsewhere. These questions are especially relevant for projects involving biomass, waste streams, land use, avoided conversion, fuel switching, agricultural production, or other activities that may shift demand, supply, land use, or emissions outside the project boundary. Depending on the project type and methodology, buyers may choose to supplement this section with additional review of leakage assumptions, market effects, supply chain impacts, monitoring plans, or supporting scientific literature.",
+          "complementaryDocs": "Documentation commonly requested for this category may include the leakage assessment and assumptions, usually outlined by the chosen methodology.",
           "sections": [
             {
               "name": "default",
@@ -1470,6 +1681,8 @@
         {
           "name": "mrv",
           "label": "MRV",
+          "relevanceAndUse": "This section provides information on the project's monitoring, measurement, reporting, and verification approach, including any MMRV practices that exceed methodology requirements. It includes disclosures related to enhanced monitoring plans, post-crediting monitoring duration, monitoring cadence, and how the project plans to track outcomes over time. This section will have throughlines with questions related to Quantification Uncertainty, as both are primarily defined by the chosen methodology. Buyers can use this information to assess the strength, transparency, and durability of the project's evidence base. Depending on the project type, methodology, and risk profile, buyers may choose to supplement this section with additional review of monitoring technologies, data collection protocols, reporting cadence, verification procedures, data transparency, or post-crediting oversight.",
+          "complementaryDocs": "Documentation commonly requested for this category may include the monitoring, measurement, reporting, and verification (MMRV) plan, as outlined by the methodology, and any accompanying validation/verification reports.",
           "sections": [
             {
               "name": "default",

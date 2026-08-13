@@ -159,6 +159,97 @@
     text-align: left;
   }
   .field table th { background: #fafaf8; font-weight: 600; }
+  .field table th .col-hint {
+    display: block;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 2px;
+  }
+  .step-docs {
+    font-size: 13px;
+    color: var(--ink);
+    background: #f4f4f0;
+    border-left: 3px solid var(--line);
+    padding: 8px 12px;
+    margin: 0 0 12px 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .step-docs strong { color: var(--muted); font-weight: 600; }
+  .step-about {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 16px 0;
+  }
+  .step-about > summary {
+    cursor: pointer;
+    color: var(--accent);
+    font-size: 12px;
+    padding: 2px 0;
+    user-select: none;
+  }
+  .step-about > summary:hover { text-decoration: underline; }
+  .step-about > p { margin: 6px 0 0 0; }
+
+  /* Multi-select chip component (top-level array fields + table cells) */
+  .ms { display: flex; flex-direction: column; gap: 4px; }
+  .ms-chips { display: flex; flex-wrap: wrap; gap: 4px; }
+  .ms-chips:empty { display: none; }
+  .ms-chip {
+    display: inline-flex; align-items: center; gap: 2px;
+    padding: 2px 4px 2px 8px;
+    background: #eef4ff;
+    border: 1px solid #cbdcfb;
+    border-radius: 12px;
+    font-size: 12px; line-height: 1.4;
+    color: #1a56b8;
+    max-width: 100%;
+  }
+  .ms-chip-label {
+    max-width: 220px;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .ms-chip-x {
+    background: none; border: none; cursor: pointer;
+    color: #1a56b8;
+    padding: 0 4px;
+    font: inherit; font-size: 14px; line-height: 1;
+  }
+  .ms-chip-x:hover { color: var(--error); }
+  .ms-input-wrap { position: relative; }
+  .ms-input {
+    width: 100%; padding: 4px 8px;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    font: inherit; font-size: 13px;
+    background: #fff;
+  }
+  .ms-dropdown {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.10);
+    max-height: 240px;
+    overflow-y: auto;
+    z-index: 100;
+    padding: 4px 0;
+  }
+  .ms-option {
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 13px;
+  }
+  .ms-option:hover, .ms-option.active { background: #f0f5ff; }
+  .ms-hint {
+    padding: 5px 10px;
+    color: var(--muted);
+    font-size: 12px;
+    font-style: italic;
+  }
+  .field table td .ms { min-width: 180px; }
+  .field table td .ms-chip { font-size: 11px; padding: 1px 3px 1px 6px; }
+  .field table td .ms-chip-label { max-width: 140px; }
   .field table input, .field table select, .field table textarea {
     width: 100%;
     border: none;
@@ -266,7 +357,7 @@ async function loadFrameworkFromUrl(url) {
     const res = await fetch(url, { cache: "no-store" });
     if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
     const doc = await res.json();
-    setFramework(doc);
+    await setFramework(doc);
     setStatus(`Loaded ${doc.title} v${doc.version}.`, "ok");
   } catch (e) {
     setStatus(
@@ -276,7 +367,8 @@ async function loadFrameworkFromUrl(url) {
   }
 }
 
-function setFramework(doc) {
+async function setFramework(doc) {
+  await resolveCdopRefs(doc);
   state.schema = doc;
   state.topicIndex = 0;
   const topicSel = $("#topic");
@@ -285,6 +377,65 @@ function setFramework(doc) {
     topicSel.appendChild(el("option", { value: i }, t.label || t.name));
   });
   renderForm();
+}
+
+// ---------- CDOP enum resolver ----------
+// Fields can declare options as { "$cdopRef": { "schema": "<name>", "pointer": "<json-pointer>", "appendOther": true } }.
+// On load, we fetch the referenced CDOP schema from jsDelivr (cached per schema), resolve the pointer to its `enum`,
+// and mutate the field's options to the resolved string array. Renderer sees a plain options array either way.
+const CDOP_BASE = "https://cdn.jsdelivr.net/gh/Carbon-Data-Open-Protocol/Carbon-Data-Open-Protocol@main/json_schema";
+const cdopSchemaCache = new Map();
+
+function fetchCdopSchema(name) {
+  if (cdopSchemaCache.has(name)) return cdopSchemaCache.get(name);
+  const p = fetch(`${CDOP_BASE}/${name}.schema.json`).then(r => {
+    if (!r.ok) throw new Error(`${name}.schema.json ${r.status}`);
+    return r.json();
+  });
+  cdopSchemaCache.set(name, p);
+  return p;
+}
+
+function resolveJsonPointer(doc, pointer) {
+  if (!pointer || pointer === "/") return doc;
+  const parts = pointer.replace(/^\//, "").split("/").map(p => p.replace(/~1/g, "/").replace(/~0/g, "~"));
+  let cur = doc;
+  for (const p of parts) {
+    if (cur == null) return undefined;
+    cur = cur[p];
+  }
+  return cur;
+}
+
+async function resolveCdopRefs(doc) {
+  const refs = [];
+  const walk = (node) => {
+    if (Array.isArray(node)) { node.forEach(walk); return; }
+    if (!node || typeof node !== "object") return;
+    for (const [k, v] of Object.entries(node)) {
+      if (v && typeof v === "object" && !Array.isArray(v) && v.$cdopRef) {
+        refs.push({ parent: node, key: k, ref: v.$cdopRef });
+      } else {
+        walk(v);
+      }
+    }
+  };
+  walk(doc);
+  if (!refs.length) return;
+  await Promise.all(refs.map(async ({ parent, key, ref }) => {
+    try {
+      const schema = await fetchCdopSchema(ref.schema);
+      const node = resolveJsonPointer(schema, ref.pointer);
+      const enumVals = node && Array.isArray(node.enum) ? node.enum : null;
+      if (!enumVals) throw new Error(`no enum at ${ref.pointer}`);
+      const opts = enumVals.slice();
+      if (ref.appendOther) opts.push("Other");
+      parent[key] = opts;
+    } catch (e) {
+      console.warn(`CDOP ref ${ref.schema}${ref.pointer} failed:`, e.message);
+      parent[key] = [];
+    }
+  }));
 }
 
 // ---------- Rendering ----------
@@ -300,6 +451,18 @@ function renderForm() {
     const stepEl = el("section", { class: "step" },
       el("h2", {}, step.label || step.name),
     );
+    if (step.complementaryDocs) {
+      stepEl.appendChild(el("p", { class: "step-docs" },
+        el("strong", {}, "Suggested documentation: "),
+        step.complementaryDocs,
+      ));
+    }
+    if (step.relevanceAndUse) {
+      stepEl.appendChild(el("details", { class: "step-about" },
+        el("summary", {}, "About this section"),
+        el("p", {}, step.relevanceAndUse),
+      ));
+    }
     (step.sections || []).forEach(section => {
       const secEl = el("div", { class: "section" });
       if (section.label && section.label.trim()) {
@@ -386,17 +549,11 @@ function renderField(field) {
     return wrap;
   }
 
-  // Array with options → multi-checkbox group
+  // Array with options → chip multi-select with typeahead
   if (type === "array" && hasOptions) {
-    const group = el("div", { class: "options-group", "data-role": "checkbox-array" });
-    field.options.forEach((o, i) => {
-      const cbId = `${fieldId(field)}_${i}`;
-      group.appendChild(el("label", { for: cbId },
-        el("input", { type: "checkbox", id: cbId, value: o }),
-        el("span", {}, o),
-      ));
-    });
-    wrap.appendChild(group);
+    const ms = makeMultiSelect(field.options);
+    ms.setAttribute("data-role", "multi-select");
+    wrap.appendChild(ms);
     return wrap;
   }
 
@@ -433,6 +590,126 @@ function renderField(field) {
   return wrap;
 }
 
+// Chip multi-select with typeahead. Backs both top-level array fields and
+// multi-select table cells. Exposes _getValues()/_setValues(vals) on the wrapper.
+function makeMultiSelect(options, initial = []) {
+  const wrap = el("div", { class: "ms" });
+  const chipsEl = el("div", { class: "ms-chips" });
+  const inputWrap = el("div", { class: "ms-input-wrap" });
+  const input = el("input", { type: "text", class: "ms-input", placeholder: "type to search…" });
+  const dropdown = el("div", { class: "ms-dropdown", style: "display:none;" });
+  inputWrap.appendChild(input);
+  inputWrap.appendChild(dropdown);
+  wrap.appendChild(chipsEl);
+  wrap.appendChild(inputWrap);
+
+  const state = { selected: new Set(initial), activeIdx: -1, filtered: [] };
+  const MAX = 100;
+
+  const renderChips = () => {
+    chipsEl.innerHTML = "";
+    for (const v of state.selected) {
+      const chip = el("span", { class: "ms-chip" });
+      chip.appendChild(el("span", { class: "ms-chip-label", title: v }, v));
+      const x = el("button", { type: "button", class: "ms-chip-x", title: "Remove" }, "×");
+      x.addEventListener("click", (e) => {
+        e.preventDefault(); e.stopPropagation();
+        state.selected.delete(v);
+        renderChips();
+        if (dropdown.style.display !== "none") renderDropdown();
+      });
+      chip.appendChild(x);
+      chipsEl.appendChild(chip);
+    }
+  };
+
+  const positionDropdown = () => {
+    const rect = input.getBoundingClientRect();
+    dropdown.style.position = "fixed";
+    dropdown.style.top = `${rect.bottom + 2}px`;
+    dropdown.style.left = `${rect.left}px`;
+    dropdown.style.minWidth = `${Math.max(rect.width, 220)}px`;
+    dropdown.style.maxWidth = `${Math.min(window.innerWidth - rect.left - 12, 480)}px`;
+  };
+
+  const renderDropdown = () => {
+    dropdown.innerHTML = "";
+    const q = input.value.toLowerCase().trim();
+    const remaining = options.filter(o => !state.selected.has(o));
+    state.filtered = q ? remaining.filter(o => o.toLowerCase().includes(q)) : remaining;
+    state.activeIdx = state.filtered.length > 0 ? 0 : -1;
+    const visible = state.filtered.slice(0, MAX);
+    visible.forEach((o, i) => {
+      const item = el("div", { class: "ms-option" + (i === state.activeIdx ? " active" : "") });
+      item.textContent = o;
+      item.addEventListener("mousedown", (e) => {
+        e.preventDefault();
+        pick(o);
+      });
+      item.addEventListener("mouseenter", () => {
+        state.activeIdx = i;
+        dropdown.querySelectorAll(".ms-option").forEach((el, idx) => el.classList.toggle("active", idx === i));
+      });
+      dropdown.appendChild(item);
+    });
+    if (state.filtered.length > MAX) {
+      dropdown.appendChild(el("div", { class: "ms-hint" }, `${state.filtered.length - MAX} more — keep typing to narrow`));
+    }
+    if (state.filtered.length === 0) {
+      dropdown.appendChild(el("div", { class: "ms-hint" }, q ? "no matches" : "all selected"));
+    }
+    dropdown.style.display = "block";
+    positionDropdown();
+  };
+
+  const pick = (o) => {
+    state.selected.add(o);
+    input.value = "";
+    renderChips();
+    renderDropdown();
+    input.focus();
+  };
+
+  const closeDropdown = () => { dropdown.style.display = "none"; };
+
+  input.addEventListener("focus", renderDropdown);
+  input.addEventListener("input", renderDropdown);
+  input.addEventListener("blur", () => setTimeout(closeDropdown, 120));
+  input.addEventListener("keydown", (e) => {
+    if (dropdown.style.display === "none") return;
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      state.activeIdx = Math.min(state.activeIdx + 1, Math.min(state.filtered.length, MAX) - 1);
+      dropdown.querySelectorAll(".ms-option").forEach((el, i) => el.classList.toggle("active", i === state.activeIdx));
+      dropdown.querySelector(".ms-option.active")?.scrollIntoView({ block: "nearest" });
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      state.activeIdx = Math.max(state.activeIdx - 1, 0);
+      dropdown.querySelectorAll(".ms-option").forEach((el, i) => el.classList.toggle("active", i === state.activeIdx));
+      dropdown.querySelector(".ms-option.active")?.scrollIntoView({ block: "nearest" });
+    } else if (e.key === "Enter") {
+      if (state.activeIdx >= 0 && state.filtered[state.activeIdx]) {
+        e.preventDefault();
+        pick(state.filtered[state.activeIdx]);
+      }
+    } else if (e.key === "Escape") {
+      closeDropdown();
+    } else if (e.key === "Backspace" && input.value === "" && state.selected.size > 0) {
+      const last = Array.from(state.selected).pop();
+      state.selected.delete(last);
+      renderChips();
+      renderDropdown();
+    }
+  });
+  window.addEventListener("scroll", closeDropdown, true);
+
+  wrap._getValues = () => Array.from(state.selected);
+  wrap._setValues = (vals) => { state.selected = new Set(vals || []); renderChips(); };
+
+  renderChips();
+  return wrap;
+}
+
 function makeArrayRow(list) {
   const input = el("input", { type: "text" });
   const remove = el("button", { type: "button", class: "mini", onclick: () => {
@@ -448,7 +725,11 @@ function renderTable(field, columns) {
   const table = el("table");
   const thead = el("thead");
   const headRow = el("tr");
-  columns.forEach(c => headRow.appendChild(el("th", {}, c.label || c.name)));
+  columns.forEach(c => {
+    const th = el("th", {}, c.label || c.name);
+    if (c.description) th.appendChild(el("span", { class: "col-hint" }, c.description));
+    headRow.appendChild(th);
+  });
   headRow.appendChild(el("th", { style: "width: 40px;" }, ""));
   thead.appendChild(headRow);
   table.appendChild(thead);
@@ -463,7 +744,11 @@ function renderTable(field, columns) {
     columns.forEach(c => {
       const cell = el("td");
       const hasOpts = Array.isArray(c.options) && c.options.length > 0 && typeof c.options[0] === "string";
-      if (hasOpts) {
+      if (hasOpts && c.type === "array") {
+        const ms = makeMultiSelect(c.options);
+        ms.setAttribute("data-col", c.name);
+        cell.appendChild(ms);
+      } else if (hasOpts) {
         const s = el("select", { "data-col": c.name },
           el("option", { value: "" }, "—"),
           ...c.options.map(o => el("option", { value: o }, o)),
@@ -546,6 +831,15 @@ function readField(fEl, field) {
       for (const c of columns) {
         const input = tr.querySelector(`[data-col="${c.name}"]`);
         if (!input) continue;
+        // Multi-select cell (chip component)
+        if (typeof input._getValues === "function") {
+          const values = input._getValues();
+          for (const v of values) {
+            if (!c.options.includes(v)) return { error: `Row ${rowIdx}, column "${c.label || c.name}": "${v}" is not one of ${c.options.join(", ")}` };
+          }
+          if (values.length > 0) { row[c.name] = values; hasAnything = true; }
+          continue;
+        }
         if (c.type === "boolean") {
           if (input.checked) { row[c.name] = true; hasAnything = true; }
           continue;
@@ -608,10 +902,10 @@ function readField(fEl, field) {
     return { value: n };
   }
 
-  // Array with options → multi-checkbox
+  // Array with options → chip multi-select
   if (type === "array" && hasOptions) {
-    const group = fEl.querySelector('[data-role="checkbox-array"]');
-    const values = [...group.querySelectorAll("input[type=checkbox]:checked")].map(c => c.value);
+    const ms = fEl.querySelector('[data-role="multi-select"]');
+    const values = ms._getValues();
     for (const v of values) {
       if (!field.options.includes(v)) return { error: `"${v}" is not one of ${field.options.join(", ")}` };
     }
