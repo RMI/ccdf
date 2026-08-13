@@ -343,6 +343,19 @@ const el = (tag, attrs = {}, ...children) => {
   return n;
 };
 
+// Render text with markdown-style [label](url) links into a container.
+// Only http/https URLs are linkified; other bracket syntax passes through as plain text.
+const LINK_RE = /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g;
+function appendDescription(container, text) {
+  let last = 0;
+  for (const m of text.matchAll(LINK_RE)) {
+    if (m.index > last) container.appendChild(document.createTextNode(text.slice(last, m.index)));
+    container.appendChild(el("a", { href: m[2], target: "_blank", rel: "noopener noreferrer" }, m[1]));
+    last = m.index + m[0].length;
+  }
+  if (last < text.length) container.appendChild(document.createTextNode(text.slice(last)));
+}
+
 const setStatus = (msg, kind = "info") => {
   const s = $("#status");
   if (!msg) { s.innerHTML = ""; return; }
@@ -380,8 +393,9 @@ async function setFramework(doc) {
 }
 
 // ---------- CDOP enum resolver ----------
-// Fields can declare options as { "$cdopRef": { "schema": "<name>", "pointer": "<json-pointer>", "appendOther": true } }.
+// Fields can declare options as { "$cdopRef": { "schema": "<name>", "pointer": "<json-pointer>", "exclude": ["<val>", …], "appendOther": true } }.
 // On load, we fetch the referenced CDOP schema from jsDelivr (cached per schema), resolve the pointer to its `enum`,
+// drop any values in `exclude` (some CDOP enums include a category header as the first value), optionally append "Other",
 // and mutate the field's options to the resolved string array. Renderer sees a plain options array either way.
 const CDOP_BASE = "https://cdn.jsdelivr.net/gh/Carbon-Data-Open-Protocol/Carbon-Data-Open-Protocol@main/json_schema";
 const cdopSchemaCache = new Map();
@@ -428,7 +442,11 @@ async function resolveCdopRefs(doc) {
       const node = resolveJsonPointer(schema, ref.pointer);
       const enumVals = node && Array.isArray(node.enum) ? node.enum : null;
       if (!enumVals) throw new Error(`no enum at ${ref.pointer}`);
-      const opts = enumVals.slice();
+      let opts = enumVals.slice();
+      if (Array.isArray(ref.exclude) && ref.exclude.length > 0) {
+        const skip = new Set(ref.exclude);
+        opts = opts.filter(v => !skip.has(v));
+      }
       if (ref.appendOther) opts.push("Other");
       parent[key] = opts;
     } catch (e) {
@@ -497,7 +515,9 @@ function renderField(field) {
   wrap.appendChild(label);
 
   if (field.description) {
-    wrap.appendChild(el("div", { class: "desc" }, field.description));
+    const descEl = el("div", { class: "desc" });
+    appendDescription(descEl, field.description);
+    wrap.appendChild(descEl);
   }
   if (type == null) {
     wrap.appendChild(el("div", { class: "desc" }, "Note: this field has no declared type in the schema. It's rendered as a text input; edit the JSON output if a different shape is needed."));
@@ -727,7 +747,11 @@ function renderTable(field, columns) {
   const headRow = el("tr");
   columns.forEach(c => {
     const th = el("th", {}, c.label || c.name);
-    if (c.description) th.appendChild(el("span", { class: "col-hint" }, c.description));
+    if (c.description) {
+      const hint = el("span", { class: "col-hint" });
+      appendDescription(hint, c.description);
+      th.appendChild(hint);
+    }
     headRow.appendChild(th);
   });
   headRow.appendChild(el("th", { style: "width: 40px;" }, ""));

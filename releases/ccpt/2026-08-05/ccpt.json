@@ -59,6 +59,7 @@
                     "$cdopRef": {
                       "schema": "Project_Approach_Details",
                       "pointer": "/properties/project/properties/mitigation/items/properties/project_type",
+                      "exclude": ["UNFCCC Article 6.2 common nomenclatures (Activity Type)"],
                       "appendOther": true
                     }
                   },
@@ -274,7 +275,7 @@
                   "label": "Country subdivision (state/province)",
                   "table": null,
                   "options": [],
-                  "description": "In which country subdivision (state/province) is your project located? Values should be ISO 3166-2 country subdivision codes, per CDOP recommendations."
+                  "description": "In which country subdivision (state/province) is your project located? If available, please list locations in ISO 3166-2 country subdivision codes, per CDOP recommendations."
                 }
               ]
             }
@@ -475,6 +476,7 @@
                             "$cdopRef": {
                               "schema": "Project_Approach_Details",
                               "pointer": "/properties/project/properties/mitigation/items/properties/project_type",
+                              "exclude": ["UNFCCC Article 6.2 common nomenclatures (Activity Type)"],
                               "appendOther": true
                             }
                           },
@@ -810,7 +812,7 @@
                   "label": "IUCN ecoregion(s) or ecosystem(s)",
                   "table": null,
                   "options": [],
-                  "description": "Using the IUCN's Global Ecosystem Typology, list the ecoregion(s) or ecosystem(s) the project is located in. (≤50 words)"
+                  "description": "Using the [IUCN's Global Ecosystem Typology](https://global-ecosystems.org/), list the ecoregion(s) or ecosystem(s) the project is located in. (≤50 words)"
                 },
                 {
                   "id": 46,
