@@ -292,6 +292,31 @@
     max-height: 520px;
     overflow: auto;
   }
+  .advanced-controls {
+    font-size: 13px;
+    color: var(--muted);
+    margin-left: auto;
+  }
+  .advanced-controls > summary {
+    cursor: pointer;
+    color: var(--accent);
+    user-select: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+  }
+  .advanced-controls > summary:hover { background: #f0f0ee; }
+  .advanced-controls[open] > summary { color: var(--ink); }
+  .advanced-body {
+    display: flex; flex-direction: column; gap: 6px;
+    padding: 10px 12px;
+    margin-top: 6px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: #fafaf8;
+    max-width: 480px;
+  }
+  .advanced-body label { color: var(--muted); font-size: 12px; }
+
   .actions { display: flex; gap: 8px; margin: 16px 0; }
   footer { text-align: center; color: var(--muted); font-size: 12px; padding: 20px; }
 
@@ -338,10 +363,13 @@
       <label for="topic">Stage</label>
       <select id="topic"><option>Loading…</option></select>
     </div>
-    <div>
-      <label for="schema-file">Or load file</label>
-      <input type="file" id="schema-file" accept="application/json,.json">
-    </div>
+    <details class="advanced-controls">
+      <summary>Advanced</summary>
+      <div class="advanced-body">
+        <label for="schema-file">Load schema from file (developer use — pick a framework JSON to preview it)</label>
+        <input type="file" id="schema-file" accept="application/json,.json">
+      </div>
+    </details>
   </div>
 </header>
 
