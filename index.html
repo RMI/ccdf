@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Carbon Disclosure &amp; Procurement Form</title>
+<title>Carbon Credit Procurement Template</title>
 <style>
   :root {
     --bg: #f7f7f5;
@@ -257,6 +257,21 @@
     font: inherit;
     background: transparent;
   }
+  .radio-group { display: flex; flex-direction: column; gap: 4px; }
+  .radio-row {
+    display: flex; align-items: flex-start; gap: 8px;
+    padding: 6px 8px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: #fff;
+    cursor: pointer;
+    font-weight: normal;
+    font-size: 14px;
+  }
+  .radio-row:hover { background: #f9f9f7; }
+  .radio-row input[type=radio] { margin-top: 3px; flex-shrink: 0; }
+  .radio-text { flex: 1; }
+
   .field.has-error .field-label { color: var(--error); }
   .field.has-error input,
   .field.has-error select,
@@ -279,11 +294,36 @@
   }
   .actions { display: flex; gap: 8px; margin: 16px 0; }
   footer { text-align: center; color: var(--muted); font-size: 12px; padding: 20px; }
+
+  @media print {
+    :root { --bg: #fff; --panel: #fff; }
+    body { background: #fff; }
+    header { position: static; border-bottom: 1px solid #000; padding: 8px 0; }
+    header .controls, .actions, .stage-nav, #result-panel, #status, footer { display: none !important; }
+    main { max-width: 100%; padding: 0; }
+    .step { border: none; padding: 8px 0; margin-bottom: 8px; break-inside: avoid; page-break-inside: avoid; }
+    .step > h2 { font-size: 15px; border-bottom: 1px solid #000; padding-bottom: 4px; }
+    .section { border-top: 1px solid #ccc; padding: 8px 0; break-inside: avoid; page-break-inside: avoid; }
+    .field { break-inside: avoid; page-break-inside: avoid; margin-bottom: 10px; }
+    .field .type-tag { display: none; }
+    .field textarea, .field input[type=text], .field input[type=number], .field input[type=url], .field select {
+      border: 1px solid #999;
+      background: #fff;
+      color: #000;
+    }
+    /* Show the currently-selected select option's text even when native truncation would clip it. */
+    .field select { -webkit-appearance: none; appearance: none; padding: 6px 8px; }
+    .step-docs { background: #f4f4f0; border-left: 2px solid #000; }
+    .step-about[open] > p { display: block; }
+    .step-about > summary { display: none; }
+    a { color: #000; text-decoration: underline; }
+    button { display: none !important; }
+  }
 </style>
 </head>
 <body>
 <header>
-  <h1>Carbon Disclosure &amp; Procurement Form</h1>
+  <h1>Carbon Credit Procurement Template</h1>
   <p>Fill in answers below. Inputs are generated from the selected framework's JSON schema and validated against it.</p>
   <div class="controls">
     <div>
@@ -295,7 +335,7 @@
       </select>
     </div>
     <div>
-      <label for="topic">Tier</label>
+      <label for="topic">Stage</label>
       <select id="topic"><option>Loading…</option></select>
     </div>
     <div>
@@ -311,7 +351,13 @@
   <div class="actions">
     <button type="button" class="primary" id="validate-btn" style="background: var(--accent); color: #fff; border: 1px solid var(--accent); padding: 8px 14px; border-radius: 6px; cursor: pointer; font: inherit;">Validate & Preview</button>
     <button type="button" id="copy-btn" style="background: #fff; border: 1px solid var(--line); padding: 8px 14px; border-radius: 6px; cursor: pointer; font: inherit;">Copy JSON</button>
+    <button type="button" id="pdf-btn" style="background: #fff; border: 1px solid var(--line); padding: 8px 14px; border-radius: 6px; cursor: pointer; font: inherit;">Download PDF</button>
     <button type="button" id="clear-btn" style="background: #fff; border: 1px solid var(--line); padding: 8px 14px; border-radius: 6px; cursor: pointer; font: inherit;">Clear</button>
+  </div>
+  <div class="stage-nav" id="stage-nav" style="display: flex; justify-content: space-between; align-items: center; margin: 8px 0 16px 0;">
+    <button type="button" id="prev-stage-btn" style="background: #fff; border: 1px solid var(--line); padding: 8px 14px; border-radius: 6px; cursor: pointer; font: inherit;">← Previous stage</button>
+    <span id="stage-indicator" style="color: var(--muted); font-size: 13px;"></span>
+    <button type="button" id="next-stage-btn" style="background: var(--accent); color: #fff; border: 1px solid var(--accent); padding: 8px 14px; border-radius: 6px; cursor: pointer; font: inherit;">Next stage →</button>
   </div>
   <pre id="result-panel">// Answers appear here after validation</pre>
 </main>
@@ -390,6 +436,7 @@ async function setFramework(doc) {
     topicSel.appendChild(el("option", { value: i }, t.label || t.name));
   });
   renderForm();
+  updateStageNav();
 }
 
 // ---------- CDOP enum resolver ----------
@@ -549,8 +596,23 @@ function renderField(field) {
     return wrap;
   }
 
-  // String with options → select
+  // String with options → select, or radio group when any option is long enough to be truncated by a native select
   if (type === "string" && hasOptions) {
+    const anyLong = field.options.some(o => (o || "").length > 60);
+    if (anyLong) {
+      const group = el("div", { class: "radio-group", "data-role": "radio-string", role: "radiogroup" });
+      const groupName = fieldId(field);
+      field.options.forEach((o, i) => {
+        const inputId = `${groupName}_${i}`;
+        const row = el("label", { class: "radio-row", for: inputId },
+          el("input", { type: "radio", id: inputId, name: groupName, value: o }),
+          el("span", { class: "radio-text" }, o),
+        );
+        group.appendChild(row);
+      });
+      wrap.appendChild(group);
+      return wrap;
+    }
     const sel = el("select", { id: fieldId(field), "data-role": "select-string" },
       el("option", { value: "" }, "— select —"),
       ...field.options.map(o => el("option", { value: o }, o)),
@@ -909,6 +971,14 @@ function readField(fEl, field) {
 
   // String with options
   if (type === "string" && hasOptions) {
+    const radioGroup = fEl.querySelector('[data-role="radio-string"]');
+    if (radioGroup) {
+      const checked = radioGroup.querySelector("input[type=radio]:checked");
+      if (!checked) return { value: undefined };
+      const v = checked.value;
+      if (!field.options.includes(v)) return { error: `"${v}" is not one of ${field.options.join(", ")}` };
+      return { value: v };
+    }
     const sel = fEl.querySelector('[data-role="select-string"]');
     const v = sel.value;
     if (v === "") return { value: undefined };
@@ -978,12 +1048,44 @@ function readField(fEl, field) {
   return { value: raw };
 }
 
+// ---------- Stage nav ----------
+function updateStageNav() {
+  const total = state.schema?.topic?.length || 0;
+  const idx = state.topicIndex;
+  const prevBtn = $("#prev-stage-btn");
+  const nextBtn = $("#next-stage-btn");
+  const indicator = $("#stage-indicator");
+  if (!total) { $("#stage-nav").style.display = "none"; return; }
+  $("#stage-nav").style.display = "flex";
+  prevBtn.disabled = idx <= 0;
+  nextBtn.disabled = idx >= total - 1;
+  prevBtn.style.opacity = prevBtn.disabled ? "0.4" : "1";
+  nextBtn.style.opacity = nextBtn.disabled ? "0.4" : "1";
+  prevBtn.style.cursor = prevBtn.disabled ? "not-allowed" : "pointer";
+  nextBtn.style.cursor = nextBtn.disabled ? "not-allowed" : "pointer";
+  const label = state.schema.topic[idx]?.label || state.schema.topic[idx]?.name || "";
+  indicator.textContent = `${label} — ${idx + 1} of ${total}`;
+}
+
+function goToStage(newIdx) {
+  const total = state.schema?.topic?.length || 0;
+  if (newIdx < 0 || newIdx >= total) return;
+  state.topicIndex = newIdx;
+  $("#topic").value = String(newIdx);
+  renderForm();
+  updateStageNav();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
 // ---------- Wire up ----------
 $("#framework").addEventListener("change", (e) => loadFrameworkFromUrl(e.target.value));
 $("#topic").addEventListener("change", (e) => {
   state.topicIndex = Number(e.target.value);
   renderForm();
+  updateStageNav();
 });
+$("#prev-stage-btn").addEventListener("click", () => goToStage(state.topicIndex - 1));
+$("#next-stage-btn").addEventListener("click", () => goToStage(state.topicIndex + 1));
 $("#schema-file").addEventListener("change", async (e) => {
   const file = e.target.files[0];
   if (!file) return;
@@ -1014,6 +1116,16 @@ $("#validate-btn").addEventListener("click", () => {
     answers,
   };
   $("#result-panel").textContent = JSON.stringify(output, null, 2);
+});
+
+$("#pdf-btn").addEventListener("click", () => {
+  // Expand all <details> so their content prints, remember state to restore.
+  const detailsEls = Array.from(document.querySelectorAll("details"));
+  const wasOpen = detailsEls.map(d => d.open);
+  detailsEls.forEach(d => { d.open = true; });
+  const restore = () => detailsEls.forEach((d, i) => { d.open = wasOpen[i]; });
+  window.addEventListener("afterprint", restore, { once: true });
+  window.print();
 });
 
 $("#copy-btn").addEventListener("click", async () => {
