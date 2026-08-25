@@ -32,6 +32,24 @@
     padding: 20px 24px;
     position: sticky; top: 0; z-index: 10;
   }
+  .mockup-banner {
+    background: #ffcc4d;
+    color: #3d2400;
+    border-bottom: 2px solid #b8790a;
+    padding: 10px 24px;
+    margin: -20px -24px 14px -24px;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.45;
+    text-align: center;
+  }
+  .mockup-banner strong { font-weight: 700; }
+  .mockup-banner .icon {
+    display: inline-block;
+    margin-right: 6px;
+    font-size: 15px;
+    vertical-align: -1px;
+  }
   header h1 { margin: 0 0 4px 0; font-size: 18px; }
   .preview-badge {
     display: inline-block;
@@ -339,6 +357,14 @@
     body { background: #fff; }
     header { position: static; border-bottom: 1px solid #000; padding: 8px 0; }
     header .controls, .actions, .stage-nav, #result-panel, #status, footer { display: none !important; }
+    .mockup-banner {
+      background: #fff !important;
+      color: #000 !important;
+      border: 2px solid #000;
+      margin: 0 0 12px 0;
+      padding: 8px 12px;
+      text-align: left;
+    }
     main { max-width: 100%; padding: 0; }
     .step { border: none; padding: 8px 0; margin-bottom: 8px; break-inside: avoid; page-break-inside: avoid; }
     .step > h2 { font-size: 15px; border-bottom: 1px solid #000; padding-bottom: 4px; }
@@ -362,6 +388,11 @@
 </head>
 <body>
 <header>
+  <div class="mockup-banner" role="alert">
+    <span class="icon" aria-hidden="true">⚠</span>
+    This form is a <strong>mock-up</strong> to better visualize and validate answers against the CCPT.
+    It <strong>does not save or store data</strong>, and it is <strong>not part of any specific RFP</strong>.
+  </div>
   <h1>Carbon Credit Procurement Template <span class="preview-badge" title="This is a preview build — not for live procurement use.">Preview</span></h1>
   <p>Fill in answers below. Inputs are generated from the selected framework's JSON schema and validated against it.</p>
   <div class="controls">
