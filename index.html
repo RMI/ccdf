@@ -531,6 +531,79 @@ async function resolveCdopRefs(doc) {
   }));
 }
 
+// ---------- Number formatting ----------
+// Fields whose label/description imply a monetary value get a "$" prefix. Non-monetary
+// numeric fields (tonnage, years, etc.) still get comma grouping — just no currency symbol.
+const MONETARY_LABEL_RE = /\(USD\)|\(EUR\)|\(GBP\)|\bmonetary\b|\bprice\b/i;
+function isMonetaryLabel(label, description) {
+  const text = `${label || ""} ${description || ""}`;
+  return MONETARY_LABEL_RE.test(text);
+}
+
+// Strip formatting → plain JS number. Returns null on empty; NaN on unparseable.
+function parseFormattedNumber(raw) {
+  if (raw == null) return null;
+  const s = String(raw).replace(/[$,\s]/g, "").trim();
+  if (s === "") return null;
+  const n = Number(s);
+  return Number.isFinite(n) ? n : NaN;
+}
+
+// Insert comma grouping into a digit string, preserving a single optional decimal tail.
+// Empty / "." / lone "-" pass through so the user can type freely.
+function commaGroup(intStr) {
+  const neg = intStr.startsWith("-");
+  const digits = neg ? intStr.slice(1) : intStr;
+  if (!/^\d+$/.test(digits)) return intStr;
+  return (neg ? "-" : "") + digits.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+// Live-format an <input> with commas (and optional "$" prefix). Preserves the caret
+// position by counting significant chars (digits, decimal point, minus) rather than
+// raw character indexes — commas and "$" shift indexes but not caret intent.
+function wireNumberFormatting(input, monetary) {
+  const reformat = () => {
+    const raw = input.value;
+    const caret = input.selectionStart ?? raw.length;
+    const sigBeforeCaret = (raw.slice(0, caret).match(/[\d.\-]/g) || []).length;
+
+    let cleaned = raw.replace(/[^\d.\-]/g, "");
+    // Only one leading minus.
+    const isNeg = cleaned.startsWith("-");
+    cleaned = (isNeg ? "-" : "") + cleaned.replace(/-/g, "");
+    // Only one decimal point.
+    const dotIdx = cleaned.indexOf(".");
+    if (dotIdx !== -1) {
+      cleaned = cleaned.slice(0, dotIdx + 1) + cleaned.slice(dotIdx + 1).replace(/\./g, "");
+    }
+
+    if (cleaned === "" || cleaned === "-" || cleaned === ".") {
+      input.value = cleaned;
+      return;
+    }
+    const [intPart, decPart] = cleaned.split(".");
+    const grouped = commaGroup(intPart);
+    const formatted = (monetary ? "$" : "") + grouped + (decPart !== undefined ? "." + decPart : "");
+
+    input.value = formatted;
+
+    // Walk formatted string, advancing caret when we pass a significant char.
+    let counted = 0;
+    let newCaret = 0;
+    for (let i = 0; i < formatted.length; i++) {
+      if (counted >= sigBeforeCaret) break;
+      if (/[\d.\-]/.test(formatted[i])) counted++;
+      newCaret = i + 1;
+    }
+    if (counted < sigBeforeCaret) newCaret = formatted.length;
+    if (document.activeElement === input) {
+      input.setSelectionRange(newCaret, newCaret);
+    }
+  };
+  input.addEventListener("input", reformat);
+  input.addEventListener("blur", reformat);
+}
+
 // ---------- Rendering ----------
 function renderForm() {
   const form = $("#form");
@@ -677,9 +750,20 @@ function renderField(field) {
     return wrap;
   }
 
-  // Number → number input
+  // Number → text input with live comma grouping (and $ prefix for monetary fields)
   if (type === "number") {
-    wrap.appendChild(el("input", { type: "number", id: fieldId(field), "data-role": "number", step: "any" }));
+    const monetary = isMonetaryLabel(field.label, field.description);
+    const input = el("input", {
+      type: "text",
+      id: fieldId(field),
+      "data-role": "number-formatted",
+      "data-monetary": monetary ? "1" : "0",
+      inputmode: "decimal",
+      autocomplete: "off",
+      placeholder: monetary ? "$0" : "0",
+    });
+    wireNumberFormatting(input, monetary);
+    wrap.appendChild(input);
     return wrap;
   }
 
@@ -869,7 +953,18 @@ function renderTable(field, columns) {
         );
         cell.appendChild(s);
       } else if (c.type === "number") {
-        cell.appendChild(el("input", { type: "number", step: "any", "data-col": c.name }));
+        const monetary = isMonetaryLabel(c.label, c.description);
+        const input = el("input", {
+          type: "text",
+          "data-col": c.name,
+          "data-role": "number-formatted",
+          "data-monetary": monetary ? "1" : "0",
+          inputmode: "decimal",
+          autocomplete: "off",
+          placeholder: monetary ? "$0" : "0",
+        });
+        wireNumberFormatting(input, monetary);
+        cell.appendChild(input);
       } else if (c.type === "boolean") {
         cell.appendChild(el("input", { type: "checkbox", "data-col": c.name }));
       } else {
@@ -964,8 +1059,8 @@ function readField(fEl, field) {
           if (!c.options.includes(raw)) return { error: `Row ${rowIdx}, column "${c.label || c.name}": "${raw}" is not one of ${c.options.join(", ")}` };
           row[c.name] = raw;
         } else if (c.type === "number") {
-          const n = Number(raw);
-          if (!Number.isFinite(n)) return { error: `Row ${rowIdx}, column "${c.label || c.name}" must be a number` };
+          const n = parseFormattedNumber(raw);
+          if (n === null || !Number.isFinite(n)) return { error: `Row ${rowIdx}, column "${c.label || c.name}" must be a number` };
           row[c.name] = n;
         } else {
           row[c.name] = raw;
@@ -1047,11 +1142,11 @@ function readField(fEl, field) {
 
   // Number
   if (type === "number") {
-    const input = fEl.querySelector('[data-role="number"]');
+    const input = fEl.querySelector('[data-role="number-formatted"]') || fEl.querySelector('[data-role="number"]');
     const raw = (input.value || "").trim();
     if (raw === "") return { value: undefined };
-    const n = Number(raw);
-    if (!Number.isFinite(n)) return { error: "Must be a number." };
+    const n = parseFormattedNumber(raw);
+    if (n === null || !Number.isFinite(n)) return { error: "Must be a number (digits, optional decimal, e.g. 1500000 or 1,500,000)." };
     return { value: n };
   }
 
