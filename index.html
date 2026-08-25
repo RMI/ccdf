@@ -895,7 +895,12 @@ function makeMultiSelect(options, initial = []) {
       renderDropdown();
     }
   });
-  window.addEventListener("scroll", closeDropdown, true);
+  // Close on outer-page scroll (dropdown is position:fixed and would detach from the input),
+  // but not when the user is scrolling within the dropdown itself.
+  window.addEventListener("scroll", (e) => {
+    if (dropdown.contains(e.target)) return;
+    closeDropdown();
+  }, true);
 
   wrap._getValues = () => Array.from(state.selected);
   wrap._setValues = (vals) => { state.selected = new Set(vals || []); renderChips(); };
