@@ -1,8 +1,8 @@
 {
-  "$framework": "https://github.com/RMI/ccdf/blob/main/releases/ccpt/2026-08-05/ccpt.json",
+  "$framework": "https://github.com/RMI/ccdf/blob/main/releases/tccp/2026-08-05/tccp.json",
   "version": "1.0.0",
-  "name": "ccpt",
-  "title": "Carbon Credit Procurement Template",
+  "name": "tccp",
+  "title": "Template for Carbon Credit Procurement",
   "topic": [
     {
       "name": "stage1",
