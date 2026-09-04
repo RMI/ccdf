@@ -744,7 +744,7 @@ function renderField(field) {
 
   // String with options → select, or radio group when any option is long enough to be truncated by a native select
   if (type === "string" && hasOptions) {
-    const anyLong = field.options.some(o => (o || "").length > 60);
+    const anyLong = field.options.some(o => (o || "").length > 80);
     if (anyLong) {
       const group = el("div", { class: "radio-group", "data-role": "radio-string", role: "radiogroup" });
       const groupName = fieldId(field);
