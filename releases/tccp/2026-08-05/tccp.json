@@ -52,7 +52,7 @@
                   "id": 4,
                   "name": "projectType",
                   "tier": 0,
-                  "type": "string",
+                  "type": "array",
                   "label": "Project type",
                   "table": null,
                   "options": {
@@ -63,7 +63,7 @@
                       "appendOther": true
                     }
                   },
-                  "description": "Select the project type. Options auto-populated from the Carbon Data Open Protocol (CDOP) 'project_type' enumeration."
+                  "description": "Select the project type(s). Options auto-populated from the Carbon Data Open Protocol (CDOP) 'project_type' enumeration."
                 },
                 {
                   "id": 5,
