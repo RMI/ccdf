@@ -1,0 +1,1324 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Template for Carbon Credit Procurement — Preview</title>
+<style>
+  :root {
+    --bg: #f7f7f5;
+    --panel: #fff;
+    --ink: #1a1a1a;
+    --muted: #6b6b6b;
+    --line: #e2e2df;
+    --accent: #1f6feb;
+    --accent-ink: #fff;
+    --error: #b00020;
+    --error-bg: #fdecef;
+    --ok: #1a7f37;
+    --code-bg: #0b1020;
+    --code-ink: #e6edf3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+  }
+  header {
+    background: var(--panel);
+    border-bottom: 1px solid var(--line);
+    padding: 20px 24px;
+    position: sticky; top: 0; z-index: 10;
+  }
+  .mockup-banner {
+    background: #ffcc4d;
+    color: #3d2400;
+    border-bottom: 2px solid #b8790a;
+    padding: 10px 24px;
+    margin: -20px -24px 14px -24px;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.45;
+    text-align: center;
+  }
+  .mockup-banner strong { font-weight: 700; }
+  .mockup-banner .icon {
+    display: inline-block;
+    margin-right: 6px;
+    font-size: 15px;
+    vertical-align: -1px;
+  }
+  header h1 { margin: 0 0 4px 0; font-size: 18px; }
+  .preview-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    margin-left: 8px;
+    vertical-align: 2px;
+    background: #fff2c9;
+    color: #7a4400;
+    border: 1px solid #e8b866;
+    border-radius: 999px;
+  }
+  header p { margin: 0; color: var(--muted); font-size: 13px; }
+  .controls {
+    display: flex; flex-wrap: wrap; gap: 12px; align-items: center;
+    margin-top: 12px;
+  }
+  .controls label { font-size: 13px; color: var(--muted); margin-right: 6px; }
+  .controls select, .controls button, .controls input[type=file] {
+    font: inherit;
+    padding: 6px 10px;
+    border: 1px solid var(--line);
+    background: #fff;
+    border-radius: 6px;
+    color: var(--ink);
+  }
+  .controls button.primary {
+    background: var(--accent); color: var(--accent-ink); border-color: var(--accent);
+    cursor: pointer;
+  }
+  .controls button { cursor: pointer; }
+  .controls button:hover { background: #f0f0ee; }
+  .controls button.primary:hover { background: #185ac2; }
+
+  main {
+    max-width: 900px; margin: 0 auto; padding: 24px;
+  }
+  .status {
+    padding: 10px 14px; border-radius: 6px; margin-bottom: 16px;
+    font-size: 14px;
+  }
+  .status.info { background: #eef4ff; color: #1a56b8; border: 1px solid #cbdcfb; }
+  .status.error { background: var(--error-bg); color: var(--error); border: 1px solid #f4c7cf; }
+  .status.ok { background: #eaf6ec; color: var(--ok); border: 1px solid #c9e8ce; }
+
+  .step {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 20px 22px;
+    margin-bottom: 18px;
+  }
+  .step > h2 {
+    margin: 0 0 4px 0; font-size: 17px;
+  }
+  .step > .step-hint { color: var(--muted); font-size: 12px; margin-bottom: 14px; }
+  .section {
+    padding: 14px 0;
+    border-top: 1px dashed var(--line);
+  }
+  .section:first-of-type { border-top: none; padding-top: 4px; }
+  .section > h3 {
+    margin: 0 0 10px 0; font-size: 14px; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.04em;
+  }
+  .field {
+    margin-bottom: 16px;
+  }
+  .field > label.field-label {
+    display: block;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+  .field .type-tag {
+    display: inline-block;
+    font-size: 10px; font-weight: 500;
+    padding: 2px 6px; margin-left: 6px;
+    background: #ecebe8; color: var(--muted);
+    border-radius: 999px;
+    vertical-align: middle;
+    text-transform: uppercase; letter-spacing: 0.03em;
+  }
+  .field .type-tag.null { background: #ffe9d6; color: #8a4b00; }
+  .field .desc {
+    font-size: 12px; color: var(--muted); margin-bottom: 6px;
+  }
+  .field input[type=text],
+  .field input[type=number],
+  .field input[type=url],
+  .field select,
+  .field textarea {
+    width: 100%;
+    font: inherit;
+    padding: 8px 10px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: #fff;
+  }
+  .field textarea { resize: vertical; min-height: 60px; font-family: inherit; }
+  .field textarea.code { font: 12px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; min-height: 100px; }
+  .field .checkbox-row {
+    display: flex; align-items: flex-start; gap: 8px;
+    padding: 6px 0;
+  }
+  .field .checkbox-row input { margin-top: 3px; }
+  .field .options-group {
+    display: flex; flex-direction: column; gap: 4px;
+    padding: 4px 0;
+  }
+  .field .options-group label {
+    display: flex; align-items: center; gap: 8px;
+    font-weight: normal; font-size: 14px;
+    padding: 2px 0;
+  }
+  .field .array-list { display: flex; flex-direction: column; gap: 6px; }
+  .field .array-row { display: flex; gap: 6px; }
+  .field .array-row input { flex: 1; }
+  .field button.mini {
+    font: inherit; font-size: 12px;
+    padding: 4px 10px;
+    border: 1px solid var(--line);
+    background: #fff; border-radius: 6px;
+    cursor: pointer;
+  }
+  .field button.mini:hover { background: #f0f0ee; }
+  .field .table-wrap { overflow-x: auto; margin-bottom: 6px; }
+  .field table {
+    border-collapse: collapse; width: 100%;
+    font-size: 13px;
+  }
+  .field table th, .field table td {
+    border: 1px solid var(--line);
+    padding: 4px;
+    vertical-align: top;
+    text-align: left;
+  }
+  .field table th { background: #fafaf8; font-weight: 600; }
+  .field table th .col-hint {
+    display: block;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 2px;
+  }
+  .step-docs {
+    font-size: 13px;
+    color: var(--ink);
+    background: #f4f4f0;
+    border-left: 3px solid var(--line);
+    padding: 8px 12px;
+    margin: 0 0 12px 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .step-docs strong { color: var(--muted); font-weight: 600; }
+  .step-about {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 16px 0;
+  }
+  .step-about > summary {
+    cursor: pointer;
+    color: var(--accent);
+    font-size: 12px;
+    padding: 2px 0;
+    user-select: none;
+  }
+  .step-about > summary:hover { text-decoration: underline; }
+  .step-about > p { margin: 6px 0 0 0; }
+
+  /* Multi-select chip component (top-level array fields + table cells) */
+  .ms { display: flex; flex-direction: column; gap: 4px; }
+  .ms-chips { display: flex; flex-wrap: wrap; gap: 4px; }
+  .ms-chips:empty { display: none; }
+  .ms-chip {
+    display: inline-flex; align-items: center; gap: 2px;
+    padding: 2px 4px 2px 8px;
+    background: #eef4ff;
+    border: 1px solid #cbdcfb;
+    border-radius: 12px;
+    font-size: 12px; line-height: 1.4;
+    color: #1a56b8;
+    max-width: 100%;
+  }
+  .ms-chip-label {
+    max-width: 220px;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .ms-chip-x {
+    background: none; border: none; cursor: pointer;
+    color: #1a56b8;
+    padding: 0 4px;
+    font: inherit; font-size: 14px; line-height: 1;
+  }
+  .ms-chip-x:hover { color: var(--error); }
+  .ms-input-wrap { position: relative; }
+  .ms-input {
+    width: 100%; padding: 4px 8px;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    font: inherit; font-size: 13px;
+    background: #fff;
+  }
+  .ms-dropdown {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.10);
+    max-height: 240px;
+    overflow-y: auto;
+    z-index: 100;
+    padding: 4px 0;
+  }
+  .ms-option {
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 13px;
+  }
+  .ms-option:hover, .ms-option.active { background: #f0f5ff; }
+  .ms-hint {
+    padding: 5px 10px;
+    color: var(--muted);
+    font-size: 12px;
+    font-style: italic;
+  }
+  .field table td .ms { min-width: 180px; }
+  .field table td .ms-chip { font-size: 11px; padding: 1px 3px 1px 6px; }
+  .field table td .ms-chip-label { max-width: 140px; }
+  .field table input, .field table select, .field table textarea {
+    width: 100%;
+    border: none;
+    padding: 4px;
+    font: inherit;
+    background: transparent;
+  }
+  .radio-group { display: flex; flex-direction: column; gap: 4px; }
+  .radio-row {
+    display: flex; align-items: flex-start; gap: 8px;
+    padding: 6px 8px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: #fff;
+    cursor: pointer;
+    font-weight: normal;
+    font-size: 14px;
+  }
+  .radio-row:hover { background: #f9f9f7; }
+  .radio-row input[type=radio] { margin-top: 3px; flex-shrink: 0; }
+  .radio-text { flex: 1; }
+
+  .field.has-error .field-label { color: var(--error); }
+  .field.has-error input,
+  .field.has-error select,
+  .field.has-error textarea {
+    border-color: var(--error);
+  }
+  .field .error-msg {
+    color: var(--error); font-size: 12px; margin-top: 4px;
+  }
+
+  #result-panel {
+    background: var(--code-bg); color: var(--code-ink);
+    border-radius: 10px;
+    padding: 16px;
+    font: 12px/1.55 ui-monospace, SFMono-Regular, Menlo, monospace;
+    white-space: pre-wrap;
+    word-break: break-word;
+    max-height: 520px;
+    overflow: auto;
+  }
+  .advanced-controls {
+    font-size: 13px;
+    color: var(--muted);
+    margin-left: auto;
+  }
+  .advanced-controls > summary {
+    cursor: pointer;
+    color: var(--accent);
+    user-select: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+  }
+  .advanced-controls > summary:hover { background: #f0f0ee; }
+  .advanced-controls[open] > summary { color: var(--ink); }
+  .advanced-body {
+    display: flex; flex-direction: column; gap: 6px;
+    padding: 10px 12px;
+    margin-top: 6px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: #fafaf8;
+    max-width: 480px;
+  }
+  .advanced-body label { color: var(--muted); font-size: 12px; }
+
+  .actions { display: flex; gap: 8px; margin: 16px 0; }
+  footer { text-align: center; color: var(--muted); font-size: 12px; padding: 20px; }
+
+  @media print {
+    :root { --bg: #fff; --panel: #fff; }
+    body { background: #fff; }
+    header { position: static; border-bottom: 1px solid #000; padding: 8px 0; }
+    header .controls, .actions, .stage-nav, #result-panel, #status, footer { display: none !important; }
+    .mockup-banner {
+      background: #fff !important;
+      color: #000 !important;
+      border: 2px solid #000;
+      margin: 0 0 12px 0;
+      padding: 8px 12px;
+      text-align: left;
+    }
+    main { max-width: 100%; padding: 0; }
+    .step { border: none; padding: 8px 0; margin-bottom: 8px; break-inside: avoid; page-break-inside: avoid; }
+    .step > h2 { font-size: 15px; border-bottom: 1px solid #000; padding-bottom: 4px; }
+    .section { border-top: 1px solid #ccc; padding: 8px 0; break-inside: avoid; page-break-inside: avoid; }
+    .field { break-inside: avoid; page-break-inside: avoid; margin-bottom: 10px; }
+    .field .type-tag { display: none; }
+    .field textarea, .field input[type=text], .field input[type=number], .field input[type=url], .field select {
+      border: 1px solid #999;
+      background: #fff;
+      color: #000;
+    }
+    /* Show the currently-selected select option's text even when native truncation would clip it. */
+    .field select { -webkit-appearance: none; appearance: none; padding: 6px 8px; }
+    .step-docs { background: #f4f4f0; border-left: 2px solid #000; }
+    .step-about[open] > p { display: block; }
+    .step-about > summary { display: none; }
+    a { color: #000; text-decoration: underline; }
+    button { display: none !important; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="mockup-banner" role="alert">
+    <span class="icon" aria-hidden="true">⚠</span>
+    This form is a <strong>mock-up</strong> to better visualize and validate answers against the TCCP.
+    It <strong>does not save or store data</strong>, and it is <strong>not part of any specific RFP</strong>.
+  </div>
+  <h1>Template for Carbon Credit Procurement <span class="preview-badge" title="This is a preview build — not for live procurement use.">Preview</span></h1>
+  <p>Fill in answers below. Inputs are generated from the selected framework's JSON schema and validated against it.</p>
+  <div class="controls">
+    <div>
+      <label for="framework">Framework</label>
+      <select id="framework">
+        <option value="../releases/ccdf/2025-07-17/ccdf.json">CCDF (2025-07-17)</option>
+        <option value="../releases/seccdf/2025-09-05/seccdf.json">SECCDF (2025-09-05)</option>
+        <option value="../releases/tccp/2026-08-05/tccp.json" selected>TCCP (2026-08-05)</option>
+      </select>
+    </div>
+    <div>
+      <label for="topic">Stage</label>
+      <select id="topic"><option>Loading…</option></select>
+    </div>
+    <details class="advanced-controls">
+      <summary>Advanced</summary>
+      <div class="advanced-body">
+        <label for="schema-file">Load schema from file (developer use — pick a framework JSON to preview it)</label>
+        <input type="file" id="schema-file" accept="application/json,.json">
+      </div>
+    </details>
+  </div>
+</header>
+
+<main>
+  <div id="status"></div>
+  <form id="form" novalidate></form>
+  <div class="actions">
+    <button type="button" class="primary" id="validate-btn" style="background: var(--accent); color: #fff; border: 1px solid var(--accent); padding: 8px 14px; border-radius: 6px; cursor: pointer; font: inherit;">Validate & Preview</button>
+    <button type="button" id="copy-btn" style="background: #fff; border: 1px solid var(--line); padding: 8px 14px; border-radius: 6px; cursor: pointer; font: inherit;">Copy JSON</button>
+    <button type="button" id="pdf-btn" style="background: #fff; border: 1px solid var(--line); padding: 8px 14px; border-radius: 6px; cursor: pointer; font: inherit;">Download PDF</button>
+    <button type="button" id="clear-btn" style="background: #fff; border: 1px solid var(--line); padding: 8px 14px; border-radius: 6px; cursor: pointer; font: inherit;">Clear</button>
+  </div>
+  <div class="stage-nav" id="stage-nav" style="display: flex; justify-content: space-between; align-items: center; margin: 8px 0 16px 0;">
+    <button type="button" id="prev-stage-btn" style="background: #fff; border: 1px solid var(--line); padding: 8px 14px; border-radius: 6px; cursor: pointer; font: inherit;">← Previous stage</button>
+    <span id="stage-indicator" style="color: var(--muted); font-size: 13px;"></span>
+    <button type="button" id="next-stage-btn" style="background: var(--accent); color: #fff; border: 1px solid var(--accent); padding: 8px 14px; border-radius: 6px; cursor: pointer; font: inherit;">Next stage →</button>
+  </div>
+  <pre id="result-panel">// Answers appear here after validation</pre>
+</main>
+
+<footer>Static form generated from the selected framework's JSON schema. Empty fields are omitted from the output.</footer>
+
+<script>
+"use strict";
+
+const state = {
+  schema: null,      // full loaded framework doc
+  topicIndex: 0,     // which topic (tier) is being shown
+};
+
+const $ = (sel, root = document) => root.querySelector(sel);
+const el = (tag, attrs = {}, ...children) => {
+  const n = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) {
+    if (k === "class") n.className = v;
+    else if (k === "html") n.innerHTML = v;
+    else if (k.startsWith("on") && typeof v === "function") n.addEventListener(k.slice(2), v);
+    else if (v === true) n.setAttribute(k, "");
+    else if (v !== false && v != null) n.setAttribute(k, v);
+  }
+  for (const c of children) {
+    if (c == null || c === false) continue;
+    n.appendChild(c.nodeType ? c : document.createTextNode(String(c)));
+  }
+  return n;
+};
+
+// Render text with markdown-style [label](url) links into a container.
+// Only http/https URLs are linkified; other bracket syntax passes through as plain text.
+const LINK_RE = /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g;
+function appendDescription(container, text) {
+  let last = 0;
+  for (const m of text.matchAll(LINK_RE)) {
+    if (m.index > last) container.appendChild(document.createTextNode(text.slice(last, m.index)));
+    container.appendChild(el("a", { href: m[2], target: "_blank", rel: "noopener noreferrer" }, m[1]));
+    last = m.index + m[0].length;
+  }
+  if (last < text.length) container.appendChild(document.createTextNode(text.slice(last)));
+}
+
+const setStatus = (msg, kind = "info") => {
+  const s = $("#status");
+  if (!msg) { s.innerHTML = ""; return; }
+  s.innerHTML = "";
+  s.appendChild(el("div", { class: `status ${kind}` }, msg));
+};
+
+// ---------- Schema loading ----------
+async function loadFrameworkFromUrl(url) {
+  setStatus("Loading schema…");
+  try {
+    const res = await fetch(url, { cache: "no-store" });
+    if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
+    const doc = await res.json();
+    await setFramework(doc);
+    setStatus(`Loaded ${doc.title} v${doc.version}.`, "ok");
+  } catch (e) {
+    setStatus(
+      `Couldn't fetch schema from "${url}" (${e.message}). If you opened this file directly, browsers block fetch on file:// — either serve the folder (e.g. \`python3 -m http.server\`) or use "Or load file" to pick the JSON manually.`,
+      "error"
+    );
+  }
+}
+
+async function setFramework(doc) {
+  await resolveCdopRefs(doc);
+  state.schema = doc;
+  state.topicIndex = 0;
+  const topicSel = $("#topic");
+  topicSel.innerHTML = "";
+  (doc.topic || []).forEach((t, i) => {
+    topicSel.appendChild(el("option", { value: i }, t.label || t.name));
+  });
+  renderForm();
+  updateStageNav();
+}
+
+// ---------- CDOP enum resolver ----------
+// Fields can declare options as { "$cdopRef": { "schema": "<name>", "pointer": "<json-pointer>", "exclude": ["<val>", …], "appendOther": true } }.
+// On load, we fetch the referenced CDOP schema from jsDelivr (cached per schema), resolve the pointer to its `enum`,
+// drop any values in `exclude` (some CDOP enums include a category header as the first value), optionally append "Other",
+// and mutate the field's options to the resolved string array. Renderer sees a plain options array either way.
+const CDOP_BASE = "https://cdn.jsdelivr.net/gh/Carbon-Data-Open-Protocol/Carbon-Data-Open-Protocol@main/json_schema";
+const cdopSchemaCache = new Map();
+
+function fetchCdopSchema(name) {
+  if (cdopSchemaCache.has(name)) return cdopSchemaCache.get(name);
+  const p = fetch(`${CDOP_BASE}/${name}.schema.json`).then(r => {
+    if (!r.ok) throw new Error(`${name}.schema.json ${r.status}`);
+    return r.json();
+  });
+  cdopSchemaCache.set(name, p);
+  return p;
+}
+
+function resolveJsonPointer(doc, pointer) {
+  if (!pointer || pointer === "/") return doc;
+  const parts = pointer.replace(/^\//, "").split("/").map(p => p.replace(/~1/g, "/").replace(/~0/g, "~"));
+  let cur = doc;
+  for (const p of parts) {
+    if (cur == null) return undefined;
+    cur = cur[p];
+  }
+  return cur;
+}
+
+async function resolveCdopRefs(doc) {
+  const refs = [];
+  const walk = (node) => {
+    if (Array.isArray(node)) { node.forEach(walk); return; }
+    if (!node || typeof node !== "object") return;
+    for (const [k, v] of Object.entries(node)) {
+      if (v && typeof v === "object" && !Array.isArray(v) && v.$cdopRef) {
+        refs.push({ parent: node, key: k, ref: v.$cdopRef });
+      } else {
+        walk(v);
+      }
+    }
+  };
+  walk(doc);
+  if (!refs.length) return;
+  await Promise.all(refs.map(async ({ parent, key, ref }) => {
+    try {
+      const schema = await fetchCdopSchema(ref.schema);
+      const node = resolveJsonPointer(schema, ref.pointer);
+      const enumVals = node && Array.isArray(node.enum) ? node.enum : null;
+      if (!enumVals) throw new Error(`no enum at ${ref.pointer}`);
+      let opts = enumVals.slice();
+      if (Array.isArray(ref.exclude) && ref.exclude.length > 0) {
+        const skip = new Set(ref.exclude);
+        opts = opts.filter(v => !skip.has(v));
+      }
+      if (ref.appendOther) opts.push("Other");
+      parent[key] = opts;
+    } catch (e) {
+      console.warn(`CDOP ref ${ref.schema}${ref.pointer} failed:`, e.message);
+      parent[key] = [];
+    }
+  }));
+}
+
+// ---------- Number formatting ----------
+// Fields whose label/description imply a monetary value get a "$" prefix. Non-monetary
+// numeric fields (tonnage, years, etc.) still get comma grouping — just no currency symbol.
+const MONETARY_LABEL_RE = /\(USD\)|\(EUR\)|\(GBP\)|\bmonetary\b|\bprice\b/i;
+function isMonetaryLabel(label, description) {
+  const text = `${label || ""} ${description || ""}`;
+  return MONETARY_LABEL_RE.test(text);
+}
+
+// Strip formatting → plain JS number. Returns null on empty; NaN on unparseable.
+function parseFormattedNumber(raw) {
+  if (raw == null) return null;
+  const s = String(raw).replace(/[$,\s]/g, "").trim();
+  if (s === "") return null;
+  const n = Number(s);
+  return Number.isFinite(n) ? n : NaN;
+}
+
+// Insert comma grouping into a digit string, preserving a single optional decimal tail.
+// Empty / "." / lone "-" pass through so the user can type freely.
+function commaGroup(intStr) {
+  const neg = intStr.startsWith("-");
+  const digits = neg ? intStr.slice(1) : intStr;
+  if (!/^\d+$/.test(digits)) return intStr;
+  return (neg ? "-" : "") + digits.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+// Live-format an <input> with commas (and optional "$" prefix). Preserves the caret
+// position by counting significant chars (digits, decimal point, minus) rather than
+// raw character indexes — commas and "$" shift indexes but not caret intent.
+function wireNumberFormatting(input, monetary) {
+  const reformat = () => {
+    const raw = input.value;
+    const caret = input.selectionStart ?? raw.length;
+    const sigBeforeCaret = (raw.slice(0, caret).match(/[\d.\-]/g) || []).length;
+
+    let cleaned = raw.replace(/[^\d.\-]/g, "");
+    // Only one leading minus.
+    const isNeg = cleaned.startsWith("-");
+    cleaned = (isNeg ? "-" : "") + cleaned.replace(/-/g, "");
+    // Only one decimal point.
+    const dotIdx = cleaned.indexOf(".");
+    if (dotIdx !== -1) {
+      cleaned = cleaned.slice(0, dotIdx + 1) + cleaned.slice(dotIdx + 1).replace(/\./g, "");
+    }
+
+    if (cleaned === "" || cleaned === "-" || cleaned === ".") {
+      input.value = cleaned;
+      return;
+    }
+    const [intPart, decPart] = cleaned.split(".");
+    const grouped = commaGroup(intPart);
+    const formatted = (monetary ? "$" : "") + grouped + (decPart !== undefined ? "." + decPart : "");
+
+    input.value = formatted;
+
+    // Walk formatted string, advancing caret when we pass a significant char.
+    let counted = 0;
+    let newCaret = 0;
+    for (let i = 0; i < formatted.length; i++) {
+      if (counted >= sigBeforeCaret) break;
+      if (/[\d.\-]/.test(formatted[i])) counted++;
+      newCaret = i + 1;
+    }
+    if (counted < sigBeforeCaret) newCaret = formatted.length;
+    if (document.activeElement === input) {
+      input.setSelectionRange(newCaret, newCaret);
+    }
+  };
+  input.addEventListener("input", reformat);
+  input.addEventListener("blur", reformat);
+}
+
+// ---------- Rendering ----------
+function renderForm() {
+  const form = $("#form");
+  form.innerHTML = "";
+  $("#result-panel").textContent = "// Answers appear here after validation";
+  if (!state.schema) return;
+  const topic = state.schema.topic[state.topicIndex];
+  if (!topic) return;
+
+  (topic.steps || []).forEach(step => {
+    const stepEl = el("section", { class: "step" },
+      el("h2", {}, step.label || step.name),
+    );
+    if (step.complementaryDocs) {
+      stepEl.appendChild(el("p", { class: "step-docs" },
+        el("strong", {}, "Suggested documentation: "),
+        step.complementaryDocs,
+      ));
+    }
+    if (step.relevanceAndUse) {
+      stepEl.appendChild(el("details", { class: "step-about" },
+        el("summary", {}, "About this section"),
+        el("p", {}, step.relevanceAndUse),
+      ));
+    }
+    (step.sections || []).forEach(section => {
+      const secEl = el("div", { class: "section" });
+      if (section.label && section.label.trim()) {
+        secEl.appendChild(el("h3", {}, section.label));
+      }
+      (section.fields || []).forEach(field => {
+        secEl.appendChild(renderField(field));
+      });
+      stepEl.appendChild(secEl);
+    });
+    form.appendChild(stepEl);
+  });
+}
+
+function fieldId(field) { return `f_${field.id}_${field.name}`; }
+
+function renderField(field) {
+  const wrap = el("div", { class: "field", "data-field-id": field.id, "data-field-name": field.name });
+  wrap._field = field;
+
+  const type = field.type;
+  const hasOptions = Array.isArray(field.options) && field.options.length > 0
+    && typeof field.options[0] === "string";
+  const structuredOptions = Array.isArray(field.options) && field.options.length > 0
+    && typeof field.options[0] === "object";
+  const hasTable = Array.isArray(field.table) && field.table.length > 0;
+
+  const label = el("label", { class: "field-label", for: fieldId(field) },
+    field.label || field.name,
+    el("span", { class: `type-tag ${type == null ? "null" : ""}` }, type || "untyped"),
+  );
+  wrap.appendChild(label);
+
+  if (field.description) {
+    const descEl = el("div", { class: "desc" });
+    appendDescription(descEl, field.description);
+    wrap.appendChild(descEl);
+  }
+  if (type == null) {
+    wrap.appendChild(el("div", { class: "desc" }, "Note: this field has no declared type in the schema. It's rendered as a text input; edit the JSON output if a different shape is needed."));
+  }
+
+  // Boolean → checkbox
+  if (type === "boolean") {
+    const cb = el("input", { type: "checkbox", id: fieldId(field), "data-role": "boolean" });
+    const indeterminate = el("input", { type: "hidden", "data-role": "boolean-touched", value: "0" });
+    cb.addEventListener("change", () => { indeterminate.value = "1"; });
+    const row = el("div", { class: "checkbox-row" }, cb, indeterminate, el("span", {}, "Yes / true"));
+    wrap.appendChild(row);
+    return wrap;
+  }
+
+  // Table (object with table schema) → dynamic rows
+  if (hasTable) {
+    const columns = field.table[0].columns || [];
+    wrap.appendChild(renderTable(field, columns));
+    return wrap;
+  }
+
+  // Structured options (object with column-like options) → JSON textarea with schema hint
+  if (structuredOptions) {
+    const cols = field.options.map(o => `${o.name}: ${o.format || o.type || "any"}`).join(", ");
+    wrap.appendChild(el("div", { class: "desc" }, `Expected shape (per row): { ${cols} }. Enter an array of objects as JSON.`));
+    const ta = el("textarea", { id: fieldId(field), class: "code", "data-role": "json-array-of-objects", placeholder: "[\n  { … }\n]" });
+    wrap.appendChild(ta);
+    return wrap;
+  }
+
+  // String with options → select, or radio group when any option is long enough to be truncated by a native select
+  if (type === "string" && hasOptions) {
+    const anyLong = field.options.some(o => (o || "").length > 80);
+    if (anyLong) {
+      const group = el("div", { class: "radio-group", "data-role": "radio-string", role: "radiogroup" });
+      const groupName = fieldId(field);
+      field.options.forEach((o, i) => {
+        const inputId = `${groupName}_${i}`;
+        const row = el("label", { class: "radio-row", for: inputId },
+          el("input", { type: "radio", id: inputId, name: groupName, value: o }),
+          el("span", { class: "radio-text" }, o),
+        );
+        group.appendChild(row);
+      });
+      wrap.appendChild(group);
+      return wrap;
+    }
+    const sel = el("select", { id: fieldId(field), "data-role": "select-string" },
+      el("option", { value: "" }, "— select —"),
+      ...field.options.map(o => el("option", { value: o }, o)),
+    );
+    wrap.appendChild(sel);
+    return wrap;
+  }
+
+  // Number with options → select numeric
+  if (type === "number" && hasOptions) {
+    const sel = el("select", { id: fieldId(field), "data-role": "select-number" },
+      el("option", { value: "" }, "— select —"),
+      ...field.options.map(o => el("option", { value: o }, o)),
+    );
+    wrap.appendChild(sel);
+    return wrap;
+  }
+
+  // Array with options → chip multi-select with typeahead
+  if (type === "array" && hasOptions) {
+    const ms = makeMultiSelect(field.options);
+    ms.setAttribute("data-role", "multi-select");
+    wrap.appendChild(ms);
+    return wrap;
+  }
+
+  // Array (freeform) → repeatable rows
+  if (type === "array") {
+    const list = el("div", { class: "array-list", "data-role": "string-array" });
+    const addBtn = el("button", { type: "button", class: "mini", onclick: () => list.appendChild(makeArrayRow(list)) }, "+ Add item");
+    list.appendChild(makeArrayRow(list));
+    wrap.appendChild(list);
+    wrap.appendChild(addBtn);
+    return wrap;
+  }
+
+  // Number → text input with live comma grouping (and $ prefix for monetary fields)
+  if (type === "number") {
+    const monetary = isMonetaryLabel(field.label, field.description);
+    const input = el("input", {
+      type: "text",
+      id: fieldId(field),
+      "data-role": "number-formatted",
+      "data-monetary": monetary ? "1" : "0",
+      inputmode: "decimal",
+      autocomplete: "off",
+      placeholder: monetary ? "$0" : "0",
+    });
+    wireNumberFormatting(input, monetary);
+    wrap.appendChild(input);
+    return wrap;
+  }
+
+  // Object (no table, no structured options) → JSON textarea
+  if (type === "object") {
+    wrap.appendChild(el("div", { class: "desc" }, "Enter a JSON object (e.g. an upload reference or nested data)."));
+    wrap.appendChild(el("textarea", { id: fieldId(field), class: "code", "data-role": "json-object", placeholder: "{ }" }));
+    return wrap;
+  }
+
+  // String (freeform) → textarea if description is long, else text input
+  const useTextarea = (field.description || "").length > 60 || (field.label || "").toLowerCase().includes("description");
+  if (useTextarea) {
+    wrap.appendChild(el("textarea", { id: fieldId(field), "data-role": "string" }));
+  } else {
+    wrap.appendChild(el("input", { type: "text", id: fieldId(field), "data-role": "string" }));
+  }
+  return wrap;
+}
+
+// Chip multi-select with typeahead. Backs both top-level array fields and
+// multi-select table cells. Exposes _getValues()/_setValues(vals) on the wrapper.
+function makeMultiSelect(options, initial = []) {
+  const wrap = el("div", { class: "ms" });
+  const chipsEl = el("div", { class: "ms-chips" });
+  const inputWrap = el("div", { class: "ms-input-wrap" });
+  const input = el("input", { type: "text", class: "ms-input", placeholder: "type to search…" });
+  const dropdown = el("div", { class: "ms-dropdown", style: "display:none;" });
+  inputWrap.appendChild(input);
+  inputWrap.appendChild(dropdown);
+  wrap.appendChild(chipsEl);
+  wrap.appendChild(inputWrap);
+
+  const state = { selected: new Set(initial), activeIdx: -1, filtered: [] };
+  const MAX = 100;
+
+  const renderChips = () => {
+    chipsEl.innerHTML = "";
+    for (const v of state.selected) {
+      const chip = el("span", { class: "ms-chip" });
+      chip.appendChild(el("span", { class: "ms-chip-label", title: v }, v));
+      const x = el("button", { type: "button", class: "ms-chip-x", title: "Remove" }, "×");
+      x.addEventListener("click", (e) => {
+        e.preventDefault(); e.stopPropagation();
+        state.selected.delete(v);
+        renderChips();
+        if (dropdown.style.display !== "none") renderDropdown();
+      });
+      chip.appendChild(x);
+      chipsEl.appendChild(chip);
+    }
+  };
+
+  const positionDropdown = () => {
+    const rect = input.getBoundingClientRect();
+    dropdown.style.position = "fixed";
+    dropdown.style.top = `${rect.bottom + 2}px`;
+    dropdown.style.left = `${rect.left}px`;
+    dropdown.style.minWidth = `${Math.max(rect.width, 220)}px`;
+    dropdown.style.maxWidth = `${Math.min(window.innerWidth - rect.left - 12, 480)}px`;
+  };
+
+  const renderDropdown = () => {
+    dropdown.innerHTML = "";
+    const q = input.value.toLowerCase().trim();
+    const remaining = options.filter(o => !state.selected.has(o));
+    state.filtered = q ? remaining.filter(o => o.toLowerCase().includes(q)) : remaining;
+    state.activeIdx = state.filtered.length > 0 ? 0 : -1;
+    const visible = state.filtered.slice(0, MAX);
+    visible.forEach((o, i) => {
+      const item = el("div", { class: "ms-option" + (i === state.activeIdx ? " active" : "") });
+      item.textContent = o;
+      item.addEventListener("mousedown", (e) => {
+        e.preventDefault();
+        pick(o);
+      });
+      item.addEventListener("mouseenter", () => {
+        state.activeIdx = i;
+        dropdown.querySelectorAll(".ms-option").forEach((el, idx) => el.classList.toggle("active", idx === i));
+      });
+      dropdown.appendChild(item);
+    });
+    if (state.filtered.length > MAX) {
+      dropdown.appendChild(el("div", { class: "ms-hint" }, `${state.filtered.length - MAX} more — keep typing to narrow`));
+    }
+    if (state.filtered.length === 0) {
+      dropdown.appendChild(el("div", { class: "ms-hint" }, q ? "no matches" : "all selected"));
+    }
+    dropdown.style.display = "block";
+    positionDropdown();
+  };
+
+  const pick = (o) => {
+    state.selected.add(o);
+    input.value = "";
+    renderChips();
+    renderDropdown();
+    input.focus();
+  };
+
+  const closeDropdown = () => { dropdown.style.display = "none"; };
+
+  input.addEventListener("focus", renderDropdown);
+  input.addEventListener("input", renderDropdown);
+  input.addEventListener("blur", () => setTimeout(closeDropdown, 120));
+  input.addEventListener("keydown", (e) => {
+    if (dropdown.style.display === "none") return;
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      state.activeIdx = Math.min(state.activeIdx + 1, Math.min(state.filtered.length, MAX) - 1);
+      dropdown.querySelectorAll(".ms-option").forEach((el, i) => el.classList.toggle("active", i === state.activeIdx));
+      dropdown.querySelector(".ms-option.active")?.scrollIntoView({ block: "nearest" });
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      state.activeIdx = Math.max(state.activeIdx - 1, 0);
+      dropdown.querySelectorAll(".ms-option").forEach((el, i) => el.classList.toggle("active", i === state.activeIdx));
+      dropdown.querySelector(".ms-option.active")?.scrollIntoView({ block: "nearest" });
+    } else if (e.key === "Enter") {
+      if (state.activeIdx >= 0 && state.filtered[state.activeIdx]) {
+        e.preventDefault();
+        pick(state.filtered[state.activeIdx]);
+      }
+    } else if (e.key === "Escape") {
+      closeDropdown();
+    } else if (e.key === "Backspace" && input.value === "" && state.selected.size > 0) {
+      const last = Array.from(state.selected).pop();
+      state.selected.delete(last);
+      renderChips();
+      renderDropdown();
+    }
+  });
+  // Close on outer-page scroll (dropdown is position:fixed and would detach from the input),
+  // but not when the user is scrolling within the dropdown itself.
+  window.addEventListener("scroll", (e) => {
+    if (dropdown.contains(e.target)) return;
+    closeDropdown();
+  }, true);
+
+  wrap._getValues = () => Array.from(state.selected);
+  wrap._setValues = (vals) => { state.selected = new Set(vals || []); renderChips(); };
+
+  renderChips();
+  return wrap;
+}
+
+function makeArrayRow(list) {
+  const input = el("input", { type: "text" });
+  const remove = el("button", { type: "button", class: "mini", onclick: () => {
+    if (list.querySelectorAll(".array-row").length > 1) row.remove();
+    else input.value = "";
+  } }, "×");
+  const row = el("div", { class: "array-row" }, input, remove);
+  return row;
+}
+
+function renderTable(field, columns) {
+  const wrap = el("div", { class: "table-wrap", "data-role": "table" });
+  const table = el("table");
+  const thead = el("thead");
+  const headRow = el("tr");
+  columns.forEach(c => {
+    const th = el("th", {}, c.label || c.name);
+    if (c.description) {
+      const hint = el("span", { class: "col-hint" });
+      appendDescription(hint, c.description);
+      th.appendChild(hint);
+    }
+    headRow.appendChild(th);
+  });
+  headRow.appendChild(el("th", { style: "width: 40px;" }, ""));
+  thead.appendChild(headRow);
+  table.appendChild(thead);
+
+  const tbody = el("tbody");
+  table.appendChild(tbody);
+  wrap.appendChild(table);
+  wrap._columns = columns;
+
+  const addRow = () => {
+    const tr = el("tr");
+    columns.forEach(c => {
+      const cell = el("td");
+      const hasOpts = Array.isArray(c.options) && c.options.length > 0 && typeof c.options[0] === "string";
+      if (hasOpts && c.type === "array") {
+        const ms = makeMultiSelect(c.options);
+        ms.setAttribute("data-col", c.name);
+        cell.appendChild(ms);
+      } else if (hasOpts) {
+        const s = el("select", { "data-col": c.name },
+          el("option", { value: "" }, "—"),
+          ...c.options.map(o => el("option", { value: o }, o)),
+        );
+        cell.appendChild(s);
+      } else if (c.type === "number") {
+        const monetary = isMonetaryLabel(c.label, c.description);
+        const input = el("input", {
+          type: "text",
+          "data-col": c.name,
+          "data-role": "number-formatted",
+          "data-monetary": monetary ? "1" : "0",
+          inputmode: "decimal",
+          autocomplete: "off",
+          placeholder: monetary ? "$0" : "0",
+        });
+        wireNumberFormatting(input, monetary);
+        cell.appendChild(input);
+      } else if (c.type === "boolean") {
+        cell.appendChild(el("input", { type: "checkbox", "data-col": c.name }));
+      } else {
+        cell.appendChild(el("input", { type: "text", "data-col": c.name }));
+      }
+      tr.appendChild(cell);
+    });
+    tr.appendChild(el("td", {},
+      el("button", { type: "button", class: "mini", onclick: () => tr.remove() }, "×"),
+    ));
+    tbody.appendChild(tr);
+  };
+  addRow();
+
+  const addBtn = el("button", { type: "button", class: "mini", onclick: addRow, style: "margin-top: 6px;" }, "+ Add row");
+  const container = el("div", {});
+  container.appendChild(wrap);
+  container.appendChild(addBtn);
+  return container;
+}
+
+// ---------- Collection & validation ----------
+function collectAndValidate() {
+  const answers = {};
+  const errors = [];
+
+  document.querySelectorAll("#form .field").forEach(fEl => {
+    fEl.classList.remove("has-error");
+    const err = fEl.querySelector(".error-msg");
+    if (err) err.remove();
+
+    const field = fEl._field;
+    const { value, error } = readField(fEl, field);
+    if (error) {
+      errors.push({ field, message: error });
+      fEl.classList.add("has-error");
+      fEl.appendChild(el("div", { class: "error-msg" }, error));
+      return;
+    }
+    if (value === undefined) return; // omit empty
+    answers[field.name] = value;
+  });
+
+  return { answers, errors };
+}
+
+function readField(fEl, field) {
+  const type = field.type;
+  const hasOptions = Array.isArray(field.options) && field.options.length > 0
+    && typeof field.options[0] === "string";
+  const structuredOptions = Array.isArray(field.options) && field.options.length > 0
+    && typeof field.options[0] === "object";
+  const hasTable = Array.isArray(field.table) && field.table.length > 0;
+
+  // Boolean
+  if (type === "boolean") {
+    const cb = fEl.querySelector('[data-role="boolean"]');
+    const touched = fEl.querySelector('[data-role="boolean-touched"]');
+    if (!touched || touched.value !== "1") return { value: undefined };
+    return { value: cb.checked };
+  }
+
+  // Table
+  if (hasTable) {
+    const wrap = fEl.querySelector('[data-role="table"]');
+    const columns = wrap._columns;
+    const rows = [];
+    let rowIdx = 0;
+    for (const tr of wrap.querySelectorAll("tbody tr")) {
+      rowIdx++;
+      const row = {};
+      let hasAnything = false;
+      for (const c of columns) {
+        const input = tr.querySelector(`[data-col="${c.name}"]`);
+        if (!input) continue;
+        // Multi-select cell (chip component)
+        if (typeof input._getValues === "function") {
+          const values = input._getValues();
+          for (const v of values) {
+            if (!c.options.includes(v)) return { error: `Row ${rowIdx}, column "${c.label || c.name}": "${v}" is not one of ${c.options.join(", ")}` };
+          }
+          if (values.length > 0) { row[c.name] = values; hasAnything = true; }
+          continue;
+        }
+        if (c.type === "boolean") {
+          if (input.checked) { row[c.name] = true; hasAnything = true; }
+          continue;
+        }
+        const raw = input.value == null ? "" : String(input.value).trim();
+        if (raw === "") continue;
+        if (Array.isArray(c.options) && c.options.length > 0 && typeof c.options[0] === "string") {
+          if (!c.options.includes(raw)) return { error: `Row ${rowIdx}, column "${c.label || c.name}": "${raw}" is not one of ${c.options.join(", ")}` };
+          row[c.name] = raw;
+        } else if (c.type === "number") {
+          const n = parseFormattedNumber(raw);
+          if (n === null || !Number.isFinite(n)) return { error: `Row ${rowIdx}, column "${c.label || c.name}" must be a number` };
+          row[c.name] = n;
+        } else {
+          row[c.name] = raw;
+        }
+        hasAnything = true;
+      }
+      if (hasAnything) rows.push(row);
+    }
+    if (rows.length === 0) return { value: undefined };
+    return { value: rows };
+  }
+
+  // Structured-options object (array of objects with defined column keys)
+  if (structuredOptions) {
+    const ta = fEl.querySelector('[data-role="json-array-of-objects"]');
+    const raw = (ta.value || "").trim();
+    if (!raw) return { value: undefined };
+    let parsed;
+    try { parsed = JSON.parse(raw); } catch (e) { return { error: `Invalid JSON: ${e.message}` }; }
+    if (!Array.isArray(parsed)) return { error: "Expected a JSON array of objects." };
+    const allowedKeys = new Set(field.options.map(o => o.name));
+    for (let i = 0; i < parsed.length; i++) {
+      const row = parsed[i];
+      if (typeof row !== "object" || row === null || Array.isArray(row)) return { error: `Item ${i + 1} must be an object.` };
+      for (const k of Object.keys(row)) {
+        if (!allowedKeys.has(k)) return { error: `Item ${i + 1}: unknown key "${k}". Allowed: ${[...allowedKeys].join(", ")}` };
+      }
+    }
+    return { value: parsed };
+  }
+
+  // String with options
+  if (type === "string" && hasOptions) {
+    const radioGroup = fEl.querySelector('[data-role="radio-string"]');
+    if (radioGroup) {
+      const checked = radioGroup.querySelector("input[type=radio]:checked");
+      if (!checked) return { value: undefined };
+      const v = checked.value;
+      if (!field.options.includes(v)) return { error: `"${v}" is not one of ${field.options.join(", ")}` };
+      return { value: v };
+    }
+    const sel = fEl.querySelector('[data-role="select-string"]');
+    const v = sel.value;
+    if (v === "") return { value: undefined };
+    if (!field.options.includes(v)) return { error: `"${v}" is not one of ${field.options.join(", ")}` };
+    return { value: v };
+  }
+
+  // Number with options
+  if (type === "number" && hasOptions) {
+    const sel = fEl.querySelector('[data-role="select-number"]');
+    const v = sel.value;
+    if (v === "") return { value: undefined };
+    const n = Number(v);
+    if (!Number.isFinite(n)) return { error: "Must be a number." };
+    return { value: n };
+  }
+
+  // Array with options → chip multi-select
+  if (type === "array" && hasOptions) {
+    const ms = fEl.querySelector('[data-role="multi-select"]');
+    const values = ms._getValues();
+    for (const v of values) {
+      if (!field.options.includes(v)) return { error: `"${v}" is not one of ${field.options.join(", ")}` };
+    }
+    if (values.length === 0) return { value: undefined };
+    return { value: values };
+  }
+
+  // Array (freeform)
+  if (type === "array") {
+    const list = fEl.querySelector('[data-role="string-array"]');
+    const items = [...list.querySelectorAll("input[type=text]")]
+      .map(i => (i.value || "").trim())
+      .filter(v => v !== "");
+    if (items.length === 0) return { value: undefined };
+    return { value: items };
+  }
+
+  // Number
+  if (type === "number") {
+    const input = fEl.querySelector('[data-role="number-formatted"]') || fEl.querySelector('[data-role="number"]');
+    const raw = (input.value || "").trim();
+    if (raw === "") return { value: undefined };
+    const n = parseFormattedNumber(raw);
+    if (n === null || !Number.isFinite(n)) return { error: "Must be a number (digits, optional decimal, e.g. 1500000 or 1,500,000)." };
+    return { value: n };
+  }
+
+  // Object (freeform)
+  if (type === "object") {
+    const ta = fEl.querySelector('[data-role="json-object"]');
+    const raw = (ta.value || "").trim();
+    if (!raw) return { value: undefined };
+    let parsed;
+    try { parsed = JSON.parse(raw); } catch (e) { return { error: `Invalid JSON: ${e.message}` }; }
+    if (typeof parsed !== "object" || parsed === null || Array.isArray(parsed)) {
+      return { error: "Must be a JSON object (curly braces)." };
+    }
+    return { value: parsed };
+  }
+
+  // String (or untyped) → text/textarea
+  const el2 = fEl.querySelector('[data-role="string"]');
+  if (!el2) return { value: undefined };
+  const raw = (el2.value || "").trim();
+  if (raw === "") return { value: undefined };
+  return { value: raw };
+}
+
+// ---------- Stage nav ----------
+function updateStageNav() {
+  const total = state.schema?.topic?.length || 0;
+  const idx = state.topicIndex;
+  const prevBtn = $("#prev-stage-btn");
+  const nextBtn = $("#next-stage-btn");
+  const indicator = $("#stage-indicator");
+  if (!total) { $("#stage-nav").style.display = "none"; return; }
+  $("#stage-nav").style.display = "flex";
+  prevBtn.disabled = idx <= 0;
+  nextBtn.disabled = idx >= total - 1;
+  prevBtn.style.opacity = prevBtn.disabled ? "0.4" : "1";
+  nextBtn.style.opacity = nextBtn.disabled ? "0.4" : "1";
+  prevBtn.style.cursor = prevBtn.disabled ? "not-allowed" : "pointer";
+  nextBtn.style.cursor = nextBtn.disabled ? "not-allowed" : "pointer";
+  const label = state.schema.topic[idx]?.label || state.schema.topic[idx]?.name || "";
+  indicator.textContent = `${label} — ${idx + 1} of ${total}`;
+}
+
+function goToStage(newIdx) {
+  const total = state.schema?.topic?.length || 0;
+  if (newIdx < 0 || newIdx >= total) return;
+  state.topicIndex = newIdx;
+  $("#topic").value = String(newIdx);
+  renderForm();
+  updateStageNav();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+// ---------- Wire up ----------
+$("#framework").addEventListener("change", (e) => loadFrameworkFromUrl(e.target.value));
+$("#topic").addEventListener("change", (e) => {
+  state.topicIndex = Number(e.target.value);
+  renderForm();
+  updateStageNav();
+});
+$("#prev-stage-btn").addEventListener("click", () => goToStage(state.topicIndex - 1));
+$("#next-stage-btn").addEventListener("click", () => goToStage(state.topicIndex + 1));
+$("#schema-file").addEventListener("change", async (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+  try {
+    const text = await file.text();
+    const doc = JSON.parse(text);
+    setFramework(doc);
+    setStatus(`Loaded ${doc.title || file.name} v${doc.version || "?"} from file.`, "ok");
+  } catch (err) {
+    setStatus(`Couldn't parse "${file.name}": ${err.message}`, "error");
+  }
+});
+
+$("#validate-btn").addEventListener("click", () => {
+  if (!state.schema) { setStatus("Load a schema first.", "error"); return; }
+  const { answers, errors } = collectAndValidate();
+  if (errors.length > 0) {
+    setStatus(`Found ${errors.length} validation error${errors.length === 1 ? "" : "s"}. See highlighted fields above.`, "error");
+  } else {
+    setStatus(`Validated. ${Object.keys(answers).length} field${Object.keys(answers).length === 1 ? "" : "s"} filled.`, "ok");
+  }
+  const topic = state.schema.topic[state.topicIndex];
+  const output = {
+    $framework: state.schema.$framework,
+    frameworkName: state.schema.name,
+    frameworkVersion: state.schema.version,
+    topic: topic.name,
+    answers,
+  };
+  $("#result-panel").textContent = JSON.stringify(output, null, 2);
+});
+
+$("#pdf-btn").addEventListener("click", () => {
+  // Expand all <details> so their content prints, remember state to restore.
+  const detailsEls = Array.from(document.querySelectorAll("details"));
+  const wasOpen = detailsEls.map(d => d.open);
+  detailsEls.forEach(d => { d.open = true; });
+  const restore = () => detailsEls.forEach((d, i) => { d.open = wasOpen[i]; });
+  window.addEventListener("afterprint", restore, { once: true });
+  window.print();
+});
+
+$("#copy-btn").addEventListener("click", async () => {
+  const text = $("#result-panel").textContent;
+  try {
+    await navigator.clipboard.writeText(text);
+    setStatus("Copied JSON to clipboard.", "ok");
+  } catch {
+    setStatus("Clipboard blocked — select the text manually.", "error");
+  }
+});
+
+$("#clear-btn").addEventListener("click", () => {
+  if (!confirm("Clear all answers?")) return;
+  renderForm();
+  setStatus("Cleared.", "info");
+});
+
+// Initial load
+loadFrameworkFromUrl($("#framework").value);
+</script>
+</body>
+</html>
